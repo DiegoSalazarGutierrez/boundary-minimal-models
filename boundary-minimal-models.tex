@@ -1,0 +1,181 @@
+\documentclass[a4paper, 12pt, reqno]{amsart}
+
+\DeclareMathOperator{\Vir}{Vir}
+\DeclareMathOperator{\ch}{ch}
+\DeclareMathOperator{\len}{len}
+
+\begin{document}
+
+NOTE: Unlike my article, we take $\len(L_{-2}) = \len(L_{-3}) = \dots = 1$ (that consideration is only important when studying modules) when considering the following series.
+
+\section{$\Vir_{2, 3}$}
+\label{sec:vir_2-3}
+
+\begin{align*}
+  p(t, q) = 1.
+\end{align*}
+
+\section{$\Vir_{2, 5}$}
+\label{sec:vir_2-5}
+
+\begin{align*}
+  p(t, q) &= p_{>2}(t, q) + p_{>2, 2}(t, q) \\
+  p(t, q) &= \sum_{k \in \mathbb{N}}t^k\frac{q^{k^2 + k}}{(q)_k}, \\
+  p_{>2}(t, q) &= \sum_{k \in \mathbb{N}}t^k\frac{q^{k^2 + 2k}}{(q)_k}, \\
+  p_{>2, 2}(t, q) &= \sum_{k \in \mathbb{N}}t^{k + 1}\frac{q^{k^2 + 3k + 2}}{(q)_k}.
+\end{align*}
+
+\section{$\Vir_{2, 7}$}
+\label{sec:vir_2-7}
+
+\begin{align*}
+  p(t, q) &= p_{2, 2}(t, q) + p_{>2, 2}(t, q) + p_{>2}(t, q), \\
+  p(t, q) &= \sum_{k_1, k_2 \in \mathbb{N}}t^{k_1 + 2k_2}\frac{q^{k_1^2 + 2k_1k_2 + 2k_2^2 + k_1 + 2k_2}}{(q)_{k_1}(q)_{k_2}}, \\
+  p_{>2}(t, q) &= \sum_{k_1, k_2 \in \mathbb{N}}t^{k_1 + 2k_2}\frac{q^{k_1^2 + 2k_1k_2 + 2k_2^2 + 2k_1 + 4k_2}}{(q)_{k_1}(q)_{k_2}}, \\
+  p_{>2, 2}(t, q) &= \sum_{k_1, k_2 \in \mathbb{N}}t^{k_1 + 2k_2 + 1}\frac{q^{k_1^2 + 2k_1k_2 + 2k_2^2 + 2k_1 + 5k_2 + 2}}{(q)_{k_1}(q)_{k_2}}, \\
+  p_{2, 2}(t, q) &= \sum_{k_1, k_2 \in \mathbb{N}}t^{k_1 + 2k_2 + 2}\frac{q^{k_1^2 + 2k_1k_2 + 2k_2^2 + 3k_1 + 6k_2 + 4}}{(q)_{k_1}(q)_{k_2}}.
+\end{align*}
+
+\section{$\Vir_{2, 9}$}
+\label{sec:vir_2-9}
+
+\begin{align*}
+  p(t, q) &= \sum_{k_1, k_2, k_3 \in \mathbb{N}}t^{k_1 + 2k_2 + 3k_3}\frac{q^{k_1^2 + 2k_1k_2 + 2k_1k_3 + 2k_2^2 + 4k_2k_3 + 3k_3^2 + k_1 + 2k_2 + 3k_3}}{(q)_{k_1}(q)_{k_2}(q)_{k_3}}, \\
+  p_{>2}(t, q) &= \sum_{k_1, k_2, k_3 \in \mathbb{N}}t^{k_1 + 2k_2 + 3k_3}\frac{q^{k_1^2 + 2k_1k_2 + 2k_1k_3 + 2k_2^2 + 4k_2k_3 + 3k_3^2 + 2k_1 + 4k_2 + 6k_3}}{(q)_{k_1}(q)_{k_2}(q)_{k_3}}, \\
+  p_{>2, 2}(t, q) &= \sum_{k_1, k_2, k_3 \in \mathbb{N}}t^{k_1 + 2k_2 + 3k_3 + 1}\frac{q^{k_1^2 + 2k_1k_2 + 2k_1k_3 + 2k_2^2 + 4k_2k_3 + 3k_3^2 + 2k_1 + 4k_2 + 7k_3 + 2}}{(q)_{k_1}(q)_{k_2}(q)_{k_3}}, \\
+  p_{>2, 2, 2}(t, q) &= \sum_{k_1, k_2, k_3 \in \mathbb{N}}t^{k_1 + 2k_2 + 3k_3 + 2}\frac{q^{k_1^2 + 2k_1k_2 + 2k_1k_3 + 2k_2^2 + 4k_2k_3 + 3k_3^2 + 2k_1 + 5k_2 + 8k_3 + 4}}{(q)_{k_1}(q)_{k_2}(q)_{k_3}} \\
+  p_{2, 2, 2}(t, q) &= \sum_{k_1, k_2, k_3 \in \mathbb{N}}t^{k_1 + 2k_2 + 3k_3 + 3}\frac{q^{k_1^2 + 2k_1k_2 + 2k_1k_3 + 2k_2^2 + 4k_2k_3 + 3k_3^2 + 3k_1 + 6k_2 + 9k_3 + 6}}{(q)_{k_1}(q)_{k_2}(q)_{k_3}}.
+\end{align*}
+
+\section{Conjecture $\Vir_{2, 2s + 1}$}
+\label{sec:conjecture}
+
+\begin{align*}
+  p(t, q) = \sum_{k = (k_1, \dots, k_{s - 1}) \in \mathbb{N}^{s - 1}}t^{kB^{(s)}}\frac{q^{\frac{1}{2}kG^{(s)}k^T + kB^{(s)}}}{(q)_{k_1}\dots (q)_{k_{s - 1}}},
+\end{align*}
+where
+\begin{align*}
+  G^{(s)} &= (2\min\{i, j\})_{i, j = 1}^{s - 1}, \\
+  B^{(s)} &=
+            \left(\begin{smallmatrix}
+                    1 \\
+                    2 \\
+                    \vdots \\
+                    s - 1
+                  \end{smallmatrix}\right).
+\end{align*}
+
+\section{New conjecture $\Vir_{2, 2s + 1}$}
+\label{sec:new-conjecture-vir_2}
+
+The objective is to prove
+
+\begin{equation*}
+  p(t, q) = \sum_{i = 0}^{s - 1}p_{>2, \underbrace{\scriptstyle{2, \dots, 2}}_i}(t, q) = \sum_{k = (k_1, \dots, k_{s - 1}) \in \mathbb{N}^{s - 1}}t^{kB^{(s)}_{s - 1}}\frac{q^{\frac{1}{2}kG^{(s)}k^T + kB^{(s)}_{s - 1}}}{(q)_{k_1}\dots (q)_{k_{s - 1}}},
+\end{equation*}
+where
+\begin{align*}
+  p_{>2, \underbrace{\scriptstyle{2, \dots, 2}}_i}(t, q) &= \sum_{k = (k_1, \dots, k_s) \in \mathbb{N}^{s - 1}}t^{kB^{(s)}_{s - 1} + i}\frac{q^{\frac{1}{2}kG^{(s)}k^T + k(2B^{(s)}_{s - 1} + B^{(s)}_i) + 2i}}{(q)_{k_1}\dots(q)_{k_{s - 1}}}, \quad i = 0, 1, \dots, s - 1, \\
+  G^{(s)} &= (2\min\{i, j\})_{i, j = 1}^{s - 1}, \\
+  B^{(s)}_i &=
+            \left(\begin{smallmatrix}
+                    0 \\
+                    0 \\
+                    \vdots \\
+                    0 \\
+                    1 \\
+                    2 \\
+                    \vdots \\
+                    i
+                  \end{smallmatrix}\right), \quad i = 0, 1, \dots, s - 1.  
+\end{align*}
+
+These series should satisfy the following (though I can't prove the first set of equalities):
+\begin{align*}
+  p_{>2, \underbrace{\scriptstyle{2, \dots, 2}}_i}(t, q) &= t^iq^{2i}\sum_{j = 0}^{s - 1 - i}p_{>2, \underbrace{\scriptstyle{2, \dots, 2}}_j}(tq, q), \quad i = 0, 1, \dots, s - 1, \\
+  p_{>2, \underbrace{\scriptstyle{2, \dots, 2}}_i}(0, 0) &= \delta_{0, i}, \quad i = 0, 1, \dots, s - 1.
+\end{align*}
+
+We set:
+\begin{align*}
+  c_{p, q} &= 1 - \frac{6(p - q)^2}{pq}, \\
+  h_{m, n} &= \frac{(np - mq)^2 - (p - q)^2}{4pq}.
+\end{align*}
+Then
+\begin{align*}
+  \ch_{L(c_{p, q}, h_{m, n})}(q) &= \frac{1}{(q)_{\infty}}\sum_{k \in \mathbb{Z}}q^{\frac{(2kpq + mq - np)^2 - (p - q)^2}{4pq}} - q^{\frac{(2kpq + mq + np)^2 - (p - q)^2}{4pq}} \\
+                                 &= \frac{q^{h_{m, n}}}{(q)_{\infty}}\sum_{k \in \mathbb{Z}}q^{k^2pq + k(mq - np)}-q^{k^2pq + k(mq + np) + mn} \\
+                                 &= \frac{q^{h_{m, n}}}{(q)_{\infty}}\sum_{k \in \mathbb{Z}}q^{k^2pq + k(mq - np)}-q^{(m + kp)(n + kq)}.
+\end{align*}
+One can also replace $m \mapsto p - m$ and $n \mapsto q - n$, but I don't think this is useful.
+
+NOTE: We now take $\len(L_{-2}) = \len(L_{-3}) = \dots = 2$ and $\len(L_{-1}) = 1$ because we will deal with modules.
+
+\section{$s = 2, \Vir_{2, 5}$}
+\label{sec:vir_2-5-1}
+
+\subsection{$m = 1, n = 1$}
+\label{sec:m-=-1}
+
+\begin{align*}
+  R^{h_{1, 1}} &= R^0 = \{L_{t + 1}^{2 - k}L_t^k \mid t \ge 2, 0 \le k \le 1\}, \\
+  p^0(t, q) &= p^0_{>2}(t, q) + p^0_{>2, 2}(t, q), \\
+  p^0(t, q) &= \sum_{k \in \mathbb{N}}t^{2k}\frac{q^{k^2 + k}}{(q)_k}, \\
+  p^0_{>2}(t, q) &= \sum_{k \in \mathbb{N}}t^{2k}\frac{q^{k^2 + 2k}}{(q)_k}, \\
+  p^0_{>2, 2}(t, q) &= \sum_{k \in \mathbb{N}}t^{2k + 2}\frac{q^{k^2 + 3k + 2}}{(q)_k}.
+\end{align*}
+
+\subsection{$m = 1, n = 2$}
+\label{sec:m-=-1-1}
+
+NOTE: $p_{1^i}$ means the series of the partitions ending in exactly $i$ ones.
+\begin{align*}
+  R^{h_{1, 2}} &= R^0 \cup \{[2], [1, 1, 1], [3, 1, 1]\}, \\
+  p(t, q) &= p_{1^0}(t, q) + p_{1^1}(t, q) + p_{1^2}(t, q), \\
+  p_{1^0}(t, q) &= p^0_{>2}(t, q) = \sum_{k \in \mathbb{N}}t^{2k}\frac{q^{k^2 + 2k}}{(q)_k}, \\
+  p_{1^1}(t, q) &= tqp^0_{>2}(t, q) = \sum_{k \in \mathbb{N}}t^{2k + 1}\frac{q^{k^2 + 2k + 1}}{(q)_k}, \\
+  p_{1^2}(t, q) &= t^2q^2p^0_{>2}(tq^{1/2}, q) = \sum_{k \in \mathbb{N}}t^{2k + 2}\frac{q^{k^2 + 3k + 2}}{(q)_k}.
+\end{align*}
+
+\section{$s = 3, \Vir_{2, 7}$}
+\label{sec:s-=-3}
+
+\subsection{$m = 1, n = 1$}
+\label{sec:m-=-1-2}
+
+\begin{align*}
+  R^{h_{1, 1}} &= R^0 = \{L_{t + 1}^{3 - k}L_t^k \mid t \ge 2, 0 \le k \le 2\}, \\
+  p^0(t, q) &= p^0_{2, 2}(t, q) + p^0_{>2, 2}(t, q) + p^0_{>2}(t, q), \\
+  p^0(t, q) &= \sum_{k_1, k_2 \in \mathbb{N}}t^{2k_1 + 4k_2}\frac{q^{k_1^2 + 2k_1k_2 + 2k_2^2 + k_1 + 2k_2}}{(q)_{k_1}(q)_{k_2}}, \\
+  p^0_{>2}(t, q) &= \sum_{k_1, k_2 \in \mathbb{N}}t^{2k_1 + 4k_2}\frac{q^{k_1^2 + 2k_1k_2 + 2k_2^2 + 2k_1 + 4k_2}}{(q)_{k_1}(q)_{k_2}}, \\
+  p^0_{>2, 2}(t, q) &= \sum_{k_1, k_2 \in \mathbb{N}}t^{2k_1 + 4k_2 + 2}\frac{q^{k_1^2 + 2k_1k_2 + 2k_2^2 + 2k_1 + 5k_2 + 2}}{(q)_{k_1}(q)_{k_2}}, \\
+  p^0_{2, 2}(t, q) &= \sum_{k_1, k_2 \in \mathbb{N}}t^{2k_1 + 4k_2 + 4}\frac{q^{k_1^2 + 2k_1k_2 + 2k_2^2 + 3k_1 + 6k_2 + 4}}{(q)_{k_1}(q)_{k_2}}.
+\end{align*}
+
+\subsection{$m = 1, n = 2$}
+\label{sec:m-=-1-3}
+
+\begin{align*}
+  R^{h_{1, 2}} &= R^0 \cup \{[2], [1, 1, 1, 1, 1], [3, 1, 1, 1, 1], [3, 3, 1, 1]\}, \\
+  p(t, q) &= p_{1^0}(t, q) + p_{1^1}(t, q) + p_{1^2}(t, q) + p_{1^3}(t, q) + p_{1^4}(t, q), \\
+  p_{1^0}(t, q) &= p^0_{>2}(t, q), \\
+  p_{1^1}(t, q) &= tqp^0_{>2}(t, q), \\
+  p_{1^2}(t, q) &= t^2q^2(p^0_{>2}(tq^{1/2}, q) + p^0_{>2, 2}(tq^{1/2}, q)), \\
+  p_{1^3}(t, q) &= t^3q^3(p^0_{>2}(tq^{1/2}, q) + p^0_{>2, 2}(tq^{1/2}, q)), \\
+  p_{1^4}(t, q) &= t^4q^4p^0_{>2}(tq^{1/2}, q).
+\end{align*}
+
+\subsection{$m = 1, n = 3$}
+\label{sec:m-=-1-4}
+
+\begin{align*}
+  R^{h_{1, 3}} &= R^0 \cup \{[2, 1], [2, 2], [1, 1, 1, 1, 1], [3, 1, 1, 1, 1], [3, 3, 1, 1, 1]\}, \\
+  p(t, q) &= p_{1^0}(t, q) + p_{1^1}(t, q) + p_{1^2}(t, q) + p_{1^3}(t, q) + p_{1^4}(t, q), \\
+  p_{1^0}(t, q) &= p^0_{>2}(t, q) + p_{>2, 2}(t, q), \\
+  p_{1^1}(t, q) &= tqp^0_{>2}(t, q), \\
+  p_{1^2}(t, q) &= t^2q^2p^0_{>2}(t, q), \\
+  p_{1^3}(t, q) &= t^3q^3(p^0_{>2}(tq^{1/2}, q) + p^0_{>2, 2}(tq^{1/2}, q)), \\
+  p_{1^4}(t, q) &= t^4q^4p^0_{>2}(tq^{1/2}, q).
+\end{align*}
+
+\end{document}
