@@ -2,6 +2,9 @@
 
 \usepackage[margin = 0.75in]{geometry}
 \usepackage{amssymb}
+\usepackage{enumitem}
+
+\setenumerate[0]{label = \normalfont(\roman*)}
 
 \DeclareMathOperator{\Vir}{Vir}
 \DeclareMathOperator{\ch}{ch}
@@ -10,6 +13,7 @@
 \DeclareMathOperator{\gr}{gr}
 \DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\vspan}{span}
+\DeclareMathOperator{\supp}{supp}
 
 \begin{document}
 
@@ -20,351 +24,10 @@
 \date{\today}
 \maketitle
 
-We set:
-\begin{align*}
-  c_{p, q} &= 1 - \frac{6(p - q)^2}{pq} \quad \text{for $p, q \ge 2$ relatively prime integers}, \\
-  h_{m, n} &= \frac{(np - mq)^2 - (p - q)^2}{4pq} \quad \text{for $0 < m < p$ and $0 < n < q$.}
-\end{align*}
-Then
-\begin{align*}
-  \ch_{L(c_{p, q}, h_{m, n})}(q) &= \frac{1}{(q)_{\infty}}\sum_{k \in \mathbb{Z}}q^{\frac{(2kpq + mq - np)^2 - (p - q)^2}{4pq}} - q^{\frac{(2kpq + mq + np)^2 - (p - q)^2}{4pq}} \\
-                                 &= \frac{q^{h_{m, n}}}{(q)_{\infty}}\sum_{k \in \mathbb{Z}}q^{k^2pq + k(mq - np)}-q^{k^2pq + k(mq + np) + mn} \\
-                                 &= \frac{q^{h_{m, n}}}{(q)_{\infty}}\sum_{k \in \mathbb{Z}}q^{k^2pq + k(mq - np)}-q^{(m + kp)(n + kq)}.
-\end{align*}
-One can also replace $m \mapsto p - m$ and $n \mapsto q - n$, but I don't think this is useful.
+\section{Modules over algebras with a filtration}
+\label{sec:modul-over-algebr}
 
-In this sketch, we take:
-\begin{align*}
-  p &= 2, \\
-  q &= 2s + 1 \quad \text{for $s \in \mathbb{Z}_+$}.
-\end{align*}
-Thus, $\Vir_{2, 2s + 1}$ has $s$ modules $L(c_{2, 2s + 1}, h_{1, 1}), L(c_{2, 2s + 1}, h_{1, 2}), \dots, L(c_{2, 2s + 1}, h_{1, s})$.
-
-NOTE: In the following computations, we take $\len(L_{-2}) = \len(L_{-3}) = \dots = 2$ and $\len(L_{-1}) = 1$ because we will deal with modules.
-
-\section{$s = 1, \Vir_{2, 3}$}
-\label{sec:s-=-1}
-
-\begin{equation*}
-  p^0(t, q) = 1.
-\end{equation*}
-
-\section{$s = 2, \Vir_{2, 5}$}
-\label{sec:vir_2-5-1}
-
-\subsection{$m = 1, n = 1$}
-\label{sec:m-=-1}
-
-\begin{align*}
-  R^{h_{1, 1}} &= R^0 = \{L_{t + 1}^{2 - k}L_t^k \mid t \ge 2, 0 \le k \le 1\}, \\
-  p^0(t, q) &= p^0_{>2}(t, q) + p^0_{>2, 2}(t, q), \\
-  p^0(t, q) &= \sum_{k \in \mathbb{N}}t^{2k}\frac{q^{k^2 + k}}{(q)_k}, \\
-  p^0_{>2}(t, q) &= \sum_{k \in \mathbb{N}}t^{2k}\frac{q^{k^2 + 2k}}{(q)_k}, \\
-  p^0_{>2, 2}(t, q) &= \sum_{k \in \mathbb{N}}t^{2k + 2}\frac{q^{k^2 + 3k + 2}}{(q)_k}.
-\end{align*}
-
-\subsection{$m = 1, n = 2$}
-\label{sec:m-=-1-1}
-
-NOTE: $p_{1^i}$ means the series of the partitions ending in exactly $i$ ones.
-\begin{align*}
-  R^{h_{1, 2}} &= R^0 \cup \{[2], [1, 1, 1], [3, 1, 1]\}, \\
-  p(t, q) &= p_{1^0}(t, q) + p_{1^1}(t, q) + p_{1^2}(t, q), \\
-  p_{1^0}(t, q) &= p^0_{>2}(t, q) = \sum_{k \in \mathbb{N}}t^{2k}\frac{q^{k^2 + 2k}}{(q)_k}, \\
-  p_{1^1}(t, q) &= tqp^0_{>2}(t, q) = \sum_{k \in \mathbb{N}}t^{2k + 1}\frac{q^{k^2 + 2k + 1}}{(q)_k}, \\
-  p_{1^2}(t, q) &= t^2q^2p^0_{>2}(tq^{1/2}, q) = \sum_{k \in \mathbb{N}}t^{2k + 2}\frac{q^{k^2 + 3k + 2}}{(q)_k}.
-\end{align*}
-
-\section{$s = 3, \Vir_{2, 7}$}
-\label{sec:s-=-3}
-
-\subsection{$m = 1, n = 1$}
-\label{sec:m-=-1-2}
-
-\begin{align*}
-  R^{h_{1, 1}} &= R^0 = \{L_{t + 1}^{3 - k}L_t^k \mid t \ge 2, 0 \le k \le 2\}, \\
-  p^0(t, q) &= p^0_{2, 2}(t, q) + p^0_{>2, 2}(t, q) + p^0_{>2}(t, q), \\
-  p^0(t, q) &= \sum_{k_1, k_2 \in \mathbb{N}}t^{2k_1 + 4k_2}\frac{q^{k_1^2 + 2k_1k_2 + 2k_2^2 + k_1 + 2k_2}}{(q)_{k_1}(q)_{k_2}}, \\
-  p^0_{>2}(t, q) &= \sum_{k_1, k_2 \in \mathbb{N}}t^{2k_1 + 4k_2}\frac{q^{k_1^2 + 2k_1k_2 + 2k_2^2 + 2k_1 + 4k_2}}{(q)_{k_1}(q)_{k_2}}, \\
-  p^0_{>2, 2}(t, q) &= \sum_{k_1, k_2 \in \mathbb{N}}t^{2k_1 + 4k_2 + 2}\frac{q^{k_1^2 + 2k_1k_2 + 2k_2^2 + 2k_1 + 5k_2 + 2}}{(q)_{k_1}(q)_{k_2}}, \\
-  p^0_{2, 2}(t, q) &= \sum_{k_1, k_2 \in \mathbb{N}}t^{2k_1 + 4k_2 + 4}\frac{q^{k_1^2 + 2k_1k_2 + 2k_2^2 + 3k_1 + 6k_2 + 4}}{(q)_{k_1}(q)_{k_2}}.
-\end{align*}
-
-\subsection{$m = 1, n = 2$}
-\label{sec:m-=-1-3}
-
-\begin{align*}
-  R^{h_{1, 2}} &= R^0 \cup \{[2], [1, 1, 1, 1, 1], [3, 1, 1, 1, 1], [3, 3, 1, 1]\}, \\
-  p(t, q) &= p_{1^0}(t, q) + p_{1^1}(t, q) + p_{1^2}(t, q) + p_{1^3}(t, q) + p_{1^4}(t, q), \\
-  p_{1^0}(t, q) &= p^0_{>2}(t, q), \\
-  p_{1^1}(t, q) &= tqp^0_{>2}(t, q), \\
-  p_{1^2}(t, q) &= t^2q^2(p^0_{>2}(tq^{1/2}, q) + p^0_{>2, 2}(tq^{1/2}, q)), \\
-  p_{1^3}(t, q) &= t^3q^3(p^0_{>2}(tq^{1/2}, q) + p^0_{>2, 2}(tq^{1/2}, q)), \\
-  p_{1^4}(t, q) &= t^4q^4p^0_{>2}(tq^{1/2}, q).
-\end{align*}
-
-\subsection{$m = 1, n = 3$}
-\label{sec:m-=-1-4}
-
-\begin{align*}
-  R^{h_{1, 3}} &= R^0 \cup \{[2, 1], [2, 2], [1, 1, 1, 1, 1], [3, 1, 1, 1, 1], [3, 3, 1, 1, 1]\}, \\
-  p(t, q) &= p_{1^0}(t, q) + p_{1^1}(t, q) + p_{1^2}(t, q) + p_{1^3}(t, q) + p_{1^4}(t, q), \\
-  p_{1^0}(t, q) &= p^0_{>2}(t, q) + p_{>2, 2}(t, q), \\
-  p_{1^1}(t, q) &= tqp^0_{>2}(t, q), \\
-  p_{1^2}(t, q) &= t^2q^2p^0_{>2}(t, q), \\
-  p_{1^3}(t, q) &= t^3q^3(p^0_{>2}(tq^{1/2}, q) + p^0_{>2, 2}(tq^{1/2}, q)), \\
-  p_{1^4}(t, q) &= t^4q^4p^0_{>2}(tq^{1/2}, q).
-\end{align*}
-
-\section{$\Vir_{2, 9}$}
-\label{sec:vir_2-9}
-
-\begin{align*}
-  p(t, q) &= \sum_{k_1, k_2, k_3 \in \mathbb{N}}t^{k_1 + 2k_2 + 3k_3}\frac{q^{k_1^2 + 2k_1k_2 + 2k_1k_3 + 2k_2^2 + 4k_2k_3 + 3k_3^2 + k_1 + 2k_2 + 3k_3}}{(q)_{k_1}(q)_{k_2}(q)_{k_3}}, \\
-  p_{>2}(t, q) &= \sum_{k_1, k_2, k_3 \in \mathbb{N}}t^{k_1 + 2k_2 + 3k_3}\frac{q^{k_1^2 + 2k_1k_2 + 2k_1k_3 + 2k_2^2 + 4k_2k_3 + 3k_3^2 + 2k_1 + 4k_2 + 6k_3}}{(q)_{k_1}(q)_{k_2}(q)_{k_3}}, \\
-  p_{>2, 2}(t, q) &= \sum_{k_1, k_2, k_3 \in \mathbb{N}}t^{k_1 + 2k_2 + 3k_3 + 1}\frac{q^{k_1^2 + 2k_1k_2 + 2k_1k_3 + 2k_2^2 + 4k_2k_3 + 3k_3^2 + 2k_1 + 4k_2 + 7k_3 + 2}}{(q)_{k_1}(q)_{k_2}(q)_{k_3}}, \\
-  p_{>2, 2, 2}(t, q) &= \sum_{k_1, k_2, k_3 \in \mathbb{N}}t^{k_1 + 2k_2 + 3k_3 + 2}\frac{q^{k_1^2 + 2k_1k_2 + 2k_1k_3 + 2k_2^2 + 4k_2k_3 + 3k_3^2 + 2k_1 + 5k_2 + 8k_3 + 4}}{(q)_{k_1}(q)_{k_2}(q)_{k_3}} \\
-  p_{2, 2, 2}(t, q) &= \sum_{k_1, k_2, k_3 \in \mathbb{N}}t^{k_1 + 2k_2 + 3k_3 + 3}\frac{q^{k_1^2 + 2k_1k_2 + 2k_1k_3 + 2k_2^2 + 4k_2k_3 + 3k_3^2 + 3k_1 + 6k_2 + 9k_3 + 6}}{(q)_{k_1}(q)_{k_2}(q)_{k_3}}.
-\end{align*}
-
-\section{Conjecture $\Vir_{2, 2s + 1}$}
-\label{sec:conjecture}
-
-\begin{align*}
-  p(t, q) = \sum_{k = (k_1, \dots, k_{s - 1}) \in \mathbb{N}^{s - 1}}t^{2kB^{(s)}}\frac{q^{\frac{1}{2}kG^{(s)}k^T + kB^{(s)}}}{(q)_{k_1}\dots (q)_{k_{s - 1}}},
-\end{align*}
-where
-\begin{align*}
-  G^{(s)} &= (2\min\{i, j\})_{i, j = 1}^{s - 1}, \\
-  B^{(s)} &=
-            \left(\begin{smallmatrix}
-                    1 \\
-                    2 \\
-                    \vdots \\
-                    s - 1
-                  \end{smallmatrix}\right).
-\end{align*}
-
-\section{New conjecture $\Vir_{2, 2s + 1}$}
-\label{sec:new-conjecture-vir_2}
-
-NOTE: This is probably proven in Andrew's book The theory of partitions.
-The objective is to prove
-
-\begin{equation*}
-  p(t, q) = \sum_{i = 0}^{s - 1}p_{>2, \underbrace{\scriptstyle{2, \dots, 2}}_i}(t, q) = \sum_{k = (k_1, \dots, k_{s - 1}) \in \mathbb{N}^{s - 1}}t^{2kB^{(s)}_{s - 1}}\frac{q^{\frac{1}{2}kG^{(s)}k^T + kB^{(s)}_{s - 1}}}{(q)_{k_1}\dots (q)_{k_{s - 1}}},
-\end{equation*}
-where
-\begin{align*}
-  p_{>2, \underbrace{\scriptstyle{2, \dots, 2}}_i}(t, q) &= \sum_{k = (k_1, \dots, k_s) \in \mathbb{N}^{s - 1}}t^{2kB^{(s)}_{s - 1} + 2i}\frac{q^{\frac{1}{2}kG^{(s)}k^T + k(2B^{(s)}_{s - 1} + B^{(s)}_i) + 2i}}{(q)_{k_1}\dots(q)_{k_{s - 1}}}, \quad i = 0, 1, \dots, s - 1, \\
-  G^{(s)} &= (2\min\{i, j\})_{i, j = 1}^{s - 1}, \\
-  B^{(s)}_i &=
-              \left(\begin{smallmatrix}
-                      0 \\
-                      0 \\
-                      \vdots \\
-                      0 \\
-                      1 \\
-                      2 \\
-                      \vdots \\
-                      i
-                    \end{smallmatrix}\right), \quad i = 0, 1, \dots, s - 1.  
-\end{align*}
-
-These series should satisfy the following (though I can't prove the first set of equalities):
-\begin{align*}
-  p_{>2, \underbrace{\scriptstyle{2, \dots, 2}}_i}(t, q) &= t^{2i}q^{2i}\sum_{j = 0}^{s - 1 - i}p_{>2, \underbrace{\scriptstyle{2, \dots, 2}}_j}(tq, q), \quad i = 0, 1, \dots, s - 1, \\
-  p_{>2, \underbrace{\scriptstyle{2, \dots, 2}}_i}(0, 0) &= \delta_{0, i}, \quad i = 0, 1, \dots, s - 1.
-\end{align*}
-
-\section{New New conjecture}
-\label{sec:new-new-conjecture}
-
-Now we take $\len(L_{-1}) = \len(L_{-2}) = \dots = 1$ so the result is NOT the same.
-
-\begin{align*}
-  \ch_{L(c_{2, 2s + 1}, h_{1, i})}(t, q) &= \sum_{j = 0}^{i - 1}p_{1^j}(t, q), \quad i = 1, \dots, s, \\
-  p_{1^j}(t, q) &= \sum_{k = (k_1, \dots, k_s) \in \mathbb{N}^{s - 1}}t^{kB^{(s)}_{s - 1} + j}\frac{q^{\frac{1}{2}kG^{(s)}k^T + k(B^{(s)}_{s - 1} + B^{(s)}_j) + j}}{(q)_{k_1}\dots(q)_{k_{s - 1}}}, \quad j = 0, 1, \dots, s - 1,
-\end{align*}
-where
-\begin{align*}
-  G^{(s)} &= (2\min\{i, j\})_{i, j = 1}^{s - 1}, \\
-  B^{(s)}_j &=
-              \left(\begin{smallmatrix}
-                      0 \\
-                      0 \\
-                      \vdots \\
-                      0 \\
-                      1 \\
-                      2 \\
-                      \vdots \\
-                      j
-                    \end{smallmatrix}\right), \quad j = 0, 1, \dots, s - 1.  
-\end{align*}
-
-\section{Context, work done by Andrews and what we are trying to calculate}
-\label{sec:context-work-done}
-
-In this section, we explain what we are trying to calculate, what was done by Andrews and show the difference between the vertex algebra module approach and the lie algebra module approach.
-
-Note that in the case $i = 1$, we have $h_{1, 1} = 0$, and we are in the vertex algebra case $L(c_{2, 2s + 1}, 0) = \Vir_{c_{2, 2s + 1}}$.
-This case is studied in the book The theory of partitions, as we now show.
-We first recall that $R_{\Vir^{2, 2s + 1}} = \mathbb{C}[L_{-2}]$.
-We know that $\Vir_{2, 2s + 1}$ is classically free, and $R_{\Vir_{2, 2s + 1}} = \mathbb{C}[L_{-2}]/(L_{-2}^s)$ because the maximal ideal of $\Vir^{2, 2s + 1}$ is generated by an element $b_s$ with leading monomial $L_{-2}^s\vac$ in the degree reverse lexicographical order.
-
-Thus, we have 
-\begin{equation*}
-  JR_{\Vir_{2, 2s + 1}}/(L_{-2}^s)_{\partial} = \mathbb{C}[L_{-2}, L_{-3}, \dots]/(L_{-2}^s)_{\partial}.
-\end{equation*}
-
-The leading term ideal of $(L_{-2}^s)$ in $\mathbb{C}[L_{-2}, L_{-3}, \dots]$ is generated by the polynomials $L_{-\lambda_1} \dots L_{-\lambda_m} \in \mathbb{C}[L_{-2}, L_{-3}, \dots]$, where $\lambda = [\lambda_1, \dots, \lambda_m]$ is a partition satisfying $\lambda_m \ge 2$ and the difference condition
-\begin{equation*}
-  \lambda_i - \lambda_{i + s - 1} \le 1 \quad \text{for some $i$ with $1 \le i \le m + 1 - s$}.
-\end{equation*}
-Therefore, by Grobner basis theory, a basis of $JR_{\Vir_{2, 2s + 1}}/(L_{-2}^s)_{\partial}$ is given by classes of polynomials $L_{-\lambda_1} \dots L_{-\lambda_m} \in \mathbb{C}[L_{-2}, L_{-3}, \dots]$, where $\lambda = [\lambda_1, \dots, \lambda_m]$ is a partition satisfying $\lambda_m \ge 2$ and the difference condition
-\begin{equation}
-  \label{eq:1}
-  \lambda_i - \lambda_{i + s - 1} \ge 2 \quad \text{for $1 \le i \le m + 1 - s$}.
-\end{equation}
-NOTE: Actually, this is handwaving a little bit because strictly speaking, Grobner basis theory only applies to finitely generated polynomial algebras.
-But we can make this rigorous by studying $\mathbb{C}[L_{-2}, L_{-3}, \dots, L_{-N}]$ and then letting $N \to \infty$.
-
-In Theorem 7.5 of The theory of partitions, the number of partitions $\lambda$ of $n$ satisfying $\lambda_m \ge 2$ and \eqref{eq:1} is denoted by $B_{s, 0}$ (note that we are changing $k$ to $s$ here and $i = 0$).
-In that section, it is also defined by $b_{s, 0}(m, n)$ the number of partitions $\lambda$ of $n$ with exactly $m$ parts satisfying $\lambda_m \ge 2$ and \eqref{eq:1}.
-It is also noted that $b_{s, 0}(m, n) = c_{s, 0}(m, n)$, where
-\begin{equation*}
-  J_{s, 0}(0; t; q) = \sum_{m = 0}^{\infty}\sum_{n = 0}^{\infty}c_{s, 0}(m, n)t^mq^n,
-\end{equation*}
-and we have changed $x$ to $t$.
-
-Note that, using the notation of Theorem 7.8 and the previous section, we have
-\begin{align*}
-  N_1^2 + \dots + N_{s - 1}^2 &= \frac{1}{2}kG^{(s)}k^T, \\
-  N_1 + \dots + N_{s - 1} &= kB^{(s)}_{s - 1},
-\end{align*}
-where we have replaced $k$ by $s$.
-By (the proof of) Theorem 7.8, we have
-\begin{equation*}
-  J_{s, 0}(0; t; q) = \sum_{k = (k_1, \dots, k_s) \in \mathbb{N}^{s - 1}}t^{kB^{(s)}_{s - 1}}\frac{q^{\frac{1}{2}kG^{(s)}k^T + kB^{(s)}_{s - 1}}}{(q)_{k_1}\dots(q)_{k_{s - 1}}}.
-\end{equation*}
-
-From the natural isomorphisms
-\begin{align*}
-  JR_{\Vir_{2, 2s + 1}}/(L_{-2}^s)_{\partial} &\cong \gr_F(\Vir_{2, 2s + 1}), \\
-  \gr_F(\Vir_{2, 2s + 1}) &\cong \Vir_{2, 2s + 1},
-\end{align*}
-we have that a basis of $\Vir_{2, 2s + 1}$ is given by the classes of elements of the form $L_{-\lambda_1}\dots L_{-\lambda_m}\vac$, where $\lambda$ is a partition satisfying $\lambda_m \ge 2$ and \eqref{eq:1}.
-
-In conclusion, the refined character of $\Vir_{2, 2s + 1}$ is given by 
-\begin{align*}
-  \ch_{\Vir_{2, 2s + 1}}(t, q) &= \sum_{m = 0}^{\infty}\sum_{n = 0}^{\infty}b_{s, 0}(m, n)t^mq^n = \sum_{m = 0}^{\infty}\sum_{n = 0}^{\infty}c_{s, 0}(m, n)t^mq^n \\
-                               &= J_{s, 0}(0; t; q) = \sum_{k = (k_1, \dots, k_s) \in \mathbb{N}^{s - 1}}t^{kB^{(s)}_{s - 1}}\frac{q^{\frac{1}{2}kG^{(s)}k^T + kB^{(s)}_{s - 1}}}{(q)_{k_1}\dots(q)_{k_{s - 1}}},
-\end{align*}
-and this is precisely the formula in the previous section with $i = 0$.
-
-NOTE 2: I'm not sure we can use other values of $i$ other than $i = 0$.
-But probably, we can.
-VERY IMPORTANT NOTE: We have not defined what is $\ch_M(t, q)$, where $M$ is a $\Vir$-module.
-And we have not calculated the refined character with respect to standard filtration $G^p\Vir_{2, 2s + 1}$ because there is a missing factor $2$ coming from the conformal weight of $L_{-2}\vac$ being $2$.
-Sure, we could simply add it here and put $t^{2kB^{(s)}}$ instead of $t^{kB^{(s)}}$.
-But the situation is different when we deal with modules because in that case $L_{-1}$ has length $1$ while $L_{-2}, L_{-3}, \dots$ have length $2$ and then the resulting character is probably not given by simply multiplying by $2$ or other trivial operation.
-Thus, we have to truly define properly the meaning of the refined character in the case of $\Vir$-modules.
-Sadly, if we do it like this, this does not have much to do with modules over vertex algebras and probably we can't study classically free modules over vertex algebras (or some concepts related to that).
-But when I tried calculating the refined characters using the standard filtration, I could not find a closed formula.
-And the results in Andrew's book probably don't help much if we use the standard filtration of modules over vertex algebras.
-Thus, in the next section, we will define the refined character of $\Vir$-modules.
-
-\section{The refined character}
-\label{sec:refined-character}
-
-Let $\Gamma$ be an abelian group.
-For a $\Gamma$-graded vector space $V = \bigoplus_{\alpha \in \Gamma}V^{\alpha}$, we set $\mathcal{P}(V) = \{\alpha \in \Gamma \mid V^{\alpha} \neq 0\}$.
-
-A \emph{$\Gamma$-graded Lie algebra} is a Lie algebra $\mathfrak{g} = \bigoplus_{\mathfrak{g} \in \Gamma}\mathfrak{g}^{\alpha}$ such that
-\begin{equation*}
-  [\mathfrak{g}^{\alpha}, \mathfrak{g}^{\beta}] \subseteq \mathfrak{g}^{\alpha + \beta} \quad \text{for $\alpha, \beta \in \Gamma$}.
-\end{equation*}
-
-Let $Q$ be a free abelian group of finite rank $r$, and let $\mathfrak{g}$ be a Lie algebra with a commutative subalgebra $\mathfrak{h}$.
-We say a pair $(\mathfrak{g}, \mathfrak{h})$ is a \emph{$Q$-graded Lie algebra} if it satisfies the following:
-\begin{enumerate}
-\item $\mathfrak{g} = \bigoplus_{\alpha \in Q}\mathfrak{g}^{\alpha}$ is $Q$-graded, $\mathfrak{h} = \mathfrak{g}^0$, and $\mathcal{P}(\mathfrak{g})$ generates $Q$;
-\item We have a homomorphism $\pi_Q: Q \to \mathfrak{h}^*, \alpha \mapsto \lambda_{\alpha}$ such  that
-  \begin{equation*}
-    [h, x] = \lambda_{\alpha}(h)x \quad \text{for $h \in \mathfrak{h}$ and $x \in \mathfrak{g}^{\alpha}$};
-  \end{equation*}
-\item For $\alpha \in Q$, $\dim(\mathfrak{g}^{\alpha}) < \infty$;
-\item There exists a basis $(\alpha_i)_{i = 1}^r$ of $Q$ such that for $\alpha \in Q$ with $\mathfrak{g}^{\alpha} \neq 0$,
-  \begin{equation*}
-    \text{$\alpha \in \sum_{i = 1}^r\mathbb{Z}_{\ge 0}\alpha_i$ or $\alpha \in \sum_{i = 1}^r\mathbb{Z}_{\le 0}\alpha_i$}.
-  \end{equation*}
-\end{enumerate}
-
-The condition (iv) implies that a $Q$-graded Lie algebra admits a \emph{triangular decomposition}.
-  If we set $Q^+ = \sum_{i = 1}^r\mathbb{Z}_{\ge 0}\alpha_i$ and
-  \begin{equation*}
-    \mathfrak{g}^{\pm} = \bigoplus_{\pm \alpha \in Q^+ \setminus \{0\}}\mathfrak{g}^{\alpha},
-  \end{equation*}
-  then we have $\mathfrak{g} = \mathfrak{g}^- \oplus \mathfrak{h} \oplus \mathfrak{g}^+$.
-  For later use, we set $\mathfrak{g}^{\ge} = \mathfrak{h} \oplus \mathfrak{g}^+$ and $\mathfrak{g}^{\le} = \mathfrak{g}^- \oplus \mathfrak{h}$.
-
-The \emph{Virasoro Lie algebra}, denoted by $\Vir$, is the Lie algebra given by:
-  \begin{align*}
-    \Vir &= \bigoplus_{n \in \mathbb{Z}}\mathbb{C}L_n \oplus \mathbb{C}C, \\
-    [L_m, L_n] &= (m - n)L_{m + n} + \delta_{m, -n}\frac{m^3 - m}{12}C \quad \text{for $m, n \in \mathbb{Z}$}, \\
-    [\Vir, C] &= 0.
-  \end{align*}
-
-  We set $Q = \mathbb{Z}$, $\mathfrak{h} = \mathbb{C}L_0 \oplus \mathbb{C}C$ and
-  \begin{align*}
-    \pi_Q: Q &\to \mathfrak{h}^*, \\
-    \pi_Q(n) &= (L_0 \mapsto -n, C \mapsto 0) \quad \text{for $n \in \mathbb{Z}$}.
-  \end{align*}
-  Then $(\Vir, \mathfrak{h})$ is readily seen to be a $\mathbb{Z}$-graded Lie algebra.
-
-Let $\Gamma$ be an abelian group, and let $\mathfrak{g} = \bigoplus_{\alpha \in \Gamma}\mathfrak{g}^{\alpha}$ be a $\Gamma$-graded Lie algebra.
-  A $\mathfrak{g}$-module $M = \bigoplus_{\alpha \in \Gamma}M^{\alpha}$ is \emph{$\Gamma$-graded} if
-  \begin{equation*}
-    \mathfrak{g}^{\alpha}M^{\beta} \subseteq M^{\alpha + \beta} \quad \text{for $\alpha, \beta \in \Gamma$}.
-  \end{equation*}
-
-An $\mathfrak{h}$-module $M$ is \emph{$\mathfrak{h}$-diagonalizable} if
-  \begin{equation*}
-    M = \bigoplus_{\lambda \in \mathfrak{h}^*}M_{\lambda},
-  \end{equation*}
-  where $M_{\lambda} = \{v \in M \mid \text{for $h \in \mathfrak{h}$, $hv = \lambda(h)v$}\}$.
-  
-An $\mathfrak{h}$-diagonalizable module $M$ is called \emph{$\mathfrak{h}$-semisimple} if
-  \begin{equation*}
-    \dim(M_{\lambda}) < \infty \quad \text{for $\lambda \in \mathfrak{h}^*$}.
-  \end{equation*}
-  A $(\mathfrak{g}, \mathfrak{h})$-module is an $\mathfrak{h}$-diagonalizable $\mathfrak{g}$-module.
-  We assume that $\pi_Q$ is injective.
-
-  The \emph{character} of a semisimple $(\mathfrak{g}, \mathfrak{h})$-module $M$ is given by
-  \begin{equation*}
-    \ch_M(q) = \sum_{\lambda \in \mathfrak{h}^*}\dim(M_{\lambda})q^{\lambda}.
-  \end{equation*}
-
-We can regard $\mathfrak{g}$ as a $(\mathfrak{g}, \mathfrak{h})$-module via the adjoint representation and by declaring for $\lambda \in \mathfrak{h}^*$,
-\begin{equation*}
-  \mathfrak{g}_{\lambda} = \mathfrak{g}^{\alpha} \quad \text{if exists $\alpha \in Q$ such that $\lambda = \pi_Q(\alpha)$}.
-\end{equation*}
-
-The category $\mathcal{C}_{(\mathfrak{g}, \mathfrak{h})}$ is the category whose objects are $\mathfrak{h}^*$-graded $(\mathfrak{g}, \mathfrak{h})$-modules and for $M, N \in \mathcal{C}_{(\mathfrak{g}, \mathfrak{h})}$, $\Hom_{\mathcal{C}_{(\mathfrak{g}, \mathfrak{h})}}(M, N) = \Hom_{\mathfrak{g}}(M, N)$ (lie algebra homomorphisms).
-
-Let $(\mathfrak{g}, \mathfrak{h})$ be a $Q$-graded Lie algebra.
-  Let $M \in \mathcal{C}_{(\mathfrak{g}, \mathfrak{h})}$, and let $\lambda \in \mathfrak{h}^*$.
-  $M$ is called a \emph{highest weight module} with \emph{highest weight} $\lambda \in \mathfrak{h}^*$ if there is a nonzero vector $v \in M_{\lambda}$ such that:
-  \begin{enumerate}
-  \item $xv = 0$ for $x \in \mathfrak{g}^+$;
-  \item $U(\mathfrak{g}^-)v = M$.
-  \end{enumerate}
-  The vector $v$ is called a \emph{highest weight vector} of $M$ and is unique up to multiplication by a nonzero scalar.
-
-  When considering the $\mathbb{Z}$-graded Virasoro Lie algebra $(\Vir, \mathfrak{h})$, where $\mathfrak{h} = \mathbb{C}L_0 \oplus \mathbb{C}C$, we identify $\mathfrak{h}^*$ with $\mathbb{C}^2$ as $\lambda = (c, h)$ if $\lambda(C) = c$ and $\lambda(L_0) = h$.
-
-  Let $A$ be an associative (not necessarily commutative) algebra with unit $1$ and filtration $(A^p)_{p \in \mathbb{Z}}$ such that:
+Let $A$ be an associative (not necessarily commutative) algebra with unit $1$ and filtration $(A^p)_{p \in \mathbb{Z}}$ such that:
 \begin{enumerate}
 \item $A^p = 0$ for $p < 0$;
 \item $1 \in A^0$;
@@ -384,7 +47,7 @@ For $p, q \in \mathbb{N}$, $a \in A^p$ and $b \in A^p$, we set
 where $\gamma^p: A^p \to \gr(A)$ is the \emph{principal symbol map}, which is the composition of the natural maps $A^p \twoheadrightarrow A^p/A^{p - 1}$ and $A^p/A^{p - 1} \hookrightarrow \gr(A)$.
 The unit of $\gr(A)$ is $\gamma^0(1)$.
 
-Let $\mathfrak{g}$ be a Lie algebra.
+MAIN EXAMPLE: Let $\mathfrak{g}$ be a Lie algebra.
 The \emph{PBW filtration of $U(\mathfrak{g})$}, the universal enveloping algebra of $\mathfrak{g}$, is given by
 \begin{equation*}
   U(\mathfrak{g})^p = \vspan\{x_1x_2\dots x_s \mid s \le p, x_1, \dots, x_s \in \mathfrak{g}\} \quad \text{for $p \in \mathbb{Z}$}.
@@ -410,17 +73,157 @@ For $p, q \in \mathbb{N}$, $a \in A^p$ and $u \in M^p$, we set
 \end{equation*}
 where $\gamma^p_M: M^p \to \gr(M)$ is the \emph{principal symbol map}, which is the composition of the natural maps $M^p \twoheadrightarrow M^p/M^{p - 1}$ and $M^p/M^{p - 1} \hookrightarrow \gr(M)$.
 
-Let $(\mathfrak{g}, \mathfrak{h})$ be a $Q$-graded Lie algebra, and let $M$ be a semisimple highest weight module with highest weight $\lambda \in \mathfrak{h}^*$ and highest weight vector $v \in M_{\lambda}$.
+The category of modules over $A$ with the given filtration $(A^p)_{p \in \mathbb{Z}}$ is given by modules $M$ with a filtration $(M^p)_{p \in \mathbb{Z}}$ satisfying the conditions above.
+A homomorphism $f: M \to N$ must satisfy $f(M^p) \subseteq N^p$ for $p \in \mathbb{Z}$.
+This category is denoted by $A\text{-Mod}$ (the filtration being suppressed from the notation).
+
+We can define a functor $f: A\text{-Mod} \to \gr(A)\text{-Mod}$ as follows.
+For a homomorphism $f: M \to N$, we set
+\begin{align*}
+  \gr(f): \gr(M) &\to \gr(N), \\
+  \gr(f)(\gamma_M^p(u)) &= \gamma_N^p(f(u)).
+\end{align*}
+
+\section{Modules over $Q$-graded Lie algebras}
+\label{sec:modules-over-q}
+
+Let $\Gamma$ be an abelian group.
+For a $\Gamma$-graded vector space $V = \bigoplus_{\alpha \in \Gamma}V^{\alpha}$, we set $\supp(V) = \{\alpha \in \Gamma \mid V^{\alpha} \neq 0\}$.
+
+A \emph{$\Gamma$-graded Lie algebra} is a Lie algebra $\mathfrak{g} = \bigoplus_{\mathfrak{g} \in \Gamma}\mathfrak{g}^{\alpha}$ such that
+\begin{equation*}
+  [\mathfrak{g}^{\alpha}, \mathfrak{g}^{\beta}] \subseteq \mathfrak{g}^{\alpha + \beta} \quad \text{for $\alpha, \beta \in \Gamma$}.
+\end{equation*}
+
+Let $Q$ be a free abelian group of finite rank $r$, and let $\mathfrak{g}$ be a Lie algebra with a commutative subalgebra $\mathfrak{h}$.
+We say a pair $(\mathfrak{g}, \mathfrak{h})$ is a \emph{$Q$-graded Lie algebra} if it satisfies the following:
+\begin{enumerate}
+\item $\mathfrak{g} = \bigoplus_{\alpha \in Q}\mathfrak{g}^{\alpha}$ is $Q$-graded, $\mathfrak{h} = \mathfrak{g}^0$, and $\supp(\mathfrak{g})$ generates $Q$;
+\item We have a homomorphism $\pi_Q: Q \to \mathfrak{h}^*, \alpha \mapsto \lambda_{\alpha}$ such  that
+  \begin{equation*}
+    [h, x] = \lambda_{\alpha}(h)x \quad \text{for $h \in \mathfrak{h}$ and $x \in \mathfrak{g}^{\alpha}$};
+  \end{equation*}
+\item For $\alpha \in Q$, $\dim(\mathfrak{g}^{\alpha}) < \infty$;
+\item There exists a basis $(\alpha_i)_{i = 1}^r$ of $Q$ such that for $\alpha \in \supp(\mathfrak{g})$,
+  \begin{equation*}
+    \text{$\alpha \in \sum_{i = 1}^r\mathbb{Z}_{\ge 0}\alpha_i$ or $\alpha \in \sum_{i = 1}^r\mathbb{Z}_{\le 0}\alpha_i$}.
+  \end{equation*}
+\end{enumerate}
+
+The condition (iv) implies that a $Q$-graded Lie algebra admits a \emph{triangular decomposition}.
+If we set $Q^+ = \sum_{i = 1}^r\mathbb{Z}_{\ge 0}\alpha_i$ and
+\begin{equation*}
+  \mathfrak{g}^{\pm} = \bigoplus_{\pm \alpha \in Q^+ \setminus \{0\}}\mathfrak{g}^{\alpha},
+\end{equation*}
+then we have $\mathfrak{g} = \mathfrak{g}^- \oplus \mathfrak{h} \oplus \mathfrak{g}^+$.
+For later use, we set $\mathfrak{g}^{\ge} = \mathfrak{h} \oplus \mathfrak{g}^+$ and $\mathfrak{g}^{\le} = \mathfrak{g}^- \oplus \mathfrak{h}$.
+
+MAIN EXAMPLE: The \emph{Virasoro Lie algebra}, denoted by $\Vir$, is the Lie algebra given by:
+\begin{align*}
+  \Vir &= \bigoplus_{n \in \mathbb{Z}}\mathbb{C}L_n \oplus \mathbb{C}C, \\
+  [L_m, L_n] &= (m - n)L_{m + n} + \delta_{m, -n}\frac{m^3 - m}{12}C \quad \text{for $m, n \in \mathbb{Z}$}, \\
+  [\Vir, C] &= 0.
+\end{align*}
+
+We set $Q = \mathbb{Z}$, $\mathfrak{h} = \mathbb{C}L_0 \oplus \mathbb{C}C$ and
+\begin{align*}
+  \pi_Q: Q &\to \mathfrak{h}^*, \\
+  \pi_Q(n) &= (L_0 \mapsto -n, C \mapsto 0) \quad \text{for $n \in \mathbb{Z}$}.
+\end{align*}
+Then $(\Vir, \mathfrak{h})$ is readily seen to be a $\mathbb{Z}$-graded Lie algebra.
+We take $1$ as the basis of $Q$, so $Q^+ = \mathbb{N}$.
+
+Let $\Gamma$ be an abelian group, and let $\mathfrak{g} = \bigoplus_{\alpha \in \Gamma}\mathfrak{g}^{\alpha}$ be a $\Gamma$-graded Lie algebra.
+A $\mathfrak{g}$-module $M = \bigoplus_{\alpha \in \Gamma}M^{\alpha}$ is \emph{$\Gamma$-graded} if
+\begin{equation*}
+  \mathfrak{g}^{\alpha}M^{\beta} \subseteq M^{\alpha + \beta} \quad \text{for $\alpha, \beta \in \Gamma$}.
+\end{equation*}
+
+An $\mathfrak{h}$-module $M$ is \emph{$\mathfrak{h}$-diagonalizable} if
+\begin{equation*}
+  M = \bigoplus_{\lambda \in \mathfrak{h}^*}M_{\lambda},
+\end{equation*}
+where $M_{\lambda} = \{v \in M \mid \text{for $h \in \mathfrak{h}$, $hv = \lambda(h)v$}\}$.
+
+An $\mathfrak{h}$-diagonalizable module $M$ is called \emph{$\mathfrak{h}$-semisimple} if
+\begin{equation*}
+  \dim(M_{\lambda}) < \infty \quad \text{for $\lambda \in \mathfrak{h}^*$}.
+\end{equation*}
+A $(\mathfrak{g}, \mathfrak{h})$-module is an $\mathfrak{h}$-diagonalizable $\mathfrak{g}$-module.
+From now on, we assume that $\pi_Q$ is injective.
+
+The \emph{character} of a semisimple $(\mathfrak{g}, \mathfrak{h})$-module $M$ is given by
+\begin{equation*}
+  \ch_M(q) = \sum_{\lambda \in \mathfrak{h}^*}\dim(M_{\lambda})q^{\lambda}.
+\end{equation*}
+
+We can regard $\mathfrak{g}$ as a $(\mathfrak{g}, \mathfrak{h})$-module via the adjoint representation and by declaring for $\lambda \in \mathfrak{h}^*$,
+\begin{equation*}
+  \mathfrak{g}_{\lambda} = \mathfrak{g}^{\alpha} \quad \text{if there exists $\alpha \in Q$ such that $\lambda = \pi_Q(\alpha)$}.
+\end{equation*}
+This construction assumes implicitly that $\pi_Q$ is injective.
+
+The category $\mathcal{C}_{(\mathfrak{g}, \mathfrak{h})}$ is the category whose objects are $\mathfrak{h}^*$-graded $(\mathfrak{g}, \mathfrak{h})$-modules and for $M, N \in \mathcal{C}_{(\mathfrak{g}, \mathfrak{h})}$, $\Hom_{\mathcal{C}_{(\mathfrak{g}, \mathfrak{h})}}(M, N) = \Hom_{\mathfrak{g}}(M, N)$ (Lie algebra homomorphisms).
+
+NOTE 1: If $f \in \Hom_{\mathfrak{g}}(M, N)$, then $f$ respects the $\mathfrak{h}^*$-grading automatically because for $u \in M$ and $h \in \mathfrak{h}$, $hf(u) = f(hu) = f(\lambda(h)u) = \lambda(h)f(u)$.
+
+We can introduce a partial order on $Q$ as follows
+\begin{equation*}
+  \lambda_1 \le \lambda_2 \iff \text{there exists $\gamma \in Q^+$ such that $\lambda_2 - \lambda_1 = \pi_Q(\gamma)$.}
+\end{equation*}
+Since $\pi_Q$ is assumed to be injective, we can abuse notation and write $\lambda_2 - \lambda_1 = \gamma \in Q$.
+
+We now define the full subcategory $\mathcal{C}^{\lambda \ge}_{(\mathfrak{g}, \mathfrak{h})}$ by considering the objects $M \in \mathcal{C}_{(\mathfrak{g}, \mathfrak{h})}$ such that $M_{\mu} = 0$ if $\lambda \ngeq \mu$.
+
+Let $(\mathfrak{g}, \mathfrak{h})$ be a $Q$-graded Lie algebra, let $M \in \mathcal{C}_{(\mathfrak{g}, \mathfrak{h})}$, and let $\lambda \in \mathfrak{h}^*$.
+$M$ is called a \emph{highest weight module} with \emph{highest weight} $\lambda \in \mathfrak{h}^*$ if there is a nonzero vector $v \in M_{\lambda}$ such that:
+\begin{enumerate}
+\item $xv = 0$ for $x \in \mathfrak{g}^+$;
+\item $U(\mathfrak{g}^-)v = M$.
+\end{enumerate}
+The vector $v$ is called a \emph{highest weight vector} of $M$ and is unique up to multiplication by a nonzero scalar.
+
+EXAMPLE: When considering the $\mathbb{Z}$-graded Virasoro Lie algebra $(\Vir, \mathfrak{h})$, where $\mathfrak{h} = \mathbb{C}L_0 \oplus \mathbb{C}C$, we identify $\mathfrak{h}^*$ with $\mathbb{C}^2$ as $\lambda = (c, h)$ if $\lambda(C) = c$ and $\lambda(L_0) = h$.
+We are mainly interested in the highest weight modules $M(c, h)$ and $L(c, h)$ of the Virasoro Lie algebra.
+In this case, $(c_2, n_2) \ge (c_1, n_1)$ if and only if $c_1 = c_2$ and $n_1 \ge n_2$.
+If this happens, $(c_2, n_2) - (c_1, n_1) = n_1 - n_2$.
+
+\section{The refined character}
+\label{sec:refined-character}
+
+Let $(\mathfrak{g}, \mathfrak{h})$ be a $\mathbb{Z}$-graded Lie algebra, let $\lambda \in \mathfrak{h}^*$, and let $M \in \mathcal{C}^{\lambda \ge}_{(\mathfrak{g}, \mathfrak{h})}$ be a semisimple module.
 The \emph{PBW filtration of $M$} is given by
 \begin{equation*}
-  M^p = U(\mathfrak{g}^-)^pv \quad \text{for $p \in \mathbb{Z}$}.
+  M^p = \{au \mid q \in \mathbb{N}, \mu \le \lambda, a \in U(\mathfrak{g}^-)^q, u \in M_{\mu}, q + \lambda - \mu \le p\} \quad \text{for $p \in \mathbb{Z}$}.
 \end{equation*}
 This filtration clearly satisfies axioms (i)--(iii) above with $U(\mathfrak{g}^-)$ in place of $A$, and $\gr(M)$ becomes a $\gr(U(\mathfrak{g^-}))$-module.
-Actually, $\gr(M)$ is naturally isomorphic to a quotient of $\gr(U(\mathfrak{g}^-))$, so we are in the polynomial case only, at least in what we are interested now.
 
-The \emph{refined character of $M$} is defined by
+We can define a functor $\gr: \mathcal{C}^{\lambda \ge}_{(\mathfrak{g}, \mathfrak{h})} \to \gr(U(\mathfrak{g}^-))\text{-Mod}$ as follows.
+Let $M, N \in \mathcal{C}^{\lambda \ge}_{(\mathfrak{g}, \mathfrak{h})}$, and let $f: M \to N$ be a homomorphism.
+Then we set
+\begin{align*}
+  \gr(f): \gr(M) &\to \gr(N), \\
+  \gr(f)(\gamma_M^p(u)) &= \gamma_N^p(f(u)).
+\end{align*}
+
+NOTE 2: Let $M, N \in \mathcal{C}^{\lambda \ge}_{(\mathfrak{g}, \mathfrak{h})}$, and let $f: M \to N$ be a homomorphism.
+Then by NOTE 1, $f$ respects the $\mathfrak{h}^*$-grading, and this implies $f(M^p) \subseteq N^p$, so what we wrote above makes sense.
+
+NOTE 3: It is tempting to try to define the functor $\gr$ for highest weight modules by defining the filtration as $M^p = U(\mathfrak{g}^-)^pv$.
+However, this has several issues:
+\begin{enumerate}
+\item It is less general;
+\item It is not even a functor, let's consider $M = M(c, h)$, $J(c, h)$ the maximal submodule of $M(c, h)$ and $i: J(c, h) \hookrightarrow M(c, h)$ the inclusion homomorphism.
+  Then it is not clear how to define $\gr(i)$ because the highest weight vector of $M(c, h)$ lies at level $h$ while the highest weight vector of $J(c, h)$ may lie at a greater level $h + N$ for some $N$.
+  In fact, $J(c, h)$ is usually not even a highest weight module because it is generally generated by \emph{two} highest weight vectors, not one;
+\item The full subcategory of highest weight modules is not abelian because the direct sum of two highest weight modules is not a highest weight module.
+\end{enumerate}
+
+EXAMPLE: When $M$ is a Verma module, $\gr(M)$ is naturally isomorphic to $\gr(U(\mathfrak{g}^-))$, so we are only in the polynomial case, at least in the cases we are interested in.
+
+The \emph{refined character of $M \in \mathcal{C}^{\lambda \ge}_{(\mathfrak{g}, \mathfrak{h})}$}, where $M$ is semisimple, is defined by
 \begin{equation*}
-  \ch_M(t, q) = \sum_{p \in \mathbb{N}}\sum_{\lambda \in \mathfrak{h}^*}\dim(\gamma^p(U(\mathfrak{g}^-)^pv \cap M_{\lambda}))t^pq^{\lambda},
+  \ch_M(t, q) = \sum_{p \in \mathbb{N}}\sum_{\lambda \in \mathfrak{h}^*}\dim(\gamma^p(M^p \cap M_{\lambda}))t^pq^{\lambda},
 \end{equation*}
 and this is what we are interested in.
 
@@ -430,5 +233,127 @@ For example,
 \begin{equation*}
   \ch_{M(c, h)}(t, q) = \frac{q^h}{\prod_{k \in \mathbb{Z}_+}(1 - tq^k)}.
 \end{equation*}
+
+\section{Notation}
+\label{sec:notation}
+
+We set:
+\begin{align*}
+  c_{p, q} &= 1 - \frac{6(p - q)^2}{pq} \quad \text{for $p, q \ge 2$ relatively prime integers}, \\
+  h_{m, n} &= \frac{(np - mq)^2 - (p - q)^2}{4pq} \quad \text{for $0 < m < p$ and $0 < n < q$.}
+\end{align*}
+Then
+\begin{align*}
+  \ch_{L(c_{p, q}, h_{m, n})}(q) &= \frac{1}{(q)_{\infty}}\sum_{k \in \mathbb{Z}}q^{\frac{(2kpq + mq - np)^2 - (p - q)^2}{4pq}} - q^{\frac{(2kpq + mq + np)^2 - (p - q)^2}{4pq}} \\
+                                 &= \frac{q^{h_{m, n}}}{(q)_{\infty}}\sum_{k \in \mathbb{Z}}q^{k^2pq + k(mq - np)}-q^{k^2pq + k(mq + np) + mn} \\
+                                 &= \frac{q^{h_{m, n}}}{(q)_{\infty}}\sum_{k \in \mathbb{Z}}q^{k^2pq + k(mq - np)}-q^{(m + kp)(n + kq)}.
+\end{align*}
+One can also replace $m \mapsto p - m$ and $n \mapsto q - n$, but I don't think this is useful.
+
+In this sketch, we take:
+\begin{align*}
+  p &= 2, \\
+  q &= 2s + 1 \quad \text{for $s \in \mathbb{Z}_+$}.
+\end{align*}
+Thus, $\Vir_{2, 2s + 1}$ has $s$ modules $L(c_{2, 2s + 1}, h_{1, 1}), L(c_{2, 2s + 1}, h_{1, 2}), \dots, L(c_{2, 2s + 1}, h_{1, s})$.
+
+\section{Conjecture}
+\label{sec:conjecture}
+
+We take $\len(L_{-1}) = \len(L_{-2}) = \dots = 1$.
+
+\begin{align*}
+  \ch_{L(c_{2, 2s + 1}, h_{1, i})}(t, q) &= \sum_{j = 0}^{i - 1}p_{1^j}(t, q), \quad i = 1, \dots, s, \\
+  p_{1^j}(t, q) &= \sum_{k = (k_1, \dots, k_s) \in \mathbb{N}^{s - 1}}t^{kB^{(s)}_{s - 1} + j}\frac{q^{\frac{1}{2}kG^{(s)}k^T + k(B^{(s)}_{s - 1} + B^{(s)}_j) + j}}{(q)_{k_1}\dots(q)_{k_{s - 1}}}, \quad j = 0, 1, \dots, s - 1,
+\end{align*}
+where
+\begin{align*}
+  G^{(s)} &= (2\min\{i, j\})_{i, j = 1}^{s - 1}, \\
+  B^{(s)}_j &=
+              \left(\begin{smallmatrix}
+                0 \\
+                0 \\
+                \vdots \\
+                0 \\
+                1 \\
+                2 \\
+                \vdots \\
+                j
+              \end{smallmatrix}\right), \quad j = 0, 1, \dots, s - 1.  
+\end{align*}
+
+NOTE 4: $p_{1^i}$ means the series of the partitions ending in exactly $i$ ones.
+
+\section{Context, work done by Andrews and what we are trying to calculate}
+\label{sec:context-work-done}
+
+In this section and the following ones, we explain what we are trying to calculate, what was done by Andrews and show the difference between the vertex algebra module approach and the Lie algebra module approach.
+
+Note that in the case $i = 1$, we have $h_{1, 1} = 0$, and we are in the vertex algebra case $L(c_{2, 2s + 1}, 0) = \Vir_{c_{2, 2s + 1}}$.
+This case is studied in the book The theory of partitions, as we now show.
+We first recall that $R_{\Vir^{2, 2s + 1}} = \mathbb{C}[L_{-2}]$.
+We know that $\Vir_{2, 2s + 1}$ is classically free, and $R_{\Vir_{2, 2s + 1}} = \mathbb{C}[L_{-2}]/(L_{-2}^s)$ because the maximal ideal of $\Vir^{2, 2s + 1}$ is generated by an element with leading monomial $L_{-2}^s\vac$ in the degree reverse lexicographical order with $L_{-2} > L_{-3} > \dots$, which is the term order we always use.
+
+Thus, we have 
+\begin{equation*}
+  JR_{\Vir_{2, 2s + 1}}/(L_{-2}^s)_{\partial} = \mathbb{C}[L_{-2}, L_{-3}, \dots]/(L_{-2}^s)_{\partial}.
+\end{equation*}
+
+The leading term ideal of $(L_{-2}^s)_{\partial}$ in $\mathbb{C}[L_{-2}, L_{-3}, \dots]$ is generated by the polynomials $L_{-\lambda_1} \dots L_{-\lambda_m} \in \mathbb{C}[L_{-2}, L_{-3}, \dots]$, where $\lambda = [\lambda_1, \dots, \lambda_m]$ is a partition satisfying $\lambda_m \ge 2$ and the difference condition
+\begin{equation*}
+  \lambda_i - \lambda_{i + s - 1} \le 1 \quad \text{for some $i$ with $1 \le i \le m + 1 - s$}.
+\end{equation*}
+Therefore, by Grobner basis theory, a basis of $JR_{\Vir_{2, 2s + 1}}/(L_{-2}^s)_{\partial}$ is given by classes of polynomials $L_{-\lambda_1} \dots L_{-\lambda_m} \in \mathbb{C}[L_{-2}, L_{-3}, \dots]$, where $\lambda = [\lambda_1, \dots, \lambda_m]$ is a partition satisfying $\lambda_m \ge 2$ and the difference condition
+\begin{equation}
+  \label{eq:1}
+  \lambda_i - \lambda_{i + s - 1} \ge 2 \quad \text{for $1 \le i \le m + 1 - s$}.
+\end{equation}
+NOTE 5: Actually, this is handwaving a little bit because strictly speaking, Grobner basis theory only applies to finitely generated polynomial algebras.
+But we can make this rigorous by studying $\mathbb{C}[L_{-2}, L_{-3}, \dots, L_{-N}]$ and then letting $N \to \infty$.
+
+In Theorem 7.5 of The theory of partitions, the number of partitions $\lambda$ of $n$ satisfying $\lambda_m \ge 2$ and \eqref{eq:1} is denoted by $B_{s, 1}$ (note that we are changing $k$ to $s$ here and setting $i = 1$).
+In that section, it is also defined by $b_{s, 1}(m, n)$ the number of partitions $\lambda$ of $n$ with exactly $m$ parts satisfying $\lambda_m \ge 2$ and \eqref{eq:1}.
+It is also noted that $b_{s, 1}(m, n) = c_{s, 1}(m, n)$, where
+\begin{equation*}
+  J_{s, 1}(0; t; q) = \sum_{m = 0}^{\infty}\sum_{n = 0}^{\infty}c_{s, 1}(m, n)t^mq^n,
+\end{equation*}
+and we have changed $x$ to $t$.
+
+Note that, using the notation of Theorem 7.8 and the previous section, we have
+\begin{align*}
+  N_1^2 + \dots + N_{s - 1}^2 &= \frac{1}{2}kG^{(s)}k^T, \\
+  N_1 + \dots + N_{s - 1} &= kB^{(s)}_{s - 1},
+\end{align*}
+where we have replaced $k$ by $s$.
+By (the proof of) Theorem 7.8, we have
+\begin{equation*}
+  J_{s, 0}(0; t; q) = \sum_{k = (k_1, \dots, k_s) \in \mathbb{N}^{s - 1}}t^{kB^{(s)}_{s - 1}}\frac{q^{\frac{1}{2}kG^{(s)}k^T + kB^{(s)}_{s - 1}}}{(q)_{k_1}\dots(q)_{k_{s - 1}}}.
+\end{equation*}
+
+From the natural isomorphisms
+\begin{align*}
+  JR_{\Vir_{2, 2s + 1}}/(L_{-2}^s)_{\partial} &\cong \gr_F(\Vir_{2, 2s + 1}), \\
+  \gr_F(\Vir_{2, 2s + 1}) &\cong \Vir_{2, 2s + 1},
+\end{align*}
+we have that a basis of $\Vir_{2, 2s + 1}$ is given by the classes of elements of the form $L_{-\lambda_1}\dots L_{-\lambda_m}\vac$, where $\lambda$ is a partition satisfying $\lambda_m \ge 2$ and \eqref{eq:1}.
+
+In conclusion, the refined character of $\Vir_{2, 2s + 1}$ is given by 
+\begin{align*}
+  \ch_{\Vir_{2, 2s + 1}}(t, q) &= \sum_{m = 0}^{\infty}\sum_{n = 0}^{\infty}b_{s, 1}(m, n)t^mq^n = \sum_{m = 0}^{\infty}\sum_{n = 0}^{\infty}c_{s, 1}(m, n)t^mq^n \\
+                               &= J_{s, 1}(0; t; q) = \sum_{k = (k_1, \dots, k_s) \in \mathbb{N}^{s - 1}}t^{kB^{(s)}_{s - 1}}\frac{q^{\frac{1}{2}kG^{(s)}k^T + kB^{(s)}_{s - 1}}}{(q)_{k_1}\dots(q)_{k_{s - 1}}},
+\end{align*}
+and this is precisely the formula in the previous section with $i = 1$.
+
+NOTE 6: I'm not sure we can use other values of $i$ other than $i = 1$.
+But probably, we can.
+
+VERY IMPORTANT NOTE: We have not calculated the refined character with respect to the standard filtration $G^p\Vir_{2, 2s + 1}$ because there is a missing factor $2$ coming from the conformal weight of $L_{-2}\vac$ being $2$.
+Sure, we could simply add it here and put $t^{2kB^{(s)}}$ instead of $t^{kB^{(s)}}$.
+But the situation is different when we deal with modules because in that case $L_{-1}$ has length $1$ while $L_{-2}, L_{-3}, \dots$ have length $2$, and then the resulting character is probably not given by simply multiplying by $2$ or other trivial operation.
+Thus, we had to truly define properly the meaning of the refined character in the case of $\Vir$-modules.
+Sadly, if we do it like this, this does not have much to do with modules over vertex algebras and probably we can't study classically free modules over vertex algebras (or some concepts related to that).
+But we might be able to go from the formula for the refined character with all lengths equal to the formula for the refined character with respect to the standard filtration.
+But when I tried calculating the refined characters using the standard filtration, I could not find a closed formula.
+And the results in Andrew's book probably don't help much if we use the standard filtration of modules over vertex algebras.
 
 \end{document}
