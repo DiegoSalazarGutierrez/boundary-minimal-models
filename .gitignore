@@ -19,3 +19,7 @@ auto
 *.snm
 *.vrb
 _region_.tex
+sage notebooks/tests.ipynb
+sage notebooks/tests2.ipynb
+**/*.ipynb
+mathematica notebooks/explicit-singular.nb
