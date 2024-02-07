@@ -2,7 +2,11 @@
 
 \usepackage[margin = 0.75in]{geometry}
 \usepackage{amssymb}
+\usepackage{tikz-cd}
 \usepackage{enumitem}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
 
 \setenumerate[0]{label = \normalfont(\roman*)}
 
@@ -15,6 +19,7 @@
 \DeclareMathOperator{\vspan}{span}
 \DeclareMathOperator{\supp}{supp}
 \DeclareMathOperator{\ad}{ad}
+\DeclareMathOperator{\lm}{lm}
 
 \begin{document}
 
@@ -50,7 +55,7 @@ The unit of $\gr(A)$ is $\gamma^0(1)$.
 
 Let $\partial$ be a derivation of $A$ respecting the gradation $(A^p)_{p \in \mathbb{Z}}$, i.e., it satisfies:
 \begin{enumerate}
-\item $\partial(ab) = \partial(a)b + b\partial(a)$ for $a, b \in A$;
+\item $\partial(ab) = \partial(a)b + a\partial(b)$ for $a, b \in A$;
 \item $\partial(A^p) \subseteq A^p$ for $p \in \mathbb{Z}$.
 \end{enumerate}
 Then we can define
@@ -96,7 +101,7 @@ We can define a functor $\gr: A\text{-Mod} \to \gr(A)\text{-Mod}$ as follows.
 For a homomorphism $f: M \to N$, we set
 \begin{align*}
   \gr(f): \gr(M) &\to \gr(N), \\
-  \gr(f)(\gamma_M^p(u)) &= \gamma_N^p(f(u)).
+  \gr(f)(\gamma_M^p(u)) &= \gamma_N^p(f(u)) \quad \text{for $p \in \mathbb{N}$ and $u \in M^p$}.
 \end{align*}
 
 \section{Modules over $Q$-graded Lie algebras}
@@ -169,7 +174,7 @@ An $\mathfrak{h}$-diagonalizable module $M$ is called \emph{$\mathfrak{h}$-semis
 A $(\mathfrak{g}, \mathfrak{h})$-module is an $\mathfrak{h}$-diagonalizable $\mathfrak{g}$-module.
 From now on, we assume that $\pi_Q$ is injective.
 
-The \emph{character} of a semisimple $(\mathfrak{g}, \mathfrak{h})$-module $M$ is given by
+The \emph{character of a semisimple $(\mathfrak{g}, \mathfrak{h})$-module $M$} is given by
 \begin{equation*}
   \ch_M(q) = \sum_{\lambda \in \mathfrak{h}^*}\dim(M_{\lambda})q^{\lambda}.
 \end{equation*}
@@ -180,7 +185,7 @@ We can regard $\mathfrak{g}$ as a $(\mathfrak{g}, \mathfrak{h})$-module via the 
 \end{equation*}
 This construction assumes implicitly that $\pi_Q$ is injective.
 
-The category $\mathcal{C}_{(\mathfrak{g}, \mathfrak{h})}$ is the category whose objects are $\mathfrak{h}^*$-graded $(\mathfrak{g}, \mathfrak{h})$-modules and for $M, N \in \mathcal{C}_{(\mathfrak{g}, \mathfrak{h})}$, $\Hom_{\mathcal{C}_{(\mathfrak{g}, \mathfrak{h})}}(M, N) = \Hom_{\mathfrak{g}}(M, N)$ (Lie algebra homomorphisms).
+The category $\mathcal{C}_{(\mathfrak{g}, \mathfrak{h})}$ is the category whose objects are $\mathfrak{h}^*$-graded $(\mathfrak{g}, \mathfrak{h})$-modules and for $M, N \in \mathcal{C}_{(\mathfrak{g}, \mathfrak{h})}$, $\Hom_{\mathcal{C}_{(\mathfrak{g}, \mathfrak{h})}}(M, N) = \Hom_{\mathfrak{g}}(M, N)$ (Lie algebra module homomorphisms).
 
 NOTE 1: If $f \in \Hom_{\mathfrak{g}}(M, N)$, then $f$ respects the $\mathfrak{h}^*$-grading automatically because for $u \in M$ and $h \in \mathfrak{h}$, $hf(u) = f(hu) = f(\lambda(h)u) = \lambda(h)f(u)$.
 
@@ -198,7 +203,7 @@ $M$ is called a \emph{highest weight module} with \emph{highest weight} $\lambda
 \item $xv = 0$ for $x \in \mathfrak{g}^+$;
 \item $U(\mathfrak{g}^-)v = M$.
 \end{enumerate}
-The vector $v$ is called a \emph{highest weight vector} of $M$ and is unique up to multiplication by a nonzero scalar.
+The vector $v$ is called a \emph{highest weight vector of $M$} and is unique up to multiplication by a nonzero scalar.
 
 EXAMPLE: When considering the $\mathbb{Z}$-graded Virasoro Lie algebra $(\Vir, \mathfrak{h})$, where $\mathfrak{h} = \mathbb{C}L_0 \oplus \mathbb{C}C$, we identify $\mathfrak{h}^*$ with $\mathbb{C}^2$ as $\lambda = (c, h)$ if $\lambda(C) = c$ and $\lambda(L_0) = h$.
 We are mainly interested in the highest weight modules $M(c, h)$ and $L(c, h)$ of the Virasoro Lie algebra.
@@ -220,7 +225,7 @@ Let $M, N \in \mathcal{C}^{\lambda \ge}_{(\mathfrak{g}, \mathfrak{h})}$, and let
 Then we set
 \begin{align*}
   \gr(f): \gr(M) &\to \gr(N), \\
-  \gr(f)(\gamma_M^p(u)) &= \gamma_N^p(f(u)).
+  \gr(f)(\gamma_M^p(u)) &= \gamma_N^p(f(u)) \quad \text{for $p \in \mathbb{N}$ and $u \in M^p$}.
 \end{align*}
 
 NOTE 2: Let $M, N \in \mathcal{C}^{\lambda \ge}_{(\mathfrak{g}, \mathfrak{h})}$, and let $f: M \to N$ be a homomorphism.
@@ -379,8 +384,8 @@ And the results in Andrew's book probably don't help much if we use the standard
 \label{sec:conjecture-2}
 
 In this section, we fix $s \in \mathbb{Z}_+$ and pick any $i = 1, 2, \dots, s$.
-Let $\pi: M(c_{2, 2s + 1}, h_{1, i}) \to L(c_{2, 2s + 1}, h_{1, i})$ be the natural quotient map with kernel $J(c_{2, 2s + 1}, h_{1, i})$, the maximal submodule of $M(c_{2, 2s + 1}, h_{1, i})$.
-We apply the functor $\gr$, obtaining an epimorphism $\gr(\pi): \gr(M(c_{2, 2s + 1}, h_{1, i})) \to \gr(L(c_{2, 2s + 1}, h_{1, i}))$.
+Let $\pi: M(c_{2, 2s + 1}, h_{1, i}) \twoheadrightarrow L(c_{2, 2s + 1}, h_{1, i})$ be the natural quotient map with kernel $J(c_{2, 2s + 1}, h_{1, i})$, the maximal submodule of $M(c_{2, 2s + 1}, h_{1, i})$.
+We apply the functor $\gr$, obtaining an epimorphism $\gr(\pi): \gr(M(c_{2, 2s + 1}, h_{1, i})) \twoheadrightarrow \gr(L(c_{2, 2s + 1}, h_{1, i}))$.
 We wish to compute a Grobner basis of $\ker(\gr(\pi))$.
 
 From the data, we have the following conjecture: For $s \in \mathbb{Z}_+$ and $i = 1, 2, \dots, s$, the leading term ideal of $\ker(\gr(\pi))$ is generated by the polynomials $L_{-\lambda_1} \dots L_{-\lambda_m}$ where $\lambda = [\lambda_1, \dots, \lambda_m]$ is a partition satisfying \eqref{eq:1} and the exceptional partition $\underbrace{[1, 1, \dots, 1]}_i$.
@@ -391,5 +396,46 @@ NOTE 8: In the case $i = s$, we can ignore the partition $\underbrace{[1, 1, \do
 
 NOTE 9: By the articles ``Singular vectors over the Virasoro algebra and extended Verma modules'' and ``Asymptotics for singular vectors in Verma
 modules over the Virasoro algebra'', we have the desired partition $\underbrace{[1, 1, \dots, 1]}_i$ for all $i = 1, 2, \dots, s$ as a leading term, so we are almost finished.
+
+NOTE 10: It seems Conjecture 1 is correct, however it is unnecessarily complicated.
+In fact, Conjecture 2 and section 7.3 of Andrew's book (specifically Theorem 7.5 and the proof of Theorem 7.8) would imply that for $i = 1, 2, \dots, s$,
+\begin{align*}
+  \ch_{L(c_{2, 2s + 1}, h_{1, i})}(t, q) &= \sum_{m = 0}^{\infty}\sum_{n = 0}^{\infty}b_{s, i}(m, n)t^mq^n = \sum_{m = 0}^{\infty}\sum_{n = 0}^{\infty}c_{s, i}(m, n)t^mq^n \\
+                                         &= J_{s, i}(0; t; q) = \sum_{k = (k_1, \dots, k_s) \in \mathbb{N}^{s - 1}}t^{kB^{(s)}_{s - 1}}\frac{q^{\frac{1}{2}kG^{(s)}k^T + kB^{(s)}_{s - i}}}{(q)_{k_1}\dots(q)_{k_{s - 1}}}.
+\end{align*}
+
+NOTE 11: To prove Conjecture 2, it remains to show the following.
+\begin{lemma}
+  \label{lmm:1}
+  Let $s \in \mathbb{Z}_+$, and we pick any $i = 1, 2, \dots, s$.
+  For a partition $\lambda$ of length $p$ satisfying \eqref{eq:1}, there $u \in J(c_{2, 2s + 1}, h_{1, i}) \cap M(c_{2, 2s + 1}, h_{1, i})^p$ such that $\lm(u) = L_{\lambda}\vac$.
+\end{lemma}
+
+\begin{proof}[sketch of proof]
+  We should use the fact that the following diagram commutes
+  \begin{equation*}
+    \begin{tikzcd}
+      \Vir^c \arrow[r, two heads] \arrow[rd, "{Y^{L(c, h_{m, n})}_{\Vir^c}}"'] & {\Vir_c} \arrow[d, "{Y^{L(c, h_{m, n})}_{\Vir_c}}"] \\
+      & {\mathcal{F}(L(c, h_{m, n}))}
+    \end{tikzcd}
+  \end{equation*}
+  This is because we are studying precisely the modules over $\Vir_{2, 2s + 1}$.
+  It is also nice to start using vertex algebra theory.
+
+  That diagram implies the following statement
+  \begin{equation*}
+    \text{for $a \in U(\Vir)\{a_{2, 2s + 1}\}$, $a_{(-1)}|c_{2, 2s + 1}, h_{1, i}\rangle \in J(c_{2, 2s + 1}, h_{1, i})$},
+  \end{equation*}
+  where $a_{2, 2s + 1}$ denotes the singular vector of $\Vir^{2, 2s + 1}$ generating $J(c_{2, 2s + 1}, 0)$.
+
+  This statement together with the following observation would almost imply Lemma 1.
+  For $c, h \in \mathbb{C}$ and a partition $\lambda = [\lambda_1, \dots, \lambda_m]$ with $\lambda_m \ge 2$,
+  \begin{equation*}
+    (L_{\lambda}\vac)_{(-1)}|c, h\rangle = L_{\lambda}|c, h\rangle + \text{(lower order terms)}.
+  \end{equation*}
+  By lower order terms, we mean that we are using the degree reverse lexicographic order with $L_{-1} > L_{-2} > \dots$.
+  I wrote ``almost'' because this does not include any partitions with ones.
+  I am not sure how to overcome this obstacle.
+\end{proof}
 
 \end{document}
