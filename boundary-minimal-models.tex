@@ -408,7 +408,7 @@ NOTE 11: To prove Conjecture 2, it remains to show the following.
 \begin{lemma}
   \label{lmm:1}
   Let $s \in \mathbb{Z}_+$, and we pick any $i = 1, 2, \dots, s$.
-  For a partition $\lambda$ of length $p$ satisfying \eqref{eq:1}, there $u \in J(c_{2, 2s + 1}, h_{1, i}) \cap M(c_{2, 2s + 1}, h_{1, i})^p$ such that $\lm(u) = L_{\lambda}\vac$.
+  For a partition $\lambda$ of length $p$ satisfying \eqref{eq:1}, there $u \in J(c_{2, 2s + 1}, h_{1, i}) \cap M(c_{2, 2s + 1}, h_{1, i})^p$ such that $\lm(u) = L_{\lambda}|c_{2, 2s + 1}, h_{1, i}\rangle$.
 \end{lemma}
 
 \begin{proof}[sketch of proof]
@@ -436,6 +436,12 @@ NOTE 11: To prove Conjecture 2, it remains to show the following.
   By lower order terms, we mean that we are using the degree reverse lexicographic order with $L_{-1} > L_{-2} > \dots$.
   I wrote ``almost'' because this does not include any partitions with ones.
   I am not sure how to overcome this obstacle.
+
+  Actually, I think what is correct is that
+  \begin{equation*}
+    (L_{\lambda}\vac)_{(-1)}|c, h\rangle = L_{\lambda}|c, h\rangle + \sum_{\substack{\Delta(\mu) = \Delta(\lambda) \\ \len(\mu) \le \len(\lambda) \\ \len_2(\mu) < \len_2(\lambda)}}c_{\mu}L_{\mu}|c, h\rangle.
+  \end{equation*}
+  The partitions with ones have to be dealt separately.
 \end{proof}
 
 \end{document}
