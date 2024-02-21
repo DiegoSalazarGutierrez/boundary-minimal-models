@@ -1,18 +1,28 @@
 \documentclass[a4paper, 12pt, reqno]{amsart}
 
-\usepackage[margin = 0.75in]{geometry}
 \usepackage{amssymb}
+\usepackage[backref = page]{hyperref}
+\usepackage[margin = 0.75in]{geometry}
+\usepackage[shortlabels]{enumitem}
 \usepackage{tikz-cd}
-\usepackage{enumitem}
+\usepackage[nameinlink]{cleveref}
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
 
 \setenumerate[0]{label = \normalfont(\roman*)}
 
 \DeclareMathOperator{\Vir}{Vir}
+\DeclareMathOperator{\Ind}{Ind}
 \DeclareMathOperator{\ch}{ch}
 \DeclareMathOperator{\len}{len}
+\DeclareMathOperator{\clen}{clen}
 \DeclareMathOperator{\vac}{|0\rangle}
 \DeclareMathOperator{\gr}{gr}
 \DeclareMathOperator{\Hom}{Hom}
@@ -21,7 +31,22 @@
 \DeclareMathOperator{\ad}{ad}
 \DeclareMathOperator{\lm}{lm}
 
+\renewcommand*{\backref}[1]{}
+\renewcommand*{\backrefalt}[4]{%
+  \ifcase #1 (Not cited.)%
+  \or        (Cited on page~#2.)%
+  \else      (Cited on pages~#2.)%
+  \fi}
+
 \begin{document}
+
+\setcounter{section}{-1}
+
+\begin{abstract}
+  Some abstract. \\
+  \smallskip
+  \noindent \textbf{Keywords.} Some keywords.
+\end{abstract}
 
 \title{Boundary minimal models}
 \author{Diego Salazar}
@@ -29,6 +54,122 @@
 \email{diego.salazar@impa.br}
 \date{\today}
 \maketitle
+
+\section{Introduction}
+\label{sec:introduction}
+
+Let $s \in \mathbb{Z}_+$, let $i \in \{1, 2, \dots, s\}$, let $R^{s, i}$ denote the following set of partitions
+\begin{equation*}
+  R^{s, i} = \{\lambda \mid \text{$\lambda$ satisfies \eqref{eq:1} or $\lambda = \underbrace{[1, 1, \dots, 1]}_i$}\},
+\end{equation*}
+and let $P^{s, i}$ be the set of partitions that do not contain any partition in $R^{s, i}$.
+
+Given a partition $\lambda = [\lambda_1, \dots, \lambda_m]$, we consider the \emph{difference condition} defined as
+\begin{equation}
+  \label{eq:1}
+  \lambda_i - \lambda_{i + s - 1} \le 1 \quad \text{for some $i$ with $1 \le i \le m + 1 - s$}.
+\end{equation}
+
+\begin{theorem}
+  \label{thr:1}
+  With notation as above, we have
+  \begin{equation}
+    \label{eq:2}
+    \ch_{L(c_{2, 2s + 1}, h_{1, i})}(t, q) = J_{s, i}(0; t; q) = \sum_{k = (k_1, \dots, k_s) \in \mathbb{N}^{s - 1}}t^{kB^{(s)}_{s - 1}}\frac{q^{\frac{1}{2}kG^{(s)}k^T + kB^{(s)}_{s - i}}}{(q)_{k_1}\dots(q)_{k_{s - 1}}},
+  \end{equation}
+  where
+  \begin{align*}
+    G^{(s)} &= (2\min\{i, j\})_{i, j = 1}^{s - 1}, \\
+    B^{(s)}_j &=
+                \left(\begin{smallmatrix}
+                  0 \\
+                  0 \\
+                  \vdots \\
+                  0 \\
+                  1 \\
+                  2 \\
+                  \vdots \\
+                  j
+                \end{smallmatrix}\right), \quad j = 0, 1, \dots, s - 1.  
+  \end{align*}
+\end{theorem}
+
+\begin{theorem}
+  \label{thr:2}
+  The set
+  \begin{equation*}
+    \{L_{-\lambda_1}L_{-\lambda_2}\dots L_{-\lambda_m}|c_{2, 2s + 1}, h_{1, i}\rangle \mid \lambda = [\lambda_1, \dots, \lambda_m] \in R_{s, i}\}
+  \end{equation*}
+  is a vector space basis of $L(c_{2, 2s + 1}, h_{1, i})$. 
+\end{theorem}
+
+\begin{theorem}
+  \label{thr:3}
+  Need some theorem about modularity of the refined characters.
+  Probably something analyzing the two modules over $\Vir_{2, 5}$ would be best to do first. 
+\end{theorem}
+
+\section{Preliminaries and notation}
+\label{sec:prel-notat}
+
+The set of natural numbers $\{0, 1, \dots\}$ is denoted by $\mathbb{N}$, the set of integers is denoted by $\mathbb{Z}$, and the set of positive integers $\{1, 2, \dots\}$ is denoted by $\mathbb{Z}_+$.
+
+First, we review the theory of representations of the Virasoro Lie algebra following \cite{kac_bombay_2013}.
+The \emph{Virasoro Lie algebra} is a Lie algebra given by
+\begin{equation*}
+  \Vir = \bigoplus_{n \in \mathbb{Z}}\mathbb{C}L_n \oplus \mathbb{C}C.
+\end{equation*}
+These elements satisfy the following commutation relations:
+\begin{align*}
+  [L_m, L_n] &= (m - n)L_{m + n} + \delta_{m, -n}\frac{m^3 - m}{12}C \quad \text{for $m, n \in \mathbb{Z}$}, \\
+  [\Vir, C] &= 0.
+\end{align*}
+Let $c, h \in \mathbb{C}$.
+We set $\Vir_{\ge 0} = \bigoplus_{n \in \mathbb{N}}\mathbb{C}L_n$.
+We make the subalgebra $\Vir_{\ge 0} \oplus \mathbb{C}C$ of $\Vir$ act on $\mathbb{C}$ as follows:
+\begin{equation*}
+  \text{$L_n1 = 0$ for $n \in \mathbb{Z}_+$, $L_01 = h$ and $C1 = c$}.
+\end{equation*}
+The \emph{Verma representation} of $\Vir$ with \emph{highest weight} $(c, h)$ is defined as
+\begin{equation*}
+  M(c, h) = \Ind^{\Vir}_{\Vir_{\ge 0} \oplus \mathbb{C}C}(\mathbb{C}) = U(\Vir) \otimes_{U(\Vir_{\ge 0} \oplus \mathbb{C}C)} \mathbb{C},
+\end{equation*}
+where $\Vir$ acts by left multiplication.
+We take $|c, h\rangle = 1 \otimes 1$ as \emph{highest weight vector}.
+
+A \emph{partition (of $n \in \mathbb{N}$)} is a sequence $\lambda = [\lambda_1, \dots, \lambda_m]$ such that $\lambda_i \in \mathbb{Z}_+$ for $i = 1, \dots, m$, $\lambda_1 \ge \dots \ge \lambda_m$ (and $\lambda_1 + \dots + \lambda_m = n$).
+We also consider the \emph{empty partition} $\emptyset$, which is the unique partition of $0$.
+For a partition $\lambda = [\lambda_1, \dots, \lambda_m]$, we define
+\begin{equation*}
+  L_{\lambda} = L_{-\lambda_1}\dots L_{-\lambda_m} \in U(\Vir).
+\end{equation*}
+By the PBW theorem, the set
+\begin{equation*}
+  \{L_{\lambda}|c, h\rangle \mid \text{$\lambda$ is a partition}\}
+\end{equation*}
+is a vector space basis of $M(c, h)$.
+The representation $M(c, h)$ has a unique maximal proper subrepresentation $J(c, h)$, and the quotient
+\begin{equation*}
+  L(c, h) = M(c, h)/J(c, h)
+\end{equation*}
+is the \emph{irreducible highest weight representation} of $\Vir$ with highest weight $(c, h)$.
+
+For a partition $\lambda = [\lambda_1, \dots, \lambda_m, 1, \dots, 1]$ with exactly $n$ ones, we define the \emph{length of $\lambda$} as
+\begin{equation*}
+  \len(\lambda) = m + n,
+\end{equation*}
+the \emph{conformal length of $\lambda$} as
+\begin{equation*}
+  \clen(\lambda) = 2m + n,
+\end{equation*}
+the \emph{weight of $\lambda$} as
+\begin{equation*}
+  \Delta(\lambda) = \lambda_1 + \dots + \lambda_m + n,
+\end{equation*}
+and $p_{\lambda} \in \mathbb{C}[L_{-1}, L_{-2}, \dots]$ by setting
+\begin{equation*}
+  p_{\lambda} = L_{-\lambda_1}\dots L_{-\lambda_m}.
+\end{equation*}
 
 \section{Modules over algebras with a filtration}
 \label{sec:modul-over-algebr}
@@ -65,14 +206,17 @@ Then we can define
 \end{align*}
 and it is a derivation of $\gr(A)$.
 
-MAIN EXAMPLE: Let $\mathfrak{g}$ be a Lie algebra.
-The \emph{PBW filtration of $U(\mathfrak{g})$}, the universal enveloping algebra of $\mathfrak{g}$, is given by
-\begin{equation*}
-  U(\mathfrak{g})^p = \vspan\{x_1x_2\dots x_s \mid s \le p, x_1, \dots, x_s \in \mathfrak{g}\} \quad \text{for $p \in \mathbb{Z}$}.
-\end{equation*}
-This filtration clearly satisfies axioms (i)--(iv) above, and $\gr(U(\mathfrak{g}))$ is naturally isomorphic to $S(\mathfrak{g})$, the symmetric algebra of $\mathfrak{g}$, which is a polynomial algebra.
-Furthermore, if $\partial$ is a derivation of $\mathfrak{g}$ as a Lie algebra, then we can extend $\partial$ to a derivation of $U(\mathfrak{g})$, and it respects the PBW filtration.
-Thus, it defines a derivation $\partial: \gr(U(\mathfrak{g})) \to \gr(U(\mathfrak{g}))$.
+\begin{example}
+  \label{exa:1}
+  Let $\mathfrak{g}$ be a Lie algebra.
+  The \emph{PBW filtration of $U(\mathfrak{g})$}, the universal enveloping algebra of $\mathfrak{g}$, is given by
+  \begin{equation*}
+    U(\mathfrak{g})^p = \vspan\{x_1x_2\dots x_s \mid s \le p, x_1, \dots, x_s \in \mathfrak{g}\} \quad \text{for $p \in \mathbb{Z}$}.
+  \end{equation*}
+  This filtration clearly satisfies axioms (i)--(iv) above, and $\gr(U(\mathfrak{g}))$ is naturally isomorphic to $S(\mathfrak{g})$, the symmetric algebra of $\mathfrak{g}$, which is a polynomial algebra.
+  Furthermore, if $\partial$ is a derivation of $\mathfrak{g}$ as a Lie algebra, then we can extend $\partial$ to a derivation of $U(\mathfrak{g})$, and it respects the PBW filtration.
+  Thus, it defines a derivation $\partial: \gr(U(\mathfrak{g})) \to \gr(U(\mathfrak{g}))$.
+\end{example}
 
 Let $M$ be an $A$-module with filtration $(M^p)_{p \in \mathbb{Z}}$ such that:
 \begin{enumerate}
@@ -138,22 +282,18 @@ If we set $Q^+ = \sum_{i = 1}^r\mathbb{Z}_{\ge 0}\alpha_i$ and
 then we have $\mathfrak{g} = \mathfrak{g}^- \oplus \mathfrak{h} \oplus \mathfrak{g}^+$.
 For later use, we set $\mathfrak{g}^{\ge} = \mathfrak{h} \oplus \mathfrak{g}^+$ and $\mathfrak{g}^{\le} = \mathfrak{g}^- \oplus \mathfrak{h}$.
 
-MAIN EXAMPLE: The \emph{Virasoro Lie algebra}, denoted by $\Vir$, is the Lie algebra given by:
-\begin{align*}
-  \Vir &= \bigoplus_{n \in \mathbb{Z}}\mathbb{C}L_n \oplus \mathbb{C}C, \\
-  [L_m, L_n] &= (m - n)L_{m + n} + \delta_{m, -n}\frac{m^3 - m}{12}C \quad \text{for $m, n \in \mathbb{Z}$}, \\
-  [\Vir, C] &= 0.
-\end{align*}
-
-We set $Q = \mathbb{Z}$, $\mathfrak{h} = \mathbb{C}L_0 \oplus \mathbb{C}C$ and
-\begin{align*}
-  \pi_Q: Q &\to \mathfrak{h}^*, \\
-  \pi_Q(n) &= (L_0 \mapsto -n, C \mapsto 0) \quad \text{for $n \in \mathbb{Z}$}.
-\end{align*}
-Then $(\Vir, \mathfrak{h})$ is readily seen to be a $\mathbb{Z}$-graded Lie algebra.
-We take $1$ as the basis of $Q$, so $Q^+ = \mathbb{N}$.
-We can verify that $\ad(L_{-1})$ is a derivation of $\Vir$ satisfying $\ad(L_{-1})(\Vir^-) \subseteq \Vir^-$.
-Therefore, $\gr(\Vir^-) = \mathbb{C}[L_{-1}, L_{-2}, \dots]$ has a derivation given by $\partial(L_{-n}) = (n - 1)L_{-n - 1}$.
+\begin{example}[\emph{$\Vir$ as a $\mathbb{Z}$-graded Lie algebra}]
+  \label{exa:2}
+  We set $Q = \mathbb{Z}$, $\mathfrak{h} = \mathbb{C}L_0 \oplus \mathbb{C}C$ and
+  \begin{align*}
+    \pi_Q: Q &\to \mathfrak{h}^*, \\
+    \pi_Q(n) &= (L_0 \mapsto -n, C \mapsto 0) \quad \text{for $n \in \mathbb{Z}$}.
+  \end{align*}
+  Then $(\Vir, \mathfrak{h})$ is readily seen to be a $\mathbb{Z}$-graded Lie algebra.
+  We take $1$ as the basis of $Q$, so $Q^+ = \mathbb{N}$.
+  We can verify that $\ad(L_{-1})$ is a derivation of $\Vir$ satisfying $\ad(L_{-1})(\Vir^-) \subseteq \Vir^-$.
+  Therefore, $\gr(\Vir^-) = \mathbb{C}[L_{-1}, L_{-2}, \dots]$ has a derivation given by $\partial(L_{-n}) = (n - 1)L_{-n - 1}$.
+\end{example}
 
 Let $\Gamma$ be an abelian group, and let $\mathfrak{g} = \bigoplus_{\alpha \in \Gamma}\mathfrak{g}^{\alpha}$ be a $\Gamma$-graded Lie algebra.
 A $\mathfrak{g}$-module $M = \bigoplus_{\alpha \in \Gamma}M^{\alpha}$ is \emph{$\Gamma$-graded} if
@@ -187,7 +327,10 @@ This construction assumes implicitly that $\pi_Q$ is injective.
 
 The category $\mathcal{C}_{(\mathfrak{g}, \mathfrak{h})}$ is the category whose objects are $\mathfrak{h}^*$-graded $(\mathfrak{g}, \mathfrak{h})$-modules and for $M, N \in \mathcal{C}_{(\mathfrak{g}, \mathfrak{h})}$, $\Hom_{\mathcal{C}_{(\mathfrak{g}, \mathfrak{h})}}(M, N) = \Hom_{\mathfrak{g}}(M, N)$ (Lie algebra module homomorphisms).
 
-NOTE 1: If $f \in \Hom_{\mathfrak{g}}(M, N)$, then $f$ respects the $\mathfrak{h}^*$-grading automatically because for $u \in M$ and $h \in \mathfrak{h}$, $hf(u) = f(hu) = f(\lambda(h)u) = \lambda(h)f(u)$.
+\begin{remark}
+  \label{rmk:1}
+  If $f \in \Hom_{\mathfrak{g}}(M, N)$, then $f$ respects the $\mathfrak{h}^*$-grading automatically because for $u \in M$ and $h \in \mathfrak{h}$, $hf(u) = f(hu) = f(\lambda(h)u) = \lambda(h)f(u)$.
+\end{remark}
 
 We can introduce a partial order on $Q$ as follows
 \begin{equation*}
@@ -205,10 +348,13 @@ $M$ is called a \emph{highest weight module} with \emph{highest weight} $\lambda
 \end{enumerate}
 The vector $v$ is called a \emph{highest weight vector of $M$} and is unique up to multiplication by a nonzero scalar.
 
-EXAMPLE: When considering the $\mathbb{Z}$-graded Virasoro Lie algebra $(\Vir, \mathfrak{h})$, where $\mathfrak{h} = \mathbb{C}L_0 \oplus \mathbb{C}C$, we identify $\mathfrak{h}^*$ with $\mathbb{C}^2$ as $\lambda = (c, h)$ if $\lambda(C) = c$ and $\lambda(L_0) = h$.
-We are mainly interested in the highest weight modules $M(c, h)$ and $L(c, h)$ of the Virasoro Lie algebra.
-In this case, $(c_2, n_2) \ge (c_1, n_1)$ if and only if $c_1 = c_2$ and $n_1 \ge n_2$.
-If this happens, $(c_2, n_2) - (c_1, n_1) = n_1 - n_2$.
+\begin{example}
+  \label{exa:3}
+  When considering the $\mathbb{Z}$-graded Virasoro Lie algebra $(\Vir, \mathfrak{h})$, where $\mathfrak{h} = \mathbb{C}L_0 \oplus \mathbb{C}C$, we identify $\mathfrak{h}^*$ with $\mathbb{C}^2$ as $\lambda = (c, h)$ if $\lambda(C) = c$ and $\lambda(L_0) = h$.
+  We are mainly interested in the highest weight modules $M(c, h)$ and $L(c, h)$ of the Virasoro Lie algebra.
+  In this case, $(c_2, n_2) \ge (c_1, n_1)$ if and only if $c_1 = c_2$ and $n_1 \ge n_2$.
+  If this happens, $(c_2, n_2) - (c_1, n_1) = n_1 - n_2$.
+\end{example}
 
 \section{The refined character}
 \label{sec:refined-character}
@@ -228,20 +374,22 @@ Then we set
   \gr(f)(\gamma_M^p(u)) &= \gamma_N^p(f(u)) \quad \text{for $p \in \mathbb{N}$ and $u \in M^p$}.
 \end{align*}
 
-NOTE 2: Let $M, N \in \mathcal{C}^{\lambda \ge}_{(\mathfrak{g}, \mathfrak{h})}$, and let $f: M \to N$ be a homomorphism.
-Then by NOTE 1, $f$ respects the $\mathfrak{h}^*$-grading, and this implies $f(M^p) \subseteq N^p$, so what we wrote above makes sense.
+\begin{remark}
+  \label{rmk:2}
+  Let $M, N \in \mathcal{C}^{\lambda \ge}_{(\mathfrak{g}, \mathfrak{h})}$, and let $f: M \to N$ be a homomorphism.
+  By \Cref{rmk:1}, $f$ respects the $\mathfrak{h}^*$-grading, and this implies $f(M^p) \subseteq N^p$, so what we wrote above makes sense.
+\end{remark}
 
-NOTE 3: It is tempting to try to define the functor $\gr$ for highest weight modules by defining the filtration as $M^p = U(\mathfrak{g}^-)^pv$.
-However, this has several issues:
-\begin{enumerate}
-\item It is less general;
-\item It is not even a functor, let's consider $M = M(c, h)$, $J(c, h)$ the maximal submodule of $M(c, h)$ and $i: J(c, h) \hookrightarrow M(c, h)$ the inclusion homomorphism.
-  Then it is not clear how to define $\gr(i)$ because the highest weight vector of $M(c, h)$ lies at level $h$ while the highest weight vector of $J(c, h)$ may lie at a greater level $h + N$ for some $N$.
-  In fact, $J(c, h)$ is usually not even a highest weight module because it is generally generated by \emph{two} highest weight vectors, not one;
-\item The full subcategory of highest weight modules is not abelian because the direct sum of two highest weight modules is not a highest weight module.
-\end{enumerate}
-
-EXAMPLE: When $M$ is a Verma module, $\gr(M)$ is naturally isomorphic to $\gr(U(\mathfrak{g}^-))$, so we are only in the polynomial case, at least in the cases we are interested in.
+\begin{example}
+  \label{exa:4}
+  When $M = M(c, h)$ is a Verma representation of $\Vir$, we have a natural isomorphism
+  \begin{align*}
+    \gr(M(c, h)) &\xrightarrow{\sim} \mathbb{C}[L_{-1}, L_{-2}, \dots] = \gr(U(\Vir^{-})) \\
+    L_{\lambda}|c, h\rangle & \mapsto p_{\lambda},
+  \end{align*}
+  where $\lambda$ is a partition.
+  Therefore, when studying $L(c, h)$, we only have to study polynomial algebras, their ideals, quotients, and modules are not really required.
+\end{example}
 
 The \emph{refined character of $M \in \mathcal{C}^{\lambda \ge}_{(\mathfrak{g}, \mathfrak{h})}$}, where $M$ is semisimple, is defined by
 \begin{equation*}
@@ -250,15 +398,38 @@ The \emph{refined character of $M \in \mathcal{C}^{\lambda \ge}_{(\mathfrak{g}, 
 and this is what we are interested in.
 Clearly, we have $\ch_M(1, q) = \ch_M(q)$.
 
-EXAMPLE: We can consider the $\mathbb{Z}$-graded Virasoro Lie algebra $(\Vir, \mathfrak{h})$.
-We are mainly interested in $M(c, h)$ and $L(c, h)$.
-For example,
-\begin{equation*}
-  \ch_{M(c, h)}(t, q) = \frac{q^h}{\prod_{k \in \mathbb{Z}_+}(1 - tq^k)}.
-\end{equation*}
+\begin{example}
+  \label{exa:5}
+  We can consider the $\mathbb{Z}$-graded Virasoro Lie algebra $(\Vir, \mathfrak{h})$.
+  We are mainly interested in $M(c, h)$ and $L(c, h)$.
+  For example,
+  \begin{equation*}
+    \ch_{M(c, h)}(t, q) = \frac{q^h}{\prod_{k \in \mathbb{Z}_+}(1 - tq^k)}.
+  \end{equation*}
+\end{example}
 
-\section{Notation}
-\label{sec:notation}
+\begin{example}
+  \label{exa:6}
+  SINGULAR SUPPORT OF THE ISING MODEL EXAMPLE
+\end{example}
+
+\section{A short survey on vertex algebras}
+\label{sec:short-survey-vertex}
+
+\begin{lemma}
+  \label{lmm:1}
+  Let $V$ be a purely even vector space.
+  We consider $s$ fields $a^1(z), \dots, a^s(z) \in \mathcal{F}(V)$, with $s \ge 2$, and let $b \in V$.
+  For $l \in \mathbb{Z}$,
+  \begin{equation*}
+    :a^1(z)a^2(z)\dots a^s(z):_{(l)}b = \sum_{n_1, \dots, n_{s - 1} \in \mathbb{N}}\sum_{k = 0}^{s - 1}R^{l, k}_{n_1, \dots, n_{s - 1}}(a^1(z), \dots, a^s(z))b,
+  \end{equation*}
+  where
+  \begin{align*}
+    &R^{l, k}_{n_1, \dots, n_{s - 1}}(a^1(z), \dots, a^s(z)) = \\
+    &\sum_{\substack{1 \le i_1 < \dots < i_k \le s - 1 \\ 1 \le j_1 < \dots < j_{s - 1 - k} \le s - 1 \\ \{i_1, \dots, i_k\} \cup \{j_1, \dots, j_{s - 1 - k}\} = \{1, \dots, s - 1\}}}a^{j_1}_{(-n_{j_1} - 1)}\dots a^{j_{s - 1 - k}}_{(-n_{j_{s - 1 - k}} - 1)}a^s_{(l - k - \sum_{r = 1}^k n_{i_r} + \sum_{r = 1}^{s - 1 - k}n_{j_r})}a^{i_k}_{(n_{i_k})}\dots a^{i_1}_{(n_{i_1})}.
+  \end{align*}
+\end{lemma}
 
 We set:
 \begin{align*}
@@ -271,41 +442,60 @@ Then
                                  &= \frac{q^{h_{m, n}}}{(q)_{\infty}}\sum_{k \in \mathbb{Z}}q^{k^2pq + k(mq - np)}-q^{k^2pq + k(mq + np) + mn} \\
                                  &= \frac{q^{h_{m, n}}}{(q)_{\infty}}\sum_{k \in \mathbb{Z}}q^{k^2pq + k(mq - np)}-q^{(m + kp)(n + kq)}.
 \end{align*}
-One can also replace $m \mapsto p - m$ and $n \mapsto q - n$, but I don't think this is useful.
 
-In this sketch, we take:
+In this article, we consider:
 \begin{align*}
   p &= 2, \\
   q &= 2s + 1 \quad \text{for $s \in \mathbb{Z}_+$}.
 \end{align*}
 Thus, $\Vir_{2, 2s + 1}$ has $s$ modules $L(c_{2, 2s + 1}, h_{1, 1}), L(c_{2, 2s + 1}, h_{1, 2}), \dots, L(c_{2, 2s + 1}, h_{1, s})$.
 
-\section{Conjecture}
-\label{sec:conjecture}
+\section{Proofs of the main theorems}
+\label{sec:proofs-main-theorems}
 
-We take $\len(L_{-1}) = \len(L_{-2}) = \dots = 1$.
+In this section, we fix $s \in \mathbb{Z}_+$ and $i \in \{1, 2, \dots, s\}$.
 
-\begin{align*}
-  \ch_{L(c_{2, 2s + 1}, h_{1, i})}(t, q) &= \sum_{j = 0}^{i - 1}p_{1^j}(t, q), \quad i = 1, \dots, s, \\
-  p_{1^j}(t, q) &= \sum_{k = (k_1, \dots, k_s) \in \mathbb{N}^{s - 1}}t^{kB^{(s)}_{s - 1} + j}\frac{q^{\frac{1}{2}kG^{(s)}k^T + k(B^{(s)}_{s - 1} + B^{(s)}_j) + j}}{(q)_{k_1}\dots(q)_{k_{s - 1}}}, \quad j = 0, 1, \dots, s - 1,
-\end{align*}
-where
-\begin{align*}
-  G^{(s)} &= (2\min\{i, j\})_{i, j = 1}^{s - 1}, \\
-  B^{(s)}_j &=
-              \left(\begin{smallmatrix}
-                0 \\
-                0 \\
-                \vdots \\
-                0 \\
-                1 \\
-                2 \\
-                \vdots \\
-                j
-              \end{smallmatrix}\right), \quad j = 0, 1, \dots, s - 1.  
-\end{align*}
+A partition $\lambda = [\lambda_1, \dots, \lambda_m]$ \emph{contains a partition} $\eta = [\eta_1, \dots, \eta_n]$, written as $\eta \subseteq \lambda$, if $m \ge n$ and there is $i \in \mathbb{Z}_+$ such that $1 \le i \le m - n + 1$ and $[\lambda_i, \lambda_{i + 1}, \dots, \lambda_{i + n - 1}] = \eta$.
 
-NOTE 4: $p_{1^i}$ means the series of the partitions ending in exactly $i$ ones.
+We define
+\begin{equation*}
+  p^{s, i}(t, q) = \sum_{\lambda \in P^{s, i}}t^{\len(\lambda)}q^{\Delta(\lambda)} \in \mathbb{C}[[t, q]],
+\end{equation*}
+where $P^{s, i}$ is the set of partitions that do not contain any partition in $R^{s, i}$ as defined in \Cref{sec:introduction}, i.e.,
+\begin{equation*}
+  P^{s, i} = \{\lambda \mid \text{for $\eta \in R^{s, i}$, $\lambda \nsupseteq \eta$}\}.
+\end{equation*}
+
+\begin{lemma}
+  \label{lmm:3}
+  For $\lambda \in \overline{R^{s, i}}$, there exists $u \in J(c_{2, 2s + 1}, h_{1, i})$ such that $\lm(u) = L_{\lambda}|c_{2, 2s + 1}, h_{1, i}\rangle$.
+\end{lemma}
+
+\begin{proof}
+  The proof most likely involves using \Cref{lmm:2} and that formula for singular vectors.
+\end{proof}
+
+\begin{lemma}
+  \label{lmm:4}
+  We have
+  \begin{equation*}
+    p^{s, i}(1, q) = \ch_{L(c_{2, 2s + 1}, h_{1, i})}(q).
+  \end{equation*}
+\end{lemma}
+
+\begin{proof}
+  The proof is most likely Jacobi's triple product identity.
+\end{proof}
+
+\begin{proof}[Proof of \Cref{thr:2}]
+  
+\end{proof}
+
+\begin{proof}[Proof of \Cref{thr:1}]
+  
+\end{proof}
+
+====================================================
 
 \section{Context, work done by Andrews and what we are trying to calculate}
 \label{sec:context-work-done}
@@ -324,19 +514,19 @@ Thus, we have
 
 The leading term ideal of $(L_{-2}^s)_{\partial}$ in $\mathbb{C}[L_{-2}, L_{-3}, \dots]$ is generated by the polynomials $L_{-\lambda_1} \dots L_{-\lambda_m} \in \mathbb{C}[L_{-2}, L_{-3}, \dots]$, where $\lambda = [\lambda_1, \dots, \lambda_m]$ is a partition satisfying $\lambda_m \ge 2$ and the difference condition
 \begin{equation}
-  \label{eq:1}
+  \label{eq:3}
   \lambda_i - \lambda_{i + s - 1} \le 1 \quad \text{for some $i$ with $1 \le i \le m + 1 - s$}.
 \end{equation}
 Therefore, by Grobner basis theory, a basis of $JR_{\Vir_{2, 2s + 1}}/(L_{-2}^s)_{\partial}$ is given by classes of polynomials $L_{-\lambda_1} \dots L_{-\lambda_m} \in \mathbb{C}[L_{-2}, L_{-3}, \dots]$, where $\lambda = [\lambda_1, \dots, \lambda_m]$ is a partition satisfying $\lambda_m \ge 2$ and the difference condition
 \begin{equation}
-  \label{eq:2}
+  \label{eq:4}
   \lambda_i - \lambda_{i + s - 1} \ge 2 \quad \text{for $1 \le i \le m + 1 - s$}.
 \end{equation}
 NOTE 5: Actually, this is handwaving a little bit because strictly speaking, Grobner basis theory only applies to finitely generated polynomial algebras.
 But we can make this rigorous by studying $\mathbb{C}[L_{-2}, L_{-3}, \dots, L_{-N}]$ and then letting $N \to \infty$.
 
-In Theorem 7.5 of The theory of partitions, the number of partitions $\lambda$ of $n$ satisfying $\lambda_m \ge 2$ and \eqref{eq:2} is denoted by $B_{s, 1}$ (note that we are changing $k$ to $s$ here and setting $i = 1$).
-In that section, it is also defined by $b_{s, 1}(m, n)$ the number of partitions $\lambda$ of $n$ with exactly $m$ parts satisfying $\lambda_m \ge 2$ and \eqref{eq:2}.
+In Theorem 7.5 of The theory of partitions, the number of partitions $\lambda$ of $n$ satisfying $\lambda_m \ge 2$ and \eqref{eq:4} is denoted by $B_{s, 1}$ (note that we are changing $k$ to $s$ here and setting $i = 1$).
+In that section, it is also defined by $b_{s, 1}(m, n)$ the number of partitions $\lambda$ of $n$ with exactly $m$ parts satisfying $\lambda_m \ge 2$ and \eqref{eq:4}.
 It is also noted that $b_{s, 1}(m, n) = c_{s, 1}(m, n)$, where
 \begin{equation*}
   J_{s, 1}(0; t; q) = \sum_{m = 0}^{\infty}\sum_{n = 0}^{\infty}c_{s, 1}(m, n)t^mq^n,
@@ -359,7 +549,7 @@ From the natural isomorphisms
   JR_{\Vir_{2, 2s + 1}}/(L_{-2}^s)_{\partial} &\cong \gr_F(\Vir_{2, 2s + 1}), \\
   \gr_F(\Vir_{2, 2s + 1}) &\cong \Vir_{2, 2s + 1},
 \end{align*}
-we have that a basis of $\Vir_{2, 2s + 1}$ is given by the classes of elements of the form $L_{-\lambda_1}\dots L_{-\lambda_m}\vac$, where $\lambda$ is a partition satisfying $\lambda_m \ge 2$ and \eqref{eq:2}.
+we have that a basis of $\Vir_{2, 2s + 1}$ is given by the classes of elements of the form $L_{-\lambda_1}\dots L_{-\lambda_m}\vac$, where $\lambda$ is a partition satisfying $\lambda_m \ge 2$ and \eqref{eq:4}.
 
 In conclusion, the refined character of $\Vir_{2, 2s + 1}$ is given by 
 \begin{align*}
@@ -388,11 +578,11 @@ Let $\pi: M(c_{2, 2s + 1}, h_{1, i}) \twoheadrightarrow L(c_{2, 2s + 1}, h_{1, i
 We apply the functor $\gr$, obtaining an epimorphism $\gr(\pi): \gr(M(c_{2, 2s + 1}, h_{1, i})) \twoheadrightarrow \gr(L(c_{2, 2s + 1}, h_{1, i}))$.
 We wish to compute a Grobner basis of $\ker(\gr(\pi))$.
 
-From the data, we have the following conjecture: For $s \in \mathbb{Z}_+$ and $i = 1, 2, \dots, s$, the leading term ideal of $\ker(\gr(\pi))$ is generated by the polynomials $L_{-\lambda_1} \dots L_{-\lambda_m}$ where $\lambda = [\lambda_1, \dots, \lambda_m]$ is a partition satisfying \eqref{eq:1} and the exceptional partition $\underbrace{[1, 1, \dots, 1]}_i$.
+From the data, we have the following conjecture: For $s \in \mathbb{Z}_+$ and $i = 1, 2, \dots, s$, the leading term ideal of $\ker(\gr(\pi))$ is generated by the polynomials $L_{-\lambda_1} \dots L_{-\lambda_m}$ where $\lambda = [\lambda_1, \dots, \lambda_m]$ is a partition satisfying \eqref{eq:3} and the exceptional partition $\underbrace{[1, 1, \dots, 1]}_i$.
 
 NOTE 7: We do not require the partitions to end in something greater than or equal to $2$ and for $i = 1$, this coincides with the leading term ideal of $(L_{-2}^s)_{\partial}$ of the previous section.
 
-NOTE 8: In the case $i = s$, we can ignore the partition $\underbrace{[1, 1, \dots, 1]}_s$ because it is already included in \eqref{eq:1}.
+NOTE 8: In the case $i = s$, we can ignore the partition $\underbrace{[1, 1, \dots, 1]}_s$ because it is already included in \eqref{eq:3}.
 
 NOTE 9: By the articles ``Singular vectors over the Virasoro algebra and extended Verma modules'' and ``Asymptotics for singular vectors in Verma
 modules over the Virasoro algebra'', we have the desired partition $\underbrace{[1, 1, \dots, 1]}_i$ for all $i = 1, 2, \dots, s$ as a leading term, so we are almost finished.
@@ -406,9 +596,9 @@ In fact, Conjecture 2 and section 7.3 of Andrew's book (specifically Theorem 7.5
 
 NOTE 11: To prove Conjecture 2, it remains to show the following.
 \begin{lemma}
-  \label{lmm:1}
+  \label{lmm:2}
   Let $s \in \mathbb{Z}_+$, and we pick any $i = 1, 2, \dots, s$.
-  For a partition $\lambda$ of length $p$ satisfying \eqref{eq:1}, there $u \in J(c_{2, 2s + 1}, h_{1, i}) \cap M(c_{2, 2s + 1}, h_{1, i})^p$ such that $\lm(u) = L_{\lambda}|c_{2, 2s + 1}, h_{1, i}\rangle$.
+  For a partition $\lambda$ of length $p$ satisfying \eqref{eq:3}, there $u \in J(c_{2, 2s + 1}, h_{1, i}) \cap M(c_{2, 2s + 1}, h_{1, i})^p$ such that $\lm(u) = L_{\lambda}|c_{2, 2s + 1}, h_{1, i}\rangle$.
 \end{lemma}
 
 \begin{proof}[sketch of proof]
@@ -439,7 +629,7 @@ NOTE 11: To prove Conjecture 2, it remains to show the following.
 
   Actually, I think what is correct is that
   \begin{equation*}
-    (L_{\lambda}\vac)_{(-1)}|c, h\rangle = L_{\lambda}|c, h\rangle + \sum_{\substack{\Delta(\mu) = \Delta(\lambda) \\ \len(\mu) \le \len(\lambda) \\ \len_2(\mu) < \len_2(\lambda)}}c_{\mu}L_{\mu}|c, h\rangle.
+    (L_{\lambda}\vac)_{(-1)}|c, h\rangle = L_{\lambda}|c, h\rangle + \sum_{\substack{\Delta(\mu) = \Delta(\lambda) \\ \len(\mu) \le \len(\lambda) \\ \clen(\mu) < \clen(\lambda)}}c_{\mu}L_{\mu}|c, h\rangle.
   \end{equation*}
   The partitions with ones have to be dealt separately.
 \end{proof}
