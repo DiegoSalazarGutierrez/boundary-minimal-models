@@ -29,7 +29,8 @@
 \DeclareMathOperator{\vspan}{span}
 \DeclareMathOperator{\supp}{supp}
 \DeclareMathOperator{\ad}{ad}
-\DeclareMathOperator{\lm}{lm}
+\DeclareMathOperator{\lp}{lp}
+\DeclareMathOperator{\prt}{prt}
 
 \renewcommand*{\backref}[1]{}
 \renewcommand*{\backrefalt}[4]{%
@@ -60,15 +61,9 @@
 
 Let $s \in \mathbb{Z}_+$, let $i \in \{1, 2, \dots, s\}$, let $R^{s, i}$ denote the following set of partitions
 \begin{equation*}
-  R^{s, i} = \{\lambda \mid \text{$\lambda$ satisfies \eqref{eq:1} or $\lambda = \underbrace{[1, 1, \dots, 1]}_i$}\},
+  R^{s, i} = \{\lambda \mid \text{$\lambda = [\lambda_1, \dots, \lambda_s]$ satisfies $\lambda_1 - \lambda_s \le 1$ or $\lambda = \underbrace{[1, 1, \dots, 1]}_i$}\},
 \end{equation*}
 and let $P^{s, i}$ be the set of partitions that do not contain any partition in $R^{s, i}$.
-
-Given a partition $\lambda = [\lambda_1, \dots, \lambda_m]$, we consider the \emph{difference condition} defined as
-\begin{equation}
-  \label{eq:1}
-  \lambda_i - \lambda_{i + s - 1} \le 1 \quad \text{for some $i$ with $1 \le i \le m + 1 - s$}.
-\end{equation}
 
 \begin{theorem}
   \label{thr:1}
@@ -77,7 +72,7 @@ Given a partition $\lambda = [\lambda_1, \dots, \lambda_m]$, we consider the \em
     \label{eq:2}
     \ch_{L(c_{2, 2s + 1}, h_{1, i})}(t, q) = J_{s, i}(0; t; q) = \sum_{k = (k_1, \dots, k_s) \in \mathbb{N}^{s - 1}}t^{kB^{(s)}_{s - 1}}\frac{q^{\frac{1}{2}kG^{(s)}k^T + kB^{(s)}_{s - i}}}{(q)_{k_1}\dots(q)_{k_{s - 1}}},
   \end{equation}
-  where
+  where $T$ denotes the transpose matrix and
   \begin{align*}
     G^{(s)} &= (2\min\{i, j\})_{i, j = 1}^{s - 1}, \\
     B^{(s)}_j &=
@@ -90,7 +85,7 @@ Given a partition $\lambda = [\lambda_1, \dots, \lambda_m]$, we consider the \em
                   2 \\
                   \vdots \\
                   j
-                \end{smallmatrix}\right), \quad j = 0, 1, \dots, s - 1.  
+                \end{smallmatrix}\right) \quad \text{for $j = 0, 1, \dots, s - 1$}.  
   \end{align*}
 \end{theorem}
 
@@ -114,7 +109,7 @@ Given a partition $\lambda = [\lambda_1, \dots, \lambda_m]$, we consider the \em
 
 The set of natural numbers $\{0, 1, \dots\}$ is denoted by $\mathbb{N}$, the set of integers is denoted by $\mathbb{Z}$, and the set of positive integers $\{1, 2, \dots\}$ is denoted by $\mathbb{Z}_+$.
 
-First, we review the theory of representations of the Virasoro Lie algebra following \cite{kac_bombay_2013}.
+First, we review the theory of representations of the Virasoro Lie algebra following [].
 The \emph{Virasoro Lie algebra} is a Lie algebra given by
 \begin{equation*}
   \Vir = \bigoplus_{n \in \mathbb{Z}}\mathbb{C}L_n \oplus \mathbb{C}C.
@@ -169,6 +164,13 @@ the \emph{weight of $\lambda$} as
 and $p_{\lambda} \in \mathbb{C}[L_{-1}, L_{-2}, \dots]$ by setting
 \begin{equation*}
   p_{\lambda} = L_{-\lambda_1}\dots L_{-\lambda_m}.
+\end{equation*}
+
+A \emph{composition (of $n \in \mathbb{N}$)} is a sequence $\lambda = [\lambda_1, \dots, \lambda_m]$ such that $\lambda_i \in \mathbb{Z}_+$ for $i = 1, \dots, m$ (and $\lambda_1 + \dots + \lambda_m = n$).
+We also consider the \emph{empty composition} $\emptyset$, which is the unique composition of $0$.
+Given a composition $\lambda = [\lambda_1, \lambda_2, \dots, \lambda_m]$ and a permutation $\sigma \in S_m$, we define the composition
+\begin{equation*}
+  \lambda\sigma = [\lambda_{\sigma(1)}, \lambda_{\sigma(2)}, \dots, \lambda_{\sigma(m)}].
 \end{equation*}
 
 \section{Modules over algebras with a filtration}
@@ -295,6 +297,11 @@ For later use, we set $\mathfrak{g}^{\ge} = \mathfrak{h} \oplus \mathfrak{g}^+$ 
   Therefore, $\gr(\Vir^-) = \mathbb{C}[L_{-1}, L_{-2}, \dots]$ has a derivation given by $\partial(L_{-n}) = (n - 1)L_{-n - 1}$.
 \end{example}
 
+\begin{example}[kac moody]
+  \label{exa:7}
+  
+\end{example}
+
 Let $\Gamma$ be an abelian group, and let $\mathfrak{g} = \bigoplus_{\alpha \in \Gamma}\mathfrak{g}^{\alpha}$ be a $\Gamma$-graded Lie algebra.
 A $\mathfrak{g}$-module $M = \bigoplus_{\alpha \in \Gamma}M^{\alpha}$ is \emph{$\Gamma$-graded} if
 \begin{equation*}
@@ -387,7 +394,7 @@ Then we set
     \gr(M(c, h)) &\xrightarrow{\sim} \mathbb{C}[L_{-1}, L_{-2}, \dots] = \gr(U(\Vir^{-})) \\
     L_{\lambda}|c, h\rangle & \mapsto p_{\lambda},
   \end{align*}
-  where $\lambda$ is a partition.
+  where $\lambda$ is a composition.
   Therefore, when studying $L(c, h)$, we only have to study polynomial algebras, their ideals, quotients, and modules are not really required.
 \end{example}
 
@@ -413,6 +420,22 @@ Clearly, we have $\ch_M(1, q) = \ch_M(q)$.
   SINGULAR SUPPORT OF THE ISING MODEL EXAMPLE
 \end{example}
 
+\begin{proposition}
+  \label{prp:4}
+  We have four (conformal) weight-preserving vector space isomorphisms:
+  \begin{align*}
+    M(c, h) &\xrightarrow{\sim} \gr^G(M(c, h)), \\
+    L_{\lambda}|c, h\rangle &\mapsto \gamma^{\len(\lambda)}(L_{\lambda}|c, h\rangle), \\
+    \gr^G(M(c, h)) &\xrightarrow{\sim} \mathbb{C}[L_{-1}, L_{-2}, \dots], \\
+    \gamma^{\len(\lambda)}(L_{\lambda}|c, h\rangle) &\mapsto p_{\lambda}, \\
+    L(c, h) &\xrightarrow{\sim} \gr^G(L(c, h)), \\
+    L_{\lambda}(|c, h\rangle + J(c, h)) &\mapsto \gamma^{\len(\lambda)}(L_{\lambda}(|c, h\rangle + J(c, h))), \\
+    \gr^G(L) &\xrightarrow{\sim} \gr^G(M(c, h))/K(c, h), \\
+    \gamma^{\len(\lambda)}(L_{\lambda}(|c, h\rangle + J(c, h))) &\mapsto \gamma^{\len(\lambda)}(L_{\lambda}|c, h\rangle) + K(c, h),
+  \end{align*}
+  where $\lambda$ is a partition.
+\end{proposition}
+
 \section{A short survey on vertex algebras}
 \label{sec:short-survey-vertex}
 
@@ -424,7 +447,7 @@ Clearly, we have $\ch_M(1, q) = \ch_M(q)$.
   \begin{equation*}
     :a^1(z)a^2(z)\dots a^s(z):_{(l)}b = \sum_{n_1, \dots, n_{s - 1} \in \mathbb{N}}\sum_{k = 0}^{s - 1}R^{l, k}_{n_1, \dots, n_{s - 1}}(a^1(z), \dots, a^s(z))b,
   \end{equation*}
-  where
+  where $R^{l, k}_{n_1, \dots, n_{s - 1}}(a^1(z), \dots, a^s(z))$ is the sum of $\binom{s - 1}{k}$ terms given by
   \begin{align*}
     &R^{l, k}_{n_1, \dots, n_{s - 1}}(a^1(z), \dots, a^s(z)) = \\
     &\sum_{\substack{1 \le i_1 < \dots < i_k \le s - 1 \\ 1 \le j_1 < \dots < j_{s - 1 - k} \le s - 1 \\ \{i_1, \dots, i_k\} \cup \{j_1, \dots, j_{s - 1 - k}\} = \{1, \dots, s - 1\}}}a^{j_1}_{(-n_{j_1} - 1)}\dots a^{j_{s - 1 - k}}_{(-n_{j_{s - 1 - k}} - 1)}a^s_{(l - k - \sum_{r = 1}^k n_{i_r} + \sum_{r = 1}^{s - 1 - k}n_{j_r})}a^{i_k}_{(n_{i_k})}\dots a^{i_1}_{(n_{i_1})}.
@@ -466,33 +489,195 @@ where $P^{s, i}$ is the set of partitions that do not contain any partition in $
   P^{s, i} = \{\lambda \mid \text{for $\eta \in R^{s, i}$, $\lambda \nsupseteq \eta$}\}.
 \end{equation*}
 
+We order the PBW basis of $U(\Vir_{\le -1}) = \vspan\{L_{\lambda} \mid \text{$\lambda$ is a partition}\}$ by degree reverse lexicographic order.
+Formally, for any partitions $\lambda$ and $\eta$, we define
+\begin{equation*}
+  L_{\lambda} \le L_{\eta}\text{ if and only if }p_{\lambda} \le p_{\eta}.
+\end{equation*}
+For $x \in U(\Vir_{\le -1})$ with $x \neq 0$, we may write
+\begin{equation*}
+  x = c_1L_{\lambda_1} + c_2L_{\lambda_2} + \dots + c_rL_{\lambda_r},
+\end{equation*}
+where for $1 \le i \le r$, $0 \neq c_i \in \mathbb{C}$ and $L_{\lambda_1} > L_{\lambda_2} > \dots > L_{\lambda_r}$.
+We define the \emph{leading power of $x$} as $\lp(x) = L_{\lambda_1}$.
+We set $\lp(0) = 0$.
+Next, for a highest weight $(c, h)$, we extend the definition of $\lp$ from $U(\Vir_{\le -1})$ to $M(c, h)$ by considering the isomorphism of vector spaces $U(\Vir_{\le -1}) \xrightarrow{\sim} M(c, h), L_{\lambda} \mapsto L_{\lambda}|c, h\rangle$, where $\lambda$ is a partition.
+
+\begin{remark}
+  \label{rmk:6}
+  The definition of the order in the PBW basis of $U(\Vir_{\le -1})$ was made so that for a highest weight $(c, h)$, a partition $\lambda$ and $u \in M(c, h)$, if $\lp(u) = L_{\lambda}|c, h\rangle$, then $\lp(\gamma^{\len(\lambda)}(u)) = p_{\lambda}$.
+\end{remark}
+
 \begin{lemma}
   \label{lmm:3}
-  For $\lambda \in \overline{R^{s, i}}$, there exists $u \in J(c_{2, 2s + 1}, h_{1, i})$ such that $\lm(u) = L_{\lambda}|c_{2, 2s + 1}, h_{1, i}\rangle$.
+  For $\lambda \in R^{s, i}$, there exists $u \in J(c_{2, 2s + 1}, h_{1, i})$ such that $\lp(u) = L_{\lambda}|c_{2, 2s + 1}, h_{1, i}\rangle$.
+\end{lemma}
+
+ORDENAR LAS PARTICIONES, partiCIONES NO, SINO LOS $L_\lambda$
+
+\begin{proof}
+  By [], the maximal proper ideal of $\Vir^{c_{2, 2s + 1}}$ is generated by a singular vector of conformal weight $2s$, denoted by $a_{2, 2s + 1}$, which has the form
+  \begin{equation}
+    \label{eq:8}
+    a_{2, 2s + 1} = L_{-2}^s\vac + \sum_{\substack{\Delta(\mu) = 2s \\ \len(\mu) < s \\ \mu_m \ge 2}}c_{\mu}L_{\mu}\vac,
+  \end{equation}
+  where $c_{\mu} \in \mathbb{Q}$.
+  We have two cases:
+  \begin{enumerate}
+  \item $\lambda = [\underbrace{a + 1, \dots, a + 1}_{s - d}, \underbrace{a, \dots, a}_d]$ for some $a \in \mathbb{Z}_+$ and $d \in \{1, \dots, s\}$.
+    We set
+    \begin{equation*}
+      u = (a_{2, 2s + 1})_{(s - sa + d - 1)}|c_{2, 2s + 1}, h_{1, i}\rangle
+    \end{equation*}
+    and claim
+    \begin{equation}
+      \label{eq:7}
+      \lp(u) = L_{\lambda}|c_{2, 2s + 1}, h_{1, i}\rangle.
+    \end{equation}
+    To prove this, we prove first that
+    \begin{equation}
+      \label{eq:6}
+      (L_{-2}^s\vac)_{(s - sa + d - 1)}|c_{2, 2s + 1}, h_{1, i}\rangle = \binom{s}{k}L_{\lambda}|c_{2, 2s + 1}, h_{1, i}\rangle + \sum_{\substack{\mu \neq \lambda \\ \Delta(\mu) = \Delta(\lambda) \\ \len(\mu) \le \len(\lambda)}}c_{\mu}L_{\mu}|c_{2, 2s + 1}, h_{1, i}\rangle,
+    \end{equation}
+    where $c_{\mu} \in \mathbb{Q}$.
+    Applying \Cref{lmm:1} and [] with
+    \begin{align*}
+      a^1(z) = \dots = a^s(z) &= L(z) = \sum_{n \in \mathbb{Z}}L_(n)z^{-n - 1} = \sum_{n \in \mathbb{Z}}L_nz^{-n - 2}, \\
+      b &= |c_{2, 2s + 1}, h_{1, i}\rangle, \\
+      l &= s - sa + d - 1,
+    \end{align*}
+    we obtain
+    \begin{equation}
+      \label{eq:5}
+      (L_{-2}^s\vac)_{(s - sa + d - 1)}|c_{2, 2s + 1}, h_{1, i}\rangle = \sum_{n_1, \dots, n_{s - 1} \in \mathbb{N}}\sum_{k = 0}^{s - 1}R^{s - sa + d - 1, k}_{n_1, \dots, n_{s - 1}}(L(z), \dots, L(z))|c_{2, 2s + 1}, h_{1, i}\rangle,
+    \end{equation}
+    where $R^{s - sa + d - 1, k}_{n_1, \dots, n_{s - 1}}(L(z), \dots, L(z))$ is the sum of $\binom{s - 1}{k}$ terms given by
+    \begin{align*}
+      &R^{s - sa + d - 1, k}_{n_1, \dots, n_{s - 1}}(L(z), \dots, L(z)) = \\
+      &\sum_{\substack{1 \le i_1 < \dots < i_k \le s - 1 \\ 1 \le j_1 < \dots < j_{s - 1 - k} \le s - 1 \\ \{i_1, \dots, i_k\} \cup \{j_1, \dots, j_{s - 1 - k}\} = \{1, \dots, s - 1\}}}L_{-n_{j_1} - 2}\dots L_{-n_{j_{s - 1 - k}} - 2}L_{s - sa + d - 2 - k - \sum_{r = 1}^k n_{i_r} + \sum_{r = 1}^{s - 1 - k}n_{j_r}}L_{n_{i_k} - 1}\dots L_{n_{i_1} -1}.
+    \end{align*}
+    We see that each term $L_{\mu}$ appearing in $R^{s - sa + d - 1, k}_{n_1, \dots, n_{s - 1}}(L(z), \dots, L(z))$, where $\mu$ is a combination (not necessarily a partition), satisfies $\Delta(\mu) = sa + s - d = \Delta(\lambda)$ and $\len(\mu) \le \len(\lambda)$.
+    
+    We recall that $L_{(n)} = L_{n - 1}$ for $n \in \mathbb{Z}$ and $L_{\lambda} - L_{\lambda\sigma} \in U(\Vir^{-})^{\len(\lambda) - 1}$ for a combination $\lambda$ and a permutation $\sigma \in S_m$, see [].    
+    Therefore, for a combination $\mu$, we can expand $L_{\mu}|c_{2, 2s + 1}, h_{1, i}\rangle$ in the following way
+    \begin{equation*}
+      L_{\mu}|c_{2, 2s + 1}, h_{1, i}\rangle = L_{\prt(\mu)}|c_{2, 2s + 1}, h_{1, i}\rangle + \sum_{\substack{\Delta(\mu) = \Delta(\lambda) \\ \len(\mu) < \len(\lambda)}}c_{\mu}L_{\mu}|c_{2, 2s + 1}, h_{1, i}\rangle,
+    \end{equation*}
+    where $c_{\mu} \in \mathbb{Q}$.
+    We need to compute the coefficient of $L_{\lambda}|c_{2, 2s + 1}, h_{1, i}\rangle$ in $u$.
+    To do this, we need to see how much each sum $R^{s - sa + d - 1, k}_{n_1, \dots, n_{s - 1}}(L(z), \dots, L(z))|c_{2, 2s + 1}, h_{1, i}\rangle$ contributes to the coefficient of $L_{\lambda}|c_{2, 2s + 1}, h_{1, i}\rangle$ in $u$
+    We have two subcases:
+    \begin{description}[leftmargin = !]
+    \item[Subcase $a = 1$] In the sum \eqref{eq:5}, if $k > d$ or $k < d - 1$ or $n_i \neq 0$ for some $i = 1, \dots, s - 1$, then $R^{2s - sa - s + d - 1, k}_{n_1, \dots, n_{s - 1}}(L(z), \dots, L(z))|c_{2, 2s + 1}, h_{1, i}\rangle$ contributes $0$.
+      The sum $R^{s - sa + d - 1, d - 1}_{0, \dots, 0}(L(z), \dots, L(z))|c_{2, 2s + 1}, h_{1, i}\rangle$ contributes $\binom{s - 1}{d - 1}$ and the sum $R^{s - sa + d - 1, d}_{0, \dots, 0}(L(z), \dots, L(z))|c_{2, 2s + 1}, h_{1, i}\rangle$ contributes $\binom{s - 1}{d}$.
+      Since $\binom{s - 1}{d - 1} + \binom{s - 1}{d} = \binom{s}{d}$, we obtain \eqref{eq:6}.
+    \item[Subcase $a > 1$] In the sum \eqref{eq:5}, if $k > 0$, then $R^{s - sa + d - 1, k}_{n_1, \dots, n_{s - 1}}(L(z), \dots, L(z))|c_{2, 2s + 1}, h_{1, i}\rangle$ contributes $0$.
+      We have
+      \begin{equation*}
+        R^{s - sa + d - 1, 0}_{n_1, \dots, n_{s - 1}}(L(z), \dots, L(z)) = L_{-n_1 - 2}\dots L_{-n_{s - 1} - 2}L_{s - sa + d - 2 + \sum_{r = 1}^{s - 1}n_r}.
+      \end{equation*}
+      Therefore, the sum $R^{s - sa + d - 1, 0}_{n_1, \dots, n_{s - 1}}(L(z), \dots, L(z))|c_{2, 2s + 1}, h_{1, i}\rangle$ contributes $\binom{s - 1}{d}$ when exactly $d - 1$ of the $n_i$s are equal to $a - 2$ and $s - d$ of the $n_i$s are equal to $a - 1$, contributes $\binom{s - 1}{d}$ when exactly $d$ of the $n_i$s are equal to $a - 2$ and $s - d - 1$ of the $n_i$s are equal to $a - 1$, and contributes $0$ otherwise.
+      Since $\binom{s - 1}{d - 1} + \binom{s - 1}{d} = \binom{s}{d}$, we obtain \eqref{eq:6}.
+    \end{description}
+  \item $\lambda = [1, 1, \dots, 1]$.
+    This follows from [].
+  \end{enumerate}
+  We note that if $\mu$ is a partition such that $\mu \neq \lambda$, $\Delta(\mu) = \Delta(\lambda)$ and $\len(\mu) \le \len(\lambda)$, then $L_{\lambda} > L_{\mu}$.
+  Thus, \eqref{eq:6} implies $\lp((L_{-2}^s\vac)_{(s - sa + d - 1)}|c_{2, 2s + 1}, h_{1, i}\rangle) = L_{\lambda}|c_{2, 2s + 1}, h_{1, i}\rangle$.
+  From \eqref{eq:8} and \Cref{lmm:1}, we see that $\lp(u) = \lp((L_{-2}^s\vac)_{(s - sa + d - 1)}|c_{2, 2s + 1}, h_{1, i}\rangle) = L_{\lambda}|c_{2, 2s + 1}, h_{1, i}\rangle$.
+\end{proof}
+
+MAYBE REORDER THE LEMMAS, IDK
+
+\begin{lemma}
+  \label{lmm:5}
+  We have
+  \begin{equation*}
+    p^{s, i}(t, q) = J_{s, i}(0, t, q) = \sum_{k = (k_1, \dots, k_s) \in \mathbb{N}^{s - 1}}t^{kB^{(s)}_{s - 1}}\frac{q^{\frac{1}{2}kG^{(s)}k^T + kB^{(s)}_{s - i}}}{(q)_{k_1}\dots(q)_{k_{s - 1}}}.
+  \end{equation*}
 \end{lemma}
 
 \begin{proof}
-  The proof most likely involves using \Cref{lmm:2} and that formula for singular vectors.
+  Following the notation of [], we write
+  \begin{align*}
+    p^{s, i}(t, q) &= \sum_{m = 0}^{\infty}\sum_{n = 0}^{\infty}b_{s, i}(m, n)t^mq^n, \\
+    J_{s, i}(0; t; q) &= \sum_{m = 0}^{\infty}\sum_{n = 0}^{\infty}c_{s, i}(m, n)t^mq^n.
+  \end{align*}
+  By [], we have $b_{s, i}(m, n) = c_{s, i}(m, n)$ for $m, n \in \mathbb{N}$.
+  This means $p^{s, i}(t, q) = J_{s, i}(0, t, q)$.
+
+  By the proof of [], we have
+  \begin{equation*}
+    J_{s, i}(0, t, q) = \sum_{k = (k_1, \dots, k_s) \in \mathbb{N}^{s - 1}}\frac{t^{N_1 + N_2 + \dots + N_{s - 1}}q^{N_1^2 + N_2^2 + \dots + N_{s - 1}^2 + N_i + N_{i + 1} + \dots + N_{s - 1}}}{(q)_{k_1}(q)_{k_2}\dots(q)_{k_{s - 1}}},
+  \end{equation*}
+  where $N_j = k_j + k_{j + 1} + \dots + k_{s - 1}$ for $j = 0, 1, \dots, s - 1$.
+  Since
+  \begin{align*}
+  N_1^2 + \dots + N_{s - 1}^2 &= \frac{1}{2}kG^{(s)}k^T, \\
+  N_j + \dots + N_{s - 1} &= kB^{(s)}_{j} \quad \text{for $j = 0, 1, \dots, s - 1$},
+  \end{align*}
+  we have
+  \begin{equation*}
+    \sum_{k = (k_1, \dots, k_s) \in \mathbb{N}^{s - 1}}\frac{t^{N_1 + N_2 + \dots + N_{s - 1}}q^{N_1^2 + N_2^2 + \dots + N_{s - 1}^2 + N_i + N_{i + 1} + \dots + N_{s - 1}}}{(q)_{k_1}(q)_{k_2}\dots(q)_{k_{s - 1}}} = \sum_{k = (k_1, \dots, k_s) \in \mathbb{N}^{s - 1}}t^{kB^{(s)}_{s - 1}}\frac{q^{\frac{1}{2}kG^{(s)}k^T + kB^{(s)}_{s - i}}}{(q)_{k_1}\dots(q)_{k_{s - 1}}}.
+  \end{equation*}
 \end{proof}
 
 \begin{lemma}
   \label{lmm:4}
   We have
   \begin{equation*}
-    p^{s, i}(1, q) = \ch_{L(c_{2, 2s + 1}, h_{1, i})}(q).
+    \ch_{L(c_{2, 2s + 1}, h_{1, i})}(q) = q^{h_{1, i}}p^{s, i}(1, q) = q^{h_{1, i}}\prod.
   \end{equation*}
 \end{lemma}
 
 \begin{proof}
+  By \Cref{lmm:5}, [] and [], we have
+  \begin{align*}
+    q^{h_{1, i}}p^{s, i}(1, q) &= q^{h_{1, i}}J_{s, i}(0, 1, q) \\
+    &= q^{h_{1, i}}\prod \\
+    &= \frac{q^{h_{1, i}}}{(q)_{\infty}}\sum_{k \in \mathbb{N}}(-1)^kq^{(2s + 1)k(k + 1)/2 - ki}(1 - q^{(2k + 1)i}) \\
+    &= \frac{q^{h_{1, i}}}{(q)_{\infty}}\sum_{k \in \mathbb{Z}}(-1)^kq^{(2s + 1)k(k + 1)/2 - ki}.
+  \end{align*}
+  The disjoint union $\mathbb{Z} = \{2k \mid k \in \mathbb{Z}\} \cup \{-2k - 1 \mid k \in \mathbb{Z}\}$ and () imply that
+  \begin{align*}
+    \frac{q^{h_{1, i}}}{(q)_{\infty}}\sum_{k \in \mathbb{Z}}(-1)^kq^{(2s + 1)k(k + 1)/2 - ki} &= \frac{q^{h_{1, i}}}{(q)_{\infty}}(\sum_{k \in \mathbb{Z}}(-1)^{2k}q^{(2s + 1)2k(2k + 1)/2 - ki} + \sum_{k \in \mathbb{Z}}(-1)^{-2k - 1}q^{(2s + 1)(-2k - 1)(-2k - 1 + 1)/2 - 2ki}) \\
+    &= \frac{q^{h_{1, i}}}{(q)_{\infty}}(\sum_{k \in \mathbb{Z}}q^{(2s + 1)k(2k + 1) - ki} - \sum_{k \in \mathbb{Z}}q^{(2s + 1)(2k + 1)(k + 1) + (2k + 1)i}) \\
+    &= \ch_{L(c_{2, 2s + 1}, h_{1, i})}(q). \qedhere
+  \end{align*}
+  
+\end{proof}
+
+\begin{proof}
   The proof is most likely Jacobi's triple product identity.
+  Consider 2n y -2n-1.
+\end{proof}
+
+\begin{remark}
+  \label{rmk:9}
+  For any partitions $\lambda$ and $\eta$, if $\lambda \supseteq \eta$, then $p_{\eta} \mid p_{\lambda}$.
+  The converse is not true.
+  For example, $p_{[4, 2]} \mid p_{[4, 3, 2]}$, but $[4, 3, 2] \nsupseteq [4, 2]$.
+  However, if $\eta_1 - \eta_m \le 1$, then $\lambda \supseteq \eta$ if and only if $u_{\eta} \mid u_{\lambda}$.
+\end{remark}
+
+\begin{lemma}
+  \label{lmm:11}
+  There is an alternative description for $P$, namely
+  \begin{equation*}
+    P^{s, i} = \{\lambda \mid \text{for $\eta \in R^{s, i}$, $p_{\eta} \nmid p_{\lambda}$}\}.
+  \end{equation*}
+\end{lemma}
+
+\begin{proof}
+  This is a corollary of \Cref{rmk:9}.
 \end{proof}
 
 \begin{proof}[Proof of \Cref{thr:2}]
-  
+  This follows from Grobner basis theory, \Cref{prp:4}, \Cref{lmm:4}, \Cref{lmm:11}, \Cref{rmk:6} and \Cref{lmm:3}, see [] for details.
 \end{proof}
 
 \begin{proof}[Proof of \Cref{thr:1}]
-  
+  This is a corollary of \Cref{thr:2}, see [] for details.
 \end{proof}
 
 ====================================================
@@ -598,7 +783,7 @@ NOTE 11: To prove Conjecture 2, it remains to show the following.
 \begin{lemma}
   \label{lmm:2}
   Let $s \in \mathbb{Z}_+$, and we pick any $i = 1, 2, \dots, s$.
-  For a partition $\lambda$ of length $p$ satisfying \eqref{eq:3}, there $u \in J(c_{2, 2s + 1}, h_{1, i}) \cap M(c_{2, 2s + 1}, h_{1, i})^p$ such that $\lm(u) = L_{\lambda}|c_{2, 2s + 1}, h_{1, i}\rangle$.
+  For a partition $\lambda$ of length $p$ satisfying \eqref{eq:3}, there $u \in J(c_{2, 2s + 1}, h_{1, i}) \cap M(c_{2, 2s + 1}, h_{1, i})^p$ such that $\lp(u) = L_{\lambda}|c_{2, 2s + 1}, h_{1, i}\rangle$.
 \end{lemma}
 
 \begin{proof}[sketch of proof]
