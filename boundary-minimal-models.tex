@@ -686,9 +686,14 @@ We follow the convention that the normal ordered product is read from right to l
 \begin{equation*}
   :a(z)b(z)c(z): = :a(z)(:b(z)c(z):):.
 \end{equation*}
-Moreover, the normally ordered product of a single field is the field itself, so we have
+We define the normal ordered product of a single field as the field itself, and the normal ordered product of no fields as the identity field $\Id_V$, so we have:
+\begin{align*}
+  :a(z): &= a(z), \\
+  :: &= \Id_V.
+\end{align*}
+The identity field $\Id_V$ acts as a identity for the normal ordered product, i.e.,
 \begin{equation*}
-  :a(z): = a(z).
+  :\Id_Va(z): = :a(z)\Id_V: = a(z).
 \end{equation*}
 
 \begin{lemma}[{\cite[Proposition 3.3.3]{nozaradan_introduction_2008}}]
@@ -774,7 +779,7 @@ Let $(V, \vac, T, \mathcal{F})$ be a pre-vertex algebra, and we set
   \mathcal{F}_{\max} = \{a(z) \in \mathcal{F}(V) \mid \text{$[T, a(z)] = \partial_za(z)$ and for $j \in J$, $(a(z), a^j(z))$ is a local pair}\}.
 \end{equation*}
 
-\begin{theorem}[Extension theorem]
+\begin{theorem}[Extension theorem {\cite[Theorem 1]{callegaro_introduction_2017-1}}]
   \label{thr:18}
   Let $(V, \vac, T, \mathcal{F})$ be a pre-vertex algebra, and let $\mathcal{F}_{\max}$ be defined as above.
   Then:
@@ -805,7 +810,7 @@ We consider the trivial representation $0: \mathfrak{g}_- \to \mathfrak{gl}(\mat
   \mathcal{F} &= \left\{\pi(a^j(z)) = \sum_{n \in \mathbb{Z}}\pi(a^j_{(n)})z^{-n - 1} \mid j \in J\right\}.
 \end{align*}
 
-\begin{theorem}
+\begin{theorem}[{\cite[Theorem 3]{callegaro_introduction_2017-1}}]
   \label{thr:19}
   With the notation above, $\mathcal{F}$ consists of fields, and $(V, \vac, T, \mathcal{F})$ is a pre-vertex algebra.
 \end{theorem}
@@ -928,6 +933,10 @@ A module whose only proper submodule is $0$ is called \emph{simple} or \emph{irr
     Y^M(a^1_{(-n_1 - 1)}\dots a^s_{(-n_s - 1)}\vac, z) = \frac{:\partial^{n_1}_zY^M(a^1, z)\dots\partial^{n_s}_zY^M(a^s, z):}{n_1!\dots n_s!}.    
   \end{equation*}
 \end{proposition}
+
+\begin{proof}
+  This follows from the $n$-product identity for modules over vertex algebras (\cite[(5.2.16)]{lepowsky_introduction_2004}) and definition \eqref{eq:10}.
+\end{proof}
 
 Let $(\mathfrak{g}, \mathfrak{F}, T_0)$ be a regular formal distribution Lie algebra with $\mathfrak{F} = \{a^j(z)\}_{j \in J}$.
 A \emph{smooth} $(\mathfrak{g}, \mathfrak{F}, T_0)$-module is a $\mathfrak{g}$-module $M$ such for $j \in J$ and $u \in M$, $a^j(z)u \in M((z))$.
