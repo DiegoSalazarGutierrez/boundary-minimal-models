@@ -671,6 +671,15 @@ We note that
 \end{equation*}
 Therefore, we can define a field $a(z)$ by defining $a(z)b \in V((z))$ for $b \in V$.
 
+\begin{proposition}[{\cite[Proposition 3.3.2]{nozaradan_introduction_2008}}]
+  \label{prp:6}
+  Let $a(z), b(z) \in \mathcal{F}(V)$ be two fields.
+  Then $:a(z)b(z): \in \End(V)[[z,z^{-1}]]$ is again a field, where $:a(z)b(z):$ is defined by
+  \begin{equation*}
+    :a(z)b(z):c = a(z)_+b(z)c + p(a, b)b(z)a(z)_-c \quad \text{for $c \in V$}.
+  \end{equation*}
+\end{proposition}
+
 We thus defined the notion of \emph{normal ordered product between fields $a(z), b(z) \in \mathcal{F}(V)$}, denoted by $:a(z)b(z):$.
 In general, the operation of normal ordered product is neither commutative nor associative.
 We follow the convention that the normal ordered product is read from right to left, so that, by definition,
@@ -691,7 +700,7 @@ Moreover, the normally ordered product of a single field is the field itself, so
   \end{equation*}
   with
   \begin{equation*}
-    :a(z)b(z):_{(j)}c = \sum_{n \le -1}a_{(n)}b_{(j - n - 1)}c + p(a(z), b(z))\sum_{n \ge 0}b_{(j - n - 1)}a_{(n)}c \quad \text{for $c \in V$}.
+    :a(z)b(z):_{(j)}c = \sum_{n \le -1}a_{(n)}b_{(j - n - 1)}c + \sum_{n \ge 0}b_{(j - n - 1)}a_{(n)}c \quad \text{for $c \in V$}.
   \end{equation*}
 \end{lemma}
 
