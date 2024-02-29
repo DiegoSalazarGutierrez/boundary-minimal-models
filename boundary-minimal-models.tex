@@ -1136,7 +1136,7 @@ Next, for a highest weight $(c, h)$, we extend the definition of $\lp$ from $U(\
     We recall that $L_{(n)} = L_{n - 1}$ for $n \in \mathbb{Z}$ and $L_{\lambda} - L_{\lambda\sigma} \in U(\Vir^{-})^{\len(\lambda) - 1}$ for a combination $\lambda$ and a permutation $\sigma \in S_m$ (see \cite[\S2]{dixmier_enveloping_1996} for details).    
     Therefore, for a combination $\mu$, we can expand $L_{\mu}|c_{2, 2s + 1}, h_{1, i}\rangle$ in the following way
     \begin{equation*}
-      L_{\mu}|c_{2, 2s + 1}, h_{1, i}\rangle = L_{\prt(\mu)}|c_{2, 2s + 1}, h_{1, i}\rangle + \sum_{\substack{\Delta(\mu) = \Delta(\lambda) \\ \len(\mu) < \len(\lambda)}}c_{\mu}L_{\mu}|c_{2, 2s + 1}, h_{1, i}\rangle,
+      L_{\mu}|c_{2, 2s + 1}, h_{1, i}\rangle = L_{\prt(\mu)}|c_{2, 2s + 1}, h_{1, i}\rangle + \sum_{\substack{\text{$\mu$ partition of $\Delta(\lambda)$} \\ \len(\mu) < \len(\lambda)}}c_{\mu}L_{\mu}|c_{2, 2s + 1}, h_{1, i}\rangle,
     \end{equation*}
     where $c_{\mu} \in \mathbb{Q}$.
     We need to compute the coefficient of $L_{\lambda}|c_{2, 2s + 1}, h_{1, i}\rangle$ in $u$ when expressed as a linear combination of the elements of the usual PBW basis.
@@ -1154,7 +1154,7 @@ Next, for a highest weight $(c, h)$, we extend the definition of $\lp$ from $U(\
       Therefore, the sum $R^{s - sa + d - 1, 0}_{n_1, \dots, n_{s - 1}}(L(z), \dots, L(z))|c_{2, 2s + 1}, h_{1, i}\rangle$ contributes $\binom{s - 1}{d}$ when exactly $d - 1$ of the $n_i$s are equal to $a - 2$ and $s - d$ of the $n_i$s are equal to $a - 1$, contributes $\binom{s - 1}{d}$ when exactly $d$ of the $n_i$s are equal to $a - 2$ and $s - d - 1$ of the $n_i$s are equal to $a - 1$, and contributes $0$ otherwise.
       Since $\binom{s - 1}{d - 1} + \binom{s - 1}{d} = \binom{s}{d}$, we obtain \eqref{eq:6}.
     \end{description}
-  \item $\lambda = [1, 1, \dots, 1]$.
+  \item $\lambda = \underbrace{[1, 1, \dots, 1]}_i$.
     This follows from \cite{benoit_degenerate_1988}.
   \end{enumerate}
   We note that if $\mu$ is a partition of $\Delta(\lambda)$ such that  $\len(\mu) \le \len(\lambda)$ and $\mu \neq \lambda$, then $L_{\lambda} > L_{\mu}$.
@@ -1174,7 +1174,7 @@ Next, for a highest weight $(c, h)$, we extend the definition of $\lp$ from $U(\
   \label{lmm:11}
   There is an alternative description for $P$, namely
   \begin{equation*}
-    P^{s, i} = \{\lambda \mid \text{for $\eta \in R^{s, i}$, $p_{\eta} \nmid p_{\lambda}$}\}.
+    P^{s, i} = \{\text{$\lambda$ is a partition} \mid \text{for $\eta \in R^{s, i}$, $p_{\eta} \nmid p_{\lambda}$}\}.
   \end{equation*}
 \end{lemma}
 
