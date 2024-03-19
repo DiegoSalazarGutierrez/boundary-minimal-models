@@ -65,7 +65,7 @@
 
 Let $s \in \mathbb{Z}_+$, let $i \in \{1, 2, \dots, s\}$, let $R^{s, i}$ denote the following set of partitions
 \begin{equation*}
-  R^{s, i} = \{\lambda \mid \text{$\lambda = [\lambda_1, \dots, \lambda_s]$ satisfies $\lambda_1 - \lambda_s \le 1$ or $\lambda = \underbrace{[1, 1, \dots, 1]}_i$}\},
+  R^{s, i} = \{\text{$\lambda$ is a partition} \mid \text{$\lambda = [\lambda_1, \dots, \lambda_s]$ satisfies $\lambda_1 - \lambda_s \le 1$ or $\lambda = \underbrace{[1, 1, \dots, 1]}_i$}\},
 \end{equation*}
 and let $P^{s, i}$ be the set of partitions that do not contain any partition in $R^{s, i}$.
 
@@ -691,7 +691,7 @@ We define the normal ordered product of a single field as the field itself, and 
   :a(z): &= a(z), \\
   :: &= \Id_V.
 \end{align*}
-The identity field $\Id_V$ acts as a identity for the normal ordered product, i.e.,
+The identity field $\Id_V$ acts as an identity for the normal ordered product, i.e.,
 \begin{equation*}
   :\Id_Va(z): = :a(z)\Id_V: = a(z).
 \end{equation*}
@@ -1121,7 +1121,7 @@ Next, for a highest weight $(c, h)$, we extend the definition of $\lp$ from $U(\
     To prove this, we first prove that
     \begin{equation}
       \label{eq:6}
-      (L_{-2}^s\vac)_{(s - sa + d - 1)}|c_{2, 2s + 1}, h_{1, i}\rangle = \binom{s}{k}L_{\lambda}|c_{2, 2s + 1}, h_{1, i}\rangle + \sum_{\substack{\text{$\mu$ partition of $\Delta(\lambda)$} \\ \len(\mu) \le \len(\lambda) \\ \mu \neq \lambda}}c_{\mu}L_{\mu}|c_{2, 2s + 1}, h_{1, i}\rangle,
+      (L_{-2}^s\vac)_{(s - sa + d - 1)}|c_{2, 2s + 1}, h_{1, i}\rangle = \binom{s}{k}L_{\lambda}|c_{2, 2s + 1}, h_{1, i}\rangle + \sum_{\substack{\text{$\mu$ is a partition of $\Delta(\lambda)$} \\ \len(\mu) \le \len(\lambda) \\ \mu \neq \lambda}}c_{\mu}L_{\mu}|c_{2, 2s + 1}, h_{1, i}\rangle,
     \end{equation}
     where $c_{\mu} \in \mathbb{Q}$.
     Applying \Cref{lmm:1} and \Cref{prp:4} with
@@ -1145,7 +1145,7 @@ Next, for a highest weight $(c, h)$, we extend the definition of $\lp$ from $U(\
     We recall that $L_{(n)} = L_{n - 1}$ for $n \in \mathbb{Z}$ and $L_{\lambda} - L_{\lambda\sigma} \in U(\Vir^{-})^{\len(\lambda) - 1}$ for a combination $\lambda$ and a permutation $\sigma \in S_m$ (see \cite[\S2]{dixmier_enveloping_1996} for details).    
     Therefore, for a combination $\mu$, we can expand $L_{\mu}|c_{2, 2s + 1}, h_{1, i}\rangle$ in the following way
     \begin{equation*}
-      L_{\mu}|c_{2, 2s + 1}, h_{1, i}\rangle = L_{\prt(\mu)}|c_{2, 2s + 1}, h_{1, i}\rangle + \sum_{\substack{\text{$\mu$ partition of $\Delta(\lambda)$} \\ \len(\mu) < \len(\lambda)}}c_{\mu}L_{\mu}|c_{2, 2s + 1}, h_{1, i}\rangle,
+      L_{\mu}|c_{2, 2s + 1}, h_{1, i}\rangle = L_{\prt(\mu)}|c_{2, 2s + 1}, h_{1, i}\rangle + \sum_{\substack{\text{$\mu$ is a partition of $\Delta(\lambda)$} \\ \len(\mu) < \len(\lambda)}}c_{\mu}L_{\mu}|c_{2, 2s + 1}, h_{1, i}\rangle,
     \end{equation*}
     where $c_{\mu} \in \mathbb{Q}$.
     We need to compute the coefficient of $L_{\lambda}|c_{2, 2s + 1}, h_{1, i}\rangle$ in $u$ when expressed as a linear combination of the elements of the usual PBW basis.
@@ -1198,6 +1198,132 @@ Next, for a highest weight $(c, h)$, we extend the definition of $\lp$ from $U(\
 \begin{proof}[Proof of \Cref{thr:1}]
   This is a corollary of \Cref{thr:2}, see \cite{salazar_pbw_2024} for details.
 \end{proof}
+
+\section{Graded vertex Poisson algebras and their modules}
+\label{sec:grad-vert-poiss}
+
+In this section, all algebras and vector spaces are over $\mathbb{C}$.
+Let $A$ be a commutative associative algebra.
+A \emph{Hamiltonian operator of $A$} is a diagonalizable operator $H \in \End(A)$ such that
+\begin{equation*}
+  H(ab) = H(a)b + aH(b) \quad \text{for $a, b \in A$}.
+\end{equation*}
+Thus, a Hamiltonian operator of $A$ is just a derivation of $A$.
+An algebra with a Hamiltonian is called \emph{graded}.
+The \emph{grading of $A$} is the eigenspace decomposition of $H$
+\begin{equation*}
+  A = \bigoplus_{\Delta \in \mathbb{C}}A_{\Delta},
+\end{equation*}
+where
+\begin{equation*}
+  A_{\Delta} = \ker(H - \Delta\Id_V) \quad \text{for $\Delta \in \mathbb{C}$}.
+\end{equation*}
+If $a$ is an eigenvector of $H$, it is called \emph{homogeneous}, its eigenvalue is called the \emph{conformal weight of $a$}, and it is denoted by $\Delta_a$.
+If $A$ has a unit $1$, it is clear that $H(1) = 0$ and thus, $\Delta_1 = 0$.
+
+Let $A$ be a differential commutative associative algebra with derivation $\partial$.
+A \emph{Hamiltonian operator of $A$} is a Hamiltonian operator of $A$ as an algebra such that
+\begin{equation*}
+  [H, \partial] = \partial.
+\end{equation*}
+
+Let $A$ be a Poisson algebra.
+A \emph{Hamiltonian operator of $A$} is a Hamiltonian operator of $A$ as a commutative associative algebra such that
+\begin{equation*}
+  H(\{a, b\}) = \{a, H(b)\} + \{H(a), b\} - \{a, b\} \quad \text{for $a, b \in A$}.
+\end{equation*}
+
+Let $(V, T, Y_-)$ be a vertex Lie algebra.
+A \emph{Hamiltonian operator of $V$} is a diagonalizable operator $H \in \End(V)$ such that:
+\begin{enumerate}
+\item $[H, Y_-(a, z)] = z\partial_zY_-(a, z) + Y_-(Ha, z)$ for $a \in V$;
+\item $[H, T] = T$.
+\end{enumerate}
+
+Let $(V, T, Y_-)$ be a vertex Poisson algebra.
+A \emph{Hamiltonian operator of $V$} is simultaneously a Hamiltonian operator of $(V, T)$ as a differential commutative associative algebra and a Hamiltonian operator of $(V, T, Y_-)$ as a vertex Lie algebra.
+
+We only consider $\mathbb{N}$-graded algebras, i.e., algebras $A$ such that $A_n = 0$ unless $n \in \mathbb{N}$.
+For a $\mathbb{N}$-graded algebra $A$ such that $\dim(A_n) < \infty$ for $n \in \mathbb{N}$, we define the \emph{character of $A$} by
+\begin{equation*}
+  \ch_A(q) = \sum_{n \in \mathbb{N}}\dim(A_n)q^n \in \mathbb{C}[[q]].
+\end{equation*}
+
+Let $A$ be a graded commutative associative algebra with and Hamiltonian operator $H$, and let $M$ be a $A$-module.
+If $A$ has a unit $1$, we further assume that $1u = u$ for $u \in M$. 
+A \emph{Hamiltonian operator of $M$} is a diagonalizable operator $H^M \in \End(M)$ such that
+\begin{equation*}
+  H^M(au) = H(a)u + aH^M(u) \quad \text{for $a \in A$ and $u \in M$}. 
+\end{equation*}
+
+Let $(V, T, Y_-)$ be a vertex Lie algebra, and let $M$ be a $V$-module.
+A \emph{Hamiltonian operator of $M$} is a diagonalizable operator $H^M \in \End(M)$ such that
+\begin{equation*}
+  [H^M, Y^M_-(a, z)] = z\partial_zY^M_-(a, z) + Y^M_-(Ha, z) \quad \text{for $a \in V$}.
+\end{equation*}
+
+Let $(V, T, Y_-)$ be a vertex Poisson algebra, and let $M$ be a $V$-module.
+A \emph{Hamiltonian operator of $M$} is simultaneously a Hamiltonian operator of $V$ as a commutative associative algebra with unit $1$ and a Hamiltonian operator of $M$ as a module over the vertex Lie algebra $V$.
+
+\section{Refined characters of graded algebras and their modules}
+\label{sec:refin-char-algebr}
+
+Let $A$ be a commutative associative algebra with unit $1$, and we assume the subset $S \subseteq A$ generates $A$ as an algebra, i.e., $A = \mathbb{C}[S]$.
+The \emph{increasing filtration of $A$ with respect to $S$} is given by
+\begin{equation*}
+  A^p = \vspan\{a_1\dots a_s \mid s \le p, a_1, \dots, a_s \in S\} \quad \text{for $p \in \mathbb{Z}$}.
+\end{equation*}
+This filtration satisfies:
+\begin{enumerate}
+\item $A^p = 0$ for $p < 0$;
+\item $A^0 = \mathbb{C}1$;
+\item $A^0 \subseteq A^1 \subseteq \dots$;
+\item $A^pA^q \subseteq A^{p + q}$ for $p, q \in \mathbb{Z}$;
+\item $A = \sum_{p \in \mathbb{Z}}A^p$.
+\end{enumerate}
+
+If $A$ is $\mathbb{N}$-graded such that $\dim(A_n) < \infty$ for $n \in \mathbb{N}$, we can define \emph{the refined character of $A$ with respect to the increasing filtration of $A$ with respect to $S$} as follows
+\begin{equation*}
+  \ch^S_A(t, q) = \sum_{p, n \in \mathbb{N}}\dim\left(\frac{A^p \cap A_n}{A^{p - 1} \cap A_n}\right)t^pq^n \in \mathbb{C}[[t, q]].
+\end{equation*}
+
+We now assume $A$ is a differential commutative associative algebra with unit $1$ and derivation $\partial$.
+The \emph{Li filtration of $A$} is given by
+\begin{equation*}
+  F_pA = \vspan\{(\partial^{n_1}a_1)\dots(\partial^{n_s}a_s) \mid s, n_1, \dots, n_s \in \mathbb{N}, n_1 + \dots + n_s \ge p\} \quad \text{for $p \in \mathbb{Z}$}.
+\end{equation*}
+This filtration satisfies:
+\begin{enumerate}
+\item $F_pA = A$ for $p \le 0$;
+\item $F_0A \supseteq F_1A \supseteq \dots$;
+\item $\partial(F_pA) \subseteq F_{p + 1}A$ for $p \in \mathbb{Z}$;
+\item $(F_pA)(F_qA) \subseteq F_{p + q}A$ for $p, q \in \mathbb{Z}$.
+\end{enumerate}
+
+If $A$ is $\mathbb{N}$-graded such that $\dim(A_n) < \infty$ for $n \in \mathbb{N}$, we can define \emph{the refined character of $A$ with respect to the Li filtration of $A$} as follows
+\begin{equation*}
+  \ch^A_F(t, q) = \sum_{p, n \in \mathbb{N}}\dim\left(\frac{F_pA \cap A_n}{F_{p + 1}A \cap A_n}\right)t^pq^n \in \mathbb{C}[[t, q]]
+\end{equation*}
+
+We now assume $A$ is a $\mathbb{N}$-graded differential commutative associative algebra with unit $1$ and derivation $\partial$, and we assume the subset $S \subseteq A$ of homogeneous elements generates $A$ as a differential algebra, i.e., $A = (S)_{\partial}$.
+The \emph{standard filtration of $A$ with respect to $S$} is given by
+\begin{equation*}
+  G^pA = \vspan\{(\partial^{n_1}a_1)\dots(\partial^{n_s}a_s) \mid s, n_1, \dots, n_s \in \mathbb{N}, a_1, \dots, a_s \in S, \Delta_{a_1} + \dots + \Delta_{a_s} \le p\} \quad \text{for $p \in \mathbb{Z}$}.
+\end{equation*}
+This filtration satisfies:
+\begin{enumerate}
+\item $G^pA = 0$ for $p < 0$;
+\item $1 \in G^0A \subseteq G^1A \subseteq \dots$
+\item $A_n \subseteq G^nA$ for $n \in \mathbb{N}$;
+\item $A = \bigcup_{p \in \mathbb{N}}G^pA$;
+\item $(G^pA)(G^qA) \subseteq G^{p + q}A$ for $p, q \in \mathbb{Z}$;
+\item $H(G^pA) \subseteq G^pA$ and $\partial(G^pA) \subseteq G^pA$ for $p \in \mathbb{Z}$.
+\end{enumerate}
+
+If $A$ satisfies $\dim(A_n) < \infty$ for $n \in \mathbb{N}$, we can define \emph{the refined character of $A$ with respect to the standard filtration of $A$ with respect to $S$} as follows
+\begin{equation*}
+  \ch^G_A(t, q) = \sum_{p, n \in \mathbb{N}}\dim\left(\frac{G^pA \cap A_n}{G^{p - 1}A \cap A_n}\right)t^pq^n \in \mathbb{C}[[t, q]]
+\end{equation*}
 
 \bibliographystyle{alpha}
 \bibliography{boundary-minimal-models}
