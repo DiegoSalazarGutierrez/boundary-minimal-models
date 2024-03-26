@@ -547,7 +547,7 @@ Clearly, we have
   \end{equation*}
 \end{remark}
 
-Let $(c, h)$ be a highest weight.
+We pick a highest weight $(c, h)$.
 We have a natural epimorphism
 \begin{align*}
   \pi_{c, h}: M(c, h) &\twoheadrightarrow L(c, h), \\
@@ -1396,6 +1396,7 @@ Therefore, we obtain a functor
 \begin{example}
   \label{exa:10}
   We pick a highest weight $(c, h)$.
+  From \Cref{exa:9}, $\gr_F(\Vir^c)$ is isomorphic to $\mathbb{C}[L_{-2}, L_{-3}, \dots]$.
   We have an isomorphism
   \begin{align*}
     \gr_F(M(c, h)) &\xrightarrow{\sim} \bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}, L_{-3}, \dots]L_{-1}^k \\
@@ -1455,16 +1456,16 @@ The vertex algebra $V$ is called \emph{$C_2$-cofinite} if $R_V$ is finite dimens
 
   We have a natural quotient map
   \begin{align*}
-    \pi^c: \Vir^c &\twoheadrightarrow \Vir_c, \\
-    \pi^c(a) &= a + U(\Vir)\{a_{p, q}\}.
+    \pi_c: \Vir^c &\twoheadrightarrow \Vir_c, \\
+    \pi_c(a) &= a + U(\Vir)\{a_{p, q}\}.
   \end{align*}
   Applying the functor $R$, we obtain an epimorphism
   \begin{equation*}
-    R_{\pi^c}: R_{\Vir^c} \twoheadrightarrow R_{\Vir_c}.
+    R_{\pi_c}: R_{\Vir^c} \twoheadrightarrow R_{\Vir_c}.
   \end{equation*}
-  From the equation $\ker(R_{\pi^c}) = \sigma_0(U(\Vir)\{a_{p, q}\})$ and \Cref{thr:23}, we obtain
+  From the equation $\ker(R_{\pi_c}) = \sigma_0(U(\Vir)\{a_{p, q}\})$ and \Cref{thr:23}, we obtain
   \begin{equation*}
-    \ker(R_{\pi^c}) = \sigma_0(L_{-2}^{(p - 1)(q - 1)/2}\vac).
+    \ker(R_{\pi_c}) = \sigma_0(L_{-2}^{(p - 1)(q - 1)/2}\vac).
   \end{equation*}
   In summary,
   \begin{equation*}
@@ -1573,7 +1574,29 @@ The condition of $C_2$-cofiniteness on modules has several implications, as we w
 
 \begin{example}
   \label{exa:13}
-  
+  We pick a highest weight $(c, h)$.
+  As in \Cref{exa:16}, we consider $\mathbb{C}[L_{-2}]$ as the polynomial algebra in one variable $L_{-2}$, and we equip it with the trivial Poisson bracket.
+  We consider $\mathbb{C}[L_{-2}, L_{-1}] = \bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}]L_{-1}^k$ as a module over the Poisson algebra $\mathbb{C}[L_{-2}]$ with Poisson bracket given by $\{L_{-2}, L_{-1}^k\} = L_{-1}^{k + 1}$ for $k \in \mathbb{N}$.
+  By \Cref{exa:10} and \Cref{exa:16}, we have the following isomorphism of modules over Poisson algebras
+  \begin{align*}
+    R_{M(c, h)} &\xrightarrow{\sim} \bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}]L_{-1}^k,\\
+    \sigma_0(L_{-2}|c, h\rangle) &\mapsto L_{-2}, \\
+    \sigma_0(L_{-1}|c, h\rangle) &\mapsto L_{-1}.
+  \end{align*}
+  We have a natural epimorphism
+  \begin{align*}
+    \pi_{c, h}: M(c, h) &\twoheadrightarrow L(c, h), \\
+    \pi_{c, h}(u) &= u + J(c, h),
+  \end{align*}
+  and it satisfies $\ker(\pi_{c, h}) = J(c, h)$.
+  Applying the functor $R$, we obtain an epimorphism
+  \begin{equation*}
+    R_{\pi_{c, h}}: R_{M(c, h)} \twoheadrightarrow R_{L(c, h)}.
+  \end{equation*}
+  From the equation $\ker(R_{\pi_{(c, h)}}) = \sigma_0(J(c, h))$, we obtain
+  \begin{equation*}
+    R_{L(c, h)} \cong \bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}]L_{-1}^k/\sigma_0(J(c, h)).
+  \end{equation*}
 \end{example}
 
 \begin{theorem}[{\cite[Lemma 4.2]{li_abelianizing_2005}}]
@@ -1603,8 +1626,23 @@ By the universal property of the (graded) $JR_V$-module $JR_V \otimes_{R_V} R_M$
 \end{lemma}
 
 \begin{proof}
-  The assertion follows from \Cref{thr:55}.
+  The assertion follows from \Cref{lmm:26} and \Cref{thr:55}.
 \end{proof}
+
+When $\phi_M$ is an isomorphism, we say the $M$ is \emph{classically free}.
+
+\begin{example}
+  \label{exa:15}
+  We pick a highest weight $(c, h)$.
+  The Verma module $M(c, h)$ is always classically free as a $\Vir^c$-module because by \Cref{exa:10}, \Cref{exa:16} and \Cref{exa:13},
+  \begin{align*}
+    JR_{\Vir^c} \otimes_{R_{\Vir^c}} R_{M(c, h)} &\cong \mathbb{C}[L_{-2}, L_{-3}, \dots] \otimes_{\mathbb{C}[L_{-2}]} \bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}]L_{-1}^k \\
+    &\cong \bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}, L_{-3}, \dots]L_{-1}^k \\
+    &\cong \gr_F(M(c, h)).
+  \end{align*}
+\end{example}
+
+We wish to determine when the irreducible modules $L(c_{p, q}, h_{m, n})$ over the simple Virasoro vertex algebras $\Vir_{p, q} = \Vir_{c_{p, q}}$ are classically free, see \Cref{thr:44} for details.
 
 \begin{theorem}[{\cite[Proposition 4.12]{li_abelianizing_2005}}]
   \label{thr:56}
@@ -1670,7 +1708,7 @@ where $P^{s, i}$ is the set of partitions that do not contain any partition in $
   \label{lmm:4}
   We have
   \begin{equation*}
-    \ch_{L(c_{2, 2s + 1}, h_{1, i})}(q) = q^{h_{1, i}}p^{s, i}(1, q) = q^{h_{1, i}}\prod_{\substack{n = 1 \\ n \not\equiv 0, \pm i \mod 2k + 1}}(1 - q^n)^{-1}.
+    \ch_{L(c_{2, 2s + 1}, h_{1, i})}(q) = q^{h_{1, i}}p^{s, i}(1, q) = q^{h_{1, i}}\left(\prod_{\substack{n = 1 \\ n \not\equiv 0, \pm i \mod 2k + 1}}(1 - q^n)^{-1}\right).
   \end{equation*}
 \end{lemma}
 
@@ -1678,7 +1716,7 @@ where $P^{s, i}$ is the set of partitions that do not contain any partition in $
   By \Cref{lmm:5}, \cite[Lemma 7.3]{andrews_theory_1998} and \cite[Corollary 2.9]{andrews_theory_1998}, we have
   \begin{align*}
     q^{h_{1, i}}p^{s, i}(1, q) &= q^{h_{1, i}}J_{s, i}(0, 1, q) \\
-                               &= q^{h_{1, i}}\prod_{\substack{n = 1 \\ n \not\equiv 0, \pm i \mod 2k + 1}}(1 - q^n)^{-1} \\
+                               &= q^{h_{1, i}}\left(\prod_{\substack{n = 1 \\ n \not\equiv 0, \pm i \mod 2k + 1}}(1 - q^n)^{-1}\right) \\
                                &= \frac{q^{h_{1, i}}}{(q)_{\infty}}\sum_{k \in \mathbb{N}}(-1)^kq^{(2s + 1)k(k + 1)/2 - ki}(1 - q^{(2k + 1)i}) \\
                                &= \frac{q^{h_{1, i}}}{(q)_{\infty}}\sum_{k \in \mathbb{Z}}(-1)^kq^{(2s + 1)k(k + 1)/2 - ki}.
   \end{align*}
