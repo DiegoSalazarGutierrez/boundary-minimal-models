@@ -601,6 +601,7 @@ But taking $N \to \infty$, we can obtain our desired results, see \cite{salazar_
 
 All vector spaces and all algebras are over $\mathbb{C}$, the field of complex numbers, unless otherwise stated.
 All tensor products are over $\mathbb{C}$, unless otherwise stated.
+
 The vector space of \emph{formal distributions in $n \in \mathbb{N}$ variables}, denoted by $\mathbb{C}[[x_1^{\pm 1}, \dots, x_n^{\pm 1}]]$, is the set of functions $f: \mathbb{Z}^n \to \mathbb{C}$, written as $f(x_1, \dots, x_n) = \sum_{m_1, \dots, m_n \in \mathbb{Z}}f_{m_1, \dots, m_n}x_1^{m_1}\dots x_n^{m_n}$, with the natural operations of addition and multiplication by a scalar.
 The field of \emph{formal Laurent series}, denoted by $\mathbb{C}((x))$, is the subspace of elements $f(x) \in \mathbb{C}[[x^{\pm 1}]]$ such that there is $N \in \mathbb{Z}$ with $f_n = 0$ for $n \le N$.
 We also have $\mathbb{C}((x)) = \Frac(\mathbb{C}[[x]])$, so $\mathbb{C}((x))$ is actually a field.
@@ -1035,7 +1036,7 @@ We say $\mathfrak{h}$ \emph{acts as $\lambda$} if for $h \in \mathfrak{h}$ and $
     Y^M(a^j_{(-1)}\vac, z) = a^j(z) \quad \text{for $j \in J$}.
   \end{equation*}
   Let $\lambda: \mathfrak{h} \to \mathbb{C}$ be a linear functional, where $\mathfrak{h}$ is a subalgebra of $\mathfrak{g}_+$ with $\mathfrak{h} \subseteq \ker(T_0)$.
-  Given a smooth $(\mathfrak{g}, \mathfrak{F}, T_0)$-module $M$, where $h$ acts as $\lambda$, there is a unique module structure $Y^M_{\lambda}: V^{\lambda}(\mathfrak{g}, \mathfrak{F}, T_0) \to \mathcal{F}(M)$ such that $Y^M_{\lambda}$ factors through $Y^M$, i.e., such that the following diagram commutes
+  Given a smooth $(\mathfrak{g}, \mathfrak{F}, T_0)$-module $M$ where $\mathfrak{h}$ acts as $\lambda$, there is a unique module structure $Y^M_{\lambda}: V^{\lambda}(\mathfrak{g}, \mathfrak{F}, T_0) \to \mathcal{F}(M)$ such that $Y^M_{\lambda}$ factors through $Y^M$, i.e., such that the following diagram commutes
   \begin{equation*}
     \begin{tikzcd}
       V(\mathfrak{g}, \mathfrak{F}, T_0) \arrow[r, two heads] \arrow[rd, "{Y^M}"'] & {V^{\lambda}(\mathfrak{g}, \mathfrak{F}, T_0)} \arrow[d, "{Y^M_{\lambda}}"] \\
