@@ -115,6 +115,8 @@ and let $P^{s, i}$ be the set of partitions that do not contain any partition in
 \section{Preliminaries and notation}
 \label{sec:prel-notat}
 
+All vector spaces and all algebras are over $\mathbb{C}$, the field of complex numbers, unless otherwise stated.
+All tensor products are over $\mathbb{C}$, unless otherwise stated.
 The set of natural numbers $\{0, 1, \dots\}$ is denoted by $\mathbb{N}$, the set of integers is denoted by $\mathbb{Z}$, and the set of positive integers $\{1, 2, \dots\}$ is denoted by $\mathbb{Z}_+$.
 
 First, we review the theory of representations of the Virasoro Lie algebra following \cite{kac_bombay_2013}.
@@ -229,10 +231,10 @@ We can define
 \end{align*}
 and it is a derivation of $\gr(A)$.
 
-\begin{example}
+\begin{example}[\emph{PBW filtration of $U(\mathfrak{g})$}]
   \label{exa:1}
   Let $\mathfrak{g}$ be a Lie algebra.
-  The \emph{PBW filtration of $U(\mathfrak{g})$}, the universal enveloping algebra of $\mathfrak{g}$, is given by
+  The PBW filtration of $U(\mathfrak{g})$, the universal enveloping algebra of $\mathfrak{g}$, is given by
   \begin{equation*}
     U(\mathfrak{g})^p = \vspan\{x_1x_2\dots x_s \mid s \le p, x_1, \dots, x_s \in \mathfrak{g}\} \quad \text{for $p \in \mathbb{Z}$}.
   \end{equation*}
@@ -314,7 +316,7 @@ where $Q^+ = \sum_{i = 1}^r\mathbb{Z}_{\ge 0}\alpha_i$ and
 \end{equation*}
 For later use, we set $\mathfrak{g}^{\ge} = \mathfrak{h} \oplus \mathfrak{g}^+$ and $\mathfrak{g}^{\le} = \mathfrak{g}^- \oplus \mathfrak{h}$.
 
-\begin{example}[\emph{$\Vir$ as a $\mathbb{Z}$-graded Lie algebra}]
+\begin{example}
   \label{exa:2}
   We set $Q = \mathbb{Z}$, $\mathfrak{h} = \mathbb{C}L_0 \oplus \mathbb{C}C$, $\Vir^n = \mathbb{C}L_n$ for $n \in \mathbb{Z} \setminus \{0\}$ and
   \begin{align*}
@@ -337,7 +339,7 @@ For later use, we set $\mathfrak{g}^{\ge} = \mathfrak{h} \oplus \mathfrak{g}^+$ 
     [K, \bar{\mathfrak{g}}] &= 0, \\
     [d, xt^m] &= mxt^m \quad \text{for $x \in \mathfrak{g}$ and $m \in \mathbb{Z}$}.
   \end{align*}
-  With this bracket, $\bar{\mathfrak{g}}$ becomes a Lie algebra called the \emph{(untwisted) affine Lie algebra of $\mathfrak{g}$} or the \emph{(untwisted) affinization of $\mathfrak{g}$}.
+  With this bracket, $\bar{\mathfrak{g}}$ becomes a Lie algebra called the \emph{(untwisted) affine Lie algebra of $\mathfrak{g}$} or the (untwisted) affinization of $\mathfrak{g}$.
   If $\mathfrak{g}$ is simple, $\bar{\mathfrak{g}}$ is called the \emph{(untwisted) Kac-Moody affinization of $\mathfrak{g}$}.
 
   Let $\Delta \subseteq \mathfrak{h}^*$ be the set of roots of $\mathfrak{g}$ with respect to $\mathfrak{h}$, so we have a root space decomposition $\mathfrak{g} = \mathfrak{h} \bigoplus_{\beta \in \Delta}\mathfrak{g}^{\beta}$, where $\mathfrak{g}^{\beta} = \{x \in \mathfrak{g} \mid \text{for $h \in \mathfrak{h}$, $[h, x] = \beta(h)x$}\}$ for $\beta \in \mathfrak{h}^*$.
@@ -388,7 +390,7 @@ For later use, we set $\mathfrak{g}^{\ge} = \mathfrak{h} \oplus \mathfrak{g}^+$ 
   \begin{equation*}
     \hat{\mathfrak{g}} = [\bar{\mathfrak{g}}, \bar{\mathfrak{g}}] = \mathfrak{g} \otimes \mathbb{C}[t, t^{-1}] \oplus \mathbb{C}K.
   \end{equation*}
-  With this bracket, $\hat{\mathfrak{g}}$ becomes a Lie algebra called the \emph{affine Lie algebra of $\mathfrak{g}$} or the \emph{affinization of $\mathfrak{g}$}.
+  With this bracket, $\hat{\mathfrak{g}}$ becomes a Lie algebra called the \emph{affine Lie algebra of $\mathfrak{g}$} or the affinization of $\mathfrak{g}$.
   If $\mathfrak{g}$ is simple, $\hat{\mathfrak{g}}$ is called the \emph{Kac-Moody affinization of $\mathfrak{g}$}.
 
   We set
@@ -497,7 +499,7 @@ Therefore, we obtain a functor
   By \Cref{rmk:1}, $f$ respects the $\mathfrak{h}^*$-grading, and this implies $f(M^p) \subseteq N^p$, so what we wrote above makes sense.
 \end{remark}
 
-\begin{example}
+\begin{example}[$\gr(M(c, h))$]
   \label{exa:6}
   We pick a highest weight $(c, h)$.
   By \cite[\S2]{dixmier_enveloping_1996}, we have a natural isomorphism
@@ -517,7 +519,7 @@ Clearly, we have
   \ch_M(1, q) = \ch_M(q).
 \end{equation*}
 
-\begin{example}
+\begin{example}[$\ch_{M(c, h)}(t, q)$]
   \label{exa:7}
   We can consider the $\mathbb{Z}$-graded Virasoro Lie algebra $(\Vir, \mathfrak{h})$.
   We are mainly interested in $M(c, h)$ and $L(c, h)$ for some highest weights $(c, h)$.
@@ -527,7 +529,7 @@ Clearly, we have
   \end{equation*}
 \end{example}
 
-\begin{example}
+\begin{example}[$\ch_{L(1/2, 0)}(t, q)$]
   \label{exa:8}
   In \cite{andrews_singular_2022}, the refined character of the Virasoro minimal model $\Vir_{3, 4} = L(1/2, 0)$, also known as the Ising model, is computed explicitly.
   Interestingly, this character is connected to Nahm sums for the matrix $\left(\begin{smallmatrix} 8 & 3 \\ 3 & 2 \end{smallmatrix}\right)$ (see \cite{Nahm2007}) and can be explicitly expressed as
@@ -598,9 +600,6 @@ But taking $N \to \infty$, we can obtain our desired results, see \cite{salazar_
 
 \section{A short survey on vertex algebras}
 \label{sec:short-survey-vertex}
-
-All vector spaces and all algebras are over $\mathbb{C}$, the field of complex numbers, unless otherwise stated.
-All tensor products are over $\mathbb{C}$, unless otherwise stated.
 
 The vector space of \emph{formal distributions in $n \in \mathbb{N}$ variables}, denoted by $\mathbb{C}[[x_1^{\pm 1}, \dots, x_n^{\pm 1}]]$, is the set of functions $f: \mathbb{Z}^n \to \mathbb{C}$, written as $f(x_1, \dots, x_n) = \sum_{m_1, \dots, m_n \in \mathbb{Z}}f_{m_1, \dots, m_n}x_1^{m_1}\dots x_n^{m_n}$, with the natural operations of addition and multiplication by a scalar.
 The field of \emph{formal Laurent series}, denoted by $\mathbb{C}((x))$, is the subspace of elements $f(x) \in \mathbb{C}[[x^{\pm 1}]]$ such that there is $N \in \mathbb{Z}$ with $f_n = 0$ for $n \le N$.
@@ -1314,7 +1313,7 @@ Therefore, we obtain a functor
   \gr_F: \{\text{(graded) vertex algebras}\} \to \{\text{(graded) vertex Poisson algebras}\}.
 \end{equation*}
 
-\begin{example}
+\begin{example}[$\gr_F(\Vir^c)$]
   \label{exa:14}
   We pick $c \in \mathbb{C}$.
   We have an isomorphism
@@ -1417,7 +1416,7 @@ Therefore, we obtain a functor
   \gr_F: \{\text{(graded) $V$-modules}\} \to \{\text{(graded) $\gr_F(V)$-modules}\}.
 \end{equation*}
 
-\begin{example}
+\begin{example}[$\gr_F(M(c, h))$]
   \label{exa:15}
   We pick a highest weight $(c, h)$.
   From \Cref{exa:14}, $\gr_F(\Vir^c)$ is isomorphic to $\mathbb{C}[L_{-2}, L_{-3}, \dots]$.
@@ -1464,7 +1463,7 @@ We have constructed a functor
 Oftentimes, some condition on $R_V$ implies or is equivalent to some condition on $V$, as we shall see in this section.
 The vertex algebra $V$ is called \emph{$C_2$-cofinite} if $R_V$ is finite dimensional.
 
-\begin{example}
+\begin{example}[$R_{\Vir^c}$ and $R_{\Vir_c}$]
   \label{exa:16}
   We pick $c \in \mathbb{C}$ and compute $R_{\Vir^c}$ and $R_{\Vir_c}$.
   We consider $\mathbb{C}[L_{-2}]$ as the polynomial algebra in one variable $L_{-2}$, and we equip it with the trivial Poisson bracket.
@@ -1475,7 +1474,7 @@ The vertex algebra $V$ is called \emph{$C_2$-cofinite} if $R_V$ is finite dimens
   \end{align*}
 
   We now move onto $\Vir_c$.
-  If $c$ is not of the form $c_{p, q}$ for some $p, q \ge 2$ relatively prime integers, then $\Vir_c = \Vir^c$, and we have already solved the problem.
+  If $c$ is not of the form $c_{p, q}$ for some $p, q \ge 2$ relatively prime integers, then $\Vir_c = \Vir^c$ by \Cref{thr:7}, and we have already solved the problem.
   Therefore, we assume $c$ is of this form.
 
   We have a natural quotient map
@@ -1493,7 +1492,7 @@ The vertex algebra $V$ is called \emph{$C_2$-cofinite} if $R_V$ is finite dimens
   \end{equation*}
   In summary,
   \begin{equation*}
-    R_{\Vir_c} \cong \mathbb{C}[L_{-2}]/(L_{-2}^{(p - 1)(q - 1)/2}).
+    R_{\Vir_{p, q}} \cong \mathbb{C}[L_{-2}]/(L_{-2}^{(p - 1)(q - 1)/2}).
   \end{equation*}
   Thus, $\Vir^c$ is never $C_2$-cofinite, while $\Vir_c$ is $C_2$-cofinite only when $c$ is of the form $c_{p, q}$ for some $p, q \ge 2$ relatively prime integers.
 \end{example}
@@ -1532,16 +1531,36 @@ From now on, $JR_V$ will be considered as a (graded) vertex Poisson algebra.
 
 When $\phi_V$ is an isomorphism, we say $V$ is \emph{classically free}.
 
-\begin{example}
+\begin{example}[$JR_{\Vir^c}$ and $JR_{\Vir_c}$]
   \label{exa:17}
   Let $c \in \mathbb{C}$.
-  Then $\Vir^c$ is classically free because $\gr_F(\Vir^c) \cong \mathbb{C}[L_{-2}, L_{-3}, \dots]$ by \Cref{exa:14} and $JR_{\Vir^c} = J(C[L_{-2}]) = \mathbb{C}[L_{-2}, L_{-3}, \dots]$ by \Cref{exa:16} and \Cref{sec:graded-jet-algebras}.
+  Then $\Vir^c$ is classically free because
+  \begin{equation*}
+    \gr_F(\Vir^c) \cong \mathbb{C}[L_{-2}, L_{-3}, \dots]
+  \end{equation*}
+  by \Cref{exa:14} and
+  \begin{equation*}
+    JR_{\Vir^c} \cong J(C[L_{-2}]) = \mathbb{C}[L_{-2}, L_{-3}, \dots]
+  \end{equation*}
+  by \Cref{exa:16} and \Cref{sec:graded-jet-algebras}.
 
-  If $c = c_{p, q}$ with $p > q \ge 2$ relatively prime integers, then $\Vir_{p, q}$ is classically free if and only if $q = 2$ by \cite{van_ekeren_chiral_2021}.
+  We now move onto $\Vir_c$.
+  If $c$ is not of the form $c_{p, q}$ for some $p, q \ge 2$ relatively prime integers, then $\Vir_c = \Vir^c$ by \Cref{thr:7}, and we have already solved the problem.
+  Therefore, we assume $c$ is of this form.
+  Then
+  \begin{equation*}
+    JR_{\Vir_{p, q}} \cong J(\mathbb{C}[L_{-2}]/(L_{-2}^{(p - 1)(q - 1)/2})) = \mathbb{C}[L_{-2}, L_{-3}, \dots]/(L_{-2}^{(p - 1)(q - 1)/2})_{\partial}
+  \end{equation*}
+  by \Cref{exa:16} and \Cref{sec:graded-jet-algebras}.
 \end{example}
 
 \begin{example}
   \label{exa:18}
+  If $p > q \ge 2$ are relatively prime integers, then $\Vir_{p, q}$ is classically free if and only if $q = 2$ by \cite{van_ekeren_chiral_2021}.
+\end{example}
+
+\begin{example}
+  \label{exa:19}
   It was proven in \cite{andrews_singular_2022} that the Ising model $\Vir_{3, 4}$ is not classically free.
   In fact, by \cite[Theorem 2]{andrews_singular_2022},
   \begin{equation*}
@@ -1596,8 +1615,8 @@ We have constructed a functor
 A $V$-module $M$ is called \emph{$C_2$-cofinite} if $R_M$ is finite dimensional.
 The condition of $C_2$-cofiniteness on modules has several implications, as we will see later.
 
-\begin{example}
-  \label{exa:19}
+\begin{example}[$R_{M(c, h)}$ and $R_{L(c, h)}$]
+  \label{exa:20}
   We pick a highest weight $(c, h)$.
   As in \Cref{exa:16}, we consider $\mathbb{C}[L_{-2}]$ as the polynomial algebra in one variable $L_{-2}$, and we equip it with the trivial Poisson bracket.
   We consider $\bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}]L_{-1}^k \cong \mathbb{C}[L_{-2}, L_{-1}]$ as a module over the Poisson algebra $\mathbb{C}[L_{-2}]$ with Poisson bracket given by $\{L_{-2}, L_{-1}^k\} = L_{-1}^{k + 1}$ for $k \in \mathbb{N}$.
@@ -1619,7 +1638,7 @@ The condition of $C_2$-cofiniteness on modules has several implications, as we w
   \end{equation*}
   From the equation $\ker(R_{\pi_{(c, h)}}) = \sigma_0(J(c, h))$, we obtain
   \begin{equation*}
-    R_{L(c, h)} \cong \frac{\bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}]L_{-1}^k}{\sigma_0(J(c_{2, 2s + 1}, h_{1, i}))}.
+    R_{L(c, h)} \cong \frac{\bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}]L_{-1}^k}{\sigma_0(J(c, h))}.
   \end{equation*}
 \end{example}
 
@@ -1655,10 +1674,10 @@ By the universal property of the (graded) $JR_V$-module $JR_V \otimes_{R_V} R_M$
 
 When $\phi_M$ is an isomorphism, we say the $M$ is \emph{classically free}.
 
-\begin{example}
-  \label{exa:20}
+\begin{example}[$JR_{\Vir^c} \otimes_{R_{\Vir^c}} R_{M(c, h)}$]
+  \label{exa:21}
   We pick a highest weight $(c, h)$.
-  The Verma module $M(c, h)$ is always classically free as a $\Vir^c$-module because by \Cref{exa:15}, \Cref{exa:16} and \Cref{exa:19},
+  The Verma module $M(c, h)$ is always classically free as a $\Vir^c$-module because by \Cref{exa:15}, \Cref{exa:16} and \Cref{exa:20},
   \begin{align*}
     JR_{\Vir^c} \otimes_{R_{\Vir^c}} R_{M(c, h)} &\cong \mathbb{C}[L_{-2}, L_{-3}, \dots] \otimes_{\mathbb{C}[L_{-2}]} \bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}]L_{-1}^k \\
                                                  &\cong \bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}, L_{-3}, \dots]L_{-1}^k \\
@@ -1883,7 +1902,7 @@ Next, for a highest weight $(c, h)$, we extend the definition of $\lp$ from $U(\
 \end{proof}
 
 \begin{proof}[Proof of \Cref{thr:3}]
-  By \Cref{exa:19}, we have
+  By \Cref{exa:20}, we have
   \begin{equation*}
     R_{L(c_{2, 2s + 1}, h_{1, i})} \cong \frac{\bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}]L_{-1}^k}{\sigma_0(J(c_{2, 2s + 1}, h_{1, i}))} \cong \frac{\mathbb{C}[L_{-2}, L_{-1}]}{\sigma_0(J(c_{2, 2s + 1}, h_{1, i}))}.
   \end{equation*}
@@ -1945,7 +1964,6 @@ Next, for a highest weight $(c, h)$, we extend the definition of $\lp$ from $U(\
 \section{Graded Poisson algebras and their modules}
 \label{sec:grad-poiss-algeb}
 
-In this section, all algebras and vector spaces are over $\mathbb{C}$.
 Let $A$ be a commutative associative algebra.
 A \emph{Hamiltonian operator of $A$} is a diagonalizable operator $H \in \End(A)$ such that
 \begin{equation*}
