@@ -601,14 +601,14 @@ But taking $N \to \infty$, we can obtain our desired results, see \cite{salazar_
 \section{A short survey on vertex algebras}
 \label{sec:short-survey-vertex}
 
-The vector space of \emph{formal distributions in $n \in \mathbb{N}$ variables}, denoted by $\mathbb{C}[[x_1^{\pm 1}, \dots, x_n^{\pm 1}]]$, is the set of functions $f: \mathbb{Z}^n \to \mathbb{C}$, written as $f(x_1, \dots, x_n) = \sum_{m_1, \dots, m_n \in \mathbb{Z}}f_{m_1, \dots, m_n}x_1^{m_1}\dots x_n^{m_n}$, with the natural operations of addition and multiplication by a scalar.
-The field of \emph{formal Laurent series}, denoted by $\mathbb{C}((x))$, is the subspace of elements $f(x) \in \mathbb{C}[[x^{\pm 1}]]$ such that there is $N \in \mathbb{Z}$ with $f_n = 0$ for $n \le N$.
+The vector space of \emph{formal distributions in $n \in \mathbb{N}$ variables}, denoted by $\mathbb{C}[[x_1^{\pm1}, \dots, x_n^{\pm1}]]$, is the set of functions $f: \mathbb{Z}^n \to \mathbb{C}$, written as $f(x_1, \dots, x_n) = \sum_{m_1, \dots, m_n \in \mathbb{Z}}f_{m_1, \dots, m_n}x_1^{m_1}\dots x_n^{m_n}$, with the natural operations of addition and multiplication by a scalar.
+The field of \emph{formal Laurent series}, denoted by $\mathbb{C}((x))$, is the subspace of elements $f(x) \in \mathbb{C}[[x^{\pm1}]]$ such that there is $N \in \mathbb{Z}$ with $f_n = 0$ for $n \le N$.
 We also have $\mathbb{C}((x)) = \Frac(\mathbb{C}[[x]])$, so $\mathbb{C}((x))$ is actually a field.
-If $V$ is a vector space, we similarly define $V[[x_1^{\pm 1}, \dots, x_n^{\pm 1}]]$ and $V((x))$, but in this case, $V((x))$ is only a vector space.
-We can consider $V[[x_1^{\pm 1}, \dots, x_n^{\pm 1}]]$ a module over the polynomial algebra $\mathbb{C}[x_1, \dots, x_n]$.
+If $V$ is a vector space, we similarly define $V[[x_1^{\pm1}, \dots, x_n^{\pm1}]]$ and $V((x))$, but in this case, $V((x))$ is only a vector space.
+We can consider $V[[x_1^{\pm1}, \dots, x_n^{\pm1}]]$ a module over the polynomial algebra $\mathbb{C}[x_1, \dots, x_n]$.
 
 Let $V$ be a vector space.
-The \emph{Fourier expansion of a formal distribution $a(z) \in V[[z^{\pm 1}]]$}, written as $a(z) = \sum_{n \in \mathbb{Z}}a_nz^n$, is conventionally written in the theory of vertex algebras as
+The \emph{Fourier expansion of a formal distribution $a(z) \in V[[z^{\pm1}]]$}, written as $a(z) = \sum_{n \in \mathbb{Z}}a_nz^n$, is conventionally written in the theory of vertex algebras as
 \begin{equation*}
   a(z) = \sum_{n \in \mathbb{Z}}a_{(n)}z^{-n - 1},
 \end{equation*}
@@ -616,22 +616,22 @@ where
 \begin{equation*}
   a_{(n)} = a_{-n - 1}.
 \end{equation*}
-The \emph{residue of a formal distribution $a(z) \in V[[z^{\pm 1}]]$} is defined as
+The \emph{residue of a formal distribution $a(z) \in V[[z^{\pm1}]]$} is defined as
 \begin{equation*}
   \res_z(a(z)) = a_{(0)} = a_{-1}.
 \end{equation*}
 
 Let $V$ be a vector space.
-A formal distribution $a(z, w) \in V[[z^{\pm 1}, w^{\pm 1}]]$ is \emph{local} if there is $N \in \mathbb{N}$ such that
+A formal distribution $a(z, w) \in V[[z^{\pm1}, w^{\pm1}]]$ is \emph{local} if there is $N \in \mathbb{N}$ such that
 \begin{equation*}
   (z - w)^Na(z, w) = 0.
 \end{equation*}
 
 Let $\mathfrak{g}$ be a Lie algebra.
-A subset $\mathfrak{F} \subseteq \mathfrak{g}[[z^{\pm 1}]]$ of formal distributions is called a \emph{local family} if all pairs of its elements are local.
+A subset $\mathfrak{F} \subseteq \mathfrak{g}[[z^{\pm1}]]$ of formal distributions is called a \emph{local family} if all pairs of its elements are local.
 For $n \in \mathbb{N}$, the \emph{$n$-product} is the $\mathbb{C}$-bilinear map defined by
 \begin{align*}
-  \bullet_{(n)}\bullet: \mathfrak{g}[[w^{\pm 1}]] \times \mathfrak{g}[[w^{\pm 1}]] &\to \mathfrak{g}[[w^{\pm 1}]], \\
+  \bullet_{(n)}\bullet: \mathfrak{g}[[w^{\pm1}]] \times \mathfrak{g}[[w^{\pm1}]] &\to \mathfrak{g}[[w^{\pm1}]], \\
   a(w)_{(n)}b(w) &= \res_z((z - w)^n[a(z), b(w)]).
 \end{align*}
 
@@ -688,7 +688,7 @@ and the \emph{polar decomposition of $(\mathfrak{g}, \mathfrak{F})$} is
   Moreover, we can verify directly that $(\hat{\mathfrak{g}}, \{a(z) \mid a \in \mathfrak{g}\} \cup \{K\}, -\partial_t)$ is regular.
 \end{example}
 
-Let $V$ be a vector space, and let $a(z) \in \End(V)[[z^{\pm 1}]]$ be a formal distribution.
+Let $V$ be a vector space, and let $a(z) \in \End(V)[[z^{\pm1}]]$ be a formal distribution.
 We set
 \begin{align*}
   a(z)_+ &= \sum_{n \le -1}a_{(n)}z^{-n - 1}, \\
@@ -1099,7 +1099,7 @@ By \Cref{thr:9}, $\Vir_{2, 2s + 1}$ has $s$ irreducible modules $L(c_{2, 2s + 1}
 \label{sec:graded-vert-poiss}
 
 Let $V$ be a vector space.
-Given a formal distribution $f(x_1, \dots, x_n) \in V[[x_1^{\pm 1}, \dots, x_n^{\pm 1}]]$, we can write it as
+Given a formal distribution $f(x_1, \dots, x_n) \in V[[x_1^{\pm1}, \dots, x_n^{\pm1}]]$, we can write it as
 \begin{equation*}
   f(x_1, \dots, x_n) = \sum_{m_1, \dots, m_n \in \mathbb{Z}}f_{(m_1, \dots, m_n)}x_1^{-m_1 - 1}\dots x_n^{-m_n - 1}.
 \end{equation*}
@@ -1115,7 +1115,7 @@ The data must satisfy the following axioms for $a, b \in V$:
 \item $Y_-(a, z)b = \sing(e^{Tz}Y_-(b, -z)a)$;
 \item $[Y_-(a, z), Y_-(b, w)] = \sing(\sum_{j \in \mathbb{N}}\frac{\partial^j_w\delta(z, w)}{j!}Y_-(a_{(j)}b, w))$, where $Y_-(a, z) = \sum_{n \in \mathbb{N}}a_{(n)}z^{-n - 1}$, $a_{(n)} \in \End(V)$ and
   \begin{equation*}
-    \delta(z, w) = \sum_{n \in \mathbb{Z}}z^nw^{-n - 1} \in \mathbb{C}[[z^{\pm 1}, w^{\pm 1}]]
+    \delta(z, w) = \sum_{n \in \mathbb{Z}}z^nw^{-n - 1} \in \mathbb{C}[[z^{\pm1}, w^{\pm1}]]
   \end{equation*}
   is the \emph{formal delta distribution}.
 \end{enumerate}
@@ -1190,7 +1190,7 @@ If $R$ is a (graded) Poisson algebra, and $M$ is a (graded) $R$-module, then we 
 \end{equation*}
 and $H^{JR \otimes_R M}$ as in \Cref{sec:graded-jet-algebras}.
 We have a natural (graded) inclusion $\inc: M \hookrightarrow JR \otimes_R M$, which is a (graded) $R$-module homomorphism.
-The (graded) $JR$-module $M$ together with the (graded) $R$-module monomorphism $\inc: M \hookrightarrow JR \otimes_R M$ satisfy a universal property similar to that of $JR$ (see \Cref{sec:graded-jet-algebras}), as we now show.
+The (graded) $JR$-module $M$ together with the (graded) $R$-module inclusion $\inc: M \hookrightarrow JR \otimes_R M$ satisfy a universal property similar to that of $JR$ (see \Cref{sec:graded-jet-algebras}), as we now show.
 Let $N$ be a (graded) module over the (graded) vertex Poisson algebra $JR$, and let $f: M \to N$ be a (graded) homomorphism of modules over the (graded) Poisson algebra $R$.
 Thus, $N$ is a module over the (graded) algebra $JR$ and in particular, a module over the (graded) algebra $R$ because we have an inclusion $\inc: R \hookrightarrow JR$.
 Also, $f$ can be considered as a (graded) algebra homomorphism.
@@ -1465,7 +1465,7 @@ The vertex algebra $V$ is called \emph{$C_2$-cofinite} if $R_V$ is finite dimens
 
 \begin{example}[$R_{\Vir^c}$ and $R_{\Vir_c}$]
   \label{exa:16}
-  We pick $c \in \mathbb{C}$ and compute $R_{\Vir^c}$ and $R_{\Vir_c}$.
+  We pick $c \in \mathbb{C}$.
   We consider $\mathbb{C}[L_{-2}]$ as the polynomial algebra in one variable $L_{-2}$, and we equip it with the trivial Poisson bracket.
   By \Cref{exa:14}, we have the following isomorphism of Poisson algebras
   \begin{align*}
@@ -2014,7 +2014,7 @@ A \emph{Hamiltonian operator of $M$} is a Hamiltonian $H^M$ of $M$ as a module o
 
 In this appendix, by an algebra we will mean a commutative associative algebra with unit.
 Let $R$ be a finitely generated algebra.
-We now construct a differential algebra $JR$ called the \emph{jet algebra of $R$} and an algebra monomorphism $\inc: R \hookrightarrow JR$ universal with this property, i.e., for a differential algebra $A$ and an algebra homomorphism $\phi: R \to A$, there is a unique differential algebra homomorphism $\overline{\phi}: JR \to A$ such that the following diagram commutes
+We now construct a differential algebra $JR$ called the \emph{jet algebra of $R$} and an algebra inclusion $\inc: R \hookrightarrow JR$ universal with this property, i.e., for a differential algebra $A$ and an algebra homomorphism $\phi: R \to A$, there is a unique differential algebra homomorphism $\overline{\phi}: JR \to A$ such that the following diagram commutes
 \begin{equation*}
   \begin{tikzcd}
     R \arrow[r, "\inc", hook] \arrow[rd, "\phi"'] & JR \arrow[d, "\overline{\phi}"] \\
@@ -2033,7 +2033,7 @@ We set (identifying $x^j$ with $x^j_{(-1)}$ when considering $f_i$ in the follow
      &= \mathbb{C}[x^j_{(-i)} \mid i = 1, 2, \dots, j = 1, \dots, r]/(f_1, \dots, f_s)_{\partial},
 \end{align*}
 where the subscript $\partial$ indicates the differential subalgebra generated by the given subset.
-By our definitions, $\partial$ factors through a derivation of $JR$, and we have an algebra monomorphism $\inc: R \hookrightarrow JR, \inc(x^j + (f_1, \dots, f_s)) = x^j_{(-1)} + (f_1, \dots, f_s)_{\partial}$ for $j = 1, \dots, r$.
+By our definitions, $\partial$ factors through a derivation of $JR$, and we have an algebra inclusion $\inc: R \hookrightarrow JR, \inc(x^j + (f_1, \dots, f_s)) = x^j_{(-1)} + (f_1, \dots, f_s)_{\partial}$ for $j = 1, \dots, r$.
 The fact that $\inc: R \hookrightarrow JR$ satisfies our desired universal property is explained in \cite[\S2.3]{arakawa_remark_2012} and \cite{ein_jet_2008}.
 
 \begin{remark}
@@ -2070,7 +2070,7 @@ Given an algebra $R$, it is useful to consider the functor
   JR \otimes_R \bullet: \text{$R$-Mod} \to \text{$JR$-Mod},
 \end{equation*}
 where $JR$ is merely considered an algebra.
-Again, the $JR$-module $M$ together with the $R$-module monomorphism $\inc: M \hookrightarrow JR \otimes_R M, \inc(u) = 1\otimes u$ satisfy a universal property similar to that of $\inc: R \hookrightarrow JR$, and the functor $JR \otimes_R \bullet$ is left adjoint to the forgetful functor $\text{$JR$-Mod} \to \text{$R$-Mod}$.
+Again, the $JR$-module $M$ together with the $R$-module inclusion $\inc: M \hookrightarrow JR \otimes_R M, \inc(u) = 1\otimes u$ satisfy a universal property similar to that of $\inc: R \hookrightarrow JR$, and the functor $JR \otimes_R \bullet$ is left adjoint to the forgetful functor $\text{$JR$-Mod} \to \text{$R$-Mod}$.
 
 Let $R$ be a graded algebra with Hamiltonian $H$.
 We can extend uniquely the Hamiltonian $H$ to a Hamiltonian $H^{JR} \in \End(JR)$ because of \eqref{eq:13}.
