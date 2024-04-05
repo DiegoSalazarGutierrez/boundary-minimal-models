@@ -79,7 +79,7 @@ and let $P^{s, i}$ be the set of partitions that do not contain any partition in
   \label{thr:1}
   The refined character of $L(c_{2, 2s + 1}, h_{1, i})$ is given by
   \begin{equation*}
-    \ch_{L(c_{2, 2s + 1}, h_{1, i})}(t, q) = h^{1, i}J_{s, i}(0, t, q) = h^{1, i}\left(\sum_{k = (k_1, \dots, k_{s - 1}) \in \mathbb{N}^{s - 1}}t^{kB^{(s)}_{s - 1}}\frac{q^{\frac{1}{2}kG^{(s)}k^T + kB^{(s)}_{s - i}}}{(q)_{k_1}\dots(q)_{k_{s - 1}}}\right),
+    \ch_{L(c_{2, 2s + 1}, h_{1, i})}(t, q) = q^{h_{1, i}}J_{s, i}(0, t, q) = q^{h_{1, i}}\left(\sum_{k = (k_1, \dots, k_{s - 1}) \in \mathbb{N}^{s - 1}}t^{kB^{(s)}_{s - 1}}\frac{q^{\frac{1}{2}kG^{(s)}k^T + kB^{(s)}_{s - i}}}{(q)_{k_1}\dots(q)_{k_{s - 1}}}\right),
   \end{equation*}
   where $T$ denotes the transpose matrix and
   \begin{align*}
@@ -212,14 +212,14 @@ Let
 \end{equation*}
 be the associated graded vector space.
 The vector space $\gr(A)$ is an associative algebra with unit and multiplication given as follows.
-For $p, q \in \mathbb{N}$, $a \in A^p$ and $b \in A^p$, we set
+For $p, q \in \mathbb{N}$, $a \in A^p$ and $b \in A^q$, we set
 \begin{equation*}
   \gamma^p(a)\gamma^q(b) = \gamma^{p + q}(ab),
 \end{equation*}
 where $\gamma^p: A^p \to \gr(A)$ is the \emph{principal symbol map}, which is the composition of the natural maps $A^p \twoheadrightarrow A^p/A^{p - 1}$ and $A^p/A^{p - 1} \hookrightarrow \gr(A)$.
 The unit of $\gr(A)$ is $\gamma^0(1)$.
 
-Let $\partial$ be a derivation of $A$ respecting the grading $(A^p)_{p \in \mathbb{Z}}$, i.e., it satisfies:
+Let $\partial$ be a derivation of $A$ respecting the filtration $(A^p)_{p \in \mathbb{Z}}$, i.e., it satisfies:
 \begin{enumerate}
 \item $\partial(ab) = \partial(a)b + a\partial(b)$ for $a, b \in A$;
 \item $\partial(A^p) \subseteq A^p$ for $p \in \mathbb{Z}$.
@@ -256,7 +256,7 @@ Let
 be the associated graded vector space.
 
 Then $\gr(M)$ is a $\gr(A)$-module with operations given as follows.
-For $p, q \in \mathbb{N}$, $a \in A^p$ and $u \in M^p$, we set
+For $p, q \in \mathbb{N}$, $a \in A^p$ and $u \in M^q$, we set
 \begin{equation*}
   \gamma^p(a)\gamma^q_M(u) = \gamma^{p + q}_M(au),
 \end{equation*}
@@ -274,7 +274,7 @@ If $f: M \to N$ is a homomorphism of $A$-modules, then
 defines a homomorphism of $\gr(A)$-modules.
 Therefore, we obtain a functor
 \begin{equation*}
-  \gr: \{\text{$A$-modules}\} \to \{\text{$\gr(A)$-modules}\}.
+  \gr: \text{$A$-Mod} \to \text{$\gr(A)$-Mod}.
 \end{equation*}
 
 From now on, some subscripts or superscripts will be omitted, so for example $\gamma^p_M$ simplifies to $\gamma^p$.
@@ -326,7 +326,7 @@ For later use, we set $\mathfrak{g}^{\ge} = \mathfrak{h} \oplus \mathfrak{g}^+$ 
   Then $(\Vir, \mathfrak{h})$ is readily seen to be a $\mathbb{Z}$-graded Lie algebra.
   We take $1$ as the basis of $Q$, so $Q^+ = \mathbb{N}$.
   We can verify that $\ad(L_{-1})$ is a derivation of $\Vir$ satisfying $\ad(L_{-1})(\Vir^-) \subseteq \Vir^-$.
-  Therefore, $\gr(\Vir^-) \cong \mathbb{C}[L_{-1}, L_{-2}, \dots]$ has a derivation given by $\partial(L_{-n}) = (n - 1)L_{-n - 1}$ for $n \in \mathbb{Z}_+$.
+  Therefore, $\gr(U(\Vir^-)) \cong \mathbb{C}[L_{-1}, L_{-2}, \dots]$ has a derivation given by $\partial(L_{-n}) = (n - 1)L_{-n - 1}$ for $n \in \mathbb{Z}_+$.
 \end{example}
 
 \begin{example}[\emph{(Untwisted) affinization of $\mathfrak{g}$}]
@@ -468,7 +468,7 @@ The vector $v$ is called a \emph{highest weight vector of $M$} and is unique up 
   \label{exa:5}
   When considering the $\mathbb{Z}$-graded Virasoro Lie algebra $(\Vir, \mathfrak{h})$, where $\mathfrak{h} = \mathbb{C}L_0 \oplus \mathbb{C}C$, we identify $\mathfrak{h}^*$ with $\mathbb{C}^2$ as $\lambda = (c, h)$ if $\lambda(C) = c$ and $\lambda(L_0) = h$.
   We are mainly interested in the highest weight modules $M(c, h)$ and $L(c, h)$ of the Virasoro Lie algebra.
-  In this case, $(c_2, n_2) \ge (c_1, n_1)$ if and only if $c_1 = c_2$ and $n_1 \ge n_2$.
+  In this case, $(c_2, n_2) \ge (c_1, n_1)$ if and only if $c_1 = c_2$ and $n_1 - n_2 \in \mathbb{N}$.
   If this happens, $(c_2, n_2) - (c_1, n_1) = n_1 - n_2$.
 \end{example}
 
@@ -496,7 +496,7 @@ Therefore, we obtain a functor
 \begin{remark}
   \label{rmk:2}
   Let $M, N \in \mathcal{C}^{\lambda \ge}_{(\mathfrak{g}, \mathfrak{h})}$, and let $f: M \to N$ be a homomorphism.
-  By \Cref{rmk:1}, $f$ respects the $\mathfrak{h}^*$-grading, and this implies $f(M^p) \subseteq N^p$, so what we wrote above makes sense.
+  By \Cref{rmk:1}, $f$ respects the $\mathfrak{h}^*$-grading, and this implies $f(M^p) \subseteq N^p$.
 \end{remark}
 
 \begin{example}[$\gr(M(c, h))$]
@@ -509,11 +509,10 @@ Therefore, we obtain a functor
   \end{align*}
 \end{example}
 
-The \emph{refined character of $M \in \mathcal{C}^{\lambda \ge}_{(\mathfrak{g}, \mathfrak{h})}$}, where $M$ is semisimple, is defined by
+In this article, we are interested in the \emph{refined character of $M \in \mathcal{C}^{\lambda \ge}_{(\mathfrak{g}, \mathfrak{h})}$}, where $M$ is semisimple, defined to be
 \begin{equation*}
   \ch_M(t, q) = \sum_{p \in \mathbb{N}}\sum_{\lambda \in \mathfrak{h}^*}\dim(\gamma^p(M^p \cap M_{\lambda}))t^pq^{\lambda},
 \end{equation*}
-and this is what we are interested in this article.
 Clearly, we have
 \begin{equation*}
   \ch_M(1, q) = \ch_M(q).
@@ -522,7 +521,6 @@ Clearly, we have
 \begin{example}[$\ch_{M(c, h)}(t, q)$]
   \label{exa:7}
   We can consider the $\mathbb{Z}$-graded Virasoro Lie algebra $(\Vir, \mathfrak{h})$.
-  We are mainly interested in $M(c, h)$ and $L(c, h)$ for some highest weights $(c, h)$.
   For the Verma representation $M(c, h)$, we have
   \begin{align*}
     \ch_{M(c, h)}(t, q) &= \frac{q^h}{\prod_{k \in \mathbb{Z}_+}(1 - tq^k)}, \\
@@ -651,15 +649,7 @@ A \emph{regular} formal distribution Lie algebra is a triple $(\mathfrak{g}, \ma
 Let $(\mathfrak{g}, \mathfrak{F})$ be a formal distribution Lie algebra.
 The \emph{annihilation subalgebra of $(\mathfrak{g}, \mathfrak{F})$} is
 \begin{equation*}
-  \mathfrak{g}_- = \vspan\{a^j_{(n)} \mid j \in J, n \in \mathbb{N}\},
-\end{equation*}
-the \emph{creation subalgebra of $(\mathfrak{g}, \mathfrak{F})$} is
-\begin{equation*}
-  \mathfrak{g}_+ = \vspan\{a^j_{(-n - 1)} \mid j \in J, n \in \mathbb{N}\},
-\end{equation*}
-and the \emph{polar decomposition of $(\mathfrak{g}, \mathfrak{F})$} is
-\begin{equation*}
-  \mathfrak{g} = \mathfrak{g}_- \oplus \mathfrak{g}_+.
+  \mathfrak{g}_- = \vspan\{a^j_{(n)} \mid j \in J, n \in \mathbb{N}\}.
 \end{equation*}
 
 \begin{example}
@@ -761,7 +751,7 @@ The identity field $\Id_V$ acts as an identity for the normal ordered product, i
 \end{lemma}
 
 \begin{proof}
-  This follows from \Cref{lmm:3} and induction on $s$.
+  This follows from \Cref{lmm:1} and induction on $s$.
 \end{proof}
 
 We now extend the $n$-products.
@@ -1191,10 +1181,10 @@ If $R$ is a (graded) Poisson algebra, and $M$ is a (graded) $R$-module, then we 
 \end{equation*}
 and $H^{JR \otimes_R M}$ as in \Cref{sec:graded-jet-algebras}.
 We have a natural (graded) inclusion $\inc: M \hookrightarrow JR \otimes_R M$, which is a (graded) $R$-module homomorphism.
-The (graded) $JR$-module $M$ together with the (graded) $R$-module inclusion $\inc: M \hookrightarrow JR \otimes_R M$ satisfy a universal property similar to that of $JR$ (see \Cref{sec:graded-jet-algebras}), as we now show.
+The (graded) $R$-module $M$ together with the (graded) $R$-module inclusion $\inc: M \hookrightarrow JR \otimes_R M$ satisfy a universal property similar to that of $\inc: R \hookrightarrow JR$ (see \Cref{sec:graded-jet-algebras}), as we now show.
 Let $N$ be a (graded) module over the (graded) vertex Poisson algebra $JR$, and let $f: M \to N$ be a (graded) homomorphism of modules over the (graded) Poisson algebra $R$.
 Thus, $N$ is a module over the (graded) algebra $JR$ and in particular, a module over the (graded) algebra $R$ because we have an inclusion $\inc: R \hookrightarrow JR$.
-Also, $f$ can be considered as a (graded) algebra homomorphism.
+Also, $f$ can be considered as a (graded) homomorphism of (graded) modules over the (graded) algebra $R$.
 Therefore, there is a unique (graded) homomorphism $\overline{f}: JR \otimes_R M \to N$ of (graded) modules over the (graded) algebra $JR$ such that the following diagram commutes
 \begin{equation*}
   \begin{tikzcd}
