@@ -109,7 +109,9 @@ and let $P^{s, i}$ be the set of partitions that do not contain any partition in
 
 \begin{theorem}
   \label{thr:3}
-  The boundary minimal models $L(c_{2, 2s + 1}, h_{1, i})$ are classically free for $s \in \mathbb{Z}_+$ and $i \in \{1, \dots, s\}$.
+  The boundary minimal models $L(c_{2, 2s + 1}, h_{1, i})$ are classically free as modules over the simple Virasoro vertex algebra $\Vir_{2, 2s + 1}$ for $s \in \mathbb{Z}_+$ and $i \in \{1, \dots, s\}$.
+  Let $p, q > 2$ be relatively prime integers.
+  Then all the irreducible modules over the simple Virasoro vertex algebra $\Vir_{p, q}$, namely $L(c_{p, q}, h_{m, n})$ for integers $m, n$ such that $0 < m < p$ and $0 < n < q$, are not classically free.
 \end{theorem}
 
 \section{Preliminaries and notation}
@@ -329,85 +331,6 @@ For later use, we set $\mathfrak{g}^{\ge} = \mathfrak{h} \oplus \mathfrak{g}^+$ 
   Therefore, $\gr(U(\Vir^-)) \cong \mathbb{C}[L_{-1}, L_{-2}, \dots]$ has a derivation given by $\partial(L_{-n}) = (n - 1)L_{-n - 1}$ for $n \in \mathbb{Z}_+$.
 \end{example}
 
-\begin{example}[\emph{(Untwisted) affinization of $\mathfrak{g}$}]
-  \label{exa:3}
-  Let $\mathfrak{g}$ be a finite dimensional Lie algebra over $\mathbb{C}$, let $\mathfrak{h}$ be a Cartan subalgebra of $\mathfrak{g}$, and let $(\bullet, \bullet)$ be a nondegenerate invariant bilinear form on $\mathfrak{g}$.
-  We set:
-  \begin{align*}
-    \bar{\mathfrak{g}} &= \mathfrak{g} \otimes \mathbb{C}[t, t^{-1}] \oplus \mathbb{C}K \oplus \mathbb{C}d, \\
-    [xt^m, yt^n] &= [x, y]t^{m + n} + m\delta_{m, -n}(x, y)K \quad \text{for $x, y \in \mathfrak{g}$ and $m, n \in \mathbb{Z}$}, \\
-    [K, \bar{\mathfrak{g}}] &= 0, \\
-    [d, xt^m] &= mxt^m \quad \text{for $x \in \mathfrak{g}$ and $m \in \mathbb{Z}$}.
-  \end{align*}
-  With this bracket, $\bar{\mathfrak{g}}$ becomes a Lie algebra called the \emph{(untwisted) affine Lie algebra of $\mathfrak{g}$} or the (untwisted) affinization of $\mathfrak{g}$.
-  If $\mathfrak{g}$ is simple, $\bar{\mathfrak{g}}$ is called the \emph{(untwisted) Kac-Moody affinization of $\mathfrak{g}$}.
-
-  Let $\Delta \subseteq \mathfrak{h}^*$ be the set of roots of $\mathfrak{g}$ with respect to $\mathfrak{h}$, so we have a root space decomposition $\mathfrak{g} = \mathfrak{h} \bigoplus_{\beta \in \Delta}\mathfrak{g}^{\beta}$, where $\mathfrak{g}^{\beta} = \{x \in \mathfrak{g} \mid \text{for $h \in \mathfrak{h}$, $[h, x] = \beta(h)x$}\}$ for $\beta \in \mathfrak{h}^*$.
-  We fix a set of simple roots $(\alpha_i)_{i = 1}^r$ of $\mathfrak{g}$ and denote the highest root by $\theta$.
-
-  We set
-  \begin{equation*}
-    \bar{\mathfrak{h}} = \mathfrak{h}t^0 \oplus \mathbb{C}K \oplus \mathbb{C}d
-  \end{equation*}
-  and for $\beta \in \mathfrak{h}^*$, we extend $\beta$ by defining $\bar{\beta} \in \bar{\mathfrak{h}}^*$ as follows
-  \begin{align*}
-    \bar{\beta}: \bar{\mathfrak{h}}^* &\to \mathbb{C}, \\
-    \bar{\beta}(ht^0) &= \beta(h) \quad \text{for $h \in \mathfrak{h}$}, \\
-    \bar{\beta}(K) = \bar{\beta}(d) &= 0.
-  \end{align*}
-  We get a new set of roots $\bar{\Delta} \subseteq \bar{\mathfrak{h}}^*$ given by
-  \begin{equation*}
-    \bar{\Delta} = \{\bar{\beta} \mid \beta \in \Delta\},
-  \end{equation*}
-  and we define one more root $\delta \in \bar{\mathfrak{h}}^*$ by setting
-  \begin{align*}
-    \delta: \bar{\mathfrak{h}} &\to \mathbb{C}, \\
-    \delta(\mathfrak{h}t^0) &= 0, \\
-    \delta(K) &= 0, \\
-    \delta(d) &= 1.
-  \end{align*}
-  Finally, we set
-  \begin{equation*}
-    Q = \mathbb{Z}\bar{\Delta} \oplus \mathbb{Z}\delta \subseteq \bar{\mathfrak{h}}^*
-  \end{equation*}
-  and for $\alpha \in Q$,
-  \begin{equation*}
-    \bar{\mathfrak{g}}^{\alpha} =
-    \begin{cases}
-      \mathfrak{g}^{\beta}t^n &\text{if $\alpha = \bar{\beta} + n\delta$ for some $\bar{\beta} \in \bar{\Delta}$ and $n \in \mathbb{Z}$}; \\
-      \mathfrak{h}t^n &\text{if $\alpha = n\delta$ for some $n \in \mathbb{Z} \setminus \{0\}$}; \\
-      \mathfrak{h} &\text{if $\alpha = 0$}; \\
-      0 &\text{otherwise}.
-    \end{cases}
-  \end{equation*}
-  Then $\bar{\mathfrak{g}} = \bigoplus_{\alpha \in Q}\bar{\mathfrak{g}}^{\alpha}$ is the root space decomposition with respect to $\bar{\mathfrak{h}}$, and $\Pi = \{\alpha_1, \dots, \alpha_r\} \cup \{\alpha_0\}$ is a $\mathbb{Z}$-basis of $Q$ satisfying (iv), where $\pi_Q$ is the inclusion map and $\alpha_0 = \delta - \theta$.
-  Hence, $(\mathfrak{g}, \mathfrak{h})$ is a $Q$-graded Lie algebra.
-\end{example}
-
-\begin{example}[\emph{Affinization of $\mathfrak{g}$}]
-  \label{exa:4}
-  With notation as in the last example, we set
-  \begin{equation*}
-    \hat{\mathfrak{g}} = [\bar{\mathfrak{g}}, \bar{\mathfrak{g}}] = \mathfrak{g} \otimes \mathbb{C}[t, t^{-1}] \oplus \mathbb{C}K.
-  \end{equation*}
-  With this bracket, $\hat{\mathfrak{g}}$ becomes a Lie algebra called the \emph{affine Lie algebra of $\mathfrak{g}$} or the affinization of $\mathfrak{g}$.
-  If $\mathfrak{g}$ is simple, $\hat{\mathfrak{g}}$ is called the \emph{Kac-Moody affinization of $\mathfrak{g}$}.
-
-  We set
-  \begin{equation*}
-    \hat{h} = \bar{\mathfrak{h}} \cap \hat{\mathfrak{g}} = \mathfrak{h}t^0 \oplus \mathbb{C}K.
-  \end{equation*}
-  Then $(\hat{\mathfrak{g}}, \hat{\mathfrak{h}})$ is a $Q$-graded Lie algebra with $Q$-grading
-  \begin{equation*}
-    \hat{\mathfrak{g}}^{\alpha} =
-    \begin{cases}
-      \bar{\mathfrak{g}}^{\alpha} &\text{if $\alpha \neq 0$}; \\
-      \hat{\mathfrak{h}} &\text{if $\alpha = 0$}.
-    \end{cases}
-  \end{equation*}
-  In this case, the map $\pi_Q: Q \to (\mathfrak{h}')^*$ is not injective because $\pi_Q(\delta) = 0$.
-\end{example}
-
 Let $\Gamma$ be an abelian group, and let $\mathfrak{g} = \bigoplus_{\alpha \in \Gamma}\mathfrak{g}^{\alpha}$ be a $\Gamma$-graded Lie algebra.
 A $\mathfrak{g}$-module $M = \bigoplus_{\alpha \in \Gamma}M^{\alpha}$ is \emph{$\Gamma$-graded} if
 \begin{equation*}
@@ -455,14 +378,6 @@ We can introduce a partial order on $Q$ as follows
 Since $\pi_Q$ is assumed to be injective, we can abuse notation and write $\lambda_2 - \lambda_1 = \gamma \in Q$.
 
 We now define the full subcategory $\mathcal{C}^{\lambda \ge}_{(\mathfrak{g}, \mathfrak{h})}$ by considering the objects $M \in \mathcal{C}_{(\mathfrak{g}, \mathfrak{h})}$ such that $M_{\mu} = 0$ if $\lambda \ngeq \mu$.
-
-Let $(\mathfrak{g}, \mathfrak{h})$ be a $Q$-graded Lie algebra, let $M \in \mathcal{C}_{(\mathfrak{g}, \mathfrak{h})}$, and let $\lambda \in \mathfrak{h}^*$.
-$M$ is called a \emph{highest weight module} with \emph{highest weight} $\lambda \in \mathfrak{h}^*$ if there is a nonzero vector $v \in M_{\lambda}$ such that:
-\begin{enumerate}
-\item $xv = 0$ for $x \in \mathfrak{g}^+$;
-\item $U(\mathfrak{g}^-)v = M$.
-\end{enumerate}
-The vector $v$ is called a \emph{highest weight vector of $M$} and is unique up to multiplication by a nonzero scalar.
 
 \begin{example}
   \label{exa:5}
@@ -667,18 +582,6 @@ The \emph{annihilation subalgebra of $(\mathfrak{g}, \mathfrak{F})$} is
   Moreover, we can verify directly that $(\Vir, \{L(z), C\}, \ad(L_{-1}))$ is regular.
 \end{example}
 
-\begin{example}
-  \label{exa:10}
-  Let $\mathfrak{g}$ be a finite dimensional Lie algebra, let $(\bullet, \bullet)$ be a nondegenerate invariant bilinear form on $\mathfrak{g}$, and let $\hat{\mathfrak{g}}$ be the affinization of $\mathfrak{g}$ as constructed in \Cref{exa:4}.
-  We now construct $\hat{\mathfrak{g}}$-valued formal distributions by setting
-  \begin{equation*}
-    a(z) = \sum_{n \in \mathbb{Z}}at^nz^{-n - 1} \quad \text{for $a \in \mathfrak{g}$}.
-  \end{equation*}
-  By \cite[\S2]{frenkel_vertex_2001}, $\{a(z) \mid a \in \mathfrak{g}\} \cup \{K\}$ is a local family.
-  Therefore, $(\hat{\mathfrak{g}}, \{a(z) \mid a \in \mathfrak{g}\} \cup \{K\})$ is a formal distribution Lie algebra.
-  Moreover, we can verify directly that $(\hat{\mathfrak{g}}, \{a(z) \mid a \in \mathfrak{g}\} \cup \{K\}, -\partial_t)$ is regular.
-\end{example}
-
 Let $V$ be a vector space, and let $a(z) \in \End(V)[[z^{\pm1}]]$ be a formal distribution.
 We set
 \begin{align*}
@@ -700,7 +603,7 @@ Therefore, we can define a field $a(z)$ by defining $a(z)b \in V((z))$ for $b \i
 \begin{proposition}[{\cite[Proposition 3.3.2]{nozaradan_introduction_2008}}]
   \label{prp:2}
   Let $a(z), b(z) \in \mathcal{F}(V)$ be two fields.
-  Then $:a(z)b(z): \in \End(V)[[z,z^{-1}]]$ is again a field, where $:a(z)b(z):$ is defined by
+  Then $:a(z)b(z): \in \End(V)[[z^{\pm1}]]$ is again a field, where $:a(z)b(z):$ is defined by
   \begin{equation*}
     :a(z)b(z):c = a(z)_+b(z)c + b(z)a(z)_-c \quad \text{for $c \in V$}.
   \end{equation*}
@@ -877,13 +780,6 @@ Taking the quotient, we get a vertex algebra, denoted by
   \end{equation*}
 \end{example}
 
-\begin{example}[\emph{Universal affine vertex algebra of level $k$}]
-  \label{exa:12}
-  We pick $k \in \mathbb{C}$.
-  We take $(\hat{\mathfrak{g}}, \{a(z) \mid a \in \mathfrak{g}\} \cup \{K\}, -\partial_t)$ as the regular formal distribution Lie algebra as constructed in \Cref{exa:10} and $\lambda: \mathbb{C}K \to \mathbb{C}, \lambda(K) = k$ as the linear functional.
-  The resulting vertex algebra is the universal affine vertex algebra of level $k$, denoted by $V^k(\mathfrak{g})$.
-\end{example}
-
 Let $V$ be a vertex algebra.
 A \emph{Hamiltonian operator of $V$} is a diagonalizable operator $H \in \End(V)$ such that
 \begin{equation}
@@ -988,11 +884,6 @@ A \emph{submodule of $M$} is a subspace $N$ of $M$ such that $Y^M(a, z)u \in N((
 The \emph{quotient module} $M/N$ is defined in the usual way.
 A module whose only proper submodule is $0$ is called \emph{simple} or \emph{irreducible}.
 
-We say \emph{$M$ is strongly generated over $V$ by $T \subseteq M$} if
-\begin{equation*}
-  M = \vspan\{a^{1M}_{(-n_1 - 1)}\dots a^{sM}_{(-n_s - 1)}u \mid s, n_1, \dots, n_s \in \mathbb{N}, a^1, \dots, a^s \in V, u \in T\}.
-\end{equation*}
-
 \begin{proposition}
   \label{prp:3}
   Let $V$ be a vertex algebra, and let $Y^M: V \to \mathcal{F}(M)$ be a $V$-module.
@@ -1089,32 +980,16 @@ By \Cref{thr:9}, $\Vir_{2, 2s + 1}$ has $s$ irreducible modules $L(c_{2, 2s + 1}
 \section{Graded vertex Poisson algebras and their modules}
 \label{sec:graded-vert-poiss}
 
-Let $V$ be a vector space.
-Given a formal distribution $f(x_1, \dots, x_n) \in V[[x_1^{\pm1}, \dots, x_n^{\pm1}]]$, we can write it as
-\begin{equation*}
-  f(x_1, \dots, x_n) = \sum_{m_1, \dots, m_n \in \mathbb{Z}}f_{(m_1, \dots, m_n)}x_1^{-m_1 - 1}\dots x_n^{-m_n - 1}.
-\end{equation*}
-We set
-\begin{equation*}
-  \sing(f(x_1, \dots, x_n)) = \sum_{m_1, \dots, m_n \in \mathbb{N}}f_{(m_1, \dots, m_n)}x_1^{-m_1 - 1}\dots x_n^{-m_n - 1}.
-\end{equation*}
-
-A \emph{vertex Lie algebra} is the data $(V, T, Y_-)$, where $V$ is a vector space, $Y_-: V \to \mathcal{F}(V)$ is a linear map such that $Y_-(a, z) = \sing(Y_-(a, z))$ (i.e., $Y_-: V \to \Hom(V, z^{-1}V[z^{-1}])$) for $a \in V$ and $T \in \End(V)$.
-The data must satisfy the following axioms for $a, b \in V$:
+A \emph{vertex Lie algebra} or \emph{Lie conformal algebra} is the data $(V, T, Y_-)$, where $V$ is a vector space, $T \in \End(V)$ and $Y_-: V \to \Hom(V, z^{-1}V[z^{-1}])$ is a linear map satisfying the following axioms for $a, b \in V$ and $m, n \in \mathbb{N}$:
 \begin{enumerate}
 \item $Y_-(Ta, z) = \partial_zY_-(a, z)$;
-\item $Y_-(a, z)b = \sing(e^{Tz}Y_-(b, -z)a)$;
-\item $[Y_-(a, z), Y_-(b, w)] = \sing(\sum_{j \in \mathbb{N}}\frac{\partial^j_w\delta(z, w)}{j!}Y_-(a_{(j)}b, w))$, where $Y_-(a, z) = \sum_{n \in \mathbb{N}}a_{(n)}z^{-n - 1}$, $a_{(n)} \in \End(V)$ and
-  \begin{equation*}
-    \delta(z, w) = \sum_{n \in \mathbb{Z}}z^nw^{-n - 1} \in \mathbb{C}[[z^{\pm1}, w^{\pm1}]]
-  \end{equation*}
-  is the \emph{formal delta distribution}.
+\item $b_{(m)}a = -\sum_{j = 0}^{\infty}(-1)^{m + j}\frac{\partial^j(a_{(m + j)}b)}{j!}$;
+\item $[a_{(m)}, b_{(n)}] = \sum_{j = 0}^m\binom{m}{j}(a_{(j)}b)_{(m + n - j)}$.
 \end{enumerate}
-
-Expanding the definitions, axiom (iii) of vertex Lie algebras is equivalent to
-\begin{equation*}
-  [a_{(m)}, b_{(n)}] = \sum_{j = 0}^m\binom{m}{j}(a_{(j)}b)_{(m + n - j)} \quad \text{for $a, b \in V$ and $m, n \in \mathbb{N}$}.
-\end{equation*}
+\begin{remark}
+  \label{rmk:4}
+  The category of Lie conformal algebras is equivalent to the category of regular formal distributions Lie algebras (see \cite[\S2.7]{kac_vertex_1998} and \cite[\S2]{nozaradan_introduction_2008}).
+\end{remark}
 
 \begin{theorem}[{\cite{li_vertex_2004}}]
   \label{thr:11}
@@ -1180,35 +1055,15 @@ If $R$ is a (graded) Poisson algebra, and $M$ is a (graded) $R$-module, then we 
   a_{(n)}(b\otimes u) = (a_{(n)}b)\otimes u + \delta_{n, 0}b\otimes\{a, u\} \quad \text{for $a \in R$, $b \in JR$, $u \in M$ and $n \in \mathbb{N}$}
 \end{equation*}
 and $H^{JR \otimes_R M}$ as in \Cref{sec:graded-jet-algebras}.
-We have a natural (graded) inclusion $\inc: M \hookrightarrow JR \otimes_R M$, which is a (graded) $R$-module homomorphism.
-The (graded) $R$-module $M$ together with the (graded) $R$-module inclusion $\inc: M \hookrightarrow JR \otimes_R M$ satisfy a universal property similar to that of $\inc: R \hookrightarrow JR$ (see \Cref{sec:graded-jet-algebras}), as we now show.
+
+The (graded) $R$-module $M$ together with the natural (graded) $R$-module inclusion $\inc: M \hookrightarrow JR \otimes_R M$ satisfy the following universal property.
 Let $N$ be a (graded) module over the (graded) vertex Poisson algebra $JR$, and let $f: M \to N$ be a (graded) homomorphism of modules over the (graded) Poisson algebra $R$.
-Thus, $N$ is a module over the (graded) algebra $JR$ and in particular, a module over the (graded) algebra $R$ because we have an inclusion $\inc: R \hookrightarrow JR$.
-Also, $f$ can be considered as a (graded) homomorphism of (graded) modules over the (graded) algebra $R$.
-Therefore, there is a unique (graded) homomorphism $\overline{f}: JR \otimes_R M \to N$ of (graded) modules over the (graded) algebra $JR$ such that the following diagram commutes
+There is a unique (graded) homomorphism $\overline{f}: JR \otimes_R M \to N$ of (graded) modules over the (graded) vertex poisson algebra $JR$ such that the following diagram commutes
 \begin{equation*}
   \begin{tikzcd}
     M \arrow[r, "\inc", hook] \arrow[rd, "f"'] & JR \otimes_R M \arrow[d, "\overline{f}"] \\
     & N
   \end{tikzcd}
-\end{equation*}
-
-\begin{proposition}
-  \label{prp:5}
-  The homomorphism $\overline{f}$ as defined above is a (graded) $JR$-module homomorphism.
-\end{proposition}
-
-\begin{proof}
-  We just expand the definitions and verify the axioms of (graded) modules over (graded) vertex Poisson algebras.
-\end{proof}
-
-We have constructed a functor
-\begin{equation*}
-  JR \otimes_R \bullet: \{\text{(graded) $R$-modules}\} \to \{\text{(graded) $JR$-modules}\},
-\end{equation*}
-which is left adjoint to the forgetful functor $\{\text{(graded) $JR$-modules}\} \to \{\text{(graded) $R$-modules}\}$, i.e., for $M \in \{\text{(graded) $R$-modules}\}$ and $N \in \{\text{(graded) $JR$-modules}\}$, we have a natural isomorphism
-\begin{equation*}
-  \Hom_{\{\text{(graded) $JR$-modules}\}}(JR \otimes_R M, N) \cong \Hom_{\{\text{(graded) $R$-modules}\}}(M, N).
 \end{equation*}
 
 \section{Filtrations of vertex algebras and their modules}
@@ -1258,14 +1113,7 @@ The filtration $(F_pV)_{p \in \mathbb{Z}}$ is called the \emph{Li filtration of 
 \end{lemma}
 
 By \Cref{lmm:4}, the Li filtration depends only on $V$ and not on the choice of the strong generators.
-If $V$ is graded by a Hamiltonian $H$ with grading $V = \bigoplus_{\Delta \in \mathbb{C}}V_{\Delta}$, then $H(F_pV) \subseteq F_pV$ because in that case, for $p \in \mathbb{Z}$,
-\begin{equation*}
-  \begin{split}
-    F_pV = \vspan\{a^1_{(-n_1 - 1)}\dots a^s_{(-n_s - 1)}\vac &\mid \text{$s, n_1, \dots, n_s \in \mathbb{N}$, $a^1, \dots, a^s \in V$ homogeneous,} \\
-                                                              &\quad n_1 + \dots + n_s \ge p\}.
-  \end{split}
-\end{equation*}
-
+If $V$ is graded with Hamiltonian $H$, then $H(F_pV) \subseteq F_pV$ for $p \in \mathbb{Z}$.
 Therefore, we can define an operator $H \in \End(\gr_F(V))$ as $H(\sigma_p(a)) = \sigma_p(Ha)$ for $p \in \mathbb{N}$ and $a \in F_pV$.
 For $p \in \mathbb{Z}$ and $\Delta \in \mathbb{C}$, we define $F_pV_{\Delta} = F_pV \cap V_{\Delta}$.
 Since $H(F_pV) \subseteq F_pV$ for $p \in \mathbb{Z}$, we have
@@ -1312,7 +1160,7 @@ Therefore, we obtain a functor
     \gr_F(\Vir^c) &\xrightarrow{\sim} \mathbb{C}[L_{-2}, L_{-3}, \dots] \\
     \sigma_{\Delta(\lambda) - \clen(\lambda)}(L_{\lambda}\vac) &\mapsto p_{\lambda} \quad \text{for $\lambda$ a composition without ones}.
   \end{align*}
-  The endomorphism $T \in \End(\mathbb{C}[L_{-2}, L_{-3}, \dots])$ is given by $T(L_{-n}) = (n - 1)L_{-n - 1}$ for $n \ge 2$, which is extended to a derivation.
+  The derivation $T \in \Der(\mathbb{C}[L_{-2}, L_{-3}, \dots])$ is given by $T(L_{-n}) = (n - 1)L_{-n - 1}$ for $n \ge 2$, which is extended to a derivation.
   The Poisson structure of $\gr^G(\Vir^c)$ is trivial (i.e., the map $Y_-$ is zero).
   The refined character is given explicitly by
   \begin{equation*}
@@ -1361,14 +1209,7 @@ The filtration $(F_pM)_{p \in \mathbb{Z}}$ is called the Li filtration of $M$.
 \end{lemma}
 
 By \Cref{lmm:5}, the Li filtration depends only on $M$ and not on the choice of the strong generators of $V$.
-If $V$ is graded by a Hamiltonian $H$, and $M$ is graded by a Hamiltonian $H^M$, then $H^M(F_pM) \subseteq F_pM$ because in that case, for $p \in \mathbb{Z}$,
-\begin{equation*}
-  \begin{split}
-    F_pM = \vspan\{a^{1M}_{(-n_1 - 1)}\dots a^{sM}_{(-n_s - 1)}u &\mid \text{$s, n_1, \dots, n_s \in \mathbb{N}$, $a^1, \dots, a^s \in V$ homogeneous,} \\
-                                                                 &\quad \text{$u \in M$ homogeneous, $n_1 + \dots + n_s \ge p$}\}.
-  \end{split}
-\end{equation*}
-
+If $V$ is graded with Hamiltonian $H$, and $M$ is graded with Hamiltonian $H^M$, then $H^M(F_pM) \subseteq F_pM$ for $p \in \mathbb{Z}$.
 Therefore, we can define an operator $H^M \in \End(\gr_F(M))$ as $H^M(\sigma^M_p(u)) = \sigma^M_p(H^Mu)$ for $p \in \mathbb{N}$ and $u \in F_pM$.
 For $p \in \mathbb{Z}$ and $\Delta \in \mathbb{C}$, we define $F_pM_{\Delta} = F_pM \cap M_{\Delta}$.
 Since $H^M(F_pM) \subseteq F_pM$ for $p \in \mathbb{Z}$, we have
@@ -1499,7 +1340,7 @@ The vertex algebra $V$ is called \emph{$C_2$-cofinite} if $R_V$ is finite dimens
 
 Let $V$ be a (graded) vertex algebra.
 We have a natural (graded) algebra inclusion $\inc: R_V \hookrightarrow \gr_F(V)$.
-By the universal property of $JR_V$ (see \Cref{sec:graded-jet-algebras}), there is a (graded) differential algebra homomorphism $\phi_V: JR_V \to \gr_F(V)$ such that the following diagram commutes
+By the universal property of $\inc: R_V \hookrightarrow JR_V$ (see \Cref{sec:graded-jet-algebras}), there is a (graded) differential algebra homomorphism $\phi_V: JR_V \to \gr_F(V)$ such that the following diagram commutes
 \begin{equation*}
   \begin{tikzcd}
     R_V \arrow[rd, "\inc"', hook] \arrow[r, "\inc", hook] & JR_V \arrow[d, "\phi_V"] \\
@@ -1564,21 +1405,6 @@ When $\phi_V$ is an isomorphism, we say $V$ is \emph{classically free}.
   and $(b)_{\partial}$ is the differential ideal generated by $b$, cf.\ \Cref{sec:graded-jet-algebras} and \Cref{exa:14} where $\partial$ is denoted by $T$.
 \end{example}
 
-In algebra, commutative algebras are often required to be finitely generated.
-In the theory of $\mathbb{N}$-graded vertex algebras, the equivalent of this is assuming that $V$ is finitely strongly generated.
-Fortunately, these two concepts are related, as the following theorem shows.
-
-\begin{theorem}[{\cite[Theorem 4.8]{li_abelianizing_2005}}]
-  \label{thr:12}
-  Let $S \subseteq V$ be a subset of homogeneous elements of a lower truncated $\mathbb{Z}$-graded vertex algebra $V$.
-  The following are equivalent:
-  \begin{enumerate}
-  \item $S$ strongly generates $V$;
-  \item $\sigma_0(S)$ generates $R_V$ as an algebra without the Poisson structure.
-  \end{enumerate}
-  In particular, $V$ is finitely strongly generated if and only if $R_V$ is finitely generated.
-\end{theorem}
-
 Let $V$ be a vertex algebra, and let $M$ be a module over $V$.
 By \Cref{lmm:5}, we have
 \begin{equation*}
@@ -1603,9 +1429,6 @@ We have constructed a functor
   R: \{\text{(graded) $V$-modules}\} \to \{\text{(graded) $R_V$-modules}\}.
 \end{equation*}
 
-A $V$-module $M$ is called \emph{$C_2$-cofinite} if $R_M$ is finite dimensional.
-The condition of $C_2$-cofiniteness on modules has several implications, as we will see later.
-
 \begin{example}[$R_{M(c, h)}$ and $R_{L(c, h)}$]
   \label{exa:20}
   We pick a highest weight $(c, h)$.
@@ -1617,17 +1440,7 @@ The condition of $C_2$-cofiniteness on modules has several implications, as we w
     \sigma_0(L_{-2}|c, h\rangle) &\mapsto L_{-2}, \\
     \sigma_0(L_{-1}|c, h\rangle) &\mapsto L_{-1}.
   \end{align*}
-  We have a natural epimorphism
-  \begin{align*}
-    \pi_{c, h}: M(c, h) &\twoheadrightarrow L(c, h), \\
-    \pi_{c, h}(u) &= u + J(c, h),
-  \end{align*}
-  and it satisfies $\ker(\pi_{c, h}) = J(c, h)$.
-  Applying the functor $R$, we obtain an epimorphism
-  \begin{equation*}
-    R_{\pi_{c, h}}: R_{M(c, h)} \twoheadrightarrow R_{L(c, h)}.
-  \end{equation*}
-  From the equation $\ker(R_{\pi_{(c, h)}}) = \sigma_0(J(c, h))$, we obtain
+  As in \Cref{exa:16}, we obtain
   \begin{equation*}
     R_{L(c, h)} \cong \frac{\bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}]L_{-1}^k}{\sigma_0(J(c, h))}.
   \end{equation*}
@@ -1646,7 +1459,7 @@ Let $V$ be a (graded) vertex algebra, and let $M$ be a (graded) $V$-module.
 We have a natural (graded) inclusion $\inc: R_M \hookrightarrow \gr_F(M)$ of (graded) $R_V$-modules.
 As we explained in \Cref{sec:graded-vert-poiss}, we can consider $JR_V \otimes_{R_V} R_M$ as a (graded) $JR_V$-module.
 Because we have a (graded) epimorphism of vertex Poisson algebras $\phi_V: JR_V \twoheadrightarrow \gr_F(V)$, we can consider the (graded) $\gr_F(V)$-module $\gr_F(M)$ as a (graded) $JR_V$-module.
-By the universal property of the (graded) $JR_V$-module $JR_V \otimes_{R_V} R_M$ (see \Cref{sec:graded-vert-poiss}), there is a (graded) $JR_V$-module homomorphism $\phi_M: JR_V \otimes_{R_V} R_M \to \gr_F(M)$ such that the following diagram commutes
+By the universal property of $\inc: R_M \hookrightarrow JR_V \otimes_{R_V} R_M$ (see \Cref{sec:graded-vert-poiss}), there is a (graded) $JR_V$-module homomorphism $\phi_M: JR_V \otimes_{R_V} R_M \to \gr_F(M)$ such that the following diagram commutes
 \begin{equation*}
   \begin{tikzcd}
     R_M \arrow[r, "\inc", hook] \arrow[rd, "\inc"', hook] & JR_V \otimes_{R_V} R_M \arrow[d, "\phi_M"] \\
@@ -1676,18 +1489,7 @@ When $\phi_M$ is an isomorphism, we say the $M$ is \emph{classically free}.
   \end{align*}
 \end{example}
 
-We wish to determine when the irreducible modules $L(c_{p, q}, h_{m, n})$ over the simple Virasoro vertex algebras $\Vir_{p, q}$ are classically free, as mentioned in \Cref{thr:9}.
-
-\begin{theorem}[{\cite[Proposition 4.12]{li_abelianizing_2005}}]
-  \label{thr:14}
-  Let $V$ be a vertex operator algebra, let $M$ be an admissible $V$-module, and let $T \subseteq M$ be a subset of homogeneous elements of $M$.
-  The following are equivalent:
-  \begin{enumerate}
-  \item $M$ is strongly generated over $V$ by $T$;
-  \item $\sigma^M_0(T)$ generates $R_M$ as a module over $R_V$ without the Poisson structure.
-  \end{enumerate}
-  In particular, $M$ is finitely strongly generated over $V$ if and only if $R_M$ is a finitely generated $R_V$-module.
-\end{theorem}
+We wish to determine when the irreducible modules $L(c_{p, q}, h_{m, n})$ over the simple Virasoro vertex algebras $\Vir_{p, q}$ are classically free, as mentioned in \Cref{thr:3} and \Cref{thr:9}.
 
 \section{Proofs of the main theorems}
 \label{sec:proofs-main-theorems}
@@ -1778,7 +1580,7 @@ We set $\lp(0) = 0$.
 Next, for a highest weight $(c, h)$, we extend the definition of $\lp$ from $U(\Vir^-)$ to $M(c, h)$ by considering the isomorphism of vector spaces $U(\Vir^-) \xrightarrow{\sim} M(c, h), L_{\lambda} \mapsto L_{\lambda}|c, h\rangle$, where $\lambda$ is a partition.
 
 \begin{remark}
-  \label{rmk:4}
+  \label{rmk:5}
   The definition of the order in the PBW basis of $U(\Vir^-)$ was made so that for a highest weight $(c, h)$, a partition $\lambda$ and $u \in M(c, h)$, if $\lp(u) = L_{\lambda}|c, h\rangle$, then $\lp(\gamma^{\len(\lambda)}(u)) = p_{\lambda}$.
 \end{remark}
 
@@ -1865,7 +1667,7 @@ Next, for a highest weight $(c, h)$, we extend the definition of $\lp$ from $U(\
 \end{proof}
 
 \begin{remark}
-  \label{rmk:5}
+  \label{rmk:6}
   For any partitions $\lambda$ and $\eta$, if $\lambda \supseteq \eta$, then $p_{\eta} \mid p_{\lambda}$.
   The converse is not true.
   For example, $p_{[4, 2]} \mid p_{[4, 3, 2]}$, but $[4, 3, 2] \nsupseteq [4, 2]$.
@@ -1881,11 +1683,11 @@ Next, for a highest weight $(c, h)$, we extend the definition of $\lp$ from $U(\
 \end{lemma}
 
 \begin{proof}
-  This is a consequence of \Cref{rmk:5}.
+  This is a consequence of \Cref{rmk:6}.
 \end{proof}
 
 \begin{proof}[Proof of \Cref{thr:2}]
-  This follows from Gröbner basis theory, \Cref{prp:1}, \Cref{lmm:10}, \Cref{rmk:4}, \Cref{lmm:11} and \Cref{lmm:12}, see \cite{salazar_pbw_2024} for details.
+  This follows from Gröbner basis theory, \Cref{prp:1}, \Cref{lmm:10}, \Cref{rmk:5}, \Cref{lmm:11} and \Cref{lmm:12}, see \cite{salazar_pbw_2024} for details.
 \end{proof}
 
 \begin{proof}[Proof of \Cref{thr:1}]
@@ -1906,7 +1708,7 @@ Next, for a highest weight $(c, h)$, we extend the definition of $\lp$ from $U(\
   Let $p_{\eta_0}$ be the smallest of such powers in the degree reverse lexicographic order with $L_{-1} > L_{-2} > \dots$.
   We must have $\eta_0 \neq \emptyset$ and $\eta_0 \notin P^{s, i}$, otherwise $p_{\eta_0} + \sigma_0(J(c_{2, 2s + 1}, h_{1, i})) \in W$.
   By \Cref{lmm:12}, there is $\mu \in R^{s, i}$ such that $p_{\mu} \mid p_{\eta_0}$.
-  From \eqref{eq:2}, \Cref{rmk:4}, \Cref{lmm:11} and the fact that $\lp$ is multiplicative, we obtain $u \in J(c_{2, 2s + 1}, h_{1, i})$ such that $\lp(u) = L_{\eta_0}|c_{2, 2s + 1}, h_{1, i}\rangle$.
+  From \eqref{eq:2}, \Cref{rmk:5}, \Cref{lmm:11} and the fact that $\lp$ is multiplicative, we obtain $u \in J(c_{2, 2s + 1}, h_{1, i})$ such that $\lp(u) = L_{\eta_0}|c_{2, 2s + 1}, h_{1, i}\rangle$.
 
   From the equation
   \begin{equation*}
@@ -1931,9 +1733,10 @@ Next, for a highest weight $(c, h)$, we extend the definition of $\lp$ from $U(\
   \end{equation}
 
   We have
-  \begin{equation*}
-    JR_{\Vir_{2, 2s + 1}} \otimes_{R_{\Vir_{2, 2s + 1}}} R_{L(c_{2, 2s + 1}, h_{1, i})} \cong \frac{\mathbb{C}[L_{-2}, L_{-3}, \dots]}{(L_{-2}^s)_{\partial}} \otimes_{\frac{\mathbb{C}[L_{-2}]}{(L_{-2}^s)}}\frac{\mathbb{C}[L_{-2}, L_{-1}]}{\sigma_0(J(c_{2, 2s + 1}, h_{1, i}))}
-  \end{equation*}
+  \begin{equation}
+    \label{eq:14}
+    JR_{\Vir_{2, 2s + 1}} \otimes_{R_{\Vir_{2, 2s + 1}}} R_{L(c_{2, 2s + 1}, h_{1, i})} = \frac{\mathbb{C}[L_{-2}, L_{-3}, \dots]}{(L_{-2}^s)_{\partial}} \otimes_{\frac{\mathbb{C}[L_{-2}]}{(L_{-2}^s)}}\frac{\mathbb{C}[L_{-2}, L_{-1}]}{\sigma_0(J(c_{2, 2s + 1}, h_{1, i}))}
+  \end{equation}
 
   Given a partition $\lambda \in P^{s, i}$, we can write $\lambda$ uniquely as $\lambda = [\lambda^1, \lambda^2]$, where $\lambda^1 \in P^{s, 1}$ satisfies $\lambda^1 = \emptyset$ or $\lambda^1_{\len(\lambda^1)} \ge 3$ and $\lambda^2 = \emptyset$ or ($\lambda^2 \in P^{s, i}$ and $2 \ge \lambda^2_1$).
 
@@ -1941,14 +1744,20 @@ Next, for a highest weight $(c, h)$, we extend the definition of $\lp$ from $U(\
   \begin{equation*}
     t_{\lambda} = (p_{\lambda^1} + (L_{-2}^s)_{\partial})\otimes(p_{\lambda^2} + \sigma_0(J(c_{2, 2s + 1}, h_{1, i}))) \in \frac{\mathbb{C}[L_{-2}, L_{-3}, \dots]}{(L_{-2}^s)_{\partial}} \otimes_{\frac{\mathbb{C}[L_{-2}]}{(L_{-2}^s)}} \frac{\mathbb{C}[L_{-2}, L_{-1}]}{\sigma_0(J(c_{2, 2s + 1}, h_{1, i}))}.
   \end{equation*}
-  From \eqref{eq:10} and \eqref{eq:11}, we conclude that
+  From \eqref{eq:10}, \eqref{eq:11} and \eqref{eq:14}, we conclude that
   \begin{equation}
     \label{eq:12}
-    \frac{\mathbb{C}[L_{-2}, L_{-3}, \dots]}{(L_{-2}^s)_{\partial}} \otimes_{\frac{\mathbb{C}[L_{-2}]}{(L_{-2}^s)}} \frac{\mathbb{C}[L_{-2}, L_{-1}]}{\sigma_0(J(c_{2, 2s + 1}, h_{1, i}))} = \vspan\{t_{\lambda} \mid \lambda \in P^{s, i}\}.
+    JR_{\Vir_{2, 2s + 1}} \otimes_{R_{\Vir_{2, 2s + 1}}} R_{L(c_{2, 2s + 1}, h_{1, i})} = \vspan\{t_{\lambda} \mid \lambda \in P^{s, i}\}.
   \end{equation}
-  By \Cref{prp:1} with $\gr_F$ instead of $\gr$, \Cref{lmm:8} and \Cref{thr:2}, the natural epimorphism $\phi_{L(c_{2, 2s + 1}, h_{1, i})}: JR_{\Vir_{2, 2s + 1}} \otimes_{R_{\Vir_{2, 2s + 1}}} R_{L(c_{2, 2s + 1}, h_{1, i})} \twoheadrightarrow \gr_F(L(c_{2, 2s + 1}, h_{1, i}))$ respects the grading while mapping the spanning set $\{t_{\lambda} \mid \lambda \in P^{s, i}\}$ onto a basis of $\gr_F(L(c_{2, 2s + 1}, h_{1, i}))$.
-  Moreover, $\dim((JR_{\Vir_{2, 2s + 1}} \otimes_{R_{\Vir_{2, 2s + 1}}} R_{L(c_{2, 2s + 1}, h_{1, i})})_{h_{1, i} + n})< \infty$ and $\dim(\gr_F(L(c_{2, 2s + 1}, h_{1, i}))_{h_{1, i} + n})< \infty$ for $n \in \mathbb{N}$.
-  These observations, together with \eqref{eq:12}, lead us to conclude that the natural epimorphism $\phi_{L(c_{2, 2s + 1}, h_{1, i})}$ is actually an isomorphism.
+  By \Cref{prp:1} with $\gr_F$ instead of $\gr$, \Cref{lmm:8} and \Cref{thr:2}, the natural epimorphism $\phi_{L(c_{2, 2s + 1}, h_{1, i})}$ maps the set $\{t_{\lambda} \mid \lambda \in P^{s, i}\}$ onto a basis of $\gr_F(L(c_{2, 2s + 1}, h_{1, i}))$.
+  Thus, the set $\{t_{\lambda} \mid \lambda \in P^{s, i}\}$ is linearly independent, and by \eqref{eq:12}, it is a basis of $JR_{\Vir_{2, 2s + 1}} \otimes_{R_{\Vir_{2, 2s + 1}}} R_{L(c_{2, 2s + 1}, h_{1, i})}$.
+  Therefore, $\phi_{L(c_{2, 2s + 1}, h_{1, i})}$ is an isomorphism, and $R_{L(c_{2, 2s + 1}, h_{1, i})}$ is classically free.
+
+  Let $p, q > 2$ be relatively prime integers, and let $m, n$ be integers such that $0 < m < p$ and $0 < n < q$.
+  We have two natural inclusions $\inc: JR_{\Vir_{p, q}} \hookrightarrow JR_{\Vir_{p, q}} \otimes_{R_{\Vir_{p, q}}} R_{L(c_{p, q}, h_{m, n})}, \inc(a) = a \otimes 1$ and $\inc: \gr_F(\Vir_{p, q}) \hookrightarrow \gr_F(L(c_{p, q}, h_{m, n})), \inc(a) = a1$.
+  We assume, for the sake of contradiction, that $\phi_{L(c_{p, q}, h_{m, n})}$ is an isomorphism.
+  This would imply that $\phi_{\Vir_{p, q}}$ is also an isomorphism, a contradiction to \Cref{exa:19}.
+  Finally, $\phi_{L(c_{p, q}, h_{m, n})}$ is not an isomorphism, and $L(c_{p, q}, h_{m, n})$ is not classically free as a module over $\Vir_{p, q}$.
 \end{proof}
 
 \appendix
@@ -2028,21 +1837,21 @@ By our definitions, $\partial$ factors through a derivation of $JR$, and we have
 The fact that $\inc: R \hookrightarrow JR$ satisfies our desired universal property is explained in \cite[\S2.3]{arakawa_remark_2012} and \cite{ein_jet_2008}.
 
 \begin{remark}
-  \label{rmk:6}
+  \label{rmk:7}
   We see that the classes of the original variables $x^j$ generate $JR$ as a differential algebra, i.e.,
   \begin{equation*}
     JR = (x^1 + (f_1, \dots, f_s)_{\partial}, \dots, x^r + (f_1, \dots, f_s)_{\partial})_{\partial}.
   \end{equation*}
 \end{remark}
 
-If $f: R_1 \to R_2$ is a homomorphism of finitely generated algebras, then $Jf: JR_1 \to JR_2$ is defined by requiring that $Jf(\partial_1^n(\inc_1(x))) = \partial^n_2(\inc_2(f(x)))$ for $x \in R_1$ and $n \in \mathbb{N}$ (c.f.\ \Cref{rmk:6}).
+If $f: R_1 \to R_2$ is a homomorphism of finitely generated algebras, then $Jf: JR_1 \to JR_2$ is defined by requiring that $Jf(\partial_1^n(\inc_1(x))) = \partial^n_2(\inc_2(f(x)))$ for $x \in R_1$ and $n \in \mathbb{N}$ (c.f.\ \Cref{rmk:7}).
 For a finitely generated algebra $R$ and a differential algebra $A$, we have a natural isomorphism
 \begin{equation*}
   \Hom_{\{\text{differential algebras}\}}(JR, A) \cong \Hom_{\{\text{algebras}\}}(R, A).
 \end{equation*}
 
 \begin{remark}
-  \label{rmk:7}
+  \label{rmk:8}
   It is not true that we have defined a functor $J$ which is left adjoint to the forgetful functor $\{\text{differential algebras}\} \to \{\text{finitely generated algebras}\}$ because a differential algebra is generally not finitely generated.
 
   But we can easily work in the general case as follows.
