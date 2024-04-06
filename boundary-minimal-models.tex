@@ -380,7 +380,7 @@ Since $\pi_Q$ is assumed to be injective, we can abuse notation and write $\lamb
 We now define the full subcategory $\mathcal{C}^{\lambda \ge}_{(\mathfrak{g}, \mathfrak{h})}$ by considering the objects $M \in \mathcal{C}_{(\mathfrak{g}, \mathfrak{h})}$ such that $M_{\mu} = 0$ if $\lambda \ngeq \mu$.
 
 \begin{example}
-  \label{exa:5}
+  \label{exa:3}
   When considering the $\mathbb{Z}$-graded Virasoro Lie algebra $(\Vir, \mathfrak{h})$, where $\mathfrak{h} = \mathbb{C}L_0 \oplus \mathbb{C}C$, we identify $\mathfrak{h}^*$ with $\mathbb{C}^2$ as $\lambda = (c, h)$ if $\lambda(C) = c$ and $\lambda(L_0) = h$.
   We are mainly interested in the highest weight modules $M(c, h)$ and $L(c, h)$ of the Virasoro Lie algebra.
   In this case, $(c_2, n_2) \ge (c_1, n_1)$ if and only if $c_1 = c_2$ and $n_1 - n_2 \in \mathbb{N}$.
@@ -415,7 +415,7 @@ Therefore, we obtain a functor
 \end{remark}
 
 \begin{example}[$\gr(M(c, h))$]
-  \label{exa:6}
+  \label{exa:4}
   We pick a highest weight $(c, h)$.
   By \cite[\S2]{dixmier_enveloping_1996}, we have a natural isomorphism
   \begin{align*}
@@ -434,7 +434,7 @@ Clearly, we have
 \end{equation*}
 
 \begin{example}[$\ch_{M(c, h)}(t, q)$]
-  \label{exa:7}
+  \label{exa:5}
   We can consider the $\mathbb{Z}$-graded Virasoro Lie algebra $(\Vir, \mathfrak{h})$.
   For the Verma representation $M(c, h)$, we have
   \begin{align*}
@@ -444,7 +444,7 @@ Clearly, we have
 \end{example}
 
 \begin{example}[$\ch_{L(1/2, 0)}(t, q)$]
-  \label{exa:8}
+  \label{exa:6}
   In \cite{andrews_singular_2022}, the refined character of the Virasoro minimal model $\Vir_{3, 4} = L(1/2, 0)$, also known as the Ising model, is computed explicitly.
   Interestingly, this character is connected to Nahm sums for the matrix $\left(\begin{smallmatrix} 8 & 3 \\ 3 & 2 \end{smallmatrix}\right)$ (see \cite{Nahm2007}) and can be explicitly expressed as
   \begin{equation*}
@@ -568,7 +568,7 @@ The \emph{annihilation subalgebra of $(\mathfrak{g}, \mathfrak{F})$} is
 \end{equation*}
 
 \begin{example}
-  \label{exa:9}
+  \label{exa:7}
   We construct a $\Vir$-valued formal distribution by setting
   \begin{equation*}
     \text{$L(z) = \sum_{n \in \mathbb{Z}}L_{(n)}z^{-n - 1}$ with $L_{(n)} = L_{n - 1}$ for $n \in \mathbb{Z}$}.
@@ -769,9 +769,9 @@ Taking the quotient, we get a vertex algebra, denoted by
 \end{equation*}
 
 \begin{example}[\emph{Universal Virasoro vertex algebra of central charge $c$}]
-  \label{exa:11}
+  \label{exa:8}
   We pick $c \in \mathbb{C}$.
-  We take $(\Vir, \{L(z), C\}, \ad(L_{-1}))$ as the regular formal distribution Lie algebra as constructed in \Cref{exa:9} and $\lambda: \mathbb{C}C \to \mathbb{C}, \lambda(C) = c$ as the linear functional.
+  We take $(\Vir, \{L(z), C\}, \ad(L_{-1}))$ as the regular formal distribution Lie algebra as constructed in \Cref{exa:7} and $\lambda: \mathbb{C}C \to \mathbb{C}, \lambda(C) = c$ as the linear functional.
   The resulting vertex algebra is the universal Virasoro vertex algebra of central charge $c$, denoted by $\Vir^c$.
 
   By the PBW theorem, for $c \in \mathbb{C}$, a basis of $\Vir^c$ is given by
@@ -928,7 +928,7 @@ We say $\mathfrak{h}$ \emph{acts as $\lambda$} if for $h \in \mathfrak{h}$ and $
 \end{theorem}
 
 \begin{example}
-  \label{exa:13}
+  \label{exa:9}
   Let $M$ be a highest weight representation of $\Vir$ with highest weight $(c, h)$.
   Then $M$ is a smooth $\Vir$-module of central charge $c$.
   We note that $L_0$ is diagonalizable.
@@ -1076,7 +1076,7 @@ For $p \in \mathbb{Z}$, we set
 \end{equation*}
 
 \begin{proposition}[{\cite{li_abelianizing_2005}}]
-  \label{prp:6}
+  \label{prp:5}
   The filtration $(F_pV)_{p \in \mathbb{Z}}$ satisfies:
   \begin{enumerate}
   \item $F_pV = V$ for $p \le 0$;
@@ -1153,7 +1153,7 @@ Therefore, we obtain a functor
 \end{equation*}
 
 \begin{example}[$\gr_F(\Vir^c)$]
-  \label{exa:14}
+  \label{exa:10}
   We pick $c \in \mathbb{C}$.
   We have an isomorphism
   \begin{align*}
@@ -1175,7 +1175,7 @@ For $p \in \mathbb{Z}$, we set
 \end{equation*}
 
 \begin{proposition}[{\cite{li_abelianizing_2005}}]
-  \label{prp:7}
+  \label{prp:6}
   The filtration $(F_pM)_{p \in \mathbb{Z}}$ satisfies:
   \begin{enumerate}
   \item $M = F_pM$ for $p \le 0$;
@@ -1249,9 +1249,9 @@ Therefore, we obtain a functor
 \end{equation*}
 
 \begin{example}[$\gr_F(M(c, h))$]
-  \label{exa:15}
+  \label{exa:11}
   We pick a highest weight $(c, h)$.
-  From \Cref{exa:14}, $\gr_F(\Vir^c)$ is isomorphic to $\mathbb{C}[L_{-2}, L_{-3}, \dots]$.
+  From \Cref{exa:10}, $\gr_F(\Vir^c)$ is isomorphic to $\mathbb{C}[L_{-2}, L_{-3}, \dots]$.
   We have an isomorphism
   \begin{align*}
     \gr_F(M(c, h)) &\xrightarrow{\sim} \bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}, L_{-3}, \dots]L_{-1}^k \\
@@ -1296,10 +1296,10 @@ Oftentimes, some condition on $R_V$ implies or is equivalent to some condition o
 The vertex algebra $V$ is called \emph{$C_2$-cofinite} if $R_V$ is finite dimensional.
 
 \begin{example}[$R_{\Vir^c}$ and $R_{\Vir_c}$]
-  \label{exa:16}
+  \label{exa:12}
   We pick $c \in \mathbb{C}$.
   We consider $\mathbb{C}[L_{-2}]$ as the polynomial algebra in one variable $L_{-2}$, and we equip it with the trivial Poisson bracket.
-  By \Cref{exa:14}, we have the following isomorphism of Poisson algebras
+  By \Cref{exa:10}, we have the following isomorphism of Poisson algebras
   \begin{align*}
     R_{\Vir^c} &\xrightarrow{\sim} \mathbb{C}[L_{-2}], \\
     \sigma_0(L_{-2}\vac) &\mapsto L_{-2}.
@@ -1364,17 +1364,17 @@ From now on, $JR_V$ will be considered as a (graded) vertex Poisson algebra.
 When $\phi_V$ is an isomorphism, we say $V$ is \emph{classically free}.
 
 \begin{example}[$JR_{\Vir^c}$ and $JR_{\Vir_c}$]
-  \label{exa:17}
+  \label{exa:13}
   Let $c \in \mathbb{C}$.
   Then $\Vir^c$ is classically free because
   \begin{equation*}
     \gr_F(\Vir^c) \cong \mathbb{C}[L_{-2}, L_{-3}, \dots]
   \end{equation*}
-  by \Cref{exa:14} and
+  by \Cref{exa:10} and
   \begin{equation*}
     JR_{\Vir^c} \cong J(C[L_{-2}]) = \mathbb{C}[L_{-2}, L_{-3}, \dots]
   \end{equation*}
-  by \Cref{exa:16} and \Cref{sec:graded-jet-algebras}.
+  by \Cref{exa:12} and \Cref{sec:graded-jet-algebras}.
 
   We now move onto $\Vir_c$.
   If $c$ is not of the form $c_{p, q}$ for some $p, q \ge 2$ relatively prime integers, then $\Vir_c = \Vir^c$ by \Cref{thr:7}, and we have already solved the problem.
@@ -1383,16 +1383,16 @@ When $\phi_V$ is an isomorphism, we say $V$ is \emph{classically free}.
   \begin{equation*}
     JR_{\Vir_{p, q}} \cong J(\mathbb{C}[L_{-2}]/(L_{-2}^{(p - 1)(q - 1)/2})) = \mathbb{C}[L_{-2}, L_{-3}, \dots]/(L_{-2}^{(p - 1)(q - 1)/2})_{\partial}
   \end{equation*}
-  by \Cref{exa:16} and \Cref{sec:graded-jet-algebras}.
+  by \Cref{exa:12} and \Cref{sec:graded-jet-algebras}.
 \end{example}
 
 \begin{example}
-  \label{exa:18}
+  \label{exa:14}
   If $p > q \ge 2$ are relatively prime integers, then $\Vir_{p, q}$ is classically free if and only if $q = 2$ by \cite{van_ekeren_chiral_2021}.
 \end{example}
 
 \begin{example}
-  \label{exa:19}
+  \label{exa:15}
   It was proven in \cite{andrews_singular_2022} that the Ising model $\Vir_{3, 4}$ is not classically free.
   In fact, by \cite[Theorem 2]{andrews_singular_2022},
   \begin{equation*}
@@ -1402,7 +1402,7 @@ When $\phi_V$ is an isomorphism, we say $V$ is \emph{classically free}.
   \begin{equation*}
     b = L_{-4}L_{-3}L_{-2} + \tfrac{1}{6}L_{-5}L_{-2}^2,
   \end{equation*}
-  and $(b)_{\partial}$ is the differential ideal generated by $b$, cf.\ \Cref{sec:graded-jet-algebras} and \Cref{exa:14} where $\partial$ is denoted by $T$.
+  and $(b)_{\partial}$ is the differential ideal generated by $b$, cf.\ \Cref{sec:graded-jet-algebras} and \Cref{exa:10} where $\partial$ is denoted by $T$.
 \end{example}
 
 Let $V$ be a vertex algebra, and let $M$ be a module over $V$.
@@ -1430,24 +1430,24 @@ We have constructed a functor
 \end{equation*}
 
 \begin{example}[$R_{M(c, h)}$ and $R_{L(c, h)}$]
-  \label{exa:20}
+  \label{exa:16}
   We pick a highest weight $(c, h)$.
-  As in \Cref{exa:16}, we consider $\mathbb{C}[L_{-2}]$ as the polynomial algebra in one variable $L_{-2}$, and we equip it with the trivial Poisson bracket.
+  As in \Cref{exa:12}, we consider $\mathbb{C}[L_{-2}]$ as the polynomial algebra in one variable $L_{-2}$, and we equip it with the trivial Poisson bracket.
   We consider $\bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}]L_{-1}^k \cong \mathbb{C}[L_{-2}, L_{-1}]$ as a module over the Poisson algebra $\mathbb{C}[L_{-2}]$ with Poisson bracket given by $\{L_{-2}, L_{-1}^k\} = L_{-1}^{k + 1}$ for $k \in \mathbb{N}$.
-  By \Cref{exa:15} and \Cref{exa:16}, we have the following isomorphism of modules over Poisson algebras
+  By \Cref{exa:11} and \Cref{exa:12}, we have the following isomorphism of modules over Poisson algebras
   \begin{align*}
     R_{M(c, h)} &\xrightarrow{\sim} \bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}]L_{-1}^k, \\
     \sigma_0(L_{-2}|c, h\rangle) &\mapsto L_{-2}, \\
     \sigma_0(L_{-1}|c, h\rangle) &\mapsto L_{-1}.
   \end{align*}
-  As in \Cref{exa:16}, we obtain
+  As in \Cref{exa:12}, we obtain
   \begin{equation*}
     R_{L(c, h)} \cong \frac{\bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}]L_{-1}^k}{\sigma_0(J(c, h))}.
   \end{equation*}
 \end{example}
 
 \begin{theorem}[{\cite[Lemma 4.2]{li_abelianizing_2005}}]
-  \label{thr:13}
+  \label{thr:12}
   Let $V$ be a vertex algebra, and let $M$ be a $V$-module.
   As a $\gr_F(V)$-module without the Poisson structure, $\gr_F(M)$ is generated by $R_M$, i.e.,
   \begin{equation*}
@@ -1473,15 +1473,15 @@ By the universal property of $\inc: R_M \hookrightarrow JR_V \otimes_{R_V} R_M$ 
 \end{lemma}
 
 \begin{proof}
-  The assertion follows from \Cref{lmm:7} and \Cref{thr:13}.
+  The assertion follows from \Cref{lmm:7} and \Cref{thr:12}.
 \end{proof}
 
 When $\phi_M$ is an isomorphism, we say the $M$ is \emph{classically free}.
 
 \begin{example}[$JR_{\Vir^c} \otimes_{R_{\Vir^c}} R_{M(c, h)}$]
-  \label{exa:21}
+  \label{exa:17}
   We pick a highest weight $(c, h)$.
-  The Verma module $M(c, h)$ is always classically free as a $\Vir^c$-module because by \Cref{exa:15}, \Cref{exa:16} and \Cref{exa:20},
+  The Verma module $M(c, h)$ is always classically free as a $\Vir^c$-module because by \Cref{exa:11}, \Cref{exa:12} and \Cref{exa:16},
   \begin{align*}
     JR_{\Vir^c} \otimes_{R_{\Vir^c}} R_{M(c, h)} &\cong \mathbb{C}[L_{-2}, L_{-3}, \dots] \otimes_{\mathbb{C}[L_{-2}]} \bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}]L_{-1}^k \\
                                                  &\cong \bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}, L_{-3}, \dots]L_{-1}^k \\
@@ -1695,7 +1695,7 @@ Next, for a highest weight $(c, h)$, we extend the definition of $\lp$ from $U(\
 \end{proof}
 
 \begin{proof}[Proof of \Cref{thr:3}]
-  By \Cref{exa:20}, we have
+  By \Cref{exa:16}, we have
   \begin{equation*}
     R_{L(c_{2, 2s + 1}, h_{1, i})} \cong \frac{\bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}]L_{-1}^k}{\sigma_0(J(c_{2, 2s + 1}, h_{1, i}))} \cong \frac{\mathbb{C}[L_{-2}, L_{-1}]}{\sigma_0(J(c_{2, 2s + 1}, h_{1, i}))}.
   \end{equation*}
@@ -1734,7 +1734,7 @@ Next, for a highest weight $(c, h)$, we extend the definition of $\lp$ from $U(\
 
   We have
   \begin{equation}
-    \label{eq:14}
+    \label{eq:12}
     JR_{\Vir_{2, 2s + 1}} \otimes_{R_{\Vir_{2, 2s + 1}}} R_{L(c_{2, 2s + 1}, h_{1, i})} = \frac{\mathbb{C}[L_{-2}, L_{-3}, \dots]}{(L_{-2}^s)_{\partial}} \otimes_{\frac{\mathbb{C}[L_{-2}]}{(L_{-2}^s)}}\frac{\mathbb{C}[L_{-2}, L_{-1}]}{\sigma_0(J(c_{2, 2s + 1}, h_{1, i}))}
   \end{equation}
 
@@ -1744,19 +1744,19 @@ Next, for a highest weight $(c, h)$, we extend the definition of $\lp$ from $U(\
   \begin{equation*}
     t_{\lambda} = (p_{\lambda^1} + (L_{-2}^s)_{\partial})\otimes(p_{\lambda^2} + \sigma_0(J(c_{2, 2s + 1}, h_{1, i}))) \in \frac{\mathbb{C}[L_{-2}, L_{-3}, \dots]}{(L_{-2}^s)_{\partial}} \otimes_{\frac{\mathbb{C}[L_{-2}]}{(L_{-2}^s)}} \frac{\mathbb{C}[L_{-2}, L_{-1}]}{\sigma_0(J(c_{2, 2s + 1}, h_{1, i}))}.
   \end{equation*}
-  From \eqref{eq:10}, \eqref{eq:11} and \eqref{eq:14}, we conclude that
+  From \eqref{eq:10}, \eqref{eq:11} and \eqref{eq:12}, we conclude that
   \begin{equation}
-    \label{eq:12}
+    \label{eq:13}
     JR_{\Vir_{2, 2s + 1}} \otimes_{R_{\Vir_{2, 2s + 1}}} R_{L(c_{2, 2s + 1}, h_{1, i})} = \vspan\{t_{\lambda} \mid \lambda \in P^{s, i}\}.
   \end{equation}
   By \Cref{prp:1} with $\gr_F$ instead of $\gr$, \Cref{lmm:8} and \Cref{thr:2}, the natural epimorphism $\phi_{L(c_{2, 2s + 1}, h_{1, i})}$ maps the set $\{t_{\lambda} \mid \lambda \in P^{s, i}\}$ onto a basis of $\gr_F(L(c_{2, 2s + 1}, h_{1, i}))$.
-  Thus, the set $\{t_{\lambda} \mid \lambda \in P^{s, i}\}$ is linearly independent, and by \eqref{eq:12}, it is a basis of $JR_{\Vir_{2, 2s + 1}} \otimes_{R_{\Vir_{2, 2s + 1}}} R_{L(c_{2, 2s + 1}, h_{1, i})}$.
+  Thus, the set $\{t_{\lambda} \mid \lambda \in P^{s, i}\}$ is linearly independent, and by \eqref{eq:13}, it is a basis of $JR_{\Vir_{2, 2s + 1}} \otimes_{R_{\Vir_{2, 2s + 1}}} R_{L(c_{2, 2s + 1}, h_{1, i})}$.
   Therefore, $\phi_{L(c_{2, 2s + 1}, h_{1, i})}$ is an isomorphism, and $R_{L(c_{2, 2s + 1}, h_{1, i})}$ is classically free.
 
   Let $p, q > 2$ be relatively prime integers, and let $m, n$ be integers such that $0 < m < p$ and $0 < n < q$.
   We have two natural inclusions $\inc: JR_{\Vir_{p, q}} \hookrightarrow JR_{\Vir_{p, q}} \otimes_{R_{\Vir_{p, q}}} R_{L(c_{p, q}, h_{m, n})}, \inc(a) = a \otimes 1$ and $\inc: \gr_F(\Vir_{p, q}) \hookrightarrow \gr_F(L(c_{p, q}, h_{m, n})), \inc(a) = a1$.
   We assume, for the sake of contradiction, that $\phi_{L(c_{p, q}, h_{m, n})}$ is an isomorphism.
-  This would imply that $\phi_{\Vir_{p, q}}$ is also an isomorphism, a contradiction to \Cref{exa:19}.
+  This would imply that $\phi_{\Vir_{p, q}}$ is also an isomorphism, a contradiction to \Cref{exa:14}.
   Finally, $\phi_{L(c_{p, q}, h_{m, n})}$ is not an isomorphism, and $L(c_{p, q}, h_{m, n})$ is not classically free as a module over $\Vir_{p, q}$.
 \end{proof}
 
@@ -1779,7 +1779,7 @@ A \emph{Hamiltonian operator of $A$} is a Hamiltonian of $A$ as a commutative as
 \end{equation*}
 It is possible to prove inductively that the last equation implies
 \begin{equation}
-  \label{eq:13}
+  \label{eq:14}
   H\partial^n = n\partial^n + \partial^nH \quad \text{for $n \in \mathbb{N}$}.
 \end{equation}
 
@@ -1873,7 +1873,7 @@ where $JR$ is merely considered an algebra.
 Again, the $JR$-module $M$ together with the $R$-module inclusion $\inc: M \hookrightarrow JR \otimes_R M, \inc(u) = 1\otimes u$ satisfy a universal property similar to that of $\inc: R \hookrightarrow JR$, and the functor $JR \otimes_R \bullet$ is left adjoint to the forgetful functor $\text{$JR$-Mod} \to \text{$R$-Mod}$.
 
 Let $R$ be a graded algebra with Hamiltonian $H$.
-We can extend uniquely the Hamiltonian $H$ to a Hamiltonian $H^{JR} \in \End(JR)$ because of \eqref{eq:13}.
+We can extend uniquely the Hamiltonian $H$ to a Hamiltonian $H^{JR} \in \End(JR)$ because of \eqref{eq:14}.
 Furthermore, if $M$ is a graded $R$-module with Hamiltonian $H^M$, we can define a Hamiltonian of $JR \otimes_R M$ by setting
 \begin{equation*}
   H^{JR \otimes_R M} = H^{JR}\otimes\Id_{M} + \Id_{JR}\otimes H^M.
