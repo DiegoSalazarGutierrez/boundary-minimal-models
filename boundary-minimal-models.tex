@@ -41,6 +41,7 @@
 \DeclareMathOperator{\Id}{Id}
 \DeclareMathOperator{\fs}{fs}
 \DeclareMathOperator{\inc}{inc}
+\DeclareMathOperator{\psn}{psn}
 
 \renewcommand*{\backref}[1]{}
 \renewcommand*{\backrefalt}[4]{%
@@ -65,6 +66,8 @@
 \email{diego.salazar@impa.br}
 \date{\today}
 \maketitle
+
+\numberwithin{equation}{section}
 
 \section{Introduction}
 \label{sec:introduction}
@@ -1031,10 +1034,11 @@ A \emph{vertex Poisson algebra} is the data consisting of three elements $(V, T,
 
 Let $V$ be a vertex Poisson algebra.
 A \emph{Hamiltonian operator of $V$} is simultaneously a Hamiltonian of $V$ as a differential commutative associative algebra with derivation $T$ (see \Cref{sec:grad-poiss-algeb}) and a Hamiltonian of $V$ as a vertex Lie algebra.
-A \emph{module over $V$} is a module $(M, Y^M_-)$ over $V$ as a vertex Lie algebra and a module over $V$ as a commutative associative algebra with unit $1$ such that
-\begin{equation*}
-  a^M_{(n)}(bu) = (a_{(n)}b)u + b(a^M_{(n)}u) \quad \text{for $a, b \in V$, $u \in M$ and $n \in \mathbb{N}$}.
-\end{equation*}
+A \emph{module over $V$} is a module $(M, Y^M_-)$ over $V$ as a vertex Lie algebra and a module over $V$ as a commutative associative algebra such that for $a, b \in V$, $u \in M$ and $n \in \mathbb{N}$:
+\begin{enumerate}
+\item (Left Leibniz rule) $a^M_{(n)}(bu) = (a_{(n)}b)u + b(a^M_{(n)}u)$;
+\item (Right Leibniz rule) $(ab)^M_{(n)}u = \sum_{j \in \mathbb{N}}\left(\frac{T^ja}{j!}b^M_{(n + j)}u + \frac{T^jb}{j!}a^M_{(n + j)}u\right)$.
+\end{enumerate}
 
 Let $M$ be a module over a graded vertex Poisson algebra $V$ with Hamiltonian $H$.
 A \emph{Hamiltonian operator of $M$} is simultaneously a Hamiltonian of $M$ as a module over $V$ as a commutative associative algebra with unit $1$ and a Hamiltonian of $M$ as a module over $V$ as a vertex Lie algebra.
@@ -1636,7 +1640,7 @@ Next, for a highest weight $(c, h)$, we extend the definition of $\lp$ from $U(\
     \end{align*}
     We see that each term $L_{\mu}$ appearing in $R^{l, k}_{n_1, \dots, n_{s - 1}}(L(z), \dots, L(z))$, where $\mu$ is a combination (not necessarily a partition), satisfies $\Delta(\mu) = sa + s - d = \Delta(\lambda)$ and $\len(\mu) \le \len(\lambda)$.
 
-    We recall that $L_{\lambda} - L_{\lambda\sigma} \in U(\Vir^{-})^{\len(\lambda) - 1}$ for a combination $\lambda$ and a permutation $\sigma \in S_m$ (see \cite[\S2]{dixmier_enveloping_1996} for details).
+    We recall that $L_{\lambda} - L_{\lambda\sigma} \in U(\Vir^{-})^{\len(\lambda) - 1}$ for a combination $\lambda$ and a permutation $\sigma \in S_{\len(\lambda)}$ (see \cite[\S2]{dixmier_enveloping_1996} for details).
     Therefore, for a combination $\mu$, we can expand $L_{\mu}|c_{2, 2s + 1}, h_{1, i}\rangle$ in the following way
     \begin{equation*}
       L_{\mu}|c_{2, 2s + 1}, h_{1, i}\rangle = L_{\prt(\mu)}|c_{2, 2s + 1}, h_{1, i}\rangle + \sum_{\substack{\mu \vdash \Delta(\lambda) \\ \len(\mu) < \len(\lambda)}}c_{\mu}L_{\mu}|c_{2, 2s + 1}, h_{1, i}\rangle,
@@ -1735,7 +1739,7 @@ Next, for a highest weight $(c, h)$, we extend the definition of $\lp$ from $U(\
   We have
   \begin{equation}
     \label{eq:12}
-    JR_{\Vir_{2, 2s + 1}} \otimes_{R_{\Vir_{2, 2s + 1}}} R_{L(c_{2, 2s + 1}, h_{1, i})} = \frac{\mathbb{C}[L_{-2}, L_{-3}, \dots]}{(L_{-2}^s)_{\partial}} \otimes_{\frac{\mathbb{C}[L_{-2}]}{(L_{-2}^s)}}\frac{\mathbb{C}[L_{-2}, L_{-1}]}{\sigma_0(J(c_{2, 2s + 1}, h_{1, i}))}
+    JR_{\Vir_{2, 2s + 1}} \otimes_{R_{\Vir_{2, 2s + 1}}} R_{L(c_{2, 2s + 1}, h_{1, i})} \cong \frac{\mathbb{C}[L_{-2}, L_{-3}, \dots]}{(L_{-2}^s)_{\partial}} \otimes_{\frac{\mathbb{C}[L_{-2}]}{(L_{-2}^s)}}\frac{\mathbb{C}[L_{-2}, L_{-1}]}{\sigma_0(J(c_{2, 2s + 1}, h_{1, i}))}
   \end{equation}
 
   Given a partition $\lambda \in P^{s, i}$, we can write $\lambda$ uniquely as $\lambda = [\lambda^1, \lambda^2]$, where $\lambda^1 \in P^{s, 1}$ satisfies $\lambda^1 = \emptyset$ or $\lambda^1_{\len(\lambda^1)} \ge 3$ and $\lambda^2 = \emptyset$ or ($\lambda^2 \in P^{s, i}$ and $2 \ge \lambda^2_1$).
@@ -1759,6 +1763,50 @@ Next, for a highest weight $(c, h)$, we extend the definition of $\lp$ from $U(\
   This would imply that $\phi_{\Vir_{p, q}}$ is also an isomorphism, a contradiction to \Cref{exa:14}.
   Finally, $\phi_{L(c_{p, q}, h_{m, n})}$ is not an isomorphism, and $L(c_{p, q}, h_{m, n})$ is not classically free as a module over $\Vir_{p, q}$.
 \end{proof}
+
+As in the proof of \Cref{lmm:11}, let $w \in J(c_{2, 2s + 1}, h_{1, i})$ be such that $\lp(w) = L_{-1}^i|c_{2, 2s + 1}, h_{1, i}\rangle$, and we set:
+\begin{align*}
+  u_k &= \sigma_0((a_{2, 2s + 1})_{(k - 1)}|c_{2, 2s + 1}, h_{1, i}\rangle) \quad \text{for $k = 1, \dots, i - 1$}, \\
+  u_i &= \sigma_0(w).
+\end{align*}
+Then $u_1, \dots, u_i \in \sigma_0(J(c_{2, 2s + 1}, h_{1, i}))$.
+Moreover:
+\begin{align*}
+  L_{-2}^s &= \sigma_0(a_{2, 2s + 1})\sigma_0(|c_{2, 2s + 1}, h_{1, i}\rangle) = \sigma_0((a_{2, 2s + 1})_{(-1)}|c_{2, 2s + 1}, h_{1, i}\rangle) \in \sigma_0(J(c_{2, 2s + 1}, h_{1, i})), \\
+  \lp(u_k) &= L_{-2}^{s - k}L_{-1}^k \quad \text{for $k = 1, \dots, i - 1$}, \\
+  \lp(u_i) &= L_{-1}^i.
+\end{align*}
+
+\begin{corollary}
+  \label{crl:2}
+  With the notation above, we have
+  \begin{align}
+    \label{eq:15}
+    \sigma_0(J(c_{2, 2s + 1}, h_{1, i})) &= (L_{-2}^s, u_1, \dots, u_i)_{\psn}, \\
+    \label{eq:16}
+    R_{L(c_{2, 2s + 1}, h_{1, i})} &\cong \frac{\bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}]L_{-1}^k}{(L_{-2}^s, u_1, \dots, u_i)_{\psn}}, \\
+    \label{eq:17}
+    \gr_F(L(c_{2, 2s + 1}, h_{1, i})) &\cong \frac{\mathbb{C}[L_{-2}, L_{-3}, \dots]}{(L_{-2}^s)_{\partial}} \otimes_{\frac{\mathbb{C}[L_{-2}]}{(L_{-2}^s)}} \frac{\bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}]L_{-1}^k}{(L_{-2}^s, u_1, \dots, u_i)_{\psn}},
+  \end{align}
+  where $\psn$ denotes the Poisson submodule generated by the given subset.
+\end{corollary}
+
+\begin{proof}
+  We use the notation of the proof of \Cref{thr:3}.
+  Since $\{t_{\lambda} \mid \lambda \in P^{s, i}\}$ is a basis of $JR_{\Vir_{2, 2s + 1}} \otimes_{R_{\Vir_{2, 2s + 1}}} R_{L(c_{2, 2s + 1}, h_{1, i})}$, the set in \eqref{eq:10} is a basis of $R_{L(c_{2, 2s + 1}, h_{1, i})}$.
+  We note that for a partition $\lambda \notin P^{s, i}$ with $2 \ge \lambda_1$, there is $u \in (L_{-2}^s, u_1, \dots, u_i)_{\psn}$ such that $\lp(u) = u_{\lambda}$.
+  Therefore, we can prove \eqref{eq:15} similarly to how we proved \eqref{eq:10}.
+  The isomorphisms \eqref{eq:16} and \eqref{eq:17} follow.
+\end{proof}
+
+\begin{remark}
+  \label{rmk:9}
+  We have
+  \begin{equation*}
+    u_1 = \sigma_0((a_{2, 2s + 1})_{(0)}|c_{2, 2s + 1}, h_{1, i}\rangle) = \{\sigma_0(a_{2, 2s + 1}), \sigma_0(|c_{2, 2s + 1}, h_{1, i}\rangle)\} = \{L_{-2}^s, 1\} = sL_{-2}^{s - 1}L_{-1}.
+  \end{equation*}
+  However, I think there is no simple expression for $u_2, \dots, u_i$ and $R_{L(c_{2, 2s + 1}, h_{1, i})}$.
+\end{remark}
 
 \appendix
 \section{Graded Poisson algebras and their modules}
