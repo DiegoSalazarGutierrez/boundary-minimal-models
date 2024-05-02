@@ -55,12 +55,15 @@
 \setcounter{section}{-1}
 
 \begin{abstract}
-  Some abstract. \\
+  We determine when the irreducible modules $L(c_{p, q}, h_{m, n})$ over simple Virasoro vertex algebras $\Vir_{p, q}$, where $p, q \ge 2$ are relatively prime and $0 < m < p$ and $0 < n < q$, are classically free.
+  When this happens, the modules can be expressed in terms of the jet algebra of the Zhu $C_2$-algebra.
+  It turns out this only happens with the boundary minimal models, i.e., with the irreducible modules over $\Vir_{2, 2s + 1}$ for $s \in \mathbb{Z}_+$, and this is a consequence of Gordon's generalization of the Rogers-Ramanujan identities.
+  As a corollary, we can express $\gr_F(L(c_{2, 2s + 1}, h_{1, i}))$ explicitly, for $s \in \mathbb{Z}_+$ and $i \in \{1, \dots, s\}$. \\
   \smallskip
-  \noindent \textbf{Keywords.} Some keywords.
+  \noindent \textbf{Keywords.} Vertex algebras, boundary minimal models, Rogers-Ramanujan identities, quantum algebra, combinatorics.
 \end{abstract}
 
-\title{Boundary minimal models}
+\title{Boundary minimal models and the Rogers-Ramanujan identities}
 \author{Diego Salazar}
 \address{Instituto de Matemática Pura e Aplicada, Rio de Janeiro, RJ, Brazil}
 \email{diego.salazar@impa.br}
@@ -72,33 +75,85 @@
 \section{Introduction}
 \label{sec:introduction}
 
-Let $s \in \mathbb{Z}_+$, let $i \in \{1, \dots, s\}$, let $R^{s, i}$ denote the following set of partitions
+In \cite{li_abelianizing_2005}, Li introduced a decreasing filtration $(F_pV)_{p \in \mathbb{Z}}$ on an arbitrary vertex algebra $V$.
+The associated graded space $\gr_F(V)$ with respect to this decreasing filtration carries the structure of a vertex Poisson algebra.
+Li also introduced a decreasing filtration $(F_pM)_{p \in \mathbb{Z}}$ for modules $M$ over a vertex algebra $V$ and showed that the associated graded space $\gr_F(M)$ is a module over the vertex Poisson algebra $\gr_F(V)$.
+
+In summary, two functors were constructed in \cite{li_abelianizing_2005}:
+\begin{align*}
+  \gr_F: \{\text{vertex algebras}\} &\to \{\text{vertex Poisson algebras}\}, \\
+  \gr_F: \{\text{$V$-modules}\} &\to \{\text{$\gr_F(V)$-modules}\}.
+\end{align*}
+
+Given an algebra $R$, we can construct the jet algebra $JR$, which is the smallest differential algebra containing $R$.
+It is proved by Arakawa in \cite[Proposition 2.5.1]{arakawa_remark_2012} that we have a natural surjection
 \begin{equation*}
-  R^{s, i} = \{\text{$\lambda$ is a partition} \mid \text{$\lambda = [\lambda_1, \dots, \lambda_s]$ satisfies $\lambda_1 - \lambda_s \le 1$ or $\lambda = \underbrace{[1, 1, \dots, 1]}_i$}\},
+  JR_V \twoheadrightarrow \gr_F(V)
 \end{equation*}
-and let $P^{s, i}$ be the set of partitions that do not contain any partition in $R^{s, i}$.
+of vertex Poisson algebras, where $R_V$ is the Zhu $C_2$-algebra of $V$, as defined in \cite{zhu_modular_1996}.
+When this is an isomorphism, we say $V$ is classically free.
+For modules $M$ over the vertex algebra $V$, we also have a natural surjection
+\begin{equation*}
+  JR_V \otimes_{R_V} R_M \twoheadrightarrow \gr_F(M),
+\end{equation*}
+and we say $M$ is classically free if this is an isomorphism.
+
+This problem is related to the question of whether one can recover the vertex algebra $V$ (or the $V$-module $M$) from $JR_V$ (or $JR_V \otimes_{R_V} R_M$), i.e., if it is possible to obtain quantization of $V$ because $\gr_F(V)$ and $V$ are often isomorphic in some way.
+
+This problem was solved for the simple Virasoro vertex algebra $\Vir_{p, q}$ in \cite{van_ekeren_chiral_2021}, and the answer is very simple.
+If $p > q \ge 2$ are relatively prime integers, then $\Vir_{p, q}$ is classically free if and only if $q = 2$.
+The main objective of this article is to solve this problem for all irreducible modules over the simple Virasoro vertex algebra $\Vir_{p, q}$, namely $L(c_{p, q}, h_{m, n})$ for integers $m, n$ such that $0 < m < p$ and $0 < n < q$.
+
+It turns out this problem is deeply connected with the Rogers-Ramanujan identities and Gordon's generalization \cite{gordon_combinatorial_1961}
+\begin{equation*}
+  \sum_{k = (k_1, \dots, k_{s - 1}) \in \mathbb{N}^{s - 1}}t^{kB^{(s)}_{s - 1}}\frac{q^{\frac{1}{2}kG^{(s)}k^T + kB^{(s)}_{s - i}}}{(q)_{k_1}\dots(q)_{k_{s - 1}}} = \prod^{\infty}_{\substack{n = 1 \\ n \not\equiv 0, \pm i \mod 2s + 1}}(1 - q^n)^{-1},
+\end{equation*}
+where $T$ denotes the transpose matrix, $s \in \mathbb{Z}_+$, $i \in \{1, \dots, s\}$, and
+\begin{align*}
+  G^{(s)} &= (2\min\{i, j\})_{i, j = 1}^{s - 1}, \\
+  B^{(s)}_j &=
+              \left(\begin{smallmatrix}
+                0 \\
+                0 \\
+                \vdots \\
+                0 \\
+                1 \\
+                2 \\
+                \vdots \\
+                j
+              \end{smallmatrix}\right) \quad \text{for $j = 0, 1, \dots, s - 1$}.
+\end{align*}
+
+We can succinctly express Gordon's generalization of the Rogers-Ramanujan identities using the theory of partitions, as explained in \cite[\S8]{andrews_theory_1998}.
+Let $P$ be a set of partitions.
+We denote by $p(P, n)$ the number of partitions of $n$ that belong to $P$.
+We say two partition ideals $P_1$ and $P_2$ are equivalent, denoted by $P_1 \sim P_2$, if $p(P_1, n) = p(P_2, n)$ for $n \in \mathbb{N}$.
+An infinite sequence $(f_n)_{n \in \mathbb{Z}_+}$ of nonnegative integers in which only finitely many of the $f_i$ are nonzero uniquely corresponds to a partition $[\underbrace{1, \dots, 1}_{f_1}, \underbrace{2, \dots, 2}_{f_2}, \dots]$.
+Therefore, we have two ways of writing a partition.
+
+Let $s \in \mathbb{Z}_+$, let $i \in \{1, \dots, s\}$, and we define the following sets of partitions:
+\begin{align*}
+  A^{s, i} &= \{\text{$(f_n)_{n \in \mathbb{Z}_+}$ is a partition} \mid \text{for $n \in \mathbb{Z}_+$, $f_n > 0$ implies $n \not\equiv 0, \pm i \mod 2s + 1$}\}, \\
+  R^{s, i} &= \{\text{$\lambda$ is a partition} \mid \text{$\lambda = [\lambda_1, \dots, \lambda_s]$ satisfies $\lambda_1 - \lambda_s \le 1$ or $\lambda = \underbrace{[1, 1, \dots, 1]}_i$}\}, \\
+  P^{s, i} &= \text{the set of partitions that do not contain any partition in $R^{s, i}$}.
+\end{align*}
+Gordon's generalization of the Rogers-Ramanujan identities becomes
+\begin{equation*}
+  A^{s, i} \sim P^{s, i}.
+\end{equation*}
+
+As explained in \cite[\S8]{andrews_theory_1998}, $A^{s, i}$ is a partition ideal of order $1$ while $P^{s, i}$ is a partition ideal of order $2$.
+It is an open problem to characterize the equivalence classes of partitions ideals.
+For partition ideals of order $1$, this problem is completely solved (see \cite[Theorem 8.4]{andrews_theory_1998}).
+
+We now state our main theorems and show that the irreducible modules over the simple Virasoro vertex algebras $\Vir_{2, 2s + 1}$ are intimately related to the partition ideals $P^{s, i}$.
 
 \begin{theorem}
   \label{thr:1}
   The refined character of $L(c_{2, 2s + 1}, h_{1, i})$ is given by
   \begin{equation*}
-    \ch_{L(c_{2, 2s + 1}, h_{1, i})}(t, q) = q^{h_{1, i}}J_{s, i}(0, t, q) = q^{h_{1, i}}\left(\sum_{k = (k_1, \dots, k_{s - 1}) \in \mathbb{N}^{s - 1}}t^{kB^{(s)}_{s - 1}}\frac{q^{\frac{1}{2}kG^{(s)}k^T + kB^{(s)}_{s - i}}}{(q)_{k_1}\dots(q)_{k_{s - 1}}}\right),
+    \ch_{L(c_{2, 2s + 1}, h_{1, i})}(t, q) = q^{h_{1, i}}\left(\sum_{k = (k_1, \dots, k_{s - 1}) \in \mathbb{N}^{s - 1}}t^{kB^{(s)}_{s - 1}}\frac{q^{\frac{1}{2}kG^{(s)}k^T + kB^{(s)}_{s - i}}}{(q)_{k_1}\dots(q)_{k_{s - 1}}}\right).
   \end{equation*}
-  where $T$ denotes the transpose matrix and
-  \begin{align*}
-    G^{(s)} &= (2\min\{i, j\})_{i, j = 1}^{s - 1}, \\
-    B^{(s)}_j &=
-                \left(\begin{smallmatrix}
-                  0 \\
-                  0 \\
-                  \vdots \\
-                  0 \\
-                  1 \\
-                  2 \\
-                  \vdots \\
-                  j
-                \end{smallmatrix}\right) \quad \text{for $j = 0, 1, \dots, s - 1$}.
-  \end{align*}
 \end{theorem}
 
 \begin{theorem}
@@ -117,11 +172,14 @@ and let $P^{s, i}$ be the set of partitions that do not contain any partition in
   Then all the irreducible modules over the simple Virasoro vertex algebra $\Vir_{p, q}$, namely $L(c_{p, q}, h_{m, n})$ for integers $m, n$ such that $0 < m < p$ and $0 < n < q$, are not classically free.
 \end{theorem}
 
+As a corollary, we obtain an explicit expression for the modules $\gr_F(L(c_{2, 2s + 1}, h_{1, i}))$ over the vertex poisson algebra $\gr_F(\Vir_{2, 2s + 1})$.
+
+The author is partially supported by ...
+
 \section{Preliminaries and notation}
 \label{sec:prel-notat}
 
 All vector spaces and all algebras are over $\mathbb{C}$, the field of complex numbers, unless otherwise stated.
-All tensor products are over $\mathbb{C}$, unless otherwise stated.
 The set of natural numbers $\{0, 1, \dots\}$ is denoted by $\mathbb{N}$, the set of integers is denoted by $\mathbb{Z}$, and the set of positive integers $\{1, 2, \dots\}$ is denoted by $\mathbb{Z}_+$.
 
 First, we review the theory of representations of the Virasoro Lie algebra following \cite{kac_bombay_2013}.
@@ -130,13 +188,10 @@ The \emph{Virasoro Lie algebra} is a Lie algebra given by
   \Vir = \bigoplus_{n \in \mathbb{Z}}\mathbb{C}L_n \oplus \mathbb{C}C.
 \end{equation*}
 These elements satisfy the following commutation relations:
-\begin{equation}
-  \label{eq:1}
-  \begin{split}
-    [L_m, L_n] &= (m - n)L_{m + n} + \delta_{m, -n}\frac{m^3 - m}{12}C \quad \text{for $m, n \in \mathbb{Z}$}, \\
-    [\Vir, C] &= 0.
-  \end{split}
-\end{equation}
+\begin{align*}
+  [L_m, L_n] &= (m - n)L_{m + n} + \delta_{m, -n}\frac{m^3 - m}{12}C \quad \text{for $m, n \in \mathbb{Z}$}, \\
+  [\Vir, C] &= 0.
+\end{align*}
 Let $c, h \in \mathbb{C}$.
 We set $\Vir^{\ge} = \bigoplus_{n \in \mathbb{N}}\mathbb{C}L_n \oplus \mathbb{C}C$.
 We make the subalgebra $\Vir^{\ge}$ of $\Vir$ act on $\mathbb{C}$ as follows:
@@ -174,7 +229,7 @@ and
   p_{\lambda} = L_{-\lambda_1}\dots L_{-\lambda_m} \in \mathbb{C}[L_{-1}, L_{-2}, \dots].
 \end{equation*}
 
-For a composition $\lambda$ with exactly $m$ elements greater than $1$ and exactly $n$ elements equal to $1$, let $\lambda'$ be the composition obtained from $\lambda$ by removing all $1$s.
+For a composition $\lambda$ with exactly $m$ elements greater than $1$ and exactly $n$ elements equal to $1$, we define  $\lambda'$ as the composition obtained from $\lambda$ by removing all $1$s.
 We define the \emph{conformal length of $\lambda$} as
 \begin{equation*}
   \clen(\lambda) = 2m + n
@@ -209,6 +264,7 @@ Let $A$ be an associative (not necessarily commutative) algebra with unit $1$ an
 \item $A^p = 0$ for $p < 0$;
 \item $1 \in A^0$;
 \item $A^0 \subseteq A^1 \subseteq \dots$;
+\item $A = \bigcup_{p \in \mathbb{N}}A^p$;
 \item $A^pA^q \subseteq A^{p + q}$ for $p, q \in \mathbb{Z}$.
 \end{enumerate}
 Let
@@ -243,7 +299,7 @@ and it is a derivation of $\gr(A)$.
   \begin{equation*}
     U(\mathfrak{g})^p = \vspan\{x_1x_2\dots x_s \mid s \le p, x_1, \dots, x_s \in \mathfrak{g}\} \quad \text{for $p \in \mathbb{Z}$}.
   \end{equation*}
-  This filtration clearly satisfies axioms (i)--(iv) above, and $\gr(U(\mathfrak{g}))$ is naturally isomorphic to $S(\mathfrak{g})$, the symmetric algebra of $\mathfrak{g}$, which is a polynomial algebra (see \cite[\S2]{dixmier_enveloping_1996} for details).
+  This filtration clearly satisfies axioms (i)--(v) above, and $\gr(U(\mathfrak{g}))$ is naturally isomorphic to $S(\mathfrak{g})$, the symmetric algebra of $\mathfrak{g}$, which is a polynomial algebra (see \cite[\S2]{dixmier_enveloping_1996} for details).
   Furthermore, if $\partial$ is a derivation of $\mathfrak{g}$ as a Lie algebra, then we can extend $\partial$ to a derivation of $U(\mathfrak{g})$, and it respects the PBW filtration.
   Thus, it defines a derivation $\partial: \gr(U(\mathfrak{g})) \to \gr(U(\mathfrak{g}))$.
 \end{example}
@@ -252,6 +308,7 @@ Let $M$ be an $A$-module with filtration $(M^p)_{p \in \mathbb{Z}}$ such that:
 \begin{enumerate}
 \item $M^p = 0$ for $p < 0$;
 \item $M^0 \subseteq M^1 \subseteq \dots$;
+\item $M = \bigcup_{p \in \mathbb{N}}M^p$;
 \item $A^pM^q \subseteq M^{p + q}$ for $p, q \in \mathbb{Z}$.
 \end{enumerate}
 Let
@@ -267,7 +324,7 @@ For $p, q \in \mathbb{N}$, $a \in A^p$ and $u \in M^q$, we set
 \end{equation*}
 where $\gamma^p_M: M^p \to \gr(M)$ is the principal symbol map, which is the composition of the natural maps $M^p \twoheadrightarrow M^p/M^{p - 1}$ and $M^p/M^{p - 1} \hookrightarrow \gr(M)$.
 
-The category of modules over $A$ with the given filtration $(A^p)_{p \in \mathbb{Z}}$ is given by modules $M$ with filtration $(M^p)_{p \in \mathbb{Z}}$ satisfying conditions (i)--(iii) above.
+The category of modules over $A$ with the given filtration $(A^p)_{p \in \mathbb{Z}}$ is given by modules $M$ with filtration $(M^p)_{p \in \mathbb{Z}}$ satisfying conditions (i)--(iv) above.
 A homomorphism $f: M \to N$ must satisfy $f(M^p) \subseteq N^p$ for $p \in \mathbb{Z}$.
 This category is denoted by $A$-Mod (the filtration being suppressed from the notation).
 
@@ -361,17 +418,17 @@ The \emph{character of a semisimple $(\mathfrak{g}, \mathfrak{h})$-module $M$} i
   \ch_M(q) = \sum_{\lambda \in \mathfrak{h}^*}\dim(M_{\lambda})q^{\lambda}.
 \end{equation*}
 
-We can regard $\mathfrak{g}$ as a $(\mathfrak{g}, \mathfrak{h})$-module via the adjoint representation and by declaring for $\lambda \in \mathfrak{h}^*$,
-\begin{equation*}
-  \mathfrak{g}_{\lambda} = \mathfrak{g}^{\alpha} \quad \text{if there exists $\alpha \in Q$ such that $\lambda = \pi_Q(\alpha)$}.
-\end{equation*}
-This construction assumes implicitly that $\pi_Q$ is injective.
+% We can regard $\mathfrak{g}$ as a $(\mathfrak{g}, \mathfrak{h})$-module via the adjoint representation and by declaring for $\lambda \in \mathfrak{h}^*$,
+% \begin{equation*}
+%   \mathfrak{g}_{\lambda} = \mathfrak{g}^{\alpha} \quad \text{if there exists $\alpha \in Q$ such that $\lambda = \pi_Q(\alpha)$}.
+% \end{equation*}
+% This construction assumes implicitly that $\pi_Q$ is injective.
 
 The category $\mathcal{C}_{(\mathfrak{g}, \mathfrak{h})}$ is the category whose objects are $\mathfrak{h}^*$-graded $(\mathfrak{g}, \mathfrak{h})$-modules and for $M, N \in \mathcal{C}_{(\mathfrak{g}, \mathfrak{h})}$, $\Hom_{\mathcal{C}_{(\mathfrak{g}, \mathfrak{h})}}(M, N) = \Hom_{\mathfrak{g}}(M, N)$ (Lie algebra module homomorphisms).
 
 \begin{remark}
   \label{rmk:1}
-  If $f \in \Hom_{\mathfrak{g}}(M, N)$, then $f$ respects the $\mathfrak{h}^*$-grading automatically because for $u \in M$ and $h \in \mathfrak{h}$, $hf(u) = f(hu) = f(\lambda(h)u) = \lambda(h)f(u)$.
+  If $f \in \Hom_{\mathfrak{g}}(M, N)$, then $f$ respects the $\mathfrak{h}^*$-grading automatically because for $u \in M_{\lambda}$ and $h \in \mathfrak{h}$, $hf(u) = f(hu) = f(\lambda(h)u) = \lambda(h)f(u)$.
 \end{remark}
 
 We can introduce a partial order on $Q$ as follows
@@ -398,7 +455,7 @@ The \emph{PBW filtration of $M$} is given by
 \begin{equation*}
   M^p = \{au \mid q \in \mathbb{N}, \mu \le \lambda, a \in U(\mathfrak{g}^-)^q, u \in M_{\mu}, q + \lambda - \mu \le p\} \quad \text{for $p \in \mathbb{Z}$}.
 \end{equation*}
-This filtration clearly satisfies axioms (i)--(iii) of \Cref{sec:modul-over-algebr} with $U(\mathfrak{g}^-)$ in place of $A$, and $\gr(M)$ becomes a $\gr(U(\mathfrak{g^-}))$-module.
+This filtration clearly satisfies axioms (i)--(iv) of \Cref{sec:modul-over-algebr} with $U(\mathfrak{g}^-)$ in place of $A$, and $\gr(M)$ becomes a $\gr(U(\mathfrak{g^-}))$-module.
 
 If $f: M \to N$ is a homomorphism, where $M, N \in \mathcal{C}^{\lambda \ge}_{(\mathfrak{g}, \mathfrak{h})}$, then
 \begin{align*}
@@ -431,14 +488,14 @@ In this article, we are interested in the \emph{refined character of $M \in \mat
 \begin{equation*}
   \ch_M(t, q) = \sum_{p \in \mathbb{N}}\sum_{\lambda \in \mathfrak{h}^*}\dim(\gamma^p(M^p \cap M_{\lambda}))t^pq^{\lambda},
 \end{equation*}
-Clearly, we have
+By axiom (iii) of $A$-modules given in \Cref{sec:modul-over-algebr}, we have
 \begin{equation*}
   \ch_M(1, q) = \ch_M(q).
 \end{equation*}
 
 \begin{example}[$\ch_{M(c, h)}(t, q)$]
   \label{exa:5}
-  We can consider the $\mathbb{Z}$-graded Virasoro Lie algebra $(\Vir, \mathfrak{h})$.
+  We can consider the $\mathbb{Z}$-graded Virasoro Lie algebra $(\Vir, \mathbb{C}L_0 \oplus \mathbb{C}C)$.
   For the Verma representation $M(c, h)$, we have
   \begin{align*}
     \ch_{M(c, h)}(t, q) &= \frac{q^h}{\prod_{k \in \mathbb{Z}_+}(1 - tq^k)}, \\
@@ -448,7 +505,7 @@ Clearly, we have
 
 \begin{example}[$\ch_{L(1/2, 0)}(t, q)$]
   \label{exa:6}
-  In \cite{andrews_singular_2022}, the refined character of the Virasoro minimal model $\Vir_{3, 4} = L(1/2, 0)$, also known as the Ising model, is computed explicitly.
+  In \cite{andrews_singular_2022}, the refined character of the \emph{Virasoro minimal model} $\Vir_{3, 4} = L(1/2, 0)$, also known as the \emph{Ising model}, is computed explicitly.
   Interestingly, this character is connected to Nahm sums for the matrix $\left(\begin{smallmatrix} 8 & 3 \\ 3 & 2 \end{smallmatrix}\right)$ (see \cite{Nahm2007}) and can be explicitly expressed as
   \begin{equation*}
     \ch_{L(1/2, 0)}(t, q) = \sum_{k_1, k_2 \in \mathbb{N}}t^{2k_1 + k_2}\frac{q^{4k_1^2 + 3k_1k_2 + k_2^2}}{(q)_{k_1}(q)_{k_2}}(1 - q^{k_1} + q^{k_1 + k_2}),
@@ -458,7 +515,7 @@ Clearly, we have
 
 \begin{remark}
   \label{rmk:3}
-  Let $V$ be an $\mathbb{N}$-graded conformal vertex algebra, and let $M$ be an $h + \mathbb{N}$-graded $V$-module (see \Cref{sec:short-survey-vertex} ahead for the definitions).
+  Let $V$ be an $\mathbb{N}$-graded conformal vertex algebra, and let $M$ be an $h + \mathbb{N}$-graded $V$-module.
   It is worth noting that the PBW filtration $(M^p)_{p \in \mathbb{Z}}$ and the standard filtration $(G^pM)_{p \in \mathbb{Z}}$, as introduced in \cite{salazar_pbw_2024}, are different.
   Therefore, the associated graded objects $\gr(M)$ and $\gr^G(M)$ and the refined characters $\ch_M(t, q)$ and $\ch_{\gr^G(M)}(t, q)$ are both different.
   For example, for a highest weight $(c, h)$,
@@ -515,8 +572,8 @@ We will always use the degree reverse lexicographic order with $L_{-1} > L_{-2} 
 Actually, we can only use Gröbner basis theory with finitely generated polynomial algebras like $\mathbb{C}[L_{-1}, L_{-2}, \dots, L_{-N}]$ for some $N \in \mathbb{N}$.
 But taking $N \to \infty$, we can obtain our desired results, see \cite{salazar_pbw_2024} for details regarding this.
 
-\section{A short survey on vertex algebras}
-\label{sec:short-survey-vertex}
+\section{Fields over vector spaces}
+\label{sec:fields-over-vector}
 
 The vector space of \emph{formal distributions in $n \in \mathbb{N}$ variables}, denoted by $\mathbb{C}[[x_1^{\pm1}, \dots, x_n^{\pm1}]]$, is the set of functions $f: \mathbb{Z}^n \to \mathbb{C}$, written as $f(x_1, \dots, x_n) = \sum_{m_1, \dots, m_n \in \mathbb{Z}}f_{m_1, \dots, m_n}x_1^{m_1}\dots x_n^{m_n}$, with the natural operations of addition and multiplication by a scalar.
 The field of \emph{formal Laurent series}, denoted by $\mathbb{C}((x))$, is the subspace of elements $f(x) \in \mathbb{C}[[x^{\pm1}]]$ such that there is $N \in \mathbb{Z}$ with $f_n = 0$ for $n \le N$.
@@ -533,57 +590,57 @@ where
 \begin{equation*}
   a_{(n)} = a_{-n - 1}.
 \end{equation*}
-The \emph{residue of a formal distribution $a(z) \in V[[z^{\pm1}]]$} is defined as
-\begin{equation*}
-  \res_z(a(z)) = a_{(0)} = a_{-1}.
-\end{equation*}
+% The \emph{residue of a formal distribution $a(z) \in V[[z^{\pm1}]]$} is defined as
+% \begin{equation*}
+%   \res_z(a(z)) = a_{(0)} = a_{-1}.
+% \end{equation*}
 
-Let $V$ be a vector space.
-A formal distribution $a(z, w) \in V[[z^{\pm1}, w^{\pm1}]]$ is \emph{local} if there is $N \in \mathbb{N}$ such that
-\begin{equation*}
-  (z - w)^Na(z, w) = 0.
-\end{equation*}
+% Let $V$ be a vector space.
+% A formal distribution $a(z, w) \in V[[z^{\pm1}, w^{\pm1}]]$ is \emph{local} if there is $N \in \mathbb{N}$ such that
+% \begin{equation*}
+%   (z - w)^Na(z, w) = 0.
+% \end{equation*}
 
-Let $\mathfrak{g}$ be a Lie algebra.
-A subset $\mathfrak{F} \subseteq \mathfrak{g}[[z^{\pm1}]]$ of formal distributions is called a \emph{local family} if all pairs of its elements are local.
-For $n \in \mathbb{N}$, the \emph{$n$-product} is the $\mathbb{C}$-bilinear map defined by
-\begin{align*}
-  \bullet_{(n)}\bullet: \mathfrak{g}[[w^{\pm1}]] \times \mathfrak{g}[[w^{\pm1}]] &\to \mathfrak{g}[[w^{\pm1}]], \\
-  a(w)_{(n)}b(w) &= \res_z((z - w)^n[a(z), b(w)]).
-\end{align*}
+% Let $\mathfrak{g}$ be a Lie algebra.
+% A subset $\mathfrak{F} \subseteq \mathfrak{g}[[z^{\pm1}]]$ of formal distributions is called a \emph{local family} if all pairs of its elements are local.
+% For $n \in \mathbb{N}$, the \emph{$n$-product} is the $\mathbb{C}$-bilinear map defined by
+% \begin{align*}
+%   \bullet_{(n)}\bullet: \mathfrak{g}[[w^{\pm1}]] \times \mathfrak{g}[[w^{\pm1}]] &\to \mathfrak{g}[[w^{\pm1}]], \\
+%   a(w)_{(n)}b(w) &= \res_z((z - w)^n[a(z), b(w)]).
+% \end{align*}
 
-Let $\mathfrak{g}$ be a Lie algebra.
-A \emph{formal distribution Lie algebra} is a pair $(\mathfrak{g}, \mathfrak{F})$, where $\mathfrak{F}$ is a local family of $\mathfrak{g}$-valued formal distributions, denoted by $\{a^j(z) = \sum_{n \in \mathbb{Z}}a^j_{(n)}z^{-n - 1}\}_{j \in J}$, such that the coefficients $\{a^j_{(n)} \mid j \in J, n \in \mathbb{Z}\}$ span the whole $\mathfrak{g}$.
-A \emph{regular} formal distribution Lie algebra is a triple $(\mathfrak{g}, \mathfrak{F}, T)$ such that:
-\begin{enumerate}
-\item $(\mathfrak{g}, \mathfrak{F})$ is a formal distribution Lie algebra;
-\item $\mathbb{C}[\partial_z]\mathfrak{F}$ is closed under all $n$-th products for $n \in \mathbb{N}$;
-\item $T \in \Der(\mathfrak{g})$ satisfies
-  \begin{equation*}
-    T(a^j(z)) = \partial_za^j(z) \quad \text{for $j \in J$}.
-  \end{equation*}
-\end{enumerate}
+% Let $\mathfrak{g}$ be a Lie algebra.
+% A \emph{formal distribution Lie algebra} is a pair $(\mathfrak{g}, \mathfrak{F})$, where $\mathfrak{F}$ is a local family of $\mathfrak{g}$-valued formal distributions, denoted by $\{a^j(z) = \sum_{n \in \mathbb{Z}}a^j_{(n)}z^{-n - 1}\}_{j \in J}$, such that the coefficients $\{a^j_{(n)} \mid j \in J, n \in \mathbb{Z}\}$ span the whole $\mathfrak{g}$.
+% A \emph{regular} formal distribution Lie algebra is a triple $(\mathfrak{g}, \mathfrak{F}, T)$ such that:
+% \begin{enumerate}
+% \item $(\mathfrak{g}, \mathfrak{F})$ is a formal distribution Lie algebra;
+% \item $\mathbb{C}[\partial_z]\mathfrak{F}$ is closed under all $n$-th products for $n \in \mathbb{N}$;
+% \item $T \in \Der(\mathfrak{g})$ satisfies
+%   \begin{equation*}
+%     T(a^j(z)) = \partial_za^j(z) \quad \text{for $j \in J$}.
+%   \end{equation*}
+% \end{enumerate}
 
-Let $(\mathfrak{g}, \mathfrak{F})$ be a formal distribution Lie algebra.
-The \emph{annihilation subalgebra of $(\mathfrak{g}, \mathfrak{F})$} is
-\begin{equation*}
-  \mathfrak{g}_- = \vspan\{a^j_{(n)} \mid j \in J, n \in \mathbb{N}\}.
-\end{equation*}
+% Let $(\mathfrak{g}, \mathfrak{F})$ be a formal distribution Lie algebra.
+% The \emph{annihilation subalgebra of $(\mathfrak{g}, \mathfrak{F})$} is
+% \begin{equation*}
+%   \mathfrak{g}_- = \vspan\{a^j_{(n)} \mid j \in J, n \in \mathbb{N}\}.
+% \end{equation*}
 
-\begin{example}
-  \label{exa:7}
-  We construct a $\Vir$-valued formal distribution by setting
-  \begin{equation*}
-    \text{$L(z) = \sum_{n \in \mathbb{Z}}L_{(n)}z^{-n - 1}$ with $L_{(n)} = L_{n - 1}$ for $n \in \mathbb{Z}$}.
-  \end{equation*}
-  We usually write $L(z)$ as
-  \begin{equation*}
-    L(z) = \sum_{n \in \mathbb{Z}}L_nz^{-n - 2}.
-  \end{equation*}
-  By \cite[\S2]{frenkel_vertex_2001}, $\{L(z), C\}$ is a local family.
-  Therefore, $(\Vir, \{L(z), C\})$ is a formal distribution Lie algebra.
-  Moreover, we can verify directly that $(\Vir, \{L(z), C\}, \ad(L_{-1}))$ is regular.
-\end{example}
+% \begin{example}
+%   \label{exa:7}
+%   We construct a $\Vir$-valued formal distribution by setting
+%   \begin{equation*}
+%     \text{$L(z) = \sum_{n \in \mathbb{Z}}L_{(n)}z^{-n - 1}$ with $L_{(n)} = L_{n - 1}$ for $n \in \mathbb{Z}$}.
+%   \end{equation*}
+%   We usually write $L(z)$ as
+%   \begin{equation*}
+%     L(z) = \sum_{n \in \mathbb{Z}}L_nz^{-n - 2}.
+%   \end{equation*}
+%   By \cite[\S2]{frenkel_vertex_2001}, $\{L(z), C\}$ is a local family.
+%   Therefore, $(\Vir, \{L(z), C\})$ is a formal distribution Lie algebra.
+%   Moreover, we can verify directly that $(\Vir, \{L(z), C\}, \ad(L_{-1}))$ is regular.
+% \end{example}
 
 Let $V$ be a vector space, and let $a(z) \in \End(V)[[z^{\pm1}]]$ be a formal distribution.
 We set
@@ -618,15 +675,15 @@ We follow the convention that the normal ordered product is read from right to l
 \begin{equation*}
   :a(z)b(z)c(z): = :a(z)(:b(z)c(z):):.
 \end{equation*}
-We define the normal ordered product of a single field as the field itself, and the normal ordered product of no fields as the identity field $\Id_V$, so we have:
-\begin{align*}
-  :a(z): &= a(z), \\
-  :: &= \Id_V.
-\end{align*}
-The identity field $\Id_V$ acts as an identity for the normal ordered product, i.e.,
-\begin{equation*}
-  :\Id_Va(z): = :a(z)\Id_V: = a(z).
-\end{equation*}
+% We define the normal ordered product of a single field as the field itself, and the normal ordered product of no fields as the identity field $\Id_V$, so we have:
+% \begin{align*}
+%   :a(z): &= a(z), \\
+%   :: &= \Id_V.
+% \end{align*}
+% The identity field $\Id_V$ acts as an identity for the normal ordered product, i.e.,
+% \begin{equation*}
+%   :\Id_Va(z): = :a(z)\Id_V: = a(z).
+% \end{equation*}
 
 \begin{lemma}[{\cite[Proposition 3.3.3]{nozaradan_introduction_2008}}]
   \label{lmm:1}
@@ -660,180 +717,194 @@ The identity field $\Id_V$ acts as an identity for the normal ordered product, i
   This follows from \Cref{lmm:1} and induction on $s$.
 \end{proof}
 
-We now extend the $n$-products.
-Let $a(z), b(z) \in \mathcal{F}(V)$ be two fields.
-For $n \in \mathbb{N}$, $\partial^n_za(z)$ is also a field, and we define
-\begin{equation}
-  \label{eq:3}
-  a(z)_{(-n - 1)}b(z) = \frac{:(\partial^n_za(z))b(z):}{n!}.
-\end{equation}
+% We now extend the $n$-products.
+% Let $a(z), b(z) \in \mathcal{F}(V)$ be two fields.
+% For $n \in \mathbb{N}$, $\partial^n_za(z)$ is also a field, and we define
+% \begin{equation}
+%   \label{eq:3}
+%   a(z)_{(-n - 1)}b(z) = \frac{:(\partial^n_za(z))b(z):}{n!}.
+% \end{equation}
 
-A \emph{vertex algebra} is the data consisting of four elements $(V, \vac, T, Y)$ satisfying the following properties:
-\begin{enumerate}
-\item $V$ is a vector space called the \emph{state space};
-\item $\vac \in V$ is called the \emph{vacuum vector};
-\item $T \in \End(V)$ is called the \emph{translation operator};
-\item $Y: V \to \mathcal{F}(V)$ is a linear map called the \emph{state-field correspondence}, which is commonly written as $Y(a, z) = \sum_{n \in \mathbb{Z}}a_{(n)}z^{-n - 1}$ for $a \in V$.
-\end{enumerate}
-The data must satisfy the following axioms for $a \in V$:
-\begin{enumerate}
-\item (Vacuum axiom)
-  \begin{align*}
-    Y(\vac,z) &= \Id_V, \\
-    Y(a, z)\vac &\in V[[z]], \\
-    Y(a, z)\vac|_{z = 0} &= a, \\
-    T\vac &= 0;
-  \end{align*}
-\item (Translation covariance) $[T, Y(a, z)] = \partial_zY(a, z)$;
-\item (Locality) $\{Y(b, z) \mid b \in V\}$ is a local family of fields.
-\end{enumerate}
+\section{Modules over the simple Virasoro vertex algebras}
+\label{sec:modules-over-simple}
 
-Formal distribution Lie algebras give us a way to construct nontrivial vertex algebras.
-But first, we need a preliminary concept.
-A \emph{pre-vertex algebra} is a quadruple $(V, \vac, T, \mathcal{F})$, where $V$ is a vector space, $\vac \in V$, $T \in \End(V)$, and $\mathcal{F} = \{a^j(z) = \sum_{n \in \mathbb{Z}}a^j_{(n)}z^{-n - 1}\}_{j \in J}$ is a collection of $\End(V)$-valued fields.
-The above data satisfies the following axioms:
-\begin{enumerate}
-\item (Vacuum axiom) $T\vac = 0$;
-\item (Translation covariance) $[T, a^j(z)] = \partial_za^j(z)$ for $j \in J$;
-\item (Locality) $a^i(z)$ and $a^j(z)$ are mutually local for $i, j \in J$;
-\item (Completeness) $\vspan\{a^{j_1}_{(n_1)}\dots a^{j_s}_{(n_s)}\vac \mid s \in \mathbb{N}, j_i \in J, n_i \in \mathbb{Z}\} = V$.
-\end{enumerate}
+% A \emph{vertex algebra} is the data consisting of four elements $(V, \vac, T, Y)$ satisfying the following properties:
+% \begin{enumerate}
+% \item $V$ is a vector space called the \emph{state space};
+% \item $\vac \in V$ is called the \emph{vacuum vector};
+% \item $T \in \End(V)$ is called the \emph{translation operator};
+% \item $Y: V \to \mathcal{F}(V)$ is a linear map called the \emph{state-field correspondence}, which is commonly written as $Y(a, z) = \sum_{n \in \mathbb{Z}}a_{(n)}z^{-n - 1}$ for $a \in V$.
+% \end{enumerate}
+% The data must satisfy the following axioms for $a \in V$:
+% \begin{enumerate}
+% \item (Vacuum axiom)
+%   \begin{align*}
+%     Y(\vac,z) &= \Id_V, \\
+%     Y(a, z)\vac &\in V[[z]], \\
+%     Y(a, z)\vac|_{z = 0} &= a, \\
+%     T\vac &= 0;
+%   \end{align*}
+% \item (Translation covariance) $[T, Y(a, z)] = \partial_zY(a, z)$;
+% \item (Locality) $\{Y(b, z) \mid b \in V\}$ is a local family of fields.
+% \end{enumerate}
 
-A \emph{vertex algebra homomorphism} $f: (V_1, \vac_1, T_1, Y_1) \to (V_2, \vac_2, T_2, Y_2)$ is a linear map $f: V_1 \to V_2$ such that $f(\vac_1) = \vac_2$ and for $a, b \in V_1$,
+% Formal distribution Lie algebras give us a way to construct nontrivial vertex algebras.
+% But first, we need a preliminary concept.
+% A \emph{pre-vertex algebra} is a quadruple $(V, \vac, T, \mathcal{F})$, where $V$ is a vector space, $\vac \in V$, $T \in \End(V)$, and $\mathcal{F} = \{a^j(z) = \sum_{n \in \mathbb{Z}}a^j_{(n)}z^{-n - 1}\}_{j \in J}$ is a collection of $\End(V)$-valued fields.
+% The above data satisfies the following axioms:
+% \begin{enumerate}
+% \item (Vacuum axiom) $T\vac = 0$;
+% \item (Translation covariance) $[T, a^j(z)] = \partial_za^j(z)$ for $j \in J$;
+% \item (Locality) $a^i(z)$ and $a^j(z)$ are mutually local for $i, j \in J$;
+% \item (Completeness) $\vspan\{a^{j_1}_{(n_1)}\dots a^{j_s}_{(n_s)}\vac \mid s \in \mathbb{N}, j_i \in J, n_i \in \mathbb{Z}\} = V$.
+% \end{enumerate}
+
+% A \emph{vertex algebra homomorphism} $f: (V_1, \vac_1, T_1, Y_1) \to (V_2, \vac_2, T_2, Y_2)$ is a linear map $f: V_1 \to V_2$ such that $f(\vac_1) = \vac_2$ and for $a, b \in V_1$,
+% \begin{equation*}
+%   f(Y_1(a, z)b) = \sum_{n \in \mathbb{Z}}f(a_{(n)}b)z^{-n - 1} = \sum_{n \in \mathbb{Z}}f(a)_{(n)}f(b)z^{-n - 1} = Y_2(f(a), z)f(b).
+% \end{equation*}
+
+% Let $V$ be a vertex algebra.
+% A \emph{vertex subalgebra of $V$} is a subspace of $W$ of $V$, which contains $\vac$, and such that $Y(a, z)b \in W((z))$ for $a, b \in W$.
+% An \emph{ideal of $V$} is a subspace $I$ of $V$ such that $Y(a, z)b \in I((z))$ and $Y(b, z)a \in I((z))$ for $a \in V$ and $b \in I$.
+% The \emph{quotient vertex algebra} $A/I$ is defined in the usual way.
+% For example, the kernel of a vertex algebra homomorphism is an ideal.
+% A vertex algebra is \emph{simple} or \emph{irreducible} if $0$ is the only proper ideal.
+
+% The vertex algebra $V$ is \emph{strongly generated by $S \subseteq V$} if
+% \begin{equation*}
+%   V = \vspan\{a^1_{(-n_1 - 1)}\dots a^s_{(-n_s - 1)}\vac \mid s, n_1, \dots, n_s \in \mathbb{N}, a^1, \dots, a^s \in S\}.
+% \end{equation*}
+
+% Let $(V, \vac, T, \mathcal{F})$ be a pre-vertex algebra, and we set
+% \begin{equation*}
+%   \mathcal{F}_{\max} = \{a(z) \in \mathcal{F}(V) \mid \text{$[T, a(z)] = \partial_za(z)$ and for $j \in J$, $(a(z), a^j(z))$ is a local pair}\}.
+% \end{equation*}
+
+% \begin{theorem}[Extension theorem {\cite[Theorem 1]{callegaro_introduction_2017-1}}]
+%   \label{thr:4}
+%   Let $(V, \vac, T, \mathcal{F})$ be a pre-vertex algebra, and let $\mathcal{F}_{\max}$ be defined as above.
+%   Then:
+%   \begin{enumerate}
+%   \item The linear map
+%     \begin{align*}
+%       \fs: \mathcal{F}_{\max} &\to V, \\
+%       \fs(a(z)) &= a(z)\vac|_{z = 0}
+%     \end{align*}
+%     is well-defined and bijective, and we denote by $Y: V \to \mathcal{F}(V)$ the inverse map;
+%   \item $(V, \vac, T, Y)$ is a vertex algebra, with $Y: V \to \mathcal{F}(V)$ given explicitly by
+%     \begin{equation*}
+%       Y(a^{j_1}_{(n_1)}a^{j_2}_{(n_2)}\dots a^{j_s}_{(n_s)}\vac) = a^{j_1}(z)_{(n_1)}(a^{j_2}(z)_{(n_2)}\dots(a^{j_s}(z)_{(n_s)}\Id_V)\dots)
+%     \end{equation*}
+%     for $s \in \mathbb{N}$, $j_1, \dots, j_s \in J$ and $n_1, \dots, n_s \in \mathbb{Z}$.
+%   \end{enumerate}
+% \end{theorem}
+
+% Let $(\mathfrak{g}, \mathfrak{F}, T_0)$ be a regular formal distribution Lie algebra with $\mathfrak{F} = \{a^j(z)\}_{j \in J}$, and let $\mathfrak{g}_-$ be the annihilation subalgebra.
+% Since $T_0(\mathfrak{g}_-) \subseteq \mathfrak{g}_-$, we can extend $T_0$ to a derivation (still denoted the same) $T_0: U(\mathfrak{g}) \to U(\mathfrak{g})$ which is a $(U(\mathfrak{g}), U(\mathfrak{g}_-))$-bimodule homomorphism.
+% We consider the trivial representation $0: \mathfrak{g}_- \to \mathfrak{gl}(\mathbb{C})$, and we define:
+% \begin{align*}
+%   V &= \Ind^{\mathfrak{g}}_{\mathfrak{g}_-}(\mathbb{C}) = U(\mathfrak{g}) \otimes_{U(\mathfrak{g}_-)} \mathbb{C}, \\
+%   \pi &= \Ind^{\mathfrak{g}}_{\mathfrak{g}_-}(0): \mathfrak{g} \to \mathfrak{gl}(V), \\
+%   \vac &= 1\otimes1 \in V, \\
+%   T &= T_0\otimes\Id_{\mathbb{C}} \in \End(V), \\
+%   \mathcal{F} &= \left\{\pi(a^j(z)) = \sum_{n \in \mathbb{Z}}\pi(a^j_{(n)})z^{-n - 1} \mid j \in J\right\}.
+% \end{align*}
+
+% \begin{theorem}[{\cite[Theorem 3]{callegaro_introduction_2017-1} or \cite[\S1.7]{de_sole_finite_2006}}]
+%   \label{thr:5}
+%   With the notation above, $\mathcal{F}$ consists of fields, and $(V, \vac, T, \mathcal{F})$ is a pre-vertex algebra.
+% \end{theorem}
+
+% By \Cref{thr:5} and the Extension theorem, $V$ is a vertex algebra, denoted by $V(\mathfrak{g}, \mathfrak{F}, T_0)$, and by the PBW theorem, it is explicitly given by
+% \begin{equation*}
+%   V = \vspan\{a^{j_1}_{(-n_1 - 1)}\dots a^{j_s}_{(-n_s - 1)}\vac \mid s, n_1, \dots, n_s \in \mathbb{N}, j_1, \dots, j_s \in J\}.
+% \end{equation*}
+
+% Usually, we need to quotient the vertex algebras obtained this way.
+% Let $(\mathfrak{g}, \mathfrak{F}, T_0)$ be a regular formal distribution Lie algebra, and let $\lambda: \mathfrak{h} \to \mathbb{C}$ be a linear functional, where $\mathfrak{h}$ is a subalgebra of $\mathfrak{g}_+$ with $\mathfrak{h} \subseteq \ker(T_0)$.
+% We denote by $I^{\lambda}$ the $\mathfrak{g}$-submodule of $V(\mathfrak{g}, \mathfrak{F}, T_0)$ generated by the vectors $(a - \lambda(a))\vac$ for $a \in \mathfrak{h}$.
+% The submodule $I^{\lambda}$ is $T$-invariant and is a left ideal.
+% Thus, $I^{\lambda}$ is an ideal of $V(\mathfrak{g}, \mathfrak{F}, T_0)$.
+% Taking the quotient, we get a vertex algebra, denoted by
+% \begin{equation*}
+%   V^{\lambda}(\mathfrak{g}, \mathfrak{F}, T_0) = V(\mathfrak{g}, \mathfrak{F}, T_0)/I^{\lambda}.
+% \end{equation*}
+
+% \begin{example}[\emph{Universal Virasoro vertex algebra of central charge $c$}]
+%   \label{exa:8}
+%   We pick $c \in \mathbb{C}$.
+%   We take $(\Vir, \{L(z), C\}, \ad(L_{-1}))$ as the regular formal distribution Lie algebra as constructed in \Cref{exa:7} and $\lambda: \mathbb{C}C \to \mathbb{C}, \lambda(C) = c$ as the linear functional.
+%   The resulting vertex algebra is the universal Virasoro vertex algebra of central charge $c$, denoted by $\Vir^c$.
+
+%   By the PBW theorem, for $c \in \mathbb{C}$, a basis of $\Vir^c$ is given by
+%   \begin{equation*}
+%     \{L_{\lambda}\vac \mid \text{$\lambda \vdash$ and ($\lambda = \emptyset$ or $\lambda_{\len(\lambda)} \ge 2$)}\}.
+%   \end{equation*}
+% \end{example}
+
+% Let $V$ be a vertex algebra.
+% A \emph{Hamiltonian operator of $V$} is a diagonalizable operator $H \in \End(V)$ such that
+% \begin{equation}
+%   \label{eq:4}
+%   [H, Y(a, z)] = z\partial_zY(a, z) + Y(Ha, z) \quad \text{for $a \in V$}.
+% \end{equation}
+% A vertex algebra with a Hamiltonian is called \emph{graded}.
+% The \emph{grading of $V$} is the eigenspace decomposition of $H$
+% \begin{equation*}
+%   V = \bigoplus_{\Delta \in \mathbb{C}}V_{\Delta},
+% \end{equation*}
+% where
+% \begin{equation*}
+%   V_{\Delta} = \ker(H - \Delta\Id_V) \quad \text{for $\Delta \in \mathbb{C}$}.
+% \end{equation*}
+% If $a$ is an eigenvector of $H$, it is called \emph{homogeneous}, its eigenvalue is called the \emph{conformal weight of $a$}, and it is denoted by $\Delta_a$.
+% Condition \eqref{eq:4} is equivalent to
+% \begin{equation*}
+%   [H, a_{(n)}] = -(n + 1)a_{(n)} + (Ha)_{(n)} \quad \text{for $a \in V$ and $n \in \mathbb{Z}$}.
+% \end{equation*}
+
+% \emph{Homomorphisms of graded vertex algebras} are assumed to respect the gradings, i.e., if $f: V_1 \to V_2$ is a homomorphism of graded vertex algebras, then $f\circ H^{V_1} = H^{V_2}\circ f$, where $H^{V_1}$ is the Hamiltonian of $V_1$, and $H^{V_2}$ is the Hamiltonian of $V_2$.
+
+% A \emph{conformal vector of central charge $c \in \mathbb{C}$ of $V$} is a vector $\omega \in V$ such that $Y(\omega, z) = \sum_{n \in \mathbb{Z}}L_nz^{-n - 2}$ satisfies:
+% \begin{enumerate}
+% \item $Y(\omega, z)$ is a Virasoro formal distribution of central charge $C = c\Id_V$, i.e., it satisfies the Virasoro relations \eqref{eq:1} with $C = c\Id_V$;
+% \item $L_{-1} = T$;
+% \item $L_0$ is diagonalizable.
+% \end{enumerate}
+
+% \begin{theorem}[{\cite[\S3.3]{callegaro_introduction_2017-1}}]
+%   \label{thr:6}
+%   If $\omega$ is a conformal vector of a vertex algebra $V$, then $L_0$ is a Hamiltonian of $V$, and $\omega$ has conformal weight $2$.
+% \end{theorem}
+
+% \begin{lemma}
+%   \label{lmm:3}
+%   In a conformal vertex algebra $V$ such that $V_0 = \mathbb{C}\vac$, there is a unique maximal proper ideal $I_{\max}$ and a unique simple quotient $V/I_{\max}$.
+% \end{lemma}
+
+% \begin{proof}
+%   We simply let $I_{\max}$ be the sum of all proper ideals.
+% \end{proof}
+
+% A \emph{vertex operator algebra} is a $\mathbb{Z}$-graded conformal vertex algebra such that:
+% \begin{enumerate}
+% \item For $n \in \mathbb{Z}$, $\dim(V_n) < \infty$;
+% \item There is $N \in \mathbb{Z}$ satisfying $V_n = 0$ for $n \le N$.
+% \end{enumerate}
+
+Let $c \in \mathbb{C}$.
+We make the subalgebra $\Vir^{\ge} \oplus \mathbb{C}L_{-1}$ of $\Vir$ act on $\mathbb{C}$ as follows:
 \begin{equation*}
-  f(Y_1(a, z)b) = \sum_{n \in \mathbb{Z}}f(a_{(n)}b)z^{-n - 1} = \sum_{n \in \mathbb{Z}}f(a)_{(n)}f(b)z^{-n - 1} = Y_2(f(a), z)f(b).
+  \text{$L_n1 = 0$ for $n \ge -1$ and $C1 = c$}.
 \end{equation*}
-
-Let $V$ be a vertex algebra.
-A \emph{vertex subalgebra of $V$} is a subspace of $W$ of $V$, which contains $\vac$, and such that $Y(a, z)b \in W((z))$ for $a, b \in W$.
-An \emph{ideal of $V$} is a subspace $I$ of $V$ such that $Y(a, z)b \in I((z))$ and $Y(b, z)a \in I((z))$ for $a \in V$ and $b \in I$.
-The \emph{quotient vertex algebra} $A/I$ is defined in the usual way.
-For example, the kernel of a vertex algebra homomorphism is an ideal.
-A vertex algebra is \emph{simple} or \emph{irreducible} if $0$ is the only proper ideal.
-
-The vertex algebra $V$ is \emph{strongly generated by $S \subseteq V$} if
+The induced $\Vir$-module
 \begin{equation*}
-  V = \vspan\{a^1_{(-n_1 - 1)}\dots a^s_{(-n_s - 1)}\vac \mid s, n_1, \dots, n_s \in \mathbb{N}, a^1, \dots, a^s \in S\}.
+  \Vir^c = \Ind^{\Vir}_{\Vir^{\ge} \oplus \mathbb{C}L_{-1}} = U(\Vir) \otimes_{U(\Vir^{\ge} \oplus \mathbb{C}L_{-1})} \mathbb{C}
 \end{equation*}
+carries the structure of a vertex algebra and is called the \emph{universal Virasoro vertex algebra of central charge $c$}, see \cite[\S2]{frenkel_vertex_2001} or \cite[\S2]{callegaro_introduction_2017-1} for details.
 
-Let $(V, \vac, T, \mathcal{F})$ be a pre-vertex algebra, and we set
-\begin{equation*}
-  \mathcal{F}_{\max} = \{a(z) \in \mathcal{F}(V) \mid \text{$[T, a(z)] = \partial_za(z)$ and for $j \in J$, $(a(z), a^j(z))$ is a local pair}\}.
-\end{equation*}
-
-\begin{theorem}[Extension theorem {\cite[Theorem 1]{callegaro_introduction_2017-1}}]
-  \label{thr:4}
-  Let $(V, \vac, T, \mathcal{F})$ be a pre-vertex algebra, and let $\mathcal{F}_{\max}$ be defined as above.
-  Then:
-  \begin{enumerate}
-  \item The linear map
-    \begin{align*}
-      \fs: \mathcal{F}_{\max} &\to V, \\
-      \fs(a(z)) &= a(z)\vac|_{z = 0}
-    \end{align*}
-    is well-defined and bijective, and we denote by $Y: V \to \mathcal{F}(V)$ the inverse map;
-  \item $(V, \vac, T, Y)$ is a vertex algebra, with $Y: V \to \mathcal{F}(V)$ given explicitly by
-    \begin{equation*}
-      Y(a^{j_1}_{(n_1)}a^{j_2}_{(n_2)}\dots a^{j_s}_{(n_s)}\vac) = a^{j_1}(z)_{(n_1)}(a^{j_2}(z)_{(n_2)}\dots(a^{j_s}(z)_{(n_s)}\Id_V)\dots)
-    \end{equation*}
-    for $s \in \mathbb{N}$, $j_1, \dots, j_s \in J$ and $n_1, \dots, n_s \in \mathbb{Z}$.
-  \end{enumerate}
-\end{theorem}
-
-Let $(\mathfrak{g}, \mathfrak{F}, T_0)$ be a regular formal distribution Lie algebra with $\mathfrak{F} = \{a^j(z)\}_{j \in J}$, and let $\mathfrak{g}_-$ be the annihilation subalgebra.
-Since $T_0(\mathfrak{g}_-) \subseteq \mathfrak{g}_-$, we can extend $T_0$ to a derivation (still denoted the same) $T_0: U(\mathfrak{g}) \to U(\mathfrak{g})$ which is a $(U(\mathfrak{g}), U(\mathfrak{g}_-))$-bimodule homomorphism.
-We consider the trivial representation $0: \mathfrak{g}_- \to \mathfrak{gl}(\mathbb{C})$, and we define:
-\begin{align*}
-  V &= \Ind^{\mathfrak{g}}_{\mathfrak{g}_-}(\mathbb{C}) = U(\mathfrak{g}) \otimes_{U(\mathfrak{g}_-)} \mathbb{C}, \\
-  \pi &= \Ind^{\mathfrak{g}}_{\mathfrak{g}_-}(0): \mathfrak{g} \to \mathfrak{gl}(V), \\
-  \vac &= 1\otimes1 \in V, \\
-  T &= T_0\otimes\Id_{\mathbb{C}} \in \End(V), \\
-  \mathcal{F} &= \left\{\pi(a^j(z)) = \sum_{n \in \mathbb{Z}}\pi(a^j_{(n)})z^{-n - 1} \mid j \in J\right\}.
-\end{align*}
-
-\begin{theorem}[{\cite[Theorem 3]{callegaro_introduction_2017-1} or \cite[\S1.7]{de_sole_finite_2006}}]
-  \label{thr:5}
-  With the notation above, $\mathcal{F}$ consists of fields, and $(V, \vac, T, \mathcal{F})$ is a pre-vertex algebra.
-\end{theorem}
-
-By \Cref{thr:5} and the Extension theorem, $V$ is a vertex algebra, denoted by $V(\mathfrak{g}, \mathfrak{F}, T_0)$, and by the PBW theorem, it is explicitly given by
-\begin{equation*}
-  V = \vspan\{a^{j_1}_{(-n_1 - 1)}\dots a^{j_s}_{(-n_s - 1)}\vac \mid s, n_1, \dots, n_s \in \mathbb{N}, j_1, \dots, j_s \in J\}.
-\end{equation*}
-
-Usually, we need to quotient the vertex algebras obtained this way.
-Let $(\mathfrak{g}, \mathfrak{F}, T_0)$ be a regular formal distribution Lie algebra, and let $\lambda: \mathfrak{h} \to \mathbb{C}$ be a linear functional, where $\mathfrak{h}$ is a subalgebra of $\mathfrak{g}_+$ with $\mathfrak{h} \subseteq \ker(T_0)$.
-We denote by $I^{\lambda}$ the $\mathfrak{g}$-submodule of $V(\mathfrak{g}, \mathfrak{F}, T_0)$ generated by the vectors $(a - \lambda(a))\vac$ for $a \in \mathfrak{h}$.
-The submodule $I^{\lambda}$ is $T$-invariant and is a left ideal.
-Thus, $I^{\lambda}$ is an ideal of $V(\mathfrak{g}, \mathfrak{F}, T_0)$.
-Taking the quotient, we get a vertex algebra, denoted by
-\begin{equation*}
-  V^{\lambda}(\mathfrak{g}, \mathfrak{F}, T_0) = V(\mathfrak{g}, \mathfrak{F}, T_0)/I^{\lambda}.
-\end{equation*}
-
-\begin{example}[\emph{Universal Virasoro vertex algebra of central charge $c$}]
-  \label{exa:8}
-  We pick $c \in \mathbb{C}$.
-  We take $(\Vir, \{L(z), C\}, \ad(L_{-1}))$ as the regular formal distribution Lie algebra as constructed in \Cref{exa:7} and $\lambda: \mathbb{C}C \to \mathbb{C}, \lambda(C) = c$ as the linear functional.
-  The resulting vertex algebra is the universal Virasoro vertex algebra of central charge $c$, denoted by $\Vir^c$.
-
-  By the PBW theorem, for $c \in \mathbb{C}$, a basis of $\Vir^c$ is given by
-  \begin{equation*}
-    \{L_{\lambda}\vac \mid \text{$\lambda \vdash$ and ($\lambda = \emptyset$ or $\lambda_{\len(\lambda)} \ge 2$)}\}.
-  \end{equation*}
-\end{example}
-
-Let $V$ be a vertex algebra.
-A \emph{Hamiltonian operator of $V$} is a diagonalizable operator $H \in \End(V)$ such that
-\begin{equation}
-  \label{eq:4}
-  [H, Y(a, z)] = z\partial_zY(a, z) + Y(Ha, z) \quad \text{for $a \in V$}.
-\end{equation}
-A vertex algebra with a Hamiltonian is called \emph{graded}.
-The \emph{grading of $V$} is the eigenspace decomposition of $H$
-\begin{equation*}
-  V = \bigoplus_{\Delta \in \mathbb{C}}V_{\Delta},
-\end{equation*}
-where
-\begin{equation*}
-  V_{\Delta} = \ker(H - \Delta\Id_V) \quad \text{for $\Delta \in \mathbb{C}$}.
-\end{equation*}
-If $a$ is an eigenvector of $H$, it is called \emph{homogeneous}, its eigenvalue is called the \emph{conformal weight of $a$}, and it is denoted by $\Delta_a$.
-Condition \eqref{eq:4} is equivalent to
-\begin{equation*}
-  [H, a_{(n)}] = -(n + 1)a_{(n)} + (Ha)_{(n)} \quad \text{for $a \in V$ and $n \in \mathbb{Z}$}.
-\end{equation*}
-
-\emph{Homomorphisms of graded vertex algebras} are assumed to respect the gradings, i.e., if $f: V_1 \to V_2$ is a homomorphism of graded vertex algebras, then $f\circ H^{V_1} = H^{V_2}\circ f$, where $H^{V_1}$ is the Hamiltonian of $V_1$, and $H^{V_2}$ is the Hamiltonian of $V_2$.
-
-A \emph{conformal vector of central charge $c \in \mathbb{C}$ of $V$} is a vector $\omega \in V$ such that $Y(\omega, z) = \sum_{n \in \mathbb{Z}}L_nz^{-n - 2}$ satisfies:
-\begin{enumerate}
-\item $Y(\omega, z)$ is a Virasoro formal distribution of central charge $C = c\Id_V$, i.e., it satisfies the Virasoro relations \eqref{eq:1} with $C = c\Id_V$;
-\item $L_{-1} = T$;
-\item $L_0$ is diagonalizable.
-\end{enumerate}
-
-\begin{theorem}[{\cite[\S3.3]{callegaro_introduction_2017-1}}]
-  \label{thr:6}
-  If $\omega$ is a conformal vector of a vertex algebra $V$, then $L_0$ is a Hamiltonian of $V$, and $\omega$ has conformal weight $2$.
-\end{theorem}
-
-\begin{lemma}
-  \label{lmm:3}
-  In a conformal vertex algebra $V$ such that $V_0 = \mathbb{C}\vac$, there is a unique maximal proper ideal $I_{\max}$ and a unique simple quotient $V/I_{\max}$.
-\end{lemma}
-
-\begin{proof}
-  We simply let $I_{\max}$ be the sum of all proper ideals.
-\end{proof}
-
-A \emph{vertex operator algebra} is a $\mathbb{Z}$-graded conformal vertex algebra such that:
-\begin{enumerate}
-\item For $n \in \mathbb{Z}$, $\dim(V_n) < \infty$;
-\item There is $N \in \mathbb{Z}$ satisfying $V_n = 0$ for $n \le N$.
-\end{enumerate}
-
-The conformal vertex algebra $\Vir^c$ satisfies $\Vir^c_0 = \mathbb{C}\vac$.
+The vertex algebra $\Vir^c$ has a unique maximal proper ideal.
 We denote by $\Vir_c$ the unique simple quotient, and we call it the \emph{simple Virasoro vertex algebra of central charge $c$}.
 Let $p, q \ge 2$ be relatively prime integers, and we set
 \begin{equation*}
@@ -861,31 +932,31 @@ A vector $u$ in $V$ is called \emph{singular} if it is nonzero and
   where $c_{\lambda} \in \mathbb{Q}$, the coefficient of $L_{-2}^{(p - 1)(q - 1)/2}$ is nonzero.
 \end{theorem}
 
-Let $V$ be a vertex algebra.
-A \emph{module over $V$}, $V$-module or \emph{representation of $V$} is a vector space $M$ together with a linear map
-\begin{align*}
-  Y^M(\bullet, z): V &\to \mathcal{F}(M), \\
-  a &\mapsto Y^M(a, z) = \sum_{n \in \mathbb{Z}}a^M_{(n)}z^{-n - 1}
-\end{align*}
-satisfying:
-\begin{enumerate}
-\item $Y(\vac, z) = \Id_M$;
-\item (Borcherds identity) For $a, b \in V$, $u \in M$ and $m, n, k \in \mathbb{Z}$,
-  \begin{equation*}
-    \sum_{j \in \mathbb{N}}(-1)^j\binom{n}{j}\left(a^M_{(m + n - j)}(b^M_{(k + j)}u) - (-1)^nb^M_{(n + k - j)}(a^M_{(m + j)}u)\right) = \sum_{j \in \mathbb{N}}\binom{m}{j}(a_{(n + j)}b)^M_{(m + k - j)}u.
-  \end{equation*}
-\end{enumerate}
+% Let $V$ be a vertex algebra.
+% A \emph{module over $V$}, $V$-module or \emph{representation of $V$} is a vector space $M$ together with a linear map
+% \begin{align*}
+%   Y^M(\bullet, z): V &\to \mathcal{F}(M), \\
+%   a &\mapsto Y^M(a, z) = \sum_{n \in \mathbb{Z}}a^M_{(n)}z^{-n - 1}
+% \end{align*}
+% satisfying:
+% \begin{enumerate}
+% \item $Y(\vac, z) = \Id_M$;
+% \item (Borcherds identity) For $a, b \in V$, $u \in M$ and $m, n, k \in \mathbb{Z}$,
+%   \begin{equation*}
+%     \sum_{j \in \mathbb{N}}(-1)^j\binom{n}{j}\left(a^M_{(m + n - j)}(b^M_{(k + j)}u) - (-1)^nb^M_{(n + k - j)}(a^M_{(m + j)}u)\right) = \sum_{j \in \mathbb{N}}\binom{m}{j}(a_{(n + j)}b)^M_{(m + k - j)}u.
+%   \end{equation*}
+% \end{enumerate}
 
-Let $V$ be a vertex algebra, and let $M_1$, $M_2$ be $V$-modules.
-A $V$-module homomorphism $f: M_1 \to M_2$ is a linear map such that for $a \in V$ and $u \in M_1$,
-\begin{equation*}
-  f(Y^{M_1}(a, z)u) = \sum_{n \in \mathbb{Z}}f(a^{M_1}_{(n)}u)z^{-n - 1} = \sum_{n \in \mathbb{Z}}a^{M_2}_{(n)}f(u)z^{-n - 1} = Y^{M_2}(a, z)f(u).
-\end{equation*}
+% Let $V$ be a vertex algebra, and let $M_1$, $M_2$ be $V$-modules.
+% A $V$-module homomorphism $f: M_1 \to M_2$ is a linear map such that for $a \in V$ and $u \in M_1$,
+% \begin{equation*}
+%   f(Y^{M_1}(a, z)u) = \sum_{n \in \mathbb{Z}}f(a^{M_1}_{(n)}u)z^{-n - 1} = \sum_{n \in \mathbb{Z}}a^{M_2}_{(n)}f(u)z^{-n - 1} = Y^{M_2}(a, z)f(u).
+% \end{equation*}
 
-The vertex algebra $V$ is a $V$-module, and it is called the \emph{adjoint representation of $V$}.
-A \emph{submodule of $M$} is a subspace $N$ of $M$ such that $Y^M(a, z)u \in N((z))$ for $a \in V$ and $u \in N$, i.e., $a^M_{(n)}u \in N$ for $n \in \mathbb{Z}$.
-The \emph{quotient module} $M/N$ is defined in the usual way.
-A module whose only proper submodule is $0$ is called \emph{simple} or \emph{irreducible}.
+% The vertex algebra $V$ is a $V$-module, and it is called the \emph{adjoint representation of $V$}.
+% A \emph{submodule of $M$} is a subspace $N$ of $M$ such that $Y^M(a, z)u \in N((z))$ for $a \in V$ and $u \in N$, i.e., $a^M_{(n)}u \in N$ for $n \in \mathbb{Z}$.
+% The \emph{quotient module} $M/N$ is defined in the usual way.
+% A module whose only proper submodule is $0$ is called \emph{simple} or \emph{irreducible}.
 
 \begin{proposition}
   \label{prp:3}
@@ -897,46 +968,46 @@ A module whose only proper submodule is $0$ is called \emph{simple} or \emph{irr
 \end{proposition}
 
 \begin{proof}
-  This is a consequence of the $n$-product identity for modules over vertex algebras (\cite[(5.2.16)]{lepowsky_introduction_2004}) and definition \eqref{eq:3}.
+  This is a consequence of the $n$-product identity for modules over vertex algebras (\cite[(5.2.16)]{lepowsky_introduction_2004}).
 \end{proof}
 
-Let $M$ be a module over a graded vertex algebra $V$ with Hamiltonian $H$.
-A \emph{Hamiltonian operator of $M$} is a diagonalizable operator $H^M \in \End(M)$ such that
-\begin{equation*}
-  [H^M, Y^M(a, z)] = z\partial_zY^M(a, z) + Y^M(Ha, z) \quad \text{for $a \in V$}.
-\end{equation*}
-A \emph{homomorphism of graded modules} over a graded vertex algebra is assumed to respect the gradings.
+% Let $M$ be a module over a graded vertex algebra $V$ with Hamiltonian $H$.
+% A \emph{Hamiltonian operator of $M$} is a diagonalizable operator $H^M \in \End(M)$ such that
+% \begin{equation*}
+%   [H^M, Y^M(a, z)] = z\partial_zY^M(a, z) + Y^M(Ha, z) \quad \text{for $a \in V$}.
+% \end{equation*}
+% A \emph{homomorphism of graded modules} over a graded vertex algebra is assumed to respect the gradings.
 
-Let $(\mathfrak{g}, \mathfrak{F}, T_0)$ be a regular formal distribution Lie algebra with $\mathfrak{F} = \{a^j(z)\}_{j \in J}$.
-A \emph{smooth} $(\mathfrak{g}, \mathfrak{F}, T_0)$-module is a $\mathfrak{g}$-module $M$ such for $j \in J$ and $u \in M$, $a^j(z)u \in M((z))$.
-Let $\lambda: \mathfrak{h} \to \mathbb{C}$ be a linear functional, where $\mathfrak{h}$ is a subalgebra of $\mathfrak{g}_+$ with $\mathfrak{h} \subseteq \ker(T_0)$.
-We say $\mathfrak{h}$ \emph{acts as $\lambda$} if for $h \in \mathfrak{h}$ and $u \in M$, $hu = \lambda(h)u$.
+% Let $(\mathfrak{g}, \mathfrak{F}, T_0)$ be a regular formal distribution Lie algebra with $\mathfrak{F} = \{a^j(z)\}_{j \in J}$.
+% A \emph{smooth} $(\mathfrak{g}, \mathfrak{F}, T_0)$-module is a $\mathfrak{g}$-module $M$ such for $j \in J$ and $u \in M$, $a^j(z)u \in M((z))$.
+% Let $\lambda: \mathfrak{h} \to \mathbb{C}$ be a linear functional, where $\mathfrak{h}$ is a subalgebra of $\mathfrak{g}_+$ with $\mathfrak{h} \subseteq \ker(T_0)$.
+% We say $\mathfrak{h}$ \emph{acts as $\lambda$} if for $h \in \mathfrak{h}$ and $u \in M$, $hu = \lambda(h)u$.
 
-\begin{theorem}[{\cite[Theorem 2.15]{li_vertex_2004}}]
-  \label{thr:8}
-  Let $(\mathfrak{g}, \mathfrak{F}, T_0)$ be a regular formal distribution Lie algebra with $\mathfrak{F} = \{a^j(z)\}_{j \in J}$.
-  Given a smooth $(\mathfrak{g}, \mathfrak{F}, T_0)$-module $M$, there is a unique module structure $Y^M: V(\mathfrak{g}, \mathfrak{F}, T_0) \to \mathcal{F}(M)$ such that
-  \begin{equation*}
-    Y^M(a^j_{(-1)}\vac, z) = a^j(z) \quad \text{for $j \in J$}.
-  \end{equation*}
-  Let $\lambda: \mathfrak{h} \to \mathbb{C}$ be a linear functional, where $\mathfrak{h}$ is a subalgebra of $\mathfrak{g}_+$ with $\mathfrak{h} \subseteq \ker(T_0)$.
-  Given a smooth $(\mathfrak{g}, \mathfrak{F}, T_0)$-module $M$ where $\mathfrak{h}$ acts as $\lambda$, there is a unique module structure $Y^M_{\lambda}: V^{\lambda}(\mathfrak{g}, \mathfrak{F}, T_0) \to \mathcal{F}(M)$ such that $Y^M_{\lambda}$ factors through $Y^M$, i.e., such that the following diagram commutes
-  \begin{equation*}
-    \begin{tikzcd}
-      V(\mathfrak{g}, \mathfrak{F}, T_0) \arrow[r, two heads] \arrow[rd, "{Y^M}"'] & {V^{\lambda}(\mathfrak{g}, \mathfrak{F}, T_0)} \arrow[d, "{Y^M_{\lambda}}"] \\
-      & {\mathcal{F}(M)}
-    \end{tikzcd}
-  \end{equation*}
-  where the horizontal arrow is the quotient map.
-\end{theorem}
+% \begin{theorem}[{\cite[Theorem 2.15]{li_vertex_2004}}]
+%   \label{thr:8}
+%   Let $(\mathfrak{g}, \mathfrak{F}, T_0)$ be a regular formal distribution Lie algebra with $\mathfrak{F} = \{a^j(z)\}_{j \in J}$.
+%   Given a smooth $(\mathfrak{g}, \mathfrak{F}, T_0)$-module $M$, there is a unique module structure $Y^M: V(\mathfrak{g}, \mathfrak{F}, T_0) \to \mathcal{F}(M)$ such that
+%   \begin{equation*}
+%     Y^M(a^j_{(-1)}\vac, z) = a^j(z) \quad \text{for $j \in J$}.
+%   \end{equation*}
+%   Let $\lambda: \mathfrak{h} \to \mathbb{C}$ be a linear functional, where $\mathfrak{h}$ is a subalgebra of $\mathfrak{g}_+$ with $\mathfrak{h} \subseteq \ker(T_0)$.
+%   Given a smooth $(\mathfrak{g}, \mathfrak{F}, T_0)$-module $M$ where $\mathfrak{h}$ acts as $\lambda$, there is a unique module structure $Y^M_{\lambda}: V^{\lambda}(\mathfrak{g}, \mathfrak{F}, T_0) \to \mathcal{F}(M)$ such that $Y^M_{\lambda}$ factors through $Y^M$, i.e., such that the following diagram commutes
+%   \begin{equation*}
+%     \begin{tikzcd}
+%       V(\mathfrak{g}, \mathfrak{F}, T_0) \arrow[r, two heads] \arrow[rd, "{Y^M}"'] & {V^{\lambda}(\mathfrak{g}, \mathfrak{F}, T_0)} \arrow[d, "{Y^M_{\lambda}}"] \\
+%       & {\mathcal{F}(M)}
+%     \end{tikzcd}
+%   \end{equation*}
+%   where the horizontal arrow is the quotient map.
+% \end{theorem}
 
-\begin{example}
-  \label{exa:9}
-  Let $M$ be a highest weight representation of $\Vir$ with highest weight $(c, h)$.
-  Then $M$ is a smooth $\Vir$-module of central charge $c$.
-  We note that $L_0$ is diagonalizable.
-  By \Cref{thr:8}, $M$ is an $h + \mathbb{N}$-graded $\Vir^c$-module.
-\end{example}
+% \begin{example}
+%   \label{exa:9}
+%   Let $M$ be a highest weight representation of $\Vir$ with highest weight $(c, h)$.
+%   Then $M$ is a smooth $\Vir$-module of central charge $c$.
+%   We note that $L_0$ is diagonalizable.
+%   By \Cref{thr:8}, $M$ is an $h + \mathbb{N}$-graded $\Vir^c$-module.
+% \end{example}
 
 We are interested in the irreducible modules over the simple Virasoro vertex algebras $\Vir_{p, q} = \Vir_{c_{p, q}} = L(c_{p, q}, 0)$, where $p, q \ge 2$ are relatively prime integers.
 In this context, the following constants play a crucial role.
@@ -980,98 +1051,8 @@ In this article, we consider:
 \end{align*}
 By \Cref{thr:9}, $\Vir_{2, 2s + 1}$ has $s$ irreducible modules $L(c_{2, 2s + 1}, h_{1, 1}), \dots, L(c_{2, 2s + 1}, h_{1, s})$, known collectively as the \emph{boundary minimal models}.
 
-\section{Graded vertex Poisson algebras and their modules}
-\label{sec:graded-vert-poiss}
-
-A \emph{vertex Lie algebra} or \emph{Lie conformal algebra} is the data $(V, T, Y_-)$, where $V$ is a vector space, $T \in \End(V)$ and $Y_-: V \to \Hom(V, z^{-1}V[z^{-1}])$ is a linear map satisfying the following axioms for $a, b \in V$ and $m, n \in \mathbb{N}$:
-\begin{enumerate}
-\item $Y_-(Ta, z) = \partial_zY_-(a, z)$;
-\item $b_{(m)}a = -\sum_{j = 0}^{\infty}(-1)^{m + j}\frac{\partial^j(a_{(m + j)}b)}{j!}$;
-\item $[a_{(m)}, b_{(n)}] = \sum_{j = 0}^m\binom{m}{j}(a_{(j)}b)_{(m + n - j)}$.
-\end{enumerate}
-\begin{remark}
-  \label{rmk:4}
-  The category of Lie conformal algebras is equivalent to the category of regular formal distributions Lie algebras (see \cite[\S2.7]{kac_vertex_1998} and \cite[\S2]{nozaradan_introduction_2008}).
-\end{remark}
-
-\begin{theorem}[{\cite{li_vertex_2004}}]
-  \label{thr:11}
-  Let $V$ be a vertex Lie algebra.
-  For $a, b \in V$ and $m, j \in \mathbb{N}$:
-  \begin{enumerate}
-  \item $[T, Y_-(a, z)] = Y_-(Ta, z) = \partial_zY_-(a, z)$;
-  \item $(a_{(j)}b)_{(m)} = \sum_{k = 0}^j\binom{j}{k}(-1)^k[a_{(j - k)}, b_{(m + k)}]$.
-  \end{enumerate}
-\end{theorem}
-
-Let $V$ be a vertex Lie algebra.
-A \emph{Hamiltonian operator of $V$} is a diagonalizable operator $H \in \End(V)$ such that:
-\begin{enumerate}
-\item $[H, T] = T$;
-\item $[H, Y_-(a, z)] = z\partial_zY_-(a, z) + Y_-(Ha, z)$ for $a \in V$.
-\end{enumerate}
-A \emph{module over $V$} is a vector space $M$ together with a linear map $Y^M_-: V \to \Hom(M, z^{-1}M[z^{-1}])$, written as $Y^M_-(a, z) = \sum_{n \in \mathbb{N}}a^M_{(n)}z^{-n - 1}$, $a^M_{(n)} \in \End(M)$, such that for $a, b \in V$ and $m, n \in \mathbb{N}$:
-\begin{enumerate}
-\item $(Ta)^M_{(n)} = -na^M_{(n - 1)}$;
-\item $[a^M_{(m)}, b^M_{(n)}] = \sum_{j = 0}^m\binom{m}{j}(a_{(j)}b)^M_{(m + n - j)}$.
-\end{enumerate}
-
-Let $M$ be a module over a graded vertex Lie algebra $V$ with Hamiltonian $H$.
-A \emph{Hamiltonian operator of $M$} is a diagonalizable operator $H^M \in \End(M)$ such that
-\begin{equation*}
-  [H^M, Y^M_-(a, z)] = z\partial_zY^M_-(a, z) + Y^M_-(Ha, z) \quad \text{for $a \in V$}.
-\end{equation*}
-
-A \emph{vertex Poisson algebra} is the data consisting of three elements $(V, T, Y_-)$ such that:
-\begin{enumerate}
-\item $(V, T)$ is a differential commutative associative algebra with unit $1$;
-\item $(V, T, Y_-)$ is a vertex Lie algebra;
-\item The left Leibniz rule holds
-  \begin{equation*}
-    Y_-(a, z)(bc) = (Y_-(a, z)b)c + b(Y_-(a, z)c) \quad \text{for $a, b, c \in V$}.
-  \end{equation*}
-\end{enumerate}
-
-Let $V$ be a vertex Poisson algebra.
-A \emph{Hamiltonian operator of $V$} is simultaneously a Hamiltonian of $V$ as a differential commutative associative algebra with derivation $T$ (see \Cref{sec:grad-poiss-algeb}) and a Hamiltonian of $V$ as a vertex Lie algebra.
-A \emph{module over $V$} is a module $(M, Y^M_-)$ over $V$ as a vertex Lie algebra and a module over $V$ as a commutative associative algebra such that for $a, b \in V$, $u \in M$ and $n \in \mathbb{N}$:
-\begin{enumerate}
-\item (Left Leibniz rule) $a^M_{(n)}(bu) = (a_{(n)}b)u + b(a^M_{(n)}u)$;
-\item (Right Leibniz rule) $(ab)^M_{(n)}u = \sum_{j \in \mathbb{N}}\left(\frac{T^ja}{j!}b^M_{(n + j)}u + \frac{T^jb}{j!}a^M_{(n + j)}u\right)$.
-\end{enumerate}
-
-Let $M$ be a module over a graded vertex Poisson algebra $V$ with Hamiltonian $H$.
-A \emph{Hamiltonian operator of $M$} is simultaneously a Hamiltonian of $M$ as a module over $V$ as a commutative associative algebra with unit $1$ and a Hamiltonian of $M$ as a module over $V$ as a vertex Lie algebra.
-
-\begin{proposition}[{\cite[Proposition 2.3.1]{arakawa_remark_2012}} and {\Cref{sec:graded-jet-algebras}}]
-  \label{prp:4}
-  Let $R$ be a (graded) Poisson algebra.
-  Then there is a unique (graded) vertex Poisson algebra structure on $JR$ such that
-  \begin{equation*}
-    a_{(n)}b = \delta_{n, 0}\{a, b\} \quad \text{for $a, b \in R$ and $n \in \mathbb{N}$}.
-  \end{equation*}
-\end{proposition}
-
-The (graded) vertex Poisson algebra structure on $JR$ given in \Cref{prp:4} for a (graded) Poisson algebra $R$ will be called the \emph{level 0 vertex Poisson algebra structure of $JR$}.
-
-If $R$ is a (graded) Poisson algebra, and $M$ is a (graded) $R$-module, then we can verify that $JR \otimes_R M$ is a (graded) $JR$-module by defining the Poisson structure as
-\begin{equation*}
-  a_{(n)}(b\otimes u) = (a_{(n)}b)\otimes u + \delta_{n, 0}b\otimes\{a, u\} \quad \text{for $a \in R$, $b \in JR$, $u \in M$ and $n \in \mathbb{N}$}
-\end{equation*}
-and $H^{JR \otimes_R M}$ as in \Cref{sec:graded-jet-algebras}.
-
-The (graded) $R$-module $M$ together with the natural (graded) $R$-module inclusion $\inc: M \hookrightarrow JR \otimes_R M$ satisfy the following universal property.
-Let $N$ be a (graded) module over the (graded) vertex Poisson algebra $JR$, and let $f: M \to N$ be a (graded) homomorphism of modules over the (graded) Poisson algebra $R$.
-There is a unique (graded) homomorphism $\overline{f}: JR \otimes_R M \to N$ of (graded) modules over the (graded) vertex poisson algebra $JR$ such that the following diagram commutes
-\begin{equation*}
-  \begin{tikzcd}
-    M \arrow[r, "\inc", hook] \arrow[rd, "f"'] & JR \otimes_R M \arrow[d, "\overline{f}"] \\
-    & N
-  \end{tikzcd}
-\end{equation*}
-
-\section{Filtrations of vertex algebras and their modules}
-\label{sec:filtr-vert-algebr}
+\section{The Li filtration}
+\label{sec:li-filtr}
 
 Let $V$ be a vertex algebra, and let $(a^i)_{i \in I}$ be a family of strong generators of $V$.
 For $p \in \mathbb{Z}$, we set
@@ -1288,7 +1269,7 @@ For $a, b \in V$, we set:
   \{\sigma_0(a), \sigma_0(b)\} &= \sigma_0(a_{(0)}b).
 \end{align*}
 
-If $V$ is graded, then, as we explained in \Cref{sec:filtr-vert-algebr}, $\gr_F(V)$ is graded.
+If $V$ is graded, then, as we explained in \Cref{sec:li-filtr}, $\gr_F(V)$ is graded.
 Thus, $R_V$ is also graded.
 
 We have constructed a functor
@@ -1296,7 +1277,7 @@ We have constructed a functor
   R: \{\text{(graded) vertex algebras}\} \to \{\text{(graded) Poisson algebras}\}.
 \end{equation*}
 
-Oftentimes, some condition on $R_V$ implies or is equivalent to some condition on $V$, as we shall see in this section.
+Oftentimes, some condition on $R_V$ implies or is equivalent to some condition on $V$.
 The vertex algebra $V$ is called \emph{$C_2$-cofinite} if $R_V$ is finite dimensional.
 
 \begin{example}[$R_{\Vir^c}$ and $R_{\Vir_c}$]
@@ -1351,7 +1332,7 @@ By the universal property of $\inc: R_V \hookrightarrow JR_V$ (see \Cref{sec:gra
     & \gr_F(V)
   \end{tikzcd}
 \end{equation*}
-Because $R_V$ is a (graded) Poisson algebra, we can equip $JR_V$ with the level 0 vertex Poisson algebra structure.
+Because $R_V$ is a (graded) Poisson algebra, we can equip $JR_V$ with the level 0 vertex Poisson algebra structure, as explained in \Cref{sec:graded-vert-poiss}.
 From now on, $JR_V$ will be considered as a (graded) vertex Poisson algebra.
 
 \begin{lemma}
@@ -1425,7 +1406,7 @@ For $a \in V$ and $u \in M$, we set:
   \{\sigma_0(a), \sigma^M_0(u)\} &= \sigma^M_0(a^M_{(0)}u).
 \end{align*}
 
-If $V$ is graded and $M$ is a graded $V$-module, then, as we explained in \Cref{sec:filtr-vert-algebr}, $\gr_F(M)$ is graded $\gr_F(V)$-module.
+If $V$ is graded and $M$ is a graded $V$-module, then, as we explained in \Cref{sec:li-filtr}, $\gr_F(M)$ is a graded $\gr_F(V)$-module.
 Thus, $R_M$ is also a graded $R_V$-module.
 
 We have constructed a functor
@@ -1480,7 +1461,7 @@ By the universal property of $\inc: R_M \hookrightarrow JR_V \otimes_{R_V} R_M$ 
   The assertion follows from \Cref{lmm:7} and \Cref{thr:12}.
 \end{proof}
 
-When $\phi_M$ is an isomorphism, we say the $M$ is \emph{classically free}.
+When $\phi_M$ is an isomorphism, we say $M$ is \emph{classically free}.
 
 \begin{example}[$JR_{\Vir^c} \otimes_{R_{\Vir^c}} R_{M(c, h)}$]
   \label{exa:17}
@@ -1515,12 +1496,12 @@ where $P^{s, i}$ is the set of partitions that do not contain any partition in $
   \label{lmm:9}
   We have
   \begin{equation*}
-    p^{s, i}(t, q) = J_{s, i}(0, t, q) = \sum_{k = (k_1, \dots, k_{s - 1}) \in \mathbb{N}^{s - 1}}t^{kB^{(s)}_{s - 1}}\frac{q^{\frac{1}{2}kG^{(s)}k^T + kB^{(s)}_{s - i}}}{(q)_{k_1}\dots(q)_{k_{s - 1}}}.
+    p^{s, i}(t, q) = \sum_{k = (k_1, \dots, k_{s - 1}) \in \mathbb{N}^{s - 1}}t^{kB^{(s)}_{s - 1}}\frac{q^{\frac{1}{2}kG^{(s)}k^T + kB^{(s)}_{s - i}}}{(q)_{k_1}\dots(q)_{k_{s - 1}}}.
   \end{equation*}
 \end{lemma}
 
 \begin{proof}
-  Following the notation of \cite[\S7.2]{andrews_theory_1998}, we write:
+  Following the notation of \cite[\S7]{andrews_theory_1998}, we write:
   \begin{align*}
     p^{s, i}(t, q) &= \sum_{m = 0}^{\infty}\sum_{n = 0}^{\infty}b_{s, i}(m, n)t^mq^n, \\
     J_{s, i}(0, t, q) &= \sum_{m = 0}^{\infty}\sum_{n = 0}^{\infty}c_{s, i}(m, n)t^mq^n.
@@ -1532,11 +1513,11 @@ where $P^{s, i}$ is the set of partitions that do not contain any partition in $
   \begin{equation*}
     J_{s, i}(0, t, q) = \sum_{k = (k_1, \dots, k_{s - 1}) \in \mathbb{N}^{s - 1}}\frac{t^{N_1 + \dots + N_{s - 1}}q^{N_1^2 + \dots + N_{s - 1}^2 + N_i + \dots + N_{s - 1}}}{(q)_{k_1}\dots(q)_{k_{s - 1}}},
   \end{equation*}
-  where $N_j = k_j + \dots + k_{s - 1}$ for $j = 0, 1, \dots, s - 1$.
+  where $N_j = k_j + \dots + k_{s - 1}$ for $j = 1, \dots, s$.
   Since
   \begin{align*}
     N_1^2 + \dots + N_{s - 1}^2 &= \frac{1}{2}kG^{(s)}k^T, \\
-    N_j + \dots + N_{s - 1} &= kB^{(s)}_{s - j} \quad \text{for $j = 1, \dots, s - 1$},
+    N_j + \dots + N_{s - 1} &= kB^{(s)}_{s - j} \quad \text{for $j = 1, \dots, s$},
   \end{align*}
   we have
   \begin{equation*}
@@ -1548,15 +1529,15 @@ where $P^{s, i}$ is the set of partitions that do not contain any partition in $
   \label{lmm:10}
   We have
   \begin{equation*}
-    \ch_{L(c_{2, 2s + 1}, h_{1, i})}(q) = q^{h_{1, i}}p^{s, i}(1, q) = q^{h_{1, i}}\left(\prod^{\infty}_{\substack{n = 1 \\ n \not\equiv 0, \pm i \mod 2k + 1}}(1 - q^n)^{-1}\right).
+    \ch_{L(c_{2, 2s + 1}, h_{1, i})}(q) = q^{h_{1, i}}p^{s, i}(1, q) = q^{h_{1, i}}\left(\prod^{\infty}_{\substack{n = 1 \\ n \not\equiv 0, \pm i \mod 2s + 1}}(1 - q^n)^{-1}\right).
   \end{equation*}
 \end{lemma}
 
 \begin{proof}
-  By \Cref{lmm:9}, \cite[Lemma 7.3]{andrews_theory_1998} and \cite[Corollary 2.9]{andrews_theory_1998}, we have
+  By the proof of \Cref{lmm:9}, \cite[Lemma 7.3]{andrews_theory_1998} and \cite[Corollary 2.9]{andrews_theory_1998}, we have
   \begin{align*}
     q^{h_{1, i}}p^{s, i}(1, q) &= q^{h_{1, i}}J_{s, i}(0, 1, q) \\
-                               &= q^{h_{1, i}}\left(\prod^{\infty}_{\substack{n = 1 \\ n \not\equiv 0, \pm i \mod 2k + 1}}(1 - q^n)^{-1}\right) \\
+                               &= q^{h_{1, i}}\left(\prod^{\infty}_{\substack{n = 1 \\ n \not\equiv 0, \pm i \mod 2s + 1}}(1 - q^n)^{-1}\right) \\
                                &= \frac{q^{h_{1, i}}}{(q)_{\infty}}\sum_{k \in \mathbb{N}}(-1)^kq^{(2s + 1)k(k + 1)/2 - ki}(1 - q^{(2k + 1)i}) \\
                                &= \frac{q^{h_{1, i}}}{(q)_{\infty}}\sum_{k \in \mathbb{Z}}(-1)^kq^{(2s + 1)k(k + 1)/2 - ki}.
   \end{align*}
@@ -1662,7 +1643,7 @@ Next, for a highest weight $(c, h)$, we extend the definition of $\lp$ from $U(\
       Since $\binom{s - 1}{d - 1} + \binom{s - 1}{d} = \binom{s}{d}$, we obtain \eqref{eq:8}.
     \end{description}
   \item $\lambda = \underbrace{[1, 1, \dots, 1]}_i$.
-    This follows from \cite{benoit_degenerate_1988}.
+    This follows from \cite{benoit_degenerate_1988}, where it is proved that one of the generating singular vectors in $J(c_{2, 2s + 1}, h_{1, i})$ contains the term $L_{-1}^i|c_{2, 2s + 1}, h_{1, i}\rangle$ in its expansion with respect to the usual PBW basis.
   \end{enumerate}
   We note that if $\mu$ is a partition of $\Delta(\lambda)$ such that $\len(\mu) \le \len(\lambda)$ and $\mu \neq \lambda$, then $L_{\lambda} > L_{\mu}$.
   Thus, \eqref{eq:8} implies $\lp((L_{-2}^s\vac)_{(s - sa + d - 1)}|c_{2, 2s + 1}, h_{1, i}\rangle) = L_{\lambda}|c_{2, 2s + 1}, h_{1, i}\rangle$.
@@ -1680,7 +1661,7 @@ Next, for a highest weight $(c, h)$, we extend the definition of $\lp$ from $U(\
 
 \begin{lemma}
   \label{lmm:12}
-  There is an alternative description for $P$, namely
+  There is an alternative description for $P^{s, i}$, namely
   \begin{equation*}
     P^{s, i} = \{\lambda \vdash \mid \text{for $\eta \in R^{s, i}$, $p_{\eta} \nmid p_{\lambda}$}\}.
   \end{equation*}
@@ -1690,8 +1671,16 @@ Next, for a highest weight $(c, h)$, we extend the definition of $\lp$ from $U(\
   This is a consequence of \Cref{rmk:6}.
 \end{proof}
 
-\begin{proof}[Proof of \Cref{thr:2}]
-  This follows from Gröbner basis theory, \Cref{prp:1}, \Cref{lmm:10}, \Cref{rmk:5}, \Cref{lmm:11} and \Cref{lmm:12}, see \cite{salazar_pbw_2024} for details.
+\begin{proof}[Sketch of proof of \Cref{thr:2}]
+  Let $G$ be a Gröbner basis of $K(c_{2, 2s + 1}, h_{1, i})$, and we set:
+  \begin{align*}
+    B &= \{p_{\lambda} \mid \text{for $a \in G$, $\lp(a) \nmid p_{\lambda}$}\}, \\
+    \overline{B} &= \{p_{\lambda} \mid \lambda \in P^{s, i}\}.
+  \end{align*}
+  By Gröbner basis theory, \eqref{eq:2}, \Cref{rmk:5}, \Cref{lmm:11} and \Cref{lmm:12}, we have $\overline{B} \subseteq B$.
+  Actually, \Cref{prp:1} and \Cref{lmm:10} imply $\overline{B} = B$.
+  We have found a basis of $\gr(L(c_{2, 2s + 1}, h_{1, i}))$ and by \Cref{prp:1}, a basis of $L(c_{2, 2s + 1}, h_{1, i})$.
+  For details, see \cite{salazar_pbw_2024}.
 \end{proof}
 
 \begin{proof}[Proof of \Cref{thr:1}]
@@ -1712,11 +1701,11 @@ Next, for a highest weight $(c, h)$, we extend the definition of $\lp$ from $U(\
   Let $p_{\eta_0}$ be the smallest of such powers in the degree reverse lexicographic order with $L_{-1} > L_{-2} > \dots$.
   We must have $\eta_0 \neq \emptyset$ and $\eta_0 \notin P^{s, i}$, otherwise $p_{\eta_0} + \sigma_0(J(c_{2, 2s + 1}, h_{1, i})) \in W$.
   By \Cref{lmm:12}, there is $\mu \in R^{s, i}$ such that $p_{\mu} \mid p_{\eta_0}$.
-  From \eqref{eq:2}, \Cref{rmk:5}, \Cref{lmm:11} and the fact that $\lp$ is multiplicative, we obtain $u \in J(c_{2, 2s + 1}, h_{1, i})$ such that $\lp(u) = L_{\eta_0}|c_{2, 2s + 1}, h_{1, i}\rangle$.
+  From \eqref{eq:2}, \Cref{rmk:5}, \Cref{lmm:11} and the fact that $\lp$ is multiplicative, we obtain $u \in J(c_{2, 2s + 1}, h_{1, i})$ homogeneous such that $\lp(u) = L_{\eta_0}|c_{2, 2s + 1}, h_{1, i}\rangle$.
 
   From the equation
   \begin{equation*}
-    u = L_{\eta_0}|c_{2, 2s + 1}, h_{1, i}\rangle + \sum_{\substack{\mu \vdash \Delta(\eta_0) \\ p_{\mu} < p_{\eta_0}}}c_{\mu}L_{\mu}|c_{2, 2s + 1}, h_{1, i}\rangle,
+    u = L_{\eta_0}|c_{2, 2s + 1}, h_{1, i}\rangle + \sum_{\substack{\mu \vdash \Delta(\eta_0) \\ L_{\mu} < L_{\eta_0}}}c_{\mu}L_{\mu}|c_{2, 2s + 1}, h_{1, i}\rangle,
   \end{equation*}
   where $c_{\mu} \in \mathbb{Q}$, we obtain
   \begin{equation*}
@@ -1730,7 +1719,7 @@ Next, for a highest weight $(c, h)$, we extend the definition of $\lp$ from $U(\
   \end{equation}
 
   By \cite{van_ekeren_chiral_2021} or \cite{bruschek_arc_2013}, we already know $\Vir_{2, 2s + 1}$ is classically free.
-  This means that $\gr_F(\Vir_{2, 2s + 1}) \cong JR_{\Vir_{2, 2s + 1}} \cong J(\mathbb{C}[L_{-2}]/(L_{-2}^s)) \cong \mathbb{C}[L_{-2}, L_{-3}, \dots]/(L_{-2}^s)_{\partial}$ and
+  This means that $\gr_F(\Vir_{2, 2s + 1}) \cong JR_{\Vir_{2, 2s + 1}} \cong J(\mathbb{C}[L_{-2}]/(L_{-2}^s)) = \mathbb{C}[L_{-2}, L_{-3}, \dots]/(L_{-2}^s)_{\partial}$ and
   \begin{equation}
     \label{eq:11}
     \mathbb{C}[L_{-2}, L_{-3}, \dots]/(L_{-2}^s)_{\partial} = \bigoplus_{\lambda \in P^{s, 1}}\mathbb{C}(p_{\lambda} + (L_{-2}^s)_{\partial}).
@@ -1753,9 +1742,9 @@ Next, for a highest weight $(c, h)$, we extend the definition of $\lp$ from $U(\
     \label{eq:13}
     JR_{\Vir_{2, 2s + 1}} \otimes_{R_{\Vir_{2, 2s + 1}}} R_{L(c_{2, 2s + 1}, h_{1, i})} = \vspan\{t_{\lambda} \mid \lambda \in P^{s, i}\}.
   \end{equation}
-  By \Cref{prp:1} with $\gr_F$ instead of $\gr$, \Cref{lmm:8} and \Cref{thr:2}, the natural epimorphism $\phi_{L(c_{2, 2s + 1}, h_{1, i})}$ maps the set $\{t_{\lambda} \mid \lambda \in P^{s, i}\}$ onto a basis of $\gr_F(L(c_{2, 2s + 1}, h_{1, i}))$.
+  By \Cref{thr:2} and \Cref{prp:1} with $\gr_F$ instead of $\gr$, the natural epimorphism $\phi_{L(c_{2, 2s + 1}, h_{1, i})}$ maps the set $\{t_{\lambda} \mid \lambda \in P^{s, i}\}$ onto a basis of $\gr_F(L(c_{2, 2s + 1}, h_{1, i}))$.
   Thus, the set $\{t_{\lambda} \mid \lambda \in P^{s, i}\}$ is linearly independent, and by \eqref{eq:13}, it is a basis of $JR_{\Vir_{2, 2s + 1}} \otimes_{R_{\Vir_{2, 2s + 1}}} R_{L(c_{2, 2s + 1}, h_{1, i})}$.
-  Therefore, $\phi_{L(c_{2, 2s + 1}, h_{1, i})}$ is an isomorphism, and $R_{L(c_{2, 2s + 1}, h_{1, i})}$ is classically free.
+  Therefore, $\phi_{L(c_{2, 2s + 1}, h_{1, i})}$ is an isomorphism, and $L(c_{2, 2s + 1}, h_{1, i})$ is classically free.
 
   Let $p, q > 2$ be relatively prime integers, and let $m, n$ be integers such that $0 < m < p$ and $0 < n < q$.
   We have two natural inclusions $\inc: JR_{\Vir_{p, q}} \hookrightarrow JR_{\Vir_{p, q}} \otimes_{R_{\Vir_{p, q}}} R_{L(c_{p, q}, h_{m, n})}, \inc(a) = a \otimes 1$ and $\inc: \gr_F(\Vir_{p, q}) \hookrightarrow \gr_F(L(c_{p, q}, h_{m, n})), \inc(a) = a1$.
@@ -1764,7 +1753,7 @@ Next, for a highest weight $(c, h)$, we extend the definition of $\lp$ from $U(\
   Finally, $\phi_{L(c_{p, q}, h_{m, n})}$ is not an isomorphism, and $L(c_{p, q}, h_{m, n})$ is not classically free as a module over $\Vir_{p, q}$.
 \end{proof}
 
-As in the proof of \Cref{lmm:11}, let $w \in J(c_{2, 2s + 1}, h_{1, i})$ be such that $\lp(w) = L_{-1}^i|c_{2, 2s + 1}, h_{1, i}\rangle$, and we set:
+As in the proof of \Cref{lmm:11}, let $w \in J(c_{2, 2s + 1}, h_{1, i})$ be the singular vector such that $\lp(w) = L_{-1}^i|c_{2, 2s + 1}, h_{1, i}\rangle$, and we set:
 \begin{align*}
   u_k &= \sigma_0((a_{2, 2s + 1})_{(k - 1)}|c_{2, 2s + 1}, h_{1, i}\rangle) \quad \text{for $k = 1, \dots, i - 1$}, \\
   u_i &= \sigma_0(w).
@@ -1794,7 +1783,7 @@ Moreover:
 \begin{proof}
   We use the notation of the proof of \Cref{thr:3}.
   Since $\{t_{\lambda} \mid \lambda \in P^{s, i}\}$ is a basis of $JR_{\Vir_{2, 2s + 1}} \otimes_{R_{\Vir_{2, 2s + 1}}} R_{L(c_{2, 2s + 1}, h_{1, i})}$, the set in \eqref{eq:10} is a basis of $R_{L(c_{2, 2s + 1}, h_{1, i})}$.
-  We note that for a partition $\lambda \notin P^{s, i}$ with $2 \ge \lambda_1$, there is $u \in (L_{-2}^s, u_1, \dots, u_i)_{\psn}$ such that $\lp(u) = u_{\lambda}$.
+  We note that for a partition $\lambda \in R^{s, i}$ with $2 \ge \lambda_1$, there is $u \in (L_{-2}^s, u_1, \dots, u_i)_{\psn}$ such that $\lp(u) = u_{\lambda}$.
   Therefore, we can prove \eqref{eq:14} similarly to how we proved \eqref{eq:10}.
   The isomorphisms \eqref{eq:15} and \eqref{eq:16} follow.
 \end{proof}
@@ -1925,6 +1914,96 @@ We can extend uniquely the Hamiltonian $H$ to a Hamiltonian $H^{JR} \in \End(JR)
 Furthermore, if $M$ is a graded $R$-module with Hamiltonian $H^M$, we can define a Hamiltonian of $JR \otimes_R M$ by setting
 \begin{equation*}
   H^{JR \otimes_R M} = H^{JR}\otimes\Id_{M} + \Id_{JR}\otimes H^M.
+\end{equation*}
+
+\section{Graded vertex Poisson algebras and their modules}
+\label{sec:graded-vert-poiss}
+
+% A \emph{vertex Lie algebra} or \emph{Lie conformal algebra} is the data $(V, T, Y_-)$, where $V$ is a vector space, $T \in \End(V)$ and $Y_-: V \to \Hom(V, z^{-1}V[z^{-1}])$ is a linear map satisfying the following axioms for $a, b \in V$ and $m, n \in \mathbb{N}$:
+% \begin{enumerate}
+% \item $Y_-(Ta, z) = \partial_zY_-(a, z)$;
+% \item $b_{(m)}a = -\sum_{j = 0}^{\infty}(-1)^{m + j}\frac{\partial^j(a_{(m + j)}b)}{j!}$;
+% \item $[a_{(m)}, b_{(n)}] = \sum_{j = 0}^m\binom{m}{j}(a_{(j)}b)_{(m + n - j)}$.
+% \end{enumerate}
+% \begin{remark}
+%   \label{rmk:4}
+%   The category of Lie conformal algebras is equivalent to the category of regular formal distributions Lie algebras (see \cite[\S2.7]{kac_vertex_1998} and \cite[\S2]{nozaradan_introduction_2008}).
+% \end{remark}
+
+% \begin{theorem}[{\cite{li_vertex_2004}}]
+%   \label{thr:11}
+%   Let $V$ be a vertex Lie algebra.
+%   For $a, b \in V$ and $m, j \in \mathbb{N}$:
+%   \begin{enumerate}
+%   \item $[T, Y_-(a, z)] = Y_-(Ta, z) = \partial_zY_-(a, z)$;
+%   \item $(a_{(j)}b)_{(m)} = \sum_{k = 0}^j\binom{j}{k}(-1)^k[a_{(j - k)}, b_{(m + k)}]$.
+%   \end{enumerate}
+% \end{theorem}
+
+% Let $V$ be a vertex Lie algebra.
+% A \emph{Hamiltonian operator of $V$} is a diagonalizable operator $H \in \End(V)$ such that:
+% \begin{enumerate}
+% \item $[H, T] = T$;
+% \item $[H, Y_-(a, z)] = z\partial_zY_-(a, z) + Y_-(Ha, z)$ for $a \in V$.
+% \end{enumerate}
+% A \emph{module over $V$} is a vector space $M$ together with a linear map $Y^M_-: V \to \Hom(M, z^{-1}M[z^{-1}])$, written as $Y^M_-(a, z) = \sum_{n \in \mathbb{N}}a^M_{(n)}z^{-n - 1}$, $a^M_{(n)} \in \End(M)$, such that for $a, b \in V$ and $m, n \in \mathbb{N}$:
+% \begin{enumerate}
+% \item $(Ta)^M_{(n)} = -na^M_{(n - 1)}$;
+% \item $[a^M_{(m)}, b^M_{(n)}] = \sum_{j = 0}^m\binom{m}{j}(a_{(j)}b)^M_{(m + n - j)}$.
+% \end{enumerate}
+
+% Let $M$ be a module over a graded vertex Lie algebra $V$ with Hamiltonian $H$.
+% A \emph{Hamiltonian operator of $M$} is a diagonalizable operator $H^M \in \End(M)$ such that
+% \begin{equation*}
+%   [H^M, Y^M_-(a, z)] = z\partial_zY^M_-(a, z) + Y^M_-(Ha, z) \quad \text{for $a \in V$}.
+% \end{equation*}
+
+% A \emph{vertex Poisson algebra} is the data consisting of three elements $(V, T, Y_-)$ such that:
+% \begin{enumerate}
+% \item $(V, T)$ is a differential commutative associative algebra with unit $1$;
+% \item $(V, T, Y_-)$ is a vertex Lie algebra;
+% \item The left Leibniz rule holds
+%   \begin{equation*}
+%     Y_-(a, z)(bc) = (Y_-(a, z)b)c + b(Y_-(a, z)c) \quad \text{for $a, b, c \in V$}.
+%   \end{equation*}
+% \end{enumerate}
+
+% Let $V$ be a vertex Poisson algebra.
+% A \emph{Hamiltonian operator of $V$} is simultaneously a Hamiltonian of $V$ as a differential commutative associative algebra with derivation $T$ (see \Cref{sec:grad-poiss-algeb}) and a Hamiltonian of $V$ as a vertex Lie algebra.
+% A \emph{module over $V$} is a module $(M, Y^M_-)$ over $V$ as a vertex Lie algebra and a module over $V$ as a commutative associative algebra such that for $a, b \in V$, $u \in M$ and $n \in \mathbb{N}$:
+% \begin{enumerate}
+% \item (Left Leibniz rule) $a^M_{(n)}(bu) = (a_{(n)}b)u + b(a^M_{(n)}u)$;
+% \item (Right Leibniz rule) $(ab)^M_{(n)}u = \sum_{j \in \mathbb{N}}\left(\frac{T^ja}{j!}b^M_{(n + j)}u + \frac{T^jb}{j!}a^M_{(n + j)}u\right)$.
+% \end{enumerate}
+
+% Let $M$ be a module over a graded vertex Poisson algebra $V$ with Hamiltonian $H$.
+% A \emph{Hamiltonian operator of $M$} is simultaneously a Hamiltonian of $M$ as a module over $V$ as a commutative associative algebra with unit $1$ and a Hamiltonian of $M$ as a module over $V$ as a vertex Lie algebra.
+
+\begin{proposition}[{\cite[Proposition 2.3.1]{arakawa_remark_2012}} and {\Cref{sec:graded-jet-algebras}}]
+  \label{prp:4}
+  Let $R$ be a (graded) Poisson algebra.
+  Then there is a unique (graded) vertex Poisson algebra structure on $JR$ such that
+  \begin{equation*}
+    a_{(n)}b = \delta_{n, 0}\{a, b\} \quad \text{for $a, b \in R$ and $n \in \mathbb{N}$}.
+  \end{equation*}
+\end{proposition}
+
+The (graded) vertex Poisson algebra structure on $JR$ given in \Cref{prp:4} for a (graded) Poisson algebra $R$ will be called the \emph{level 0 vertex Poisson algebra structure of $JR$}.
+
+If $R$ is a (graded) Poisson algebra, and $M$ is a (graded) $R$-module, then we can verify that $JR \otimes_R M$ is a (graded) $JR$-module by defining the Poisson structure as
+\begin{equation*}
+  a_{(n)}(b\otimes u) = (a_{(n)}b)\otimes u + \delta_{n, 0}b\otimes\{a, u\} \quad \text{for $a \in R$, $b \in JR$, $u \in M$ and $n \in \mathbb{N}$}
+\end{equation*}
+and $H^{JR \otimes_R M}$ as in \Cref{sec:graded-jet-algebras}.
+
+The (graded) $R$-module $M$ together with the natural (graded) $R$-module inclusion $\inc: M \hookrightarrow JR \otimes_R M$ satisfy the following universal property.
+Let $N$ be a (graded) module over the (graded) vertex Poisson algebra $JR$, and let $f: M \to N$ be a (graded) homomorphism of modules over the (graded) Poisson algebra $R$.
+There is a unique (graded) homomorphism $\overline{f}: JR \otimes_R M \to N$ of (graded) modules over the (graded) vertex poisson algebra $JR$ such that the following diagram commutes
+\begin{equation*}
+  \begin{tikzcd}
+    M \arrow[r, "\inc", hook] \arrow[rd, "f"'] & JR \otimes_R M \arrow[d, "\overline{f}"] \\
+    & N
+  \end{tikzcd}
 \end{equation*}
 
 \bibliographystyle{alpha}
