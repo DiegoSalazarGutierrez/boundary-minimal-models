@@ -29,7 +29,6 @@
 \DeclareMathOperator{\gr}{gr}
 \DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\vspan}{span}
-\DeclareMathOperator{\supp}{supp}
 \DeclareMathOperator{\Frac}{Frac}
 \DeclareMathOperator{\ad}{ad}
 \DeclareMathOperator{\lp}{lp}
@@ -113,7 +112,7 @@ A set $P$ of partitions is said to be a partition ideal if whenever $(f_n)_{n \i
 We denote by $p(P, n)$ the number of partitions of $n$ that belong to $P$.
 We say two partition ideals $P_1$ and $P_2$ are equivalent, denoted by $P_1 \sim P_2$, if $p(P_1, n) = p(P_2, n)$ for $n \in \mathbb{N}$.
 
-Let $s \in \mathbb{Z}_+$, let $i \in \{1, \dots, s\}$.
+Let $s \in \mathbb{Z}_+$, and let $i \in \{1, \dots, s\}$.
 Gordon's generalization of the Rogers-Ramanujan identities asserts
 \begin{equation*}
   A^{s, i} \sim P^{s, i},
@@ -125,13 +124,12 @@ where the partition ideals $A^{s, i}$ and $P^{s, i}$ are defined by:
   P^{s, i} &= \text{the set of partitions that do not contain any partition in $R^{s, i}$}.
 \end{align*}
 
-As explained in \cite[\S8]{andrews_theory_1998}, $A^{s, i}$ is a partition ideal of order $1$ while $P^{s, i}$ is a partition ideal of order $2$.
+As explained in \cite[\S8]{andrews_theory_1998}, $A^{s, i}$ is a partition ideal of order $1$, while $P^{s, i}$ is a partition ideal of order $2$.
 It is an open problem to characterize the equivalence classes of partitions ideals.
 For partition ideals of order $1$, this problem is completely solved (see \cite[Theorem 8.4]{andrews_theory_1998}).
 
 In the context of representations of infinite dimensional Lie algebras and vertex algebras, the left-hand side of \eqref{eq:1} is precisely the graded dimension, or character, of the irreducible $\Vir$-module $M = L(c_{2, 2s + 1}, h_{1, i})$.
-Li's filtration is compatible with the grading, and so $\gr_F(M)$ acquires a second grading and hence a refined character, a series in two variables $(t, q)$.
-Our main theorems concern a modified version of this refined character and the intimate relation between the structure of $\gr_F(M)$ and the partition ideals $P^{s, i}$.
+Our main theorems concern a refined version of this character and the intimate relation between the structure of $\gr_F(M)$ and the partition ideals $P^{s, i}$.
 
 \begin{theorem}
   \label{thr:1}
@@ -159,13 +157,13 @@ As a corollary, we obtain an explicit expression for the modules $\gr_F(L(c_{2, 
 
 This article is organized as follows.
 In \Cref{sec:prel-notat}, we review Verma modules and set notations related to partitions.
-In \Cref{sec:modul-over-algebr}, we review certain filtrations of algebras and modules, the main example being the PBW filtration of a Lie algebra.
-In \Cref{sec:modules-over-q}, we review modules over Lie algebras graded by a free abelian group of finite rank, the main example being Verma module $M(c, h)$ and the irreducible highest weight representation $L(c, h)$.
-In \Cref{sec:fields-over-vector}, we introduce an explicit formula related to the normal product of a finite number of fields.
+In \Cref{sec:modul-over-algebr}, we review certain filtrations and characters of algebras and modules, the main example being the PBW filtration of a Lie algebra.
+In \Cref{sec:fields-over-vector}, we introduce an explicit formula related to the normal ordered product of a finite number of fields.
 In \Cref{sec:modules-over-simple}, we recall the irreducible modules over the simple Virasoro vertex algebras.
+In \Cref{sec:pbw-bases-characters}, we prove \Cref{thr:1} and \Cref{thr:2}.
 In \Cref{sec:li-filtr}, we summarize the theory of filtrations of vertex algebras and their modules, with emphasis on explicit examples related to modules over the Virasoro Lie algebra.
-In \Cref{sec:class-free-vert}, we recall the Zhu's algebra and the notion of classically freeness of vertex algebras and their modules.
-In \Cref{sec:proofs-main-theorems}, we prove our desired theorems.
+In \Cref{sec:class-free-bound}, we recall the Zhu's algebra and the notion of classically freeness of vertex algebras and their modules.
+Finally, we prove \Cref{thr:3}.
 In the appendices, we recall notions related to Poisson algebras, jet algebras and vertex Poisson algebras.
 
 I would like to thank Reimundo Heluani and Jethro Van Ekeren for some valuable suggestions.
@@ -177,7 +175,7 @@ The author is partially supported by FAPERJ grant 201.445/2021.
 All vector spaces and all algebras are over $\mathbb{C}$, the field of complex numbers, unless otherwise stated.
 The set of natural numbers $\{0, 1, \dots\}$ is denoted by $\mathbb{N}$, the set of integers is denoted by $\mathbb{Z}$, and the set of positive integers $\{1, 2, \dots\}$ is denoted by $\mathbb{Z}_+$.
 
-First, we review the theory of representations of the Virasoro Lie algebra following \cite{kac_bombay_2013}.
+First, we review the theory of representations of the Virasoro Lie algebra following \cite[\S3]{kac_bombay_2013}.
 The \emph{Virasoro Lie algebra} is a Lie algebra given by
 \begin{equation*}
   \Vir = \bigoplus_{n \in \mathbb{Z}}\mathbb{C}L_n \oplus \mathbb{C}C.
@@ -187,7 +185,7 @@ These elements satisfy the following commutation relations:
   [L_m, L_n] &= (m - n)L_{m + n} + \delta_{m, -n}\frac{m^3 - m}{12}C \quad \text{for $m, n \in \mathbb{Z}$}, \\
   [\Vir, C] &= 0.
 \end{align*}
-Let $c, h \in \mathbb{C}$.
+Let $(c, h) \in \mathbb{C}^2$.
 We set $\Vir^{\ge} = \bigoplus_{n \in \mathbb{N}}\mathbb{C}L_n \oplus \mathbb{C}C$.
 We make the subalgebra $\Vir^{\ge}$ of $\Vir$ act on $\mathbb{C}$ as follows:
 \begin{equation*}
@@ -254,7 +252,7 @@ is the \emph{irreducible highest weight representation} of $\Vir$ with highest w
 \section{Modules over algebras with a filtration}
 \label{sec:modul-over-algebr}
 
-Let $A$ be an associative (not necessarily commutative) algebra with unit $1$ and filtration $(A^p)_{p \in \mathbb{Z}}$ such that:
+Let $A$ be an associative (not necessarily commutative) algebra with unit $1$ and filtration $(A^p)_{p \in \mathbb{Z}}$ of subspaces of $A$ such that:
 \begin{enumerate}
 \item $A^p = 0$ for $p < 0$;
 \item $1 \in A^0$;
@@ -295,17 +293,18 @@ and it is a derivation of $\gr(A)$.
     U(\mathfrak{g})^p = \vspan\{x_1x_2\dots x_s \mid s \le p, x_1, \dots, x_s \in \mathfrak{g}\} \quad \text{for $p \in \mathbb{Z}$}.
   \end{equation*}
   This filtration clearly satisfies axioms (i)--(v) above, and $\gr(U(\mathfrak{g}))$ is naturally isomorphic to $S(\mathfrak{g})$, the symmetric algebra of $\mathfrak{g}$, which is a polynomial algebra (see \cite[\S2]{dixmier_enveloping_1996} for details).
-  Furthermore, if $\partial$ is a derivation of $\mathfrak{g}$ as a Lie algebra, then we can extend $\partial$ to a derivation of $U(\mathfrak{g})$, and it respects the PBW filtration.
+  Furthermore, if $\partial$ is a derivation of $\mathfrak{g}$ as a Lie algebra, then we can extend $\partial$ uniquely to a derivation of $U(\mathfrak{g})$ (see \cite[Proposition 2.4.9(i)]{dixmier_enveloping_1996}), and it respects the PBW filtration.
   Thus, it defines a derivation $\partial: \gr(U(\mathfrak{g})) \to \gr(U(\mathfrak{g}))$.
 \end{example}
 
-Let $M$ be an $A$-module with filtration $(M^p)_{p \in \mathbb{Z}}$ such that:
+Let $M$ be an $A$-module with filtration $(M^p)_{p \in \mathbb{Z}}$ of subspaces of $M$ such that:
 \begin{enumerate}
 \item $M^p = 0$ for $p < 0$;
 \item $M^0 \subseteq M^1 \subseteq \dots$;
 \item $M = \bigcup_{p \in \mathbb{N}}M^p$;
 \item $A^pM^q \subseteq M^{p + q}$ for $p, q \in \mathbb{Z}$.
 \end{enumerate}
+
 Let
 \begin{equation*}
   \gr(M) = \bigoplus_{p \in \mathbb{N}}M^p/M^{p - 1}
@@ -319,173 +318,83 @@ For $p, q \in \mathbb{N}$, $a \in A^p$ and $u \in M^q$, we set
 \end{equation*}
 where $\gamma^p_M: M^p \to \gr(M)$ is the principal symbol map, which is the composition of the natural maps $M^p \twoheadrightarrow M^p/M^{p - 1}$ and $M^p/M^{p - 1} \hookrightarrow \gr(M)$.
 
+Let $H \in \End(M)$ be a diagonalizable operator.
+Defining the eigenspaces of $M$ as
+\begin{equation*}
+  M_{\Delta} = \ker(H - \Delta\Id_M) \quad \text{for $\Delta \in \mathbb{C}$},
+\end{equation*}
+we have
+\begin{equation*}
+  M = \bigoplus_{\Delta \in \mathbb{C}}M_{\Delta}.
+\end{equation*}
+We say the filtration $(M^p)_{p \in \mathbb{Z}}$ is \emph{graded} with respect to the diagonalizable operator $H$ if each subspace $M^p$ is graded, i.e., if
+\begin{equation}
+  \label{eq:2}
+  H(M^p) \subseteq M^p \quad \text{for $p \in \mathbb{Z}$}.
+\end{equation}
+We assume we have a diagonalizable operator $H$ and a graded filtration $(M^p)_{p \in \mathbb{Z}}$.
+By \eqref{eq:2} and \cite[Corollary 1.1]{kac_bombay_2013}, we have
+\begin{equation}
+  \label{eq:3}
+  M^p = \sum_{\Delta \in \mathbb{C}}M^p \cap M_{\Delta} \quad \text{for $p \in \mathbb{Z}$}.
+\end{equation}
+
+By property \eqref{eq:2}, we can define an operator $H \in \End(\gr(M))$ as $H(\gamma^p_M(u)) = \gamma^p_M(Hu)$ for $p \in \mathbb{N}$ and $u \in M^p$.
+For $p \in \mathbb{N}$ and $\Delta \in \mathbb{C}$, we define $M^p_{\Delta} = M^p \cap M_\Delta$.
+For $\Delta \in \mathbb{C}$, we define $\gr(M)_{\Delta} = \bigoplus_{p \in \mathbb{N}}\gamma_M^p(M^p_\Delta)$.
+Then $Hu = \Delta u$ for $u \in \gr(M)_{\Delta}$, and the family of subspaces $(\gr(M)_{\Delta})_{\Delta \in \mathbb{C}}$ is linearly independent.
+By \eqref{eq:3}, we have the refined grading
+\begin{equation}
+  \label{eq:4}
+  \gr(M) = \bigoplus_{\substack{p \in \mathbb{N} \\ \Delta \in \mathbb{C}}}\gamma^p_M(M^p_{\Delta}).
+\end{equation}
+
+By \eqref{eq:4}, when $\dim(M_{\Delta}) < \infty$ for $\Delta \in \mathbb{C}$, it is natural to define the \emph{character of $M$} and the \emph{refined character of $M$} as:
+\begin{align*}
+  \ch_M(q) &= \sum_{\Delta \in \mathbb{C}}\dim(M_{\Delta})q^{\Delta} = \sum_{\Delta \in \mathbb{C}}\dim(\gr(M)_{\Delta})q^{\Delta}, \\
+  \ch_M(t, q) &= \sum_{\substack{p \in \mathbb{N} \\ \Delta \in \mathbb{C}}}\dim(\gamma_M^p(M^p_\Delta))t^pq^{\Delta}.
+\end{align*}
+
 The category of modules over $A$ with the given filtration $(A^p)_{p \in \mathbb{Z}}$ is given by modules $M$ with filtration $(M^p)_{p \in \mathbb{Z}}$ satisfying conditions (i)--(iv) above.
 A homomorphism $f: M \to N$ must satisfy $f(M^p) \subseteq N^p$ for $p \in \mathbb{Z}$.
-This category is denoted by $A$-Mod (the filtration being suppressed from the notation).
 
-If $f: M \to N$ is a homomorphism of $A$-modules, then
+If $f: M_1 \to M_2$ is a homomorphism of $A$-modules, then
 \begin{align*}
-  \gr(f): \gr(M) &\to \gr(N), \\
-  \gr(f)(\gamma_M^p(u)) &= \gamma_N^p(f(u)) \quad \text{for $p \in \mathbb{N}$ and $u \in M^p$}
+  \gr(f): \gr(M_1) &\to \gr(M_2), \\
+  \gr(f)(\gamma_{M_1}^p(u)) &= \gamma_{M_2}^p(f(u)) \quad \text{for $p \in \mathbb{N}$ and $u \in M_1^p$}
 \end{align*}
 defines a homomorphism of $\gr(A)$-modules.
+If the filtrations of $M_1$ and $M_2$ are graded, then we require that $f$ respects the gradings of $M_1$ and $M_2$, i.e., we require that $f\circ H^{M_1} = H^{M_2}\circ f$, and this implies that $\gr(f)$ also respects the gradings of $\gr(M_1)$ and $\gr(M_2)$.
+
 Therefore, we obtain a functor
 \begin{equation*}
-  \gr: \text{$A$-Mod} \to \text{$\gr(A)$-Mod}.
+  \gr: \{\text{(graded) $A$-modules}\} \to \{\text{(graded) $\gr(A)$-modules}\}.
 \end{equation*}
 
 From now on, some subscripts or superscripts will be omitted, so for example $\gamma^p_M$ simplifies to $\gamma^p$.
 
-\section{Modules over $Q$-graded Lie algebras}
-\label{sec:modules-over-q}
+The following simple linear algebra proposition relates a basis of the vector space $M$ to a basis of its associated graded $\gr(M)$, and the proof is straightforward.
 
-In this section, we follow \cite[\S2]{iohara_representation_2011}.
-Let $\Gamma$ be an abelian group.
-For a $\Gamma$-graded vector space $V = \bigoplus_{\alpha \in \Gamma}V^{\alpha}$, we set $\supp(V) = \{\alpha \in \Gamma \mid V^{\alpha} \neq 0\}$.
-
-A \emph{$\Gamma$-graded Lie algebra} is a Lie algebra $\mathfrak{g} = \bigoplus_{\alpha \in \Gamma}\mathfrak{g}^{\alpha}$ such that
-\begin{equation*}
-  [\mathfrak{g}^{\alpha}, \mathfrak{g}^{\beta}] \subseteq \mathfrak{g}^{\alpha + \beta} \quad \text{for $\alpha, \beta \in \Gamma$}.
-\end{equation*}
-
-Let $Q$ be a free abelian group of finite rank $r$, and let $\mathfrak{g}$ be a Lie algebra with a commutative subalgebra $\mathfrak{h}$.
-We say a pair $(\mathfrak{g}, \mathfrak{h})$ is a \emph{$Q$-graded Lie algebra} if it satisfies the following:
-\begin{enumerate}
-\item $\mathfrak{g} = \bigoplus_{\alpha \in Q}\mathfrak{g}^{\alpha}$ is $Q$-graded, $\mathfrak{h} = \mathfrak{g}^0$, and $\supp(\mathfrak{g})$ generates $Q$;
-\item We have a homomorphism $\pi_Q: Q \to \mathfrak{h}^*, \alpha \mapsto \lambda_{\alpha}$ such that
-  \begin{equation*}
-    [h, x] = \lambda_{\alpha}(h)x \quad \text{for $h \in \mathfrak{h}$ and $x \in \mathfrak{g}^{\alpha}$};
-  \end{equation*}
-\item For $\alpha \in Q$, $\dim(\mathfrak{g}^{\alpha}) < \infty$;
-\item There exists a basis $(\alpha_i)_{i = 1}^r$ of $Q$ such that for $\alpha \in \supp(\mathfrak{g})$,
-  \begin{equation*}
-    \text{$\alpha \in \sum_{i = 1}^r\mathbb{Z}_{\ge 0}\alpha_i$ or $\alpha \in \sum_{i = 1}^r\mathbb{Z}_{\le 0}\alpha_i$}.
-  \end{equation*}
-\end{enumerate}
-
-The condition (iv) implies that a $Q$-graded Lie algebra admits a \emph{triangular decomposition}
-\begin{equation*}
-  \mathfrak{g} = \mathfrak{g}^- \oplus \mathfrak{h} \oplus \mathfrak{g}^+,
-\end{equation*}
-where $Q^+ = \sum_{i = 1}^r\mathbb{Z}_{\ge 0}\alpha_i$ and
-\begin{equation*}
-  \mathfrak{g}^{\pm} = \bigoplus_{\pm \alpha \in Q^+ \setminus \{0\}}\mathfrak{g}^{\alpha}.
-\end{equation*}
-For later use, we set $\mathfrak{g}^{\ge} = \mathfrak{h} \oplus \mathfrak{g}^+$ and $\mathfrak{g}^{\le} = \mathfrak{g}^- \oplus \mathfrak{h}$.
-
-\begin{example}
-  \label{exa:2}
-  We set $Q = \mathbb{Z}$, $\mathfrak{h} = \mathbb{C}L_0 \oplus \mathbb{C}C$, $\Vir^n = \mathbb{C}L_n$ for $n \in \mathbb{Z} \setminus \{0\}$ and
-  \begin{align*}
-    \pi_Q: Q &\to \mathfrak{h}^*, \\
-    \pi_Q(n) &= (L_0 \mapsto -n, C \mapsto 0).
-  \end{align*}
-  Then $(\Vir, \mathfrak{h})$ is readily seen to be a $\mathbb{Z}$-graded Lie algebra.
-  We take $1$ as the basis of $Q$, so $Q^+ = \mathbb{N}$.
-  We can verify that $\ad(L_{-1})$ is a derivation of $\Vir$ satisfying $\ad(L_{-1})(\Vir^-) \subseteq \Vir^-$.
-  Therefore, $\gr(U(\Vir^-)) \cong \mathbb{C}[L_{-1}, L_{-2}, \dots]$ has a derivation given by $\partial(L_{-n}) = (n - 1)L_{-n - 1}$ for $n \in \mathbb{Z}_+$.
-\end{example}
-
-Let $\Gamma$ be an abelian group, and let $\mathfrak{g} = \bigoplus_{\alpha \in \Gamma}\mathfrak{g}^{\alpha}$ be a $\Gamma$-graded Lie algebra.
-A $\mathfrak{g}$-module $M = \bigoplus_{\alpha \in \Gamma}M^{\alpha}$ is \emph{$\Gamma$-graded} if
-\begin{equation*}
-  \mathfrak{g}^{\alpha}M^{\beta} \subseteq M^{\alpha + \beta} \quad \text{for $\alpha, \beta \in \Gamma$}.
-\end{equation*}
-
-An $\mathfrak{h}$-module $M$ is \emph{$\mathfrak{h}$-diagonalizable} if
-\begin{equation*}
-  M = \bigoplus_{\lambda \in \mathfrak{h}^*}M_{\lambda},
-\end{equation*}
-where
-\begin{equation*}
-  M_{\lambda} = \{u \in M \mid \text{for $h \in \mathfrak{h}$, $hu = \lambda(h)u$}\}.
-\end{equation*}
-
-An $\mathfrak{h}$-diagonalizable module $M$ is called \emph{$\mathfrak{h}$-semisimple} if
-\begin{equation*}
-  \dim(M_{\lambda}) < \infty \quad \text{for $\lambda \in \mathfrak{h}^*$}.
-\end{equation*}
-A \emph{$(\mathfrak{g}, \mathfrak{h})$-module} is an $\mathfrak{h}$-diagonalizable $\mathfrak{g}$-module.
-From now on, we assume that $\pi_Q$ is injective.
-
-The \emph{character of a semisimple $(\mathfrak{g}, \mathfrak{h})$-module $M$} is given by
-\begin{equation*}
-  \ch_M(q) = \sum_{\lambda \in \mathfrak{h}^*}\dim(M_{\lambda})q^{\lambda}.
-\end{equation*}
-
-The category $\mathcal{C}_{(\mathfrak{g}, \mathfrak{h})}$ is the category whose objects are $\mathfrak{h}^*$-graded $(\mathfrak{g}, \mathfrak{h})$-modules and for $M, N \in \mathcal{C}_{(\mathfrak{g}, \mathfrak{h})}$, $\Hom_{\mathcal{C}_{(\mathfrak{g}, \mathfrak{h})}}(M, N) = \Hom_{\mathfrak{g}}(M, N)$ (Lie algebra module homomorphisms).
-
-\begin{remark}
-  \label{rmk:1}
-  If $f \in \Hom_{\mathfrak{g}}(M, N)$, then $f$ respects the $\mathfrak{h}^*$-grading automatically because for $u \in M_{\lambda}$ and $h \in \mathfrak{h}$, $hf(u) = f(hu) = f(\lambda(h)u) = \lambda(h)f(u)$.
-\end{remark}
-
-We can introduce a partial order on $\mathfrak{h}^*$ as follows
-\begin{equation*}
-  \lambda_1 \le \lambda_2 \iff \text{there exists $\gamma \in Q^+$ such that $\lambda_2 - \lambda_1 = \pi_Q(\gamma)$.}
-\end{equation*}
-Since $\pi_Q$ is assumed to be injective, we can abuse notation and write $\lambda_2 - \lambda_1 = \gamma \in Q$.
-
-We now define the full subcategory $\mathcal{C}^{\lambda \ge}_{(\mathfrak{g}, \mathfrak{h})}$ by considering the objects $M \in \mathcal{C}_{(\mathfrak{g}, \mathfrak{h})}$ such that $M_{\mu} = 0$ if $\lambda \ngeq \mu$.
-
-\begin{example}
-  \label{exa:3}
-  When considering the $\mathbb{Z}$-graded Virasoro Lie algebra $(\Vir, \mathfrak{h})$, where $\mathfrak{h} = \mathbb{C}L_0 \oplus \mathbb{C}C$, we identify $\mathfrak{h}^*$ with $\mathbb{C}^2$ as $\lambda = (c, h)$ if $\lambda(C) = c$ and $\lambda(L_0) = h$.
-  We are mainly interested in the highest weight modules $M(c, h)$ and $L(c, h)$ of the Virasoro Lie algebra.
-  In this case, $(c_2, n_2) \ge (c_1, n_1)$ if and only if $c_1 = c_2$ and $n_1 - n_2 \in \mathbb{N}$.
-  If this happens, $(c_2, n_2) - (c_1, n_1) = n_1 - n_2$.
-\end{example}
-
-\section{The refined character}
-\label{sec:refined-character}
-
-Let $(\mathfrak{g}, \mathfrak{h})$ be a $\mathbb{Z}$-graded Lie algebra, let $\lambda \in \mathfrak{h}^*$, and let $M \in \mathcal{C}^{\lambda \ge}_{(\mathfrak{g}, \mathfrak{h})}$.
-The \emph{PBW filtration of $M$} is given by
-\begin{equation*}
-  M^p = \{au \mid q \in \mathbb{N}, \mu \le \lambda, a \in U(\mathfrak{g}^-)^q, u \in M_{\mu}, q + \lambda - \mu \le p\} \quad \text{for $p \in \mathbb{Z}$}.
-\end{equation*}
-This filtration clearly satisfies axioms (i)--(iv) of \Cref{sec:modul-over-algebr} with $U(\mathfrak{g}^-)$ in place of $A$, and $\gr(M)$ becomes a $\gr(U(\mathfrak{g^-}))$-module.
-
-If $f: M \to N$ is a homomorphism, where $M, N \in \mathcal{C}^{\lambda \ge}_{(\mathfrak{g}, \mathfrak{h})}$, then
-\begin{align*}
-  \gr(f): \gr(M) &\to \gr(N), \\
-  \gr(f)(\gamma_M^p(u)) &= \gamma_N^p(f(u)) \quad \text{for $p \in \mathbb{N}$ and $u \in M^p$}
-\end{align*}
-defines a homomorphism of $\gr(U(\mathfrak{g}^-))$-modules.
-Therefore, we obtain a functor
-\begin{equation*}
-  \gr: \mathcal{C}^{\lambda \ge}_{(\mathfrak{g}, \mathfrak{h})} \to \text{$\gr(U(\mathfrak{g}^-))$-Mod}.
-\end{equation*}
-
-\begin{remark}
-  \label{rmk:2}
-  Let $M, N \in \mathcal{C}^{\lambda \ge}_{(\mathfrak{g}, \mathfrak{h})}$, and let $f: M \to N$ be a homomorphism.
-  By \Cref{rmk:1}, $f$ respects the $\mathfrak{h}^*$-grading, and this implies $f(M^p) \subseteq N^p$.
-\end{remark}
+\begin{proposition}
+  \label{prp:1}
+  Let $M$ be a vector space, let $(M^p)_{p \in \mathbb{Z}}$ be a family of subspaces of $M$ satisfying properties \emph{(i)--(iii)} above, and let $(B^p)_{p \in \mathbb{N}}$ be an increasing family of sets satisfying $B^p \subseteq M^p$ for $p \in \mathbb{N}$.
+  Then $\{\gamma^p(v) \mid v \in B^p \setminus B^{p - 1}\}$ spans (resp.\ is a basis of) $M^p/M^{p - 1}$ for $p \in \mathbb{N}$ if and only if $B^p$ spans (resp.\ is a basis of) $M^p$ for $p \in \mathbb{N}$ ($B^{-1} = \emptyset$).
+  In particular, if $\{\gamma^p(v) \mid p \in \mathbb{N}, v \in B^p \setminus B^{p - 1}\}$ is a basis of $\gr(M)$, then $\bigcup_{p \in \mathbb{N}}B^p$ is a basis of $M$.
+\end{proposition}
 
 \begin{example}[$\gr(M(c, h))$]
-  \label{exa:4}
-  We pick a highest weight $(c, h)$.
+  \label{exa:2}
+  We consider the subalgebra $\Vir^- = \bigoplus_{n < 0}\mathbb{C}L_n$ of the Virasoro Lie algebra $\Vir$.
+  We have a natural isormorphism $\mathbb{C}[L_{-1}, L_{-2}, \dots] \cong \gr(U(\Vir^-))$, and we consider the Verma module $M(c, h)$ as a module over $U(\Vir^-)$ acting by left multiplication.
+  The filtration of $M(c, h)$ is given by $M(c, h)^p = U(\Vir^-)^p|c, h\rangle$ for $p \in \mathbb{Z}$.
+  Let $(c, h) \in \mathbb{C}^2$.
   By \cite[\S2]{dixmier_enveloping_1996}, we have a natural isomorphism
   \begin{align*}
     \gr(M(c, h)) &\xrightarrow{\sim} \mathbb{C}[L_{-1}, L_{-2}, \dots] \cong \gr(U(\Vir^-)), \\
     \gamma^{\len(\lambda)}(L_{\lambda}|c, h\rangle) & \mapsto p_{\lambda} \quad \text{for $\lambda$ a composition}.
   \end{align*}
-\end{example}
-
-In this article, we are interested in the \emph{refined character of $M \in \mathcal{C}^{\lambda \ge}_{(\mathfrak{g}, \mathfrak{h})}$}, where $M$ is semisimple, defined to be
-\begin{equation*}
-  \ch_M(t, q) = \sum_{p \in \mathbb{N}}\sum_{\lambda \in \mathfrak{h}^*}\dim(\gamma^p(M^p \cap M_{\lambda}))t^pq^{\lambda},
-\end{equation*}
-By axiom (iii) of $A$-modules given in \Cref{sec:modul-over-algebr}, we have
-\begin{equation*}
-  \ch_M(1, q) = \ch_M(q).
-\end{equation*}
-
-\begin{example}[$\ch_{M(c, h)}(t, q)$]
-  \label{exa:5}
-  We consider the $\mathbb{Z}$-graded Virasoro Lie algebra $(\Vir, \mathbb{C}L_0 \oplus \mathbb{C}C)$.
-  For the Verma representation $M(c, h)$, we have:
+  The diagonalizable operator $H = L_0$ acts by left multiplication.
+  For the Verma module $M(c, h)$, the characters are given by:
   \begin{align*}
     \ch_{M(c, h)}(t, q) &= \frac{q^h}{\prod_{k \in \mathbb{Z}_+}(1 - tq^k)}, \\
     \ch_{M(c, h)}(q) &= \frac{q^h}{\prod_{k \in \mathbb{Z}_+}(1 - q^k)} = \frac{q^h}{(q)_{\infty}}.
@@ -493,7 +402,7 @@ By axiom (iii) of $A$-modules given in \Cref{sec:modul-over-algebr}, we have
 \end{example}
 
 \begin{example}[$\ch_{L(1/2, 0)}(t, q)$]
-  \label{exa:6}
+  \label{exa:3}
   In \cite{andrews_singular_2022}, the refined character of the \emph{Virasoro minimal model} $\Vir_{3, 4} = L(1/2, 0)$, also known as the \emph{Ising model}, is computed explicitly.
   Interestingly, this character is connected to Nahm sums for the matrix $\left(\begin{smallmatrix} 8 & 3 \\ 3 & 2 \end{smallmatrix}\right)$ (see \cite{Nahm2007}) and can be explicitly expressed as
   \begin{equation*}
@@ -502,29 +411,18 @@ By axiom (iii) of $A$-modules given in \Cref{sec:modul-over-algebr}, we have
   where $(q)_k = \prod_{j = 1}^k(1 - q^j) \in \mathbb{C}[q]$ denotes the \emph{$q$-Pochhammer symbol}.
 \end{example}
 
-\begin{remark}
-  \label{rmk:3}
-  Let $V$ be an $\mathbb{N}$-graded conformal vertex algebra, and let $M$ be an $h + \mathbb{N}$-graded $V$-module.
-  It is worth noting that the PBW filtration $(M^p)_{p \in \mathbb{Z}}$ and the standard filtration $(G^pM)_{p \in \mathbb{Z}}$, as introduced in \cite{salazar_pbw_2024}, are different.
-  Therefore, the associated graded objects $\gr(M)$ and $\gr^G(M)$ and the refined characters $\ch_M(t, q)$ and $\ch_{\gr^G(M)}(t, q)$ are both different.
-  For example, for a highest weight $(c, h)$,
-  \begin{equation*}
-    \ch_{\gr^G(M(c, h))}(t, q) = \frac{q^h}{(1 - tq)\prod_{k \ge 2}(1 - t^2q^k)}.
-  \end{equation*}
-\end{remark}
-
 We pick a highest weight $(c, h)$.
-We have a natural epimorphism
+We have a natural epimorphism of $U(\Vir^-)$-modules
 \begin{align*}
   \pi_{c, h}: M(c, h) &\twoheadrightarrow L(c, h), \\
   \pi_{c, h}(u) &= u + J(c, h),
 \end{align*}
 and it satisfies $\ker(\pi_{c, h}) = J(c, h)$.
-Applying the functor $\gr$, we obtain an epimorphism of modules over $\gr(\Vir^-)$
+Applying the functor $\gr$, we obtain an epimorphism of modules over $\gr(U(\Vir^-))$
 \begin{equation*}
   \gr(\pi_{c, h}): \gr(M(c, h)) \twoheadrightarrow \gr(L(c, h)),
 \end{equation*}
-and this produces a natural isomorphism of modules over $\gr(\Vir^-)$
+and this produces a natural isomorphism of modules over $\gr(U(\Vir^-))$
 \begin{equation*}
   \gr(M(c, h))/K(c, h) \xrightarrow{\sim} \gr(L(c, h)),
 \end{equation*}
@@ -534,32 +432,9 @@ where
 \end{equation*}
 Explicitly, we have
 \begin{equation}
-  \label{eq:2}
+  \label{eq:5}
   K(c, h) = \sum_{p \in \mathbb{N}}\gamma^p(J(c, h) \cap M(c, h)^p).
 \end{equation}
-From these observations, we obtain the following four isomorphisms which are going to be used frequently implicitly.
-
-\begin{proposition}
-  \label{prp:1}
-  We pick a highest weight $(c, h)$.
-  We have four (conformal) weight-preserving vector space isomorphisms:
-  \begin{align*}
-    M(c, h) &\xrightarrow{\sim} \gr(M(c, h)), \\
-    L_{\lambda}|c, h\rangle &\mapsto \gamma^{\len(\lambda)}(L_{\lambda}|c, h\rangle), \\
-    \gr(M(c, h)) &\xrightarrow{\sim} \mathbb{C}[L_{-1}, L_{-2}, \dots], \\
-    \gamma^{\len(\lambda)}(L_{\lambda}|c, h\rangle) &\mapsto p_{\lambda}, \\
-    L(c, h) &\xrightarrow{\sim} \gr(L(c, h)), \\
-    L_{\lambda}(|c, h\rangle + J(c, h)) &\mapsto \gamma^{\len(\lambda)}(L_{\lambda}(|c, h\rangle + J(c, h))), \\
-    \gr(L(c, h)) &\xrightarrow{\sim} \gr(M(c, h))/K(c, h), \\
-    \gamma^{\len(\lambda)}(L_{\lambda}(|c, h\rangle + J(c, h))) &\mapsto \gamma^{\len(\lambda)}(L_{\lambda}|c, h\rangle) + K(c, h),
-  \end{align*}
-  where $\lambda$ is a partition.
-\end{proposition}
-
-In this article, we will deal with the polynomial algebra $\mathbb{C}[L_{-1}, L_{-2}, \dots]$, its ideals and quotients.
-We will always use the degree reverse lexicographic order with $L_{-1} > L_{-2} > \dots$.
-Actually, we can only use Gröbner basis theory with finitely generated polynomial algebras like $\mathbb{C}[L_{-1}, L_{-2}, \dots, L_{-N}]$ for some $N \in \mathbb{N}$.
-But taking $N \to \infty$, we can obtain our desired results, see \cite{salazar_pbw_2024} for details regarding this.
 
 \section{Fields over vector spaces}
 \label{sec:fields-over-vector}
@@ -722,25 +597,184 @@ For integers $m, n$ such that $0 < m < p$ and $0 < n < q$, we set
   where the horizontal arrow is the quotient map.
 \end{theorem}
 
-We are also interested in the refined character of these irreducible modules.
-The ordinary character is fortunately already known.
-
-\begin{theorem}[{\cite{feigin_verma_1984}}]
-  \label{thr:6}
-  Let $p, q \ge 2$ be relatively prime integers, and let $m, n$ be integers such that $0 < m < p$ and $0 < n < q$.
-  Then
-  \begin{align*}
-    \ch_{L(c_{p, q}, h_{m, n})}(q) &= \frac{1}{(q)_{\infty}}\sum_{k \in \mathbb{Z}}q^{\frac{(2kpq + mq - np)^2 - (p - q)^2}{4pq}} - q^{\frac{(2kpq + mq + np)^2 - (p - q)^2}{4pq}} \\
-                                   &= \frac{q^{h_{m, n}}}{(q)_{\infty}}\sum_{k \in \mathbb{Z}}q^{k^2pq + k(mq - np)} - q^{k^2pq + k(mq + np) + mn}.
-  \end{align*}
-\end{theorem}
-
 In this article, we consider:
 \begin{align*}
   p &= 2, \\
   q &= 2s + 1 \quad \text{for $s \in \mathbb{Z}_+$}.
 \end{align*}
 By \Cref{thr:5}, $\Vir_{2, 2s + 1}$ has $s$ irreducible modules $L(c_{2, 2s + 1}, h_{1, 1}), \dots, L(c_{2, 2s + 1}, h_{1, s})$, known collectively as the \emph{boundary minimal models}.
+
+\section{PBW bases and characters of the boundary minimal models}
+\label{sec:pbw-bases-characters}
+
+In this section, we fix $s \in \mathbb{Z}_+$ and $i \in \{1, \dots, s\}$.
+
+A partition $\lambda = [\lambda_1, \dots, \lambda_m]$ \emph{contains a partition} $\eta = [\eta_1, \dots, \eta_n]$, written as $\eta \subseteq \lambda$, if $m \ge n$ and there is $i \in \mathbb{Z}_+$ such that $1 \le i \le m - n + 1$ and $[\lambda_i, \lambda_{i + 1}, \dots, \lambda_{i + n - 1}] = \eta$.
+
+We define
+\begin{equation*}
+  p^{s, i}(t, q) = \sum_{\lambda \in P^{s, i}}t^{\len(\lambda)}q^{\Delta(\lambda)} \in \mathbb{N}[[t, q]],
+\end{equation*}
+where $P^{s, i}$ is the set of partitions that do not contain any partition in $R^{s, i}$ as defined in \Cref{sec:introduction}, i.e.,
+\begin{equation*}
+  P^{s, i} = \{\lambda \vdash \mid \text{for $\eta \in R^{s, i}$, $\lambda \nsupseteq \eta$}\}.
+\end{equation*}
+
+\begin{lemma}[{\cite[\S7]{andrews_theory_1998}}]
+  \label{lmm:3}
+  We have
+  \begin{equation*}
+    p^{s, i}(t, q) = \sum_{k = (k_1, \dots, k_{s - 1}) \in \mathbb{N}^{s - 1}}t^{kB^{(s)}_{s - 1}}\frac{q^{\frac{1}{2}kG^{(s)}k^T + kB^{(s)}_{s - i}}}{(q)_{k_1}\dots(q)_{k_{s - 1}}}.
+  \end{equation*}
+\end{lemma}
+
+\begin{lemma}[{\cite[\S7]{andrews_theory_1998} and \cite{feigin_verma_1984}}]
+  \label{lmm:4}
+  We have
+  \begin{equation*}
+    \ch_{L(c_{2, 2s + 1}, h_{1, i})}(q) = q^{h_{1, i}}p^{s, i}(1, q) = q^{h_{1, i}}\left(\prod^{\infty}_{\substack{n = 1 \\ n \not\equiv 0, \pm i \mod 2s + 1}}(1 - q^n)^{-1}\right).
+  \end{equation*}
+\end{lemma}
+
+We order the PBW basis of $U(\Vir^-) = \vspan\{L_{\lambda} \mid \lambda \vdash\}$ by degree reverse lexicographic order with $L_{-1} > L_{-2} > \dots$.
+Formally, for any partitions $\lambda$ and $\eta$, we define
+\begin{equation*}
+  L_{\lambda} \le L_{\eta}\text{ if and only if }p_{\lambda} \le p_{\eta}.
+\end{equation*}
+For $x \in U(\Vir^-)$ with $x \neq 0$, we may write
+\begin{equation*}
+  x = c_1L_{\lambda^1} + c_2L_{\lambda^2} + \dots + c_rL_{\lambda^r},
+\end{equation*}
+where for $1 \le i \le r$, $0 \neq c_i \in \mathbb{C}$ and $L_{\lambda^1} > L_{\lambda^2} > \dots > L_{\lambda^r}$.
+We define the \emph{leading power of $x$} as $\lp(x) = L_{\lambda^1}$.
+We set $\lp(0) = 0$.
+Next, for a highest weight $(c, h)$, we extend the definition of $\lp$ from $U(\Vir^-)$ to $M(c, h)$ by considering the isomorphism of vector spaces $U(\Vir^-) \xrightarrow{\sim} M(c, h), L_{\lambda} \mapsto L_{\lambda}|c, h\rangle$, where $\lambda$ is a partition.
+
+\begin{remark}
+  \label{rmk:1}
+  The definition of the order in the PBW basis of $U(\Vir^-)$ was made so that for a highest weight $(c, h)$, a partition $\lambda$ and $u \in M(c, h)$, if $\lp(u) = L_{\lambda}|c, h\rangle$, then $\lp(\gamma^{\len(\lambda)}(u)) = p_{\lambda}$.
+\end{remark}
+
+\begin{lemma}
+  \label{lmm:5}
+  For $\lambda \in R^{s, i}$, there exists $u \in J(c_{2, 2s + 1}, h_{1, i})$ homogeneous such that $\lp(u) = L_{\lambda}|c_{2, 2s + 1}, h_{1, i}\rangle$.
+\end{lemma}
+
+\begin{proof}
+  By \Cref{thr:4}, the maximal proper ideal of $\Vir^{c_{2, 2s + 1}}$ is generated by a singular vector of conformal weight $2s$, denoted by $a_{2, 2s + 1}$, which has the form
+  \begin{equation}
+    \label{eq:6}
+    a_{2, 2s + 1} = L_{-2}^s\vac + \sum_{\substack{\mu \vdash 2s \\ \mu_{\len(\mu)} \ge 2 \\ \len(\mu) < s}}c_{\mu}L_{\mu}\vac,
+  \end{equation}
+  where $c_{\mu} \in \mathbb{Q}$.
+  We have two cases:
+  \begin{enumerate}
+  \item $\lambda = [a^d, (a + 1)^{s - d}]$ for some $a \in \mathbb{Z}_+$ and $d \in \{1, \dots, s\}$.
+    We set
+    \begin{equation*}
+      u = (a_{2, 2s + 1})_{(s - sa + d - 1)}|c_{2, 2s + 1}, h_{1, i}\rangle
+    \end{equation*}
+    and claim
+    \begin{equation*}
+      \lp(u) = L_{\lambda}|c_{2, 2s + 1}, h_{1, i}\rangle.
+    \end{equation*}
+    To prove this, we first prove that
+    \begin{equation}
+      \label{eq:7}
+      (L_{-2}^s\vac)_{(s - sa + d - 1)}|c_{2, 2s + 1}, h_{1, i}\rangle = \binom{s}{d}L_{\lambda}|c_{2, 2s + 1}, h_{1, i}\rangle + \sum_{\substack{\mu \vdash \Delta(\lambda) \\ \len(\mu) \le s \\ \mu \neq \lambda}}c_{\mu}L_{\mu}|c_{2, 2s + 1}, h_{1, i}\rangle,
+    \end{equation}
+    where $c_{\mu} \in \mathbb{Q}$.
+    Applying \Cref{lmm:2} and \Cref{prp:3} with:
+    \begin{align*}
+      a^1(z) = \dots = a^s(z) &= L(z) = \sum_{n \in \mathbb{Z}}L_{(n)}z^{-n - 1} = \sum_{n \in \mathbb{Z}}L_nz^{-n - 2}, \\
+      b &= |c_{2, 2s + 1}, h_{1, i}\rangle, \\
+      l &= s - sa + d - 1,
+    \end{align*}
+    we obtain
+    \begin{equation}
+      \label{eq:8}
+      (L_{-2}^s\vac)_{(l)}|c_{2, 2s + 1}, h_{1, i}\rangle = \sum_{n_1, \dots, n_{s - 1} \in \mathbb{N}}\sum_{k = 0}^{s - 1}R^{l, k}_{n_1, \dots, n_{s - 1}}(L(z), \dots, L(z))|c_{2, 2s + 1}, h_{1, i}\rangle,
+    \end{equation}
+    where $R^{l, k}_{n_1, \dots, n_{s - 1}}(L(z), \dots, L(z))$ is the sum of $\binom{s - 1}{k}$ terms given by
+    \begin{align*}
+      &R^{l, k}_{n_1, \dots, n_{s - 1}}(L(z), \dots, L(z)) = \\
+      &\sum_{\substack{1 \le i_1 < \dots < i_k \le s - 1 \\ 1 \le j_1 < \dots < j_{s - 1 - k} \le s - 1 \\ \{i_1, \dots, i_k\} \cup \{j_1, \dots, j_{s - 1 - k}\} = \{1, \dots, s - 1\}}}L_{(-n_{j_1} - 1)}\dots L_{(-n_{j_{s - 1 - k}} - 1)}L_{(l - k - \sum_{r = 1}^kn_{i_r} + \sum_{r = 1}^{s - 1 - k}n_{j_r})}L_{(n_{i_k})}\dots L_{(n_{i_1})},
+    \end{align*}
+    where
+    \begin{align*}
+      &L_{(-n_{j_1} - 1)}\dots L_{(-n_{j_{s - 1 - k}} - 1)}L_{(l - k - \sum_{r = 1}^kn_{i_r} + \sum_{r = 1}^{s - 1 - k}n_{j_r})}L_{(n_{i_k})}\dots L_{(n_{i_1})} = \\
+      &L_{-n_{j_1} - 2}\dots L_{-n_{j_{s - 1 - k}} - 2}L_{s - sa + d - 2 - k - \sum_{r = 1}^kn_{i_r} + \sum_{r = 1}^{s - 1 - k}n_{j_r}}L_{n_{i_k} - 1}\dots L_{n_{i_1} - 1}.
+    \end{align*}
+    We see that each term $L_{\mu}$ appearing in $R^{l, k}_{n_1, \dots, n_{s - 1}}(L(z), \dots, L(z))$, where $\mu$ is a combination (not necessarily a partition), satisfies $\Delta(\mu) = sa + s - d = \Delta(\lambda)$ and $\len(\mu) = s = \len(\lambda)$.
+
+    We recall that $L_{\eta} - L_{\eta\sigma} \in U(\Vir^-)^{\len(\eta) - 1}$ for a combination $\eta$ and a permutation $\sigma \in S_{\len(\eta)}$ (see \cite[Lemma 2.1.5]{dixmier_enveloping_1996} for details).
+    Therefore, for a combination $\eta$, we can expand $L_{\eta}$ in the following way
+    \begin{equation*}
+      L_{\eta} = L_{\prt(\eta)} + \sum_{\substack{\mu \vdash \Delta(\eta) \\ \len(\mu) < \len(\eta)}}c_{\mu}L_{\mu},
+    \end{equation*}
+    where $c_{\mu} \in \mathbb{Q}$.
+
+    We need to compute the coefficient of $L_{\lambda}|c_{2, 2s + 1}, h_{1, i}\rangle$ in $u$ when expressed as a linear combination of the elements of the usual PBW basis.
+    To do this, we need to see how much each sum $R^{l, k}_{n_1, \dots, n_{s - 1}}(L(z), \dots, L(z))|c_{2, 2s + 1}, h_{1, i}\rangle$ contributes to the coefficient of $L_{\lambda}|c_{2, 2s + 1}, h_{1, i}\rangle$ in $u$.
+    We have two subcases:
+    \begin{description}[leftmargin=!]
+    \item[Subcase $a = 1$] In the sum \eqref{eq:8}, if $k > d$ or $k < d - 1$ or $n_i \neq 0$ for some $i = 1, \dots, s - 1$, then $R^{l, k}_{n_1, \dots, n_{s - 1}}(L(z), \dots, L(z))|c_{2, 2s + 1}, h_{1, i}\rangle$ contributes $0$.
+      As for the two remaining sums, the sum $R^{l, d - 1}_{0, \dots, 0}(L(z), \dots, L(z))|c_{2, 2s + 1}, h_{1, i}\rangle$ contributes $\binom{s - 1}{d - 1}$ because we are picking $d - 1$ elements from $\{1, \dots, s - 1\}$, and the sum $R^{l, d}_{0, \dots, 0}(L(z), \dots, L(z))|c_{2, 2s + 1}, h_{1, i}\rangle$ contributes $\binom{s - 1}{d}$ because we are picking $d$ elements from $\{1, \dots, s - 1\}$.
+      Since $\binom{s - 1}{d - 1} + \binom{s - 1}{d} = \binom{s}{d}$, we obtain \eqref{eq:7}.
+    \item[Subcase $a > 1$] In the sum \eqref{eq:8}, if $k > 0$, then $R^{l, k}_{n_1, \dots, n_{s - 1}}(L(z), \dots, L(z))|c_{2, 2s + 1}, h_{1, i}\rangle$ contributes $0$.
+      We have
+      \begin{equation*}
+        R^{l, 0}_{n_1, \dots, n_{s - 1}}(L(z), \dots, L(z)) = L_{-n_1 - 2}\dots L_{-n_{s - 1} - 2}L_{s - sa + d - 2 + \sum_{r = 1}^{s - 1}n_r}.
+      \end{equation*}
+      Therefore, the sum $R^{l, 0}_{n_1, \dots, n_{s - 1}}(L(z), \dots, L(z))|c_{2, 2s + 1}, h_{1, i}\rangle$ contributes $\binom{s - 1}{d - 1}$ when exactly $d - 1$ of the $n_i$s are equal to $a - 2$ and $s - d$ of the $n_i$s are equal to $a - 1$, contributes $\binom{s - 1}{d}$ when exactly $d$ of the $n_i$s are equal to $a - 2$ and $s - d - 1$ of the $n_i$s are equal to $a - 1$ and contributes $0$ otherwise.
+      Since $\binom{s - 1}{d - 1} + \binom{s - 1}{d} = \binom{s}{d}$, we obtain \eqref{eq:7}.
+    \end{description}
+    We note that if $\mu$ is a partition of $\Delta(\lambda)$ such that $\len(\mu) \le s$ and $\mu \neq \lambda$, then $L_{\lambda} > L_{\mu}$.
+    Thus, \eqref{eq:7} implies $\lp((L_{-2}^s\vac)_{(s - sa + d - 1)}|c_{2, 2s + 1}, h_{1, i}\rangle) = L_{\lambda}|c_{2, 2s + 1}, h_{1, i}\rangle$.
+    From \eqref{eq:6} and \Cref{lmm:2}, we see that $\lp(u) = \lp((L_{-2}^s\vac)_{(s - sa + d - 1)}|c_{2, 2s + 1}, h_{1, i}\rangle) = L_{\lambda}|c_{2, 2s + 1}, h_{1, i}\rangle$.
+    Finally, by \Cref{thr:5}, $u \in J(c_{2, 2s + 1}, h_{1, i})$, and it is clear that $u$ is homogeneous from its definition.
+  \item $\lambda = [1^i]$.
+    This follows from \cite{benoit_degenerate_1988}, where it is proved that one of the generating singular vectors in $J(c_{2, 2s + 1}, h_{1, i})$ contains the term $L_{-1}^i|c_{2, 2s + 1}, h_{1, i}\rangle$ in its expansion with respect to the usual PBW basis. \qedhere
+  \end{enumerate}
+\end{proof}
+
+\begin{remark}
+  \label{rmk:2}
+  For any partitions $\lambda$ and $\eta$, if $\lambda \supseteq \eta$, then $p_{\eta} \mid p_{\lambda}$.
+  The converse is not true.
+  For example, $p_{[4, 2]} \mid p_{[4, 3, 2]}$, but $[4, 3, 2] \nsupseteq [4, 2]$.
+  However, if $\eta = [\eta_1, \dots, \eta_m]$ and $\eta_1 - \eta_m \le 1$, then $\lambda \supseteq \eta$ if and only if $p_{\eta} \mid p_{\lambda}$.
+\end{remark}
+
+\begin{lemma}
+  \label{lmm:6}
+  There is an alternative description for $P^{s, i}$, namely
+  \begin{equation*}
+    P^{s, i} = \{\lambda \vdash \mid \text{for $\eta \in R^{s, i}$, $p_{\eta} \nmid p_{\lambda}$}\}.
+  \end{equation*}
+\end{lemma}
+
+\begin{proof}
+  This is a consequence of \Cref{rmk:2}.
+\end{proof}
+
+\begin{proof}[Sketch of proof of \Cref{thr:2}]
+  As explained in (the proof of) \cite[Theorem 0.4]{salazar_pbw_2024}, we can only use Gröbner basis theory on the free module $\bigoplus_{n = 1}^N\mathbb{C}[L_{-2}, L_{-3}, \dots, L_{-N}]L_{-1}^n$ for $N \in \mathbb{N}$, and then we let $N \to \infty$ to conclude.
+  However, here we limit ourselves to a brief informal sketch to see how the results obtained so far lead to a proof of \Cref{thr:2}.
+
+  Let $G$ be a Gröbner basis of $K(c_{2, 2s + 1}, h_{1, i})$, and we set:
+  \begin{align*}
+    B &= \{p_{\lambda} \mid \text{for $a \in G$, $\lp(a) \nmid p_{\lambda}$}\}, \\
+    \overline{B} &= \{p_{\lambda} \mid \lambda \in P^{s, i}\}.
+  \end{align*}
+  By \eqref{eq:5}, \Cref{rmk:1}, and \Cref{lmm:5}, we have $\overline{B} \subseteq B$.
+  Actually, \Cref{prp:1}, \Cref{lmm:6} and \Cref{lmm:4} imply $\overline{B} = B$.
+  We have found a basis of $\gr(L(c_{2, 2s + 1}, h_{1, i}))$ and by \Cref{prp:1}, a basis of $L(c_{2, 2s + 1}, h_{1, i})$.
+\end{proof}
+
+\begin{proof}[Proof of \Cref{thr:1}]
+  This is a corollary of (the proof of) \Cref{thr:2}.
+\end{proof}
 
 \section{The Li filtration}
 \label{sec:li-filtr}
@@ -779,57 +813,8 @@ where $\sigma_p: F_pV \to \gr_F(V)$ is the \emph{principal symbol map}, which is
 The unit is $\sigma^0(\vac)$.
 The filtration $(F_pV)_{p \in \mathbb{Z}}$ is called the \emph{Li filtration of $V$}.
 
-\begin{lemma}[{\cite[Lemma 2.9]{li_abelianizing_2005}}]
-  \label{lmm:3}
-  Let $V$ be a vertex algebra.
-  Then
-  \begin{equation*}
-    F_pV = \vspan\{a_{(-i - 1)}b \mid a \in V, i \in \mathbb{Z}_+, b \in F_{p - i}V\} \quad \text{for $p \in \mathbb{Z}_+$}.
-  \end{equation*}
-\end{lemma}
-
-By \Cref{lmm:3}, the Li filtration depends only on $V$ and not on the choice of the strong generators.
-If $V$ is graded with Hamiltonian $H$, then $H(F_pV) \subseteq F_pV$ for $p \in \mathbb{Z}$.
-Therefore, we can define an operator $H \in \End(\gr_F(V))$ as $H(\sigma_p(a)) = \sigma_p(Ha)$ for $p \in \mathbb{N}$ and $a \in F_pV$.
-For $p \in \mathbb{Z}$ and $\Delta \in \mathbb{C}$, we define $F_pV_{\Delta} = F_pV \cap V_{\Delta}$.
-Since $H(F_pV) \subseteq F_pV$ for $p \in \mathbb{Z}$, we have
-\begin{equation*}
-  F_pV = \bigoplus_{\Delta \in \mathbb{C}}F_pV_{\Delta} \quad \text{for $p \in \mathbb{Z}$}.
-\end{equation*}
-For $\Delta \in \mathbb{C}$, we define $\gr_F(V)_{\Delta} = \bigoplus_{p \in \mathbb{N}}\sigma_p(F_pV_{\Delta})$.
-Then $Ha = \Delta a$ for $a \in \gr_F(V)_{\Delta}$.
-The family of subspaces $(\gr_F(V)_{\Delta})_{\Delta \in \mathbb{C}}$ satisfies $\gr_F(V) = \bigoplus_{\Delta \in \mathbb{C}}\gr_F(V)_{\Delta}$.
-Therefore, the operator $H \in \End(\gr_F(V))$ is diagonalizable with $\gr_F(V)_{\Delta} = \ker(H - \Delta\Id_{\gr_F(V)})$.
-In fact, it is possible to prove that this diagonalizable operator $H$ is actually a Hamiltonian of $\gr_F(V)$.
-
-We have the natural vector space isomorphisms
-\begin{equation*}
-  \sigma_p(F_pV_{\Delta}) \cong F_pV_{\Delta}/F_{p + 1}V_{\Delta} \quad \text{for $p \in \mathbb{Z}$ and $\Delta \in \mathbb{C}$}
-\end{equation*}
-and the refined grading
-\begin{equation}
-  \label{eq:3}
-  \gr_F(V) = \bigoplus_{\substack{p \in \mathbb{N} \\ \Delta \in \mathbb{C}}}\sigma_p(F_pV_{\Delta}).
-\end{equation}
-By \eqref{eq:3}, when $\dim(V_{\Delta}) < \infty$ for $\Delta \in \mathbb{C}$, it is natural to define the \emph{refined character of $V$ with respect to the Li filtration} as
-\begin{equation*}
-  \ch_{\gr_F(V)}(t, q) = \sum_{\substack{p \in \mathbb{N} \\ \Delta \in \mathbb{C}}}\dim(\sigma_p(F_pV_{\Delta}))t^pq^{\Delta}.
-\end{equation*}
-
-If $f: V_1 \to V_2$ is a homomorphism of vertex algebras, then
-\begin{align*}
-  \gr_F(f): \gr_F(V_1) &\to \gr_F(V_2), \\
-  \gr_F(f)(\sigma^{V_1}_p(a)) &= \sigma^{V_2}_p(f(a)) \quad \text{for $p \in \mathbb{N}$ and $a \in F_pV_1$}
-\end{align*}
-defines a homomorphism of vertex Poisson algebras.
-If $V_1$ and $V_2$ are graded, then we require that $f$ respects the gradings of $V_1$ and $V_2$, and this implies that $\gr_F(f)$ also respects the gradings of $\gr_F(V_1)$ and $\gr_F(V_2)$.
-Therefore, we obtain a functor
-\begin{equation*}
-  \gr_F: \{\text{(graded) vertex algebras}\} \to \{\text{(graded) vertex Poisson algebras}\}.
-\end{equation*}
-
 \begin{example}[$\gr_F(\Vir^c)$]
-  \label{exa:7}
+  \label{exa:4}
   We pick $c \in \mathbb{C}$.
   We have an isomorphism
   \begin{align*}
@@ -838,10 +823,6 @@ Therefore, we obtain a functor
   \end{align*}
   The derivation $T \in \Der(\mathbb{C}[L_{-2}, L_{-3}, \dots])$ is given by $T(L_{-n}) = (n - 1)L_{-n - 1}$ for $n \ge 2$, which is extended to a derivation.
   The Poisson structure of $\gr^G(\Vir^c)$ is trivial (i.e., the map $Y_-$ is zero).
-  The refined character is given explicitly by
-  \begin{equation*}
-    \ch_{\gr_F(\Vir^c)}(t, q) = \frac{1}{\prod_{k \ge 2}(1 - t^{k - 2}q^k)}.
-  \end{equation*}
 \end{example}
 
 Let $V$ be a vertex algebra, let $(a^i)_{i \in I}$ be a family of strong generators of $V$, and let $M$ be a $V$-module.
@@ -875,20 +856,10 @@ For $p, q \in \mathbb{N}$, $a \in F_pV$ and $u \in F_qM$, we set:
 where $\sigma^M_p: F_pM \to \gr_F(M)$ is the principal symbol map.
 The filtration $(F_pM)_{p \in \mathbb{Z}}$ is called the Li filtration of $M$.
 
-\begin{lemma}[{\cite[Lemma 2.9]{li_abelianizing_2005}}]
-  \label{lmm:4}
-  Let $V$ be a vertex algebra, and let $M$ be a $V$-module.
-  Then
-  \begin{equation*}
-    F_pM = \vspan\{a^M_{(-i - 1)}u \mid a \in V, i \in \mathbb{Z}_+, u \in F_{p - i}M\} \quad \text{for $p \in \mathbb{Z}_+$}.
-  \end{equation*}
-\end{lemma}
-
-By \Cref{lmm:4}, the Li filtration depends only on $M$ and not on the choice of the strong generators of $V$.
 If $V$ is graded with Hamiltonian $H$, and $M$ is graded with Hamiltonian $H^M$, then $H^M(F_pM) \subseteq F_pM$ for $p \in \mathbb{Z}$.
 Therefore, we can define an operator $H^M \in \End(\gr_F(M))$ as $H^M(\sigma^M_p(u)) = \sigma^M_p(H^Mu)$ for $p \in \mathbb{N}$ and $u \in F_pM$.
 For $p \in \mathbb{Z}$ and $\Delta \in \mathbb{C}$, we define $F_pM_{\Delta} = F_pM \cap M_{\Delta}$.
-Since $H^M(F_pM) \subseteq F_pM$ for $p \in \mathbb{Z}$, we have
+Since $H^M(F_pM) \subseteq F_pM$ for $p \in \mathbb{Z}$, by \cite[Corollary 1.1]{kac_bombay_2013}, we have
 \begin{equation*}
   F_pM = \bigoplus_{\Delta \in \mathbb{C}}F_pM_{\Delta} \quad \text{for $p \in \mathbb{Z}$}.
 \end{equation*}
@@ -898,52 +869,32 @@ The family of subspaces $(\gr_F(M)_{\Delta})_{\Delta \in \mathbb{C}}$ satisfies 
 Therefore, the operator $H^M \in \End(\gr_F(M))$ is diagonalizable with $\gr_F(M)_{\Delta} = \ker(H^M - \Delta\Id_{\gr_F(M)})$.
 In fact, it is possible to prove that this diagonalizable operator $H^M$ is actually a Hamiltonian of $\gr_F(M)$.
 
-We have the natural vector space isomorphisms
-\begin{equation*}
-  \sigma^M_p(F_pM_{\Delta}) \cong F_pM_{\Delta}/F_{p + 1}M_{\Delta} \quad \text{for $p \in \mathbb{Z}$ and $\Delta \in \mathbb{C}$}
-\end{equation*}
-and the refined grading
-\begin{equation}
-  \label{eq:4}
-  \gr_F(M) = \bigoplus_{\substack{p \in \mathbb{N} \\ \Delta \in \mathbb{C}}}\sigma_p(F_pM_{\Delta}).
-\end{equation}
-By \eqref{eq:4}, when $\dim(M)_{\Delta} < \infty$ for $\Delta \in \mathbb{C}$, it is natural to define the refined character of $M$ with respect to the Li filtration as
-\begin{equation*}
-  \ch_{\gr_F(M)}(t, q) = \sum_{\substack{p \in \mathbb{N} \\ \Delta \in \mathbb{C}}}\dim(\sigma_p(F_pM_{\Delta}))t^pq^{\Delta}.
-\end{equation*}
+The following proposition is similar to \Cref{prp:1}, but it requires an $h + \mathbb{N}$-graded $V$-module $M$ and deals with the decreasing filtration $(F_pM)_{p \in \mathbb{Z}}$.
 
-If $f: M_1 \to M_2$ is a homomorphism of $V$-modules, then
-\begin{align*}
-  \gr_F(f): \gr_F(M_1) &\to \gr_F(M_2), \\
-  \gr_F(f)(\sigma^{M_1}_p(u)) &= \sigma^{M_2}_p(f(u)) \quad \text{for $p \in \mathbb{N}$ and $u \in F_pM_1$}
-\end{align*}
-defines a homomorphism of $\gr_F(V)$-modules.
-If $M_1$ and $M_2$ are graded, then we require that $f$ respects the gradings of $M_1$ and $M_2$, and this implies that $\gr_F(f)$ also respects the gradings of $\gr_F(M_1)$ and $\gr_F(M_2)$.
-Therefore, we obtain a functor
-\begin{equation*}
-  \gr_F: \{\text{(graded) $V$-modules}\} \to \{\text{(graded) $\gr_F(V)$-modules}\}.
-\end{equation*}
+\begin{proposition}
+  \label{prp:6}
+  Let $V$ be an $\mathbb{N}$-graded vertex algebra, let $M$ be an $h + \mathbb{N}$-graded $V$-module, and let $(B_p)_{p \in \mathbb{N}}$ be a decreasing family of sets such that $B_p \subseteq F_pM$, and all elements of $B_p$ are homogeneous for $p \in \mathbb{N}$.
+  Then $\{v + F_{p + 1}M \mid v \in B_p \setminus B_{p + 1}\}$ spans (resp.\ is a basis of) $F_pM/F_{p + 1}M$ for $p \in \mathbb{N}$ if and only if $B_p$ spans (resp.\ is a basis of) $F_pM$ for $p \in \mathbb{N}$.
+  In particular, if $\{\sigma_p^M(v) \mid p \in \mathbb{N}, v \in B_p \setminus B_{p + 1}\}$ is a basis of $\gr_F(M)$, then $B_0$ is a basis of $M$.
+\end{proposition}
 
 \begin{example}[$\gr_F(M(c, h))$]
-  \label{exa:8}
+  \label{exa:5}
   We pick a highest weight $(c, h)$.
-  From \Cref{exa:7}, $\gr_F(\Vir^c)$ is isomorphic to $\mathbb{C}[L_{-2}, L_{-3}, \dots]$.
+  From \Cref{exa:4}, $\gr_F(\Vir^c)$ is isomorphic to $\mathbb{C}[L_{-2}, L_{-3}, \dots]$.
   We have an isomorphism
   \begin{align*}
     \gr_F(M(c, h)) &\xrightarrow{\sim} \bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}, L_{-3}, \dots]L_{-1}^k, \\
     \sigma_{\Delta(\lambda) - \clen(\lambda)}(L_{\lambda}|c, h\rangle) &\mapsto u_{\lambda} \quad \text{for $\lambda$ a composition}.
   \end{align*}
-  The refined character is given explicitly by
-  \begin{equation*}
-    \ch_{\gr_F(M(c, h))}(t, q) = \frac{q^h}{(1 - q)\prod_{k \ge 2}(1 - t^{k - 2}q^k)}.
-  \end{equation*}
+  The Hamiltonian is given by $L_0$.
 \end{example}
 
-\section{Classically free vertex algebras and their modules}
-\label{sec:class-free-vert}
+\section{Classically free boundary minimal models}
+\label{sec:class-free-bound}
 
 Let $V$ be a vertex algebra.
-By \Cref{lmm:3}, we have
+By \cite[Lemma 2.9]{li_abelianizing_2005}, we have
 \begin{equation*}
   C_2V = \vspan\{a_{(-2)}b \mid a, b \in V\} = F_1V.
 \end{equation*}
@@ -972,10 +923,10 @@ Oftentimes, some condition on $R_V$ implies or is equivalent to some condition o
 The vertex algebra $V$ is called \emph{$C_2$-cofinite} if $R_V$ is finite dimensional.
 
 \begin{example}[$R_{\Vir^c}$ and $R_{\Vir_c}$]
-  \label{exa:9}
+  \label{exa:6}
   We pick $c \in \mathbb{C}$.
   We consider $\mathbb{C}[L_{-2}]$ as the polynomial algebra in one variable $L_{-2}$, and we equip it with the trivial Poisson bracket.
-  By \Cref{exa:7}, we have the following isomorphism of Poisson algebras
+  By \Cref{exa:4}, we have the following isomorphism of Poisson algebras
   \begin{align*}
     R_{\Vir^c} &\xrightarrow{\sim} \mathbb{C}[L_{-2}], \\
     \sigma_0(L_{-2}\vac) &\mapsto L_{-2}.
@@ -1006,7 +957,7 @@ The vertex algebra $V$ is called \emph{$C_2$-cofinite} if $R_V$ is finite dimens
 \end{example}
 
 \begin{lemma}[{\cite[Corollary 4.3]{li_abelianizing_2005}}]
-  \label{lmm:5}
+  \label{lmm:7}
   Let $V$ be a vertex algebra.
   As a differential algebra, $\gr_F(V)$ is generated by $R_V$, i.e.,
   \begin{equation*}
@@ -1027,30 +978,30 @@ Because $R_V$ is a (graded) Poisson algebra, we can equip $JR_V$ with the level 
 From now on, $JR_V$ will be considered as a (graded) vertex Poisson algebra.
 
 \begin{lemma}
-  \label{lmm:6}
+  \label{lmm:8}
   Let $V$ be a (graded) vertex algebra.
   The (graded) differential algebra homomorphism $\phi_V: JR_V \to \gr_F(V)$ defined above is surjective and is actually a (graded) vertex Poisson algebra homomorphism.
 \end{lemma}
 
 \begin{proof}
-  The homomorphism $\phi_V$ is surjective by \Cref{lmm:5}.
+  The homomorphism $\phi_V$ is surjective by \Cref{lmm:7}.
   The fact that $\phi_V$ is a (graded) vertex Poisson algebra homomorphism is explained in \cite[Proposition 2.5.1]{arakawa_remark_2012}.
 \end{proof}
 
 When $\phi_V$ is an isomorphism, we say $V$ is \emph{classically free}.
 
 \begin{example}[$JR_{\Vir^c}$ and $JR_{\Vir_c}$]
-  \label{exa:10}
+  \label{exa:7}
   Let $c \in \mathbb{C}$.
   Then $\Vir^c$ is classically free because
   \begin{equation*}
     \gr_F(\Vir^c) \cong \mathbb{C}[L_{-2}, L_{-3}, \dots]
   \end{equation*}
-  by \Cref{exa:7} and
+  by \Cref{exa:4} and
   \begin{equation*}
     JR_{\Vir^c} \cong J(C[L_{-2}]) = \mathbb{C}[L_{-2}, L_{-3}, \dots]
   \end{equation*}
-  by \Cref{exa:9} and \Cref{sec:graded-jet-algebras}.
+  by \Cref{exa:6} and \Cref{sec:graded-jet-algebras}.
 
   We now move onto $\Vir_c$.
   If $c$ is not of the form $c_{p, q}$ for some $p, q \ge 2$ relatively prime integers, then $\Vir_c = \Vir^c$ by \Cref{thr:4}, and we have already solved the problem.
@@ -1059,16 +1010,16 @@ When $\phi_V$ is an isomorphism, we say $V$ is \emph{classically free}.
   \begin{equation*}
     JR_{\Vir_{p, q}} \cong J(\mathbb{C}[L_{-2}]/(L_{-2}^{(p - 1)(q - 1)/2})) = \mathbb{C}[L_{-2}, L_{-3}, \dots]/(L_{-2}^{(p - 1)(q - 1)/2})_{\partial}
   \end{equation*}
-  by \Cref{exa:9} and \Cref{sec:graded-jet-algebras}.
+  by \Cref{exa:6} and \Cref{sec:graded-jet-algebras}.
 \end{example}
 
 \begin{example}
-  \label{exa:11}
+  \label{exa:8}
   If $q > p \ge 2$ are relatively prime integers, then $\Vir_{p, q}$ is classically free if and only if $p = 2$ by \cite{van_ekeren_chiral_2021}.
 \end{example}
 
 \begin{example}
-  \label{exa:12}
+  \label{exa:9}
   It was proven in \cite{andrews_singular_2022} that the Ising model $\Vir_{3, 4}$ is not classically free.
   In fact, by \cite[Theorem 2]{andrews_singular_2022},
   \begin{equation*}
@@ -1078,11 +1029,11 @@ When $\phi_V$ is an isomorphism, we say $V$ is \emph{classically free}.
   \begin{equation*}
     b = L_{-4}L_{-3}L_{-2} + \tfrac{1}{6}L_{-5}L_{-2}^2,
   \end{equation*}
-  and $(b)_{\partial}$ is the differential ideal generated by $b$, cf.\ \Cref{sec:graded-jet-algebras} and \Cref{exa:7} where $\partial$ is denoted by $T$.
+  and $(b)_{\partial}$ is the differential ideal generated by $b$, cf.\ \Cref{sec:graded-jet-algebras} and \Cref{exa:4} where $\partial$ is denoted by $T$.
 \end{example}
 
 Let $V$ be a vertex algebra, and let $M$ be a module over $V$.
-By \Cref{lmm:4}, we have
+By \cite[Lemma 2.9]{li_abelianizing_2005}, we have
 \begin{equation*}
   C_2M = \vspan\{a^M_{(-2)}u \mid a \in V, u \in M\} = F_1M.
 \end{equation*}
@@ -1100,30 +1051,25 @@ For $a \in V$ and $u \in M$, we set:
 If $V$ is graded and $M$ is a graded $V$-module, then, as we explained in \Cref{sec:li-filtr}, $\gr_F(M)$ is a graded $\gr_F(V)$-module.
 Thus, $R_M$ is also a graded $R_V$-module.
 
-We have constructed a functor
-\begin{equation*}
-  R: \{\text{(graded) $V$-modules}\} \to \{\text{(graded) $R_V$-modules}\}.
-\end{equation*}
-
 \begin{example}[$R_{M(c, h)}$ and $R_{L(c, h)}$]
-  \label{exa:13}
+  \label{exa:10}
   We pick a highest weight $(c, h)$.
-  As in \Cref{exa:9}, we consider $\mathbb{C}[L_{-2}]$ as the polynomial algebra in one variable $L_{-2}$, and we equip it with the trivial Poisson bracket.
-  We consider $\bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}]L_{-1}^k \cong \mathbb{C}[L_{-2}, L_{-1}]$ as a module over the Poisson algebra $\mathbb{C}[L_{-2}]$ with Poisson bracket given by $\{L_{-2}, L_{-1}^k\} = L_{-1}^{k + 1}$ for $k \in \mathbb{N}$.
-  By \Cref{exa:8} and \Cref{exa:9}, we have the following isomorphism of modules over Poisson algebras
+  As in \Cref{exa:6}, we consider $\mathbb{C}[L_{-2}]$ as the polynomial algebra in one variable $L_{-2}$, and we equip it with the trivial Poisson bracket.
+  We consider $\bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}]L_{-1}^k$ as a module over the Poisson algebra $\mathbb{C}[L_{-2}]$ with Poisson bracket given by $\{L_{-2}, L_{-1}^k\} = L_{-1}^{k + 1}$ for $k \in \mathbb{N}$.
+  By \Cref{exa:5} and \Cref{exa:6}, we have the following isomorphism of modules over Poisson algebras
   \begin{align*}
     R_{M(c, h)} &\xrightarrow{\sim} \bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}]L_{-1}^k, \\
     \sigma_0(L_{-2}|c, h\rangle) &\mapsto L_{-2}, \\
     \sigma_0(L_{-1}|c, h\rangle) &\mapsto L_{-1}.
   \end{align*}
-  As in \Cref{exa:9}, we obtain
+  As in \Cref{exa:6}, we obtain
   \begin{equation*}
     R_{L(c, h)} \cong \frac{\bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}]L_{-1}^k}{\sigma_0(J(c, h))}.
   \end{equation*}
 \end{example}
 
 \begin{theorem}[{\cite[Lemma 4.2]{li_abelianizing_2005}}]
-  \label{thr:7}
+  \label{thr:6}
   Let $V$ be a vertex algebra, and let $M$ be a $V$-module.
   As a $\gr_F(V)$-module without the Poisson structure, $\gr_F(M)$ is generated by $R_M$, i.e.,
   \begin{equation*}
@@ -1144,20 +1090,20 @@ By the universal property of $\inc: R_M \hookrightarrow JR_V \otimes_{R_V} R_M$ 
 \end{equation*}
 
 \begin{lemma}
-  \label{lmm:7}
+  \label{lmm:9}
   The (graded) $JR_V$-module homomorphism $\phi_M: JR_V \otimes_{R_V} R_M \to \gr_F(M)$ defined above is surjective.
 \end{lemma}
 
 \begin{proof}
-  The assertion follows from \Cref{lmm:6} and \Cref{thr:7}.
+  The assertion follows from \Cref{lmm:8} and \Cref{thr:6}.
 \end{proof}
 
 When $\phi_M$ is an isomorphism, we say $M$ is \emph{classically free}.
 
 \begin{example}[$JR_{\Vir^c} \otimes_{R_{\Vir^c}} R_{M(c, h)}$]
-  \label{exa:14}
+  \label{exa:11}
   We pick a highest weight $(c, h)$.
-  The Verma module $M(c, h)$ is always classically free as a $\Vir^c$-module because by \Cref{exa:8}, \Cref{exa:9} and \Cref{exa:13},
+  The Verma module $M(c, h)$ is always classically free as a $\Vir^c$-module because by \Cref{exa:5}, \Cref{exa:6} and \Cref{exa:10},
   \begin{align*}
     JR_{\Vir^c} \otimes_{R_{\Vir^c}} R_{M(c, h)} &\cong \mathbb{C}[L_{-2}, L_{-3}, \dots] \otimes_{\mathbb{C}[L_{-2}]} \bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}]L_{-1}^k \\
                                                  &\cong \bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}, L_{-3}, \dots]L_{-1}^k \\
@@ -1167,289 +1113,65 @@ When $\phi_M$ is an isomorphism, we say $M$ is \emph{classically free}.
 
 We wish to determine when the irreducible modules $L(c_{p, q}, h_{m, n})$ over the simple Virasoro vertex algebras $\Vir_{p, q}$ are classically free, as mentioned in \Cref{thr:3} and \Cref{thr:5}.
 
-\section{Proofs of the main theorems}
-\label{sec:proofs-main-theorems}
-
-In this section, we fix $s \in \mathbb{Z}_+$ and $i \in \{1, \dots, s\}$.
-
-A partition $\lambda = [\lambda_1, \dots, \lambda_m]$ \emph{contains a partition} $\eta = [\eta_1, \dots, \eta_n]$, written as $\eta \subseteq \lambda$, if $m \ge n$ and there is $i \in \mathbb{Z}_+$ such that $1 \le i \le m - n + 1$ and $[\lambda_i, \lambda_{i + 1}, \dots, \lambda_{i + n - 1}] = \eta$.
-
-We define
-\begin{equation*}
-  p^{s, i}(t, q) = \sum_{\lambda \in P^{s, i}}t^{\len(\lambda)}q^{\Delta(\lambda)} \in \mathbb{C}[[t, q]],
-\end{equation*}
-where $P^{s, i}$ is the set of partitions that do not contain any partition in $R^{s, i}$ as defined in \Cref{sec:introduction}, i.e.,
-\begin{equation*}
-  P^{s, i} = \{\lambda \vdash \mid \text{for $\eta \in R^{s, i}$, $\lambda \nsupseteq \eta$}\}.
-\end{equation*}
-
-\begin{lemma}
-  \label{lmm:8}
-  We have
-  \begin{equation*}
-    p^{s, i}(t, q) = \sum_{k = (k_1, \dots, k_{s - 1}) \in \mathbb{N}^{s - 1}}t^{kB^{(s)}_{s - 1}}\frac{q^{\frac{1}{2}kG^{(s)}k^T + kB^{(s)}_{s - i}}}{(q)_{k_1}\dots(q)_{k_{s - 1}}}.
-  \end{equation*}
-\end{lemma}
-
-\begin{proof}
-  Following the notation of \cite[\S7]{andrews_theory_1998}, we write:
-  \begin{align*}
-    p^{s, i}(t, q) &= \sum_{m = 0}^{\infty}\sum_{n = 0}^{\infty}b_{s, i}(m, n)t^mq^n, \\
-    J_{s, i}(0, t, q) &= \sum_{m = 0}^{\infty}\sum_{n = 0}^{\infty}c_{s, i}(m, n)t^mq^n.
-  \end{align*}
-  By \cite[\S7.3]{andrews_theory_1998}, we have $b_{s, i}(m, n) = c_{s, i}(m, n)$ for $m, n \in \mathbb{N}$.
-  This means $p^{s, i}(t, q) = J_{s, i}(0, t, q)$.
-
-  By the proof of \cite[Theorem 7.8]{andrews_theory_1998}, we have
-  \begin{equation*}
-    J_{s, i}(0, t, q) = \sum_{k = (k_1, \dots, k_{s - 1}) \in \mathbb{N}^{s - 1}}\frac{t^{N_1 + \dots + N_{s - 1}}q^{N_1^2 + \dots + N_{s - 1}^2 + N_i + \dots + N_{s - 1}}}{(q)_{k_1}\dots(q)_{k_{s - 1}}},
-  \end{equation*}
-  where $N_j = k_j + \dots + k_{s - 1}$ for $j = 1, \dots, s$.
-  Since:
-  \begin{align*}
-    N_1^2 + \dots + N_{s - 1}^2 &= \frac{1}{2}kG^{(s)}k^T, \\
-    N_j + \dots + N_{s - 1} &= kB^{(s)}_{s - j} \quad \text{for $j = 1, \dots, s$},
-  \end{align*}
-  we have
-  \begin{equation*}
-    \sum_{k = (k_1, \dots, k_{s - 1}) \in \mathbb{N}^{s - 1}}\frac{t^{N_1 + \dots + N_{s - 1}}q^{N_1^2 + \dots + N_{s - 1}^2 + N_i + \dots + N_{s - 1}}}{(q)_{k_1}\dots(q)_{k_{s - 1}}} = \sum_{k = (k_1, \dots, k_{s - 1}) \in \mathbb{N}^{s - 1}}t^{kB^{(s)}_{s - 1}}\frac{q^{\frac{1}{2}kG^{(s)}k^T + kB^{(s)}_{s - i}}}{(q)_{k_1}\dots(q)_{k_{s - 1}}}. \qedhere
-  \end{equation*}
-\end{proof}
-
-\begin{lemma}
-  \label{lmm:9}
-  We have
-  \begin{equation*}
-    \ch_{L(c_{2, 2s + 1}, h_{1, i})}(q) = q^{h_{1, i}}p^{s, i}(1, q) = q^{h_{1, i}}\left(\prod^{\infty}_{\substack{n = 1 \\ n \not\equiv 0, \pm i \mod 2s + 1}}(1 - q^n)^{-1}\right).
-  \end{equation*}
-\end{lemma}
-
-\begin{proof}
-  By the proof of \Cref{lmm:8}, \cite[Lemma 7.3]{andrews_theory_1998} and \cite[Corollary 2.9]{andrews_theory_1998}, we have
-  \begin{align*}
-    q^{h_{1, i}}p^{s, i}(1, q) &= q^{h_{1, i}}J_{s, i}(0, 1, q) \\
-                               &= q^{h_{1, i}}\left(\prod^{\infty}_{\substack{n = 1 \\ n \not\equiv 0, \pm i \mod 2s + 1}}(1 - q^n)^{-1}\right) \\
-                               &= \frac{q^{h_{1, i}}}{(q)_{\infty}}\sum_{k \in \mathbb{N}}(-1)^kq^{(2s + 1)k(k + 1)/2 - ki}(1 - q^{(2k + 1)i}) \\
-                               &= \frac{q^{h_{1, i}}}{(q)_{\infty}}\sum_{k \in \mathbb{Z}}(-1)^kq^{(2s + 1)k(k + 1)/2 - ki}.
-  \end{align*}
-  The disjoint union $\mathbb{Z} = \{2k \mid k \in \mathbb{Z}\} \cup \{-2k - 1 \mid k \in \mathbb{Z}\}$ and \Cref{thr:6} imply that
-  \begin{align*}
-    \frac{q^{h_{1, i}}}{(q)_{\infty}}\sum_{k \in \mathbb{Z}}(-1)^kq^{(2s + 1)k(k + 1)/2 - ki} &= \frac{q^{h_{1, i}}}{(q)_{\infty}}\Bigg(\sum_{k \in \mathbb{Z}}(-1)^{2k}q^{(2s + 1)2k(2k + 1)/2 - 2ki} \\
-                                                                                              &\quad + \sum_{k \in \mathbb{Z}}(-1)^{-2k - 1}q^{(2s + 1)(-2k - 1)(-2k - 1 + 1)/2 - (-2k - 1)i}\Bigg) \\
-                                                                                              &= \frac{q^{h_{1, i}}}{(q)_{\infty}}\left(\sum_{k \in \mathbb{Z}}q^{2k^2(2s + 1) + k(2s + 1 - 2i)} - \sum_{k \in \mathbb{Z}}q^{2k^2(2s + 1) + k(2s + 2i + 1) + i}\right) \\
-                                                                                              &= \ch_{L(c_{2, 2s + 1}, h_{1, i})}(q). \qedhere
-  \end{align*}
-\end{proof}
-
-We order the PBW basis of $U(\Vir^-) = \vspan\{L_{\lambda} \mid \lambda \vdash\}$ by degree reverse lexicographic order with $L_{-1} > L_{-2} > \dots$.
-Formally, for any partitions $\lambda$ and $\eta$, we define
-\begin{equation*}
-  L_{\lambda} \le L_{\eta}\text{ if and only if }p_{\lambda} \le p_{\eta}.
-\end{equation*}
-For $x \in U(\Vir^-)$ with $x \neq 0$, we may write
-\begin{equation*}
-  x = c_1L_{\lambda^1} + c_2L_{\lambda^2} + \dots + c_rL_{\lambda^r},
-\end{equation*}
-where for $1 \le i \le r$, $0 \neq c_i \in \mathbb{C}$ and $L_{\lambda^1} > L_{\lambda^2} > \dots > L_{\lambda^r}$.
-We define the \emph{leading power of $x$} as $\lp(x) = L_{\lambda^1}$.
-We set $\lp(0) = 0$.
-Next, for a highest weight $(c, h)$, we extend the definition of $\lp$ from $U(\Vir^-)$ to $M(c, h)$ by considering the isomorphism of vector spaces $U(\Vir^-) \xrightarrow{\sim} M(c, h), L_{\lambda} \mapsto L_{\lambda}|c, h\rangle$, where $\lambda$ is a partition.
-
-\begin{remark}
-  \label{rmk:4}
-  The definition of the order in the PBW basis of $U(\Vir^-)$ was made so that for a highest weight $(c, h)$, a partition $\lambda$ and $u \in M(c, h)$, if $\lp(u) = L_{\lambda}|c, h\rangle$, then $\lp(\gamma^{\len(\lambda)}(u)) = p_{\lambda}$.
-\end{remark}
-
-\begin{lemma}
-  \label{lmm:10}
-  For $\lambda \in R^{s, i}$, there exists $u \in J(c_{2, 2s + 1}, h_{1, i})$ homogeneous such that $\lp(u) = L_{\lambda}|c_{2, 2s + 1}, h_{1, i}\rangle$.
-\end{lemma}
-
-\begin{proof}
-  By \Cref{thr:4}, the maximal proper ideal of $\Vir^{c_{2, 2s + 1}}$ is generated by a singular vector of conformal weight $2s$, denoted by $a_{2, 2s + 1}$, which has the form
-  \begin{equation}
-    \label{eq:5}
-    a_{2, 2s + 1} = L_{-2}^s\vac + \sum_{\substack{\mu \vdash 2s \\ \mu_{\len(\mu)} \ge 2 \\ \len(\mu) < s}}c_{\mu}L_{\mu}\vac,
-  \end{equation}
-  where $c_{\mu} \in \mathbb{Q}$.
-  We have two cases:
-  \begin{enumerate}
-  \item $\lambda = [a^d, (a + 1)^{s - d}]$ for some $a \in \mathbb{Z}_+$ and $d \in \{1, \dots, s\}$.
-    We set
-    \begin{equation*}
-      u = (a_{2, 2s + 1})_{(s - sa + d - 1)}|c_{2, 2s + 1}, h_{1, i}\rangle
-    \end{equation*}
-    and claim
-    \begin{equation*}
-      \lp(u) = L_{\lambda}|c_{2, 2s + 1}, h_{1, i}\rangle.
-    \end{equation*}
-    To prove this, we first prove that
-    \begin{equation}
-      \label{eq:6}
-      (L_{-2}^s\vac)_{(s - sa + d - 1)}|c_{2, 2s + 1}, h_{1, i}\rangle = \binom{s}{d}L_{\lambda}|c_{2, 2s + 1}, h_{1, i}\rangle + \sum_{\substack{\mu \vdash \Delta(\lambda) \\ \len(\mu) \le \len(\lambda) \\ \mu \neq \lambda}}c_{\mu}L_{\mu}|c_{2, 2s + 1}, h_{1, i}\rangle,
-    \end{equation}
-    where $c_{\mu} \in \mathbb{Q}$.
-    Applying \Cref{prp:3} and \Cref{lmm:2} with:
-    \begin{align*}
-      a^1(z) = \dots = a^s(z) &= L(z) = \sum_{n \in \mathbb{Z}}L_{(n)}z^{-n - 1} = \sum_{n \in \mathbb{Z}}L_nz^{-n - 2}, \\
-      b &= |c_{2, 2s + 1}, h_{1, i}\rangle, \\
-      l &= s - sa + d - 1,
-    \end{align*}
-    we obtain
-    \begin{equation}
-      \label{eq:7}
-      (L_{-2}^s\vac)_{(l)}|c_{2, 2s + 1}, h_{1, i}\rangle = \sum_{n_1, \dots, n_{s - 1} \in \mathbb{N}}\sum_{k = 0}^{s - 1}R^{l, k}_{n_1, \dots, n_{s - 1}}(L(z), \dots, L(z))|c_{2, 2s + 1}, h_{1, i}\rangle,
-    \end{equation}
-    where $R^{l, k}_{n_1, \dots, n_{s - 1}}(L(z), \dots, L(z))$ is the sum of $\binom{s - 1}{k}$ terms given by
-    \begin{align*}
-      &R^{l, k}_{n_1, \dots, n_{s - 1}}(L(z), \dots, L(z)) = \\
-      &\sum_{\substack{1 \le i_1 < \dots < i_k \le s - 1 \\ 1 \le j_1 < \dots < j_{s - 1 - k} \le s - 1 \\ \{i_1, \dots, i_k\} \cup \{j_1, \dots, j_{s - 1 - k}\} = \{1, \dots, s - 1\}}}L_{(-n_{j_1} - 1)}\dots L_{(-n_{j_{s - 1 - k}} - 1)}L_{(l - k - \sum_{r = 1}^kn_{i_r} + \sum_{r = 1}^{s - 1 - k}n_{j_r})}L_{(n_{i_k})}\dots L_{(n_{i_1})},
-    \end{align*}
-    where
-    \begin{align*}
-      &L_{(-n_{j_1} - 1)}\dots L_{(-n_{j_{s - 1 - k}} - 1)}L_{(l - k - \sum_{r = 1}^kn_{i_r} + \sum_{r = 1}^{s - 1 - k}n_{j_r})}L_{(n_{i_k})}\dots L_{(n_{i_1})} = \\
-      &L_{-n_{j_1} - 2}\dots L_{-n_{j_{s - 1 - k}} - 2}L_{s - sa + d - 2 - k - \sum_{r = 1}^kn_{i_r} + \sum_{r = 1}^{s - 1 - k}n_{j_r}}L_{n_{i_k} - 1}\dots L_{n_{i_1} - 1}.
-    \end{align*}
-    We see that each term $L_{\mu}$ appearing in $R^{l, k}_{n_1, \dots, n_{s - 1}}(L(z), \dots, L(z))$, where $\mu$ is a combination (not necessarily a partition), satisfies $\Delta(\mu) = sa + s - d = \Delta(\lambda)$ and $\len(\mu) \le \len(\lambda)$.
-
-    We recall that $L_{\lambda} - L_{\lambda\sigma} \in U(\Vir^{-})^{\len(\lambda) - 1}$ for a combination $\lambda$ and a permutation $\sigma \in S_{\len(\lambda)}$ (see \cite[\S2]{dixmier_enveloping_1996} for details).
-    Therefore, for a combination $\mu$, we can expand $L_{\mu}|c_{2, 2s + 1}, h_{1, i}\rangle$ in the following way
-    \begin{equation*}
-      L_{\mu}|c_{2, 2s + 1}, h_{1, i}\rangle = L_{\prt(\mu)}|c_{2, 2s + 1}, h_{1, i}\rangle + \sum_{\substack{\mu \vdash \Delta(\lambda) \\ \len(\mu) < \len(\lambda)}}c_{\mu}L_{\mu}|c_{2, 2s + 1}, h_{1, i}\rangle,
-    \end{equation*}
-    where $c_{\mu} \in \mathbb{Q}$.
-    We need to compute the coefficient of $L_{\lambda}|c_{2, 2s + 1}, h_{1, i}\rangle$ in $u$ when expressed as a linear combination of the elements of the usual PBW basis.
-    To do this, we need to see how much each sum $R^{l, k}_{n_1, \dots, n_{s - 1}}(L(z), \dots, L(z))|c_{2, 2s + 1}, h_{1, i}\rangle$ contributes to the coefficient of $L_{\lambda}|c_{2, 2s + 1}, h_{1, i}\rangle$ in $u$.
-    We have two subcases:
-    \begin{description}[leftmargin = !]
-    \item[Subcase $a = 1$] In the sum \eqref{eq:7}, if $k > d$ or $k < d - 1$ or $n_i \neq 0$ for some $i = 1, \dots, s - 1$, then $R^{l, k}_{n_1, \dots, n_{s - 1}}(L(z), \dots, L(z))|c_{2, 2s + 1}, h_{1, i}\rangle$ contributes $0$.
-      As for the two remaining sums, the sum $R^{l, d - 1}_{0, \dots, 0}(L(z), \dots, L(z))|c_{2, 2s + 1}, h_{1, i}\rangle$ contributes $\binom{s - 1}{d - 1}$ because we are picking $d - 1$ elements from $\{1, \dots, s - 1\}$, and the sum $R^{l, d}_{0, \dots, 0}(L(z), \dots, L(z))|c_{2, 2s + 1}, h_{1, i}\rangle$ contributes $\binom{s - 1}{d}$ because we are picking $d$ elements from $\{1, \dots, s - 1\}$.
-      Since $\binom{s - 1}{d - 1} + \binom{s - 1}{d} = \binom{s}{d}$, we obtain \eqref{eq:6}.
-    \item[Subcase $a > 1$] In the sum \eqref{eq:7}, if $k > 0$, then $R^{l, k}_{n_1, \dots, n_{s - 1}}(L(z), \dots, L(z))|c_{2, 2s + 1}, h_{1, i}\rangle$ contributes $0$.
-      We have
-      \begin{equation*}
-        R^{l, 0}_{n_1, \dots, n_{s - 1}}(L(z), \dots, L(z)) = L_{-n_1 - 2}\dots L_{-n_{s - 1} - 2}L_{s - sa + d - 2 + \sum_{r = 1}^{s - 1}n_r}.
-      \end{equation*}
-      Therefore, the sum $R^{l, 0}_{n_1, \dots, n_{s - 1}}(L(z), \dots, L(z))|c_{2, 2s + 1}, h_{1, i}\rangle$ contributes $\binom{s - 1}{d - 1}$ when exactly $d - 1$ of the $n_i$s are equal to $a - 2$ and $s - d$ of the $n_i$s are equal to $a - 1$, contributes $\binom{s - 1}{d}$ when exactly $d$ of the $n_i$s are equal to $a - 2$ and $s - d - 1$ of the $n_i$s are equal to $a - 1$ and contributes $0$ otherwise.
-      Since $\binom{s - 1}{d - 1} + \binom{s - 1}{d} = \binom{s}{d}$, we obtain \eqref{eq:6}.
-    \end{description}
-  \item $\lambda = [1^i]$.
-    This follows from \cite{benoit_degenerate_1988}, where it is proved that one of the generating singular vectors in $J(c_{2, 2s + 1}, h_{1, i})$ contains the term $L_{-1}^i|c_{2, 2s + 1}, h_{1, i}\rangle$ in its expansion with respect to the usual PBW basis.
-  \end{enumerate}
-  We note that if $\mu$ is a partition of $\Delta(\lambda)$ such that $\len(\mu) \le \len(\lambda)$ and $\mu \neq \lambda$, then $L_{\lambda} > L_{\mu}$.
-  Thus, \eqref{eq:6} implies $\lp((L_{-2}^s\vac)_{(s - sa + d - 1)}|c_{2, 2s + 1}, h_{1, i}\rangle) = L_{\lambda}|c_{2, 2s + 1}, h_{1, i}\rangle$.
-  From \eqref{eq:5} and \Cref{lmm:2}, we see that $\lp(u) = \lp((L_{-2}^s\vac)_{(s - sa + d - 1)}|c_{2, 2s + 1}, h_{1, i}\rangle) = L_{\lambda}|c_{2, 2s + 1}, h_{1, i}\rangle$.
-  Finally, by \Cref{thr:5}, $u \in J(c_{2, 2s + 1}, h_{1, i})$, and it is clear that $u$ is homogeneous from its definition.
-\end{proof}
-
-\begin{remark}
-  \label{rmk:5}
-  For any partitions $\lambda$ and $\eta$, if $\lambda \supseteq \eta$, then $p_{\eta} \mid p_{\lambda}$.
-  The converse is not true.
-  For example, $p_{[4, 2]} \mid p_{[4, 3, 2]}$, but $[4, 3, 2] \nsupseteq [4, 2]$.
-  However, if $\eta = [\eta_1, \dots, \eta_m]$ and $\eta_1 - \eta_m \le 1$, then $\lambda \supseteq \eta$ if and only if $p_{\eta} \mid p_{\lambda}$.
-\end{remark}
-
-\begin{lemma}
-  \label{lmm:11}
-  There is an alternative description for $P^{s, i}$, namely
-  \begin{equation*}
-    P^{s, i} = \{\lambda \vdash \mid \text{for $\eta \in R^{s, i}$, $p_{\eta} \nmid p_{\lambda}$}\}.
-  \end{equation*}
-\end{lemma}
-
-\begin{proof}
-  This is a consequence of \Cref{rmk:5}.
-\end{proof}
-
-\begin{proof}[Sketch of proof of \Cref{thr:2}]
-  Let $G$ be a Gröbner basis of $K(c_{2, 2s + 1}, h_{1, i})$, and we set:
-  \begin{align*}
-    B &= \{p_{\lambda} \mid \text{for $a \in G$, $\lp(a) \nmid p_{\lambda}$}\}, \\
-    \overline{B} &= \{p_{\lambda} \mid \lambda \in P^{s, i}\}.
-  \end{align*}
-  By Gröbner basis theory, \eqref{eq:2}, \Cref{rmk:4}, \Cref{lmm:10} and \Cref{lmm:11}, we have $\overline{B} \subseteq B$.
-  Actually, \Cref{prp:1} and \Cref{lmm:9} imply $\overline{B} = B$.
-  We have found a basis of $\gr(L(c_{2, 2s + 1}, h_{1, i}))$ and by \Cref{prp:1}, a basis of $L(c_{2, 2s + 1}, h_{1, i})$.
-  For details, see \cite{salazar_pbw_2024}.
-\end{proof}
-
-\begin{proof}[Proof of \Cref{thr:1}]
-  This is a corollary of \Cref{thr:2}, see \cite{salazar_pbw_2024} for details.
-\end{proof}
-
 \begin{proof}[Proof of \Cref{thr:3}]
-  By \Cref{exa:13}, we have
+  By \Cref{exa:10}, we have
   \begin{equation*}
-    R_{L(c_{2, 2s + 1}, h_{1, i})} \cong \frac{\bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}]L_{-1}^k}{\sigma_0(J(c_{2, 2s + 1}, h_{1, i}))} \cong \frac{\mathbb{C}[L_{-2}, L_{-1}]}{\sigma_0(J(c_{2, 2s + 1}, h_{1, i}))}.
+    R_{L(c_{2, 2s + 1}, h_{1, i})} \cong \frac{\bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}]L_{-1}^k}{\sigma_0(J(c_{2, 2s + 1}, h_{1, i}))}.
   \end{equation*}
-  First, we prove that for a partition $\eta$ with $\eta = \emptyset$ or $2 \ge \eta_1$,
+  We use \Cref{prp:6} with the basis $B_0$ provided by \Cref{thr:2} and
   \begin{equation*}
-    p_{\eta} + \sigma_0(J(c_{2, 2s + 1}, h_{1, i})) \in \vspan\{p_{\lambda} + \sigma_0(J(c_{2, 2s + 1}, h_{1, i})) \mid \text{$\lambda = \emptyset$ or ($\lambda \in P^{s, i}$ and $2 \ge \lambda_1$)}\} = W.
+    B_p = \{L_{\lambda}|c_{2, 2s + 1}, h_{1, i}\rangle \mid \lambda \in P^{s, i}, \Delta(\lambda) - \clen(\lambda) \ge p\} \quad \text{for $p \in \mathbb{N}$}.
   \end{equation*}
-  We assume, for the sake of contradiction, that there is a power $p_{\eta}$ with $\eta = \emptyset$ or $2 \ge \eta_1$ not satisfying $p_{\eta} + \sigma_0(J(c_{2, 2s + 1}, h_{1, i})) \in W$.
-
-  Let $p_{\eta_0}$ be the smallest of such powers in the degree reverse lexicographic order with $L_{-1} > L_{-2} > \dots$.
-  We must have $\eta_0 \neq \emptyset$ and $\eta_0 \notin P^{s, i}$, otherwise $p_{\eta_0} + \sigma_0(J(c_{2, 2s + 1}, h_{1, i})) \in W$.
-  By \Cref{lmm:11}, there is $\mu \in R^{s, i}$ such that $p_{\mu} \mid p_{\eta_0}$.
-  From \eqref{eq:2}, \Cref{rmk:4}, \Cref{lmm:10} and the fact that $\lp$ is multiplicative, we obtain $u \in J(c_{2, 2s + 1}, h_{1, i})$ homogeneous such that $\lp(u) = L_{\eta_0}|c_{2, 2s + 1}, h_{1, i}\rangle$.
-
-  From the equation
-  \begin{equation*}
-    u = L_{\eta_0}|c_{2, 2s + 1}, h_{1, i}\rangle + \sum_{\substack{\mu \vdash \Delta(\eta_0) \\ L_{\mu} < L_{\eta_0}}}c_{\mu}L_{\mu}|c_{2, 2s + 1}, h_{1, i}\rangle,
-  \end{equation*}
-  where $c_{\mu} \in \mathbb{Q}$, we obtain
-  \begin{equation*}
-    p_{\eta_0} + \sigma_0(J(c_{2, 2s + 1}, h_{1, i}))= -\sum_{\substack{\mu \vdash \Delta(\eta_0) \\ p_{\mu} < p_{\eta_0} \\ 2 \ge \mu_1}}c_{\mu}(p_{\mu} + \sigma_0(J(c_{2, 2s + 1}, h_{1, i}))).
-  \end{equation*}
-  The last equation implies $p_{\eta_0} + \sigma_0(J(c_{2, 2s + 1}, h_{1, i})) \in W$ because $p_{\mu} + \sigma_0(J(c_{2, 2s + 1}, h_{1, i})) \in W$ if $p_{\mu} < p_{\eta_0}$ by the minimality of $p_{\eta_0}$, and this is a contradiction.
-  We have proved that
+  Therefore, the set
   \begin{equation}
-    \label{eq:8}
-    \frac{\mathbb{C}[L_{-2}, L_{-1}]}{\sigma_0(J(c_{2, 2s + 1}, h_{1, i}))} = \vspan\{p_{\lambda} + \sigma_0(J(c_{2, 2s + 1}, h_{1, i})) \mid \text{$\lambda = \emptyset$ or ($\lambda \in P^{s, i}$ and $2 \ge \lambda_1$)}\}.
+    \label{eq:9}
+    \{u_{\lambda} + \sigma_0(J(c_{2, 2s + 1}, h_{1, i})) \mid \lambda \in P^{s, i}, \Delta(\lambda) - \clen(\lambda) = 0\}
   \end{equation}
+  is a basis of $R_{L(c_{2, 2s + 1}, h_{1, i})}$.
+  We note that for a partition $\lambda$, $\Delta(\lambda) - \clen(\lambda) = 0$ is equivalent to $\lambda = \emptyset$ or $2 \ge \lambda_1$.
 
   By \cite{van_ekeren_chiral_2021} or \cite{bruschek_arc_2013}, we already know $\Vir_{2, 2s + 1}$ is classically free.
   This means that $\gr_F(\Vir_{2, 2s + 1}) \cong JR_{\Vir_{2, 2s + 1}} \cong J(\mathbb{C}[L_{-2}]/(L_{-2}^s)) = \mathbb{C}[L_{-2}, L_{-3}, \dots]/(L_{-2}^s)_{\partial}$ and
   \begin{equation}
-    \label{eq:9}
-    \mathbb{C}[L_{-2}, L_{-3}, \dots]/(L_{-2}^s)_{\partial} = \bigoplus_{\lambda \in P^{s, 1}}\mathbb{C}(p_{\lambda} + (L_{-2}^s)_{\partial}).
+    \label{eq:10}
+    \{p_{\lambda} + (L_{-2}^s)_{\partial} \mid \lambda \in P^{s, 1}\}
   \end{equation}
+  is a basis of $JR_{\Vir_{2, 2s + 1}}$.
 
   We have
   \begin{equation}
-    \label{eq:10}
-    JR_{\Vir_{2, 2s + 1}} \otimes_{R_{\Vir_{2, 2s + 1}}} R_{L(c_{2, 2s + 1}, h_{1, i})} \cong \frac{\mathbb{C}[L_{-2}, L_{-3}, \dots]}{(L_{-2}^s)_{\partial}} \otimes_{\frac{\mathbb{C}[L_{-2}]}{(L_{-2}^s)}}\frac{\mathbb{C}[L_{-2}, L_{-1}]}{\sigma_0(J(c_{2, 2s + 1}, h_{1, i}))}.
+    \label{eq:11}
+    JR_{\Vir_{2, 2s + 1}} \otimes_{R_{\Vir_{2, 2s + 1}}} R_{L(c_{2, 2s + 1}, h_{1, i})} \cong \frac{\mathbb{C}[L_{-2}, L_{-3}, \dots]}{(L_{-2}^s)_{\partial}} \otimes_{\frac{\mathbb{C}[L_{-2}]}{(L_{-2}^s)}}\frac{\bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}]L_{-1}^k}{\sigma_0(J(c_{2, 2s + 1}, h_{1, i}))}.
   \end{equation}
 
   Given a partition $\lambda \in P^{s, i}$, we can write $\lambda$ uniquely as $\lambda = [\lambda^1, \lambda^2]$, where $\lambda^1 \in P^{s, 1}$ satisfies $\lambda^1 = \emptyset$ or $\lambda^1_{\len(\lambda^1)} \ge 3$ and $\lambda^2 = \emptyset$ or ($\lambda^2 \in P^{s, i}$ and $2 \ge \lambda^2_1$).
 
   Given $\lambda \in P^{s, i}$, we define
   \begin{equation*}
-    t_{\lambda} = (p_{\lambda^1} + (L_{-2}^s)_{\partial})\otimes(p_{\lambda^2} + \sigma_0(J(c_{2, 2s + 1}, h_{1, i}))) \in \frac{\mathbb{C}[L_{-2}, L_{-3}, \dots]}{(L_{-2}^s)_{\partial}} \otimes_{\frac{\mathbb{C}[L_{-2}]}{(L_{-2}^s)}} \frac{\mathbb{C}[L_{-2}, L_{-1}]}{\sigma_0(J(c_{2, 2s + 1}, h_{1, i}))}.
+    t_{\lambda} = (p_{\lambda^1} + (L_{-2}^s)_{\partial})\otimes(p_{\lambda^2} + \sigma_0(J(c_{2, 2s + 1}, h_{1, i}))) \in \frac{\mathbb{C}[L_{-2}, L_{-3}, \dots]}{(L_{-2}^s)_{\partial}} \otimes_{\frac{\mathbb{C}[L_{-2}]}{(L_{-2}^s)}} \frac{\bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}]L_{-1}^k}{\sigma_0(J(c_{2, 2s + 1}, h_{1, i}))}.
   \end{equation*}
-  From \eqref{eq:8}, \eqref{eq:9} and \eqref{eq:10}, we conclude that
+  From the basis \eqref{eq:9} of $R_{L(c_{2, 2s + 1}, h_{1, i})}$, the basis \eqref{eq:10} of $JR_{\Vir_{2, 2s + 1}}$ and \eqref{eq:11}, we conclude that
   \begin{equation}
-    \label{eq:11}
+    \label{eq:12}
     JR_{\Vir_{2, 2s + 1}} \otimes_{R_{\Vir_{2, 2s + 1}}} R_{L(c_{2, 2s + 1}, h_{1, i})} = \vspan\{t_{\lambda} \mid \lambda \in P^{s, i}\}.
   \end{equation}
-  By \Cref{thr:2} and \Cref{prp:1} with $\gr_F$ instead of $\gr$, the natural epimorphism $\phi_{L(c_{2, 2s + 1}, h_{1, i})}$ maps the set $\{t_{\lambda} \mid \lambda \in P^{s, i}\}$ onto a basis of $\gr_F(L(c_{2, 2s + 1}, h_{1, i}))$.
-  Thus, the set $\{t_{\lambda} \mid \lambda \in P^{s, i}\}$ is linearly independent, and by \eqref{eq:11}, it is a basis of $JR_{\Vir_{2, 2s + 1}} \otimes_{R_{\Vir_{2, 2s + 1}}} R_{L(c_{2, 2s + 1}, h_{1, i})}$.
+  By \Cref{thr:2} and \Cref{prp:6}, the natural epimorphism $\phi_{L(c_{2, 2s + 1}, h_{1, i})}$ maps the set $\{t_{\lambda} \mid \lambda \in P^{s, i}\}$ onto a basis of $\gr_F(L(c_{2, 2s + 1}, h_{1, i}))$.
+  Thus, the set $\{t_{\lambda} \mid \lambda \in P^{s, i}\}$ is linearly independent, and by \eqref{eq:12}, it is a basis of $JR_{\Vir_{2, 2s + 1}} \otimes_{R_{\Vir_{2, 2s + 1}}} R_{L(c_{2, 2s + 1}, h_{1, i})}$.
   Therefore, $\phi_{L(c_{2, 2s + 1}, h_{1, i})}$ is an isomorphism, and $L(c_{2, 2s + 1}, h_{1, i})$ is classically free.
 
   Let $p, q > 2$ be relatively prime integers, and let $m, n$ be integers such that $0 < m < p$ and $0 < n < q$.
   We have two natural inclusions $\inc: JR_{\Vir_{p, q}} \hookrightarrow JR_{\Vir_{p, q}} \otimes_{R_{\Vir_{p, q}}} R_{L(c_{p, q}, h_{m, n})}, \inc(a) = a \otimes1$ and $\inc: \gr_F(\Vir_{p, q}) \hookrightarrow \gr_F(L(c_{p, q}, h_{m, n})), \inc(a) = a1$.
   We assume, for the sake of contradiction, that $\phi_{L(c_{p, q}, h_{m, n})}$ is an isomorphism.
-  This would imply that $\phi_{\Vir_{p, q}}$ is also an isomorphism, a contradiction to \Cref{exa:11}.
+  This would imply that $\phi_{\Vir_{p, q}}$ is also an isomorphism, a contradiction to \Cref{exa:8}.
   Finally, $\phi_{L(c_{p, q}, h_{m, n})}$ is not an isomorphism, and $L(c_{p, q}, h_{m, n})$ is not classically free as a module over $\Vir_{p, q}$.
 \end{proof}
 
-As in the proof of \Cref{lmm:10}, let $w \in J(c_{2, 2s + 1}, h_{1, i})$ be the singular vector such that $\lp(w) = L_{-1}^i|c_{2, 2s + 1}, h_{1, i}\rangle$, and we set:
+As in the proof of \Cref{lmm:5}, let $w \in J(c_{2, 2s + 1}, h_{1, i})$ be the singular vector such that $\lp(w) = L_{-1}^i|c_{2, 2s + 1}, h_{1, i}\rangle$, and we set:
 \begin{align*}
   u_k &= \sigma_0((a_{2, 2s + 1})_{(k - 1)}|c_{2, 2s + 1}, h_{1, i}\rangle) \quad \text{for $k = 1, \dots, i - 1$}, \\
   u_i &= \sigma_0(w).
 \end{align*}
-Then $u_1, \dots, u_i \in \sigma_0(J(c_{2, 2s + 1}, h_{1, i}))$.
+Then $u_1, \dots, u_i \in \sigma_0(J(c_{2, 2s + 1}, h_{1, i}))$ by \Cref{thr:5}.
 Moreover:
 \begin{align*}
   L_{-2}^s &= \sigma_0(a_{2, 2s + 1})\sigma_0(|c_{2, 2s + 1}, h_{1, i}\rangle) = \sigma_0((a_{2, 2s + 1})_{(-1)}|c_{2, 2s + 1}, h_{1, i}\rangle) \in \sigma_0(J(c_{2, 2s + 1}, h_{1, i})), \\
@@ -1461,26 +1183,26 @@ Moreover:
   \label{crl:1}
   With the notation above, we have:
   \begin{align}
-    \label{eq:12}
-    \sigma_0(J(c_{2, 2s + 1}, h_{1, i})) &= (L_{-2}^s, u_1, \dots, u_i)_{\psn}, \\
     \label{eq:13}
-    R_{L(c_{2, 2s + 1}, h_{1, i})} &\cong \frac{\bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}]L_{-1}^k}{(L_{-2}^s, u_1, \dots, u_i)_{\psn}}, \\
+    \sigma_0(J(c_{2, 2s + 1}, h_{1, i})) &= (L_{-2}^s, u_1, \dots, u_i)_{\psn}, \\
     \label{eq:14}
+    R_{L(c_{2, 2s + 1}, h_{1, i})} &\cong \frac{\bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}]L_{-1}^k}{(L_{-2}^s, u_1, \dots, u_i)_{\psn}}, \\
+    \label{eq:15}
     \gr_F(L(c_{2, 2s + 1}, h_{1, i})) &\cong \frac{\mathbb{C}[L_{-2}, L_{-3}, \dots]}{(L_{-2}^s)_{\partial}} \otimes_{\frac{\mathbb{C}[L_{-2}]}{(L_{-2}^s)}} \frac{\bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}]L_{-1}^k}{(L_{-2}^s, u_1, \dots, u_i)_{\psn}},
   \end{align}
   where $\psn$ denotes the Poisson submodule generated by the given subset.
 \end{corollary}
 
-\begin{proof}
+\begin{proof}[Sketch of proof]
   We use the notation of the proof of \Cref{thr:3}.
-  Since $\{t_{\lambda} \mid \lambda \in P^{s, i}\}$ is a basis of $JR_{\Vir_{2, 2s + 1}} \otimes_{R_{\Vir_{2, 2s + 1}}} R_{L(c_{2, 2s + 1}, h_{1, i})}$, the set in \eqref{eq:8} is a basis of $R_{L(c_{2, 2s + 1}, h_{1, i})}$.
-  We note that for a partition $\lambda \in R^{s, i}$ with $2 \ge \lambda_1$, there is $u \in (L_{-2}^s, u_1, \dots, u_i)_{\psn}$ such that $\lp(u) = u_{\lambda}$.
-  Therefore, we can prove \eqref{eq:12} similarly to how we proved \eqref{eq:8}.
-  The isomorphisms \eqref{eq:13} and \eqref{eq:14} follow.
+  Let $K' = (L_{-2}^s, u_1, \dots, u_i)_{\psn} \subseteq \sigma_0(J(c_{2, 2s + 1}, h_{1, i}))$ the graded submodule of $\bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}]L_{-1}^k$.
+  We note that for a partition $\lambda \in R^{s, i}$ with $\lambda = \emptyset$ or $2 \ge \lambda_1$, there is $u \in K'$ such that $\lp(u) = u_{\lambda}$.
+  We can prove that $K' = \sigma_0(J(c_{2, 2s + 1}, h_{1, i}))$ using the argument of (the proof of) \cite[Corollary 4.1]{salazar_pbw_2024} comparing the dimensions of the graded components of $\bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}]L_{-1}^k/\sigma_0(J(c_{2, 2s + 1}, h_{1, i}))$ and $\bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}]L_{-1}^k/K'$ up to $N \in \mathbb{N}$, and then we let $N \to \infty$ to conclude.
+  The isomorphisms \eqref{eq:14} and \eqref{eq:15} follow.
 \end{proof}
 
 \begin{remark}
-  \label{rmk:6}
+  \label{rmk:3}
   We have
   \begin{equation*}
     u_1 = \sigma_0((a_{2, 2s + 1})_{(0)}|c_{2, 2s + 1}, h_{1, i}\rangle) = \{\sigma_0(a_{2, 2s + 1}), \sigma_0(|c_{2, 2s + 1}, h_{1, i}\rangle)\} = \{L_{-2}^s, 1\} = sL_{-2}^{s - 1}L_{-1}.
@@ -1507,7 +1229,7 @@ A \emph{Hamiltonian operator of $A$} is a Hamiltonian of $A$ as a commutative as
 \end{equation*}
 It is possible to prove inductively that the last equation implies
 \begin{equation}
-  \label{eq:15}
+  \label{eq:16}
   H\partial^n = n\partial^n + \partial^nH \quad \text{for $n \in \mathbb{N}$}.
 \end{equation}
 
@@ -1565,21 +1287,21 @@ By our definitions, $\partial$ factors through a derivation of $JR$, and we have
 The fact that $\inc: R \hookrightarrow JR$ satisfies our desired universal property is explained in \cite[\S2.3]{arakawa_remark_2012} and \cite{ein_jet_2008}.
 
 \begin{remark}
-  \label{rmk:7}
+  \label{rmk:4}
   We see that the classes of the original variables $x^j$ generate $JR$ as a differential algebra, i.e.,
   \begin{equation*}
     JR = (x^1 + (f_1, \dots, f_s)_{\partial}, \dots, x^r + (f_1, \dots, f_s)_{\partial})_{\partial}.
   \end{equation*}
 \end{remark}
 
-If $f: R_1 \to R_2$ is a homomorphism of finitely generated algebras, then $Jf: JR_1 \to JR_2$ is defined by requiring that $Jf(\partial_1^n(\inc_1(x))) = \partial^n_2(\inc_2(f(x)))$ for $x \in R_1$ and $n \in \mathbb{N}$ (cf.\ \Cref{rmk:7}).
+If $f: R_1 \to R_2$ is a homomorphism of finitely generated algebras, then $Jf: JR_1 \to JR_2$ is defined by requiring that $Jf(\partial_1^n(\inc_1(x))) = \partial^n_2(\inc_2(f(x)))$ for $x \in R_1$ and $n \in \mathbb{N}$ (cf.\ \Cref{rmk:4}).
 For a finitely generated algebra $R$ and a differential algebra $A$, we have a natural isomorphism
 \begin{equation*}
   \Hom_{\{\text{differential algebras}\}}(JR, A) \cong \Hom_{\{\text{algebras}\}}(R, A).
 \end{equation*}
 
 \begin{remark}
-  \label{rmk:8}
+  \label{rmk:5}
   It is not true that we have defined a functor $J$ which is left adjoint to the forgetful functor $\{\text{differential algebras}\} \to \{\text{finitely generated algebras}\}$ because a differential algebra is generally not finitely generated.
 
   But we can easily work in the general case as follows.
@@ -1601,7 +1323,7 @@ where $JR$ is merely considered an algebra.
 Again, the $JR$-module $M$ together with the $R$-module inclusion $\inc: M \hookrightarrow JR \otimes_R M, \inc(u) = 1\otimes u$ satisfy a universal property similar to that of $\inc: R \hookrightarrow JR$, and the functor $JR \otimes_R \bullet$ is left adjoint to the forgetful functor $\text{$JR$-Mod} \to \text{$R$-Mod}$.
 
 Let $R$ be a graded algebra with Hamiltonian $H$.
-We can extend uniquely the Hamiltonian $H$ to a Hamiltonian $H^{JR} \in \End(JR)$ because of \eqref{eq:15}.
+We can extend uniquely the Hamiltonian $H$ to a Hamiltonian $H^{JR} \in \End(JR)$ because of \eqref{eq:16}.
 Furthermore, if $M$ is a graded $R$-module with Hamiltonian $H^M$, we can define a Hamiltonian of $JR \otimes_R M$ by setting
 \begin{equation*}
   H^{JR \otimes_R M} = H^{JR}\otimes\Id_{M} + \Id_{JR}\otimes H^M.
@@ -1610,8 +1332,8 @@ Furthermore, if $M$ is a graded $R$-module with Hamiltonian $H^M$, we can define
 \section{Graded vertex Poisson algebras and their modules}
 \label{sec:graded-vert-poiss}
 
-\begin{proposition}[{\cite[Proposition 2.3.1]{arakawa_remark_2012}} and {\Cref{sec:graded-jet-algebras}}]
-  \label{prp:6}
+\begin{proposition}[{\cite[Proposition 2.3.1]{arakawa_remark_2012} and \Cref{sec:graded-jet-algebras}}]
+  \label{prp:7}
   Let $R$ be a (graded) Poisson algebra.
   Then there is a unique (graded) vertex Poisson algebra structure on $JR$ such that
   \begin{equation*}
@@ -1619,7 +1341,7 @@ Furthermore, if $M$ is a graded $R$-module with Hamiltonian $H^M$, we can define
   \end{equation*}
 \end{proposition}
 
-The (graded) vertex Poisson algebra structure on $JR$ given in \Cref{prp:6} for a (graded) Poisson algebra $R$ will be called the \emph{level 0 vertex Poisson algebra structure of $JR$}.
+The (graded) vertex Poisson algebra structure on $JR$ given in \Cref{prp:7} for a (graded) Poisson algebra $R$ will be called the \emph{level 0 vertex Poisson algebra structure of $JR$}.
 
 If $R$ is a (graded) Poisson algebra, and $M$ is a (graded) $R$-module, then we can verify that $JR \otimes_R M$ is a (graded) $JR$-module by defining the Poisson structure as
 \begin{equation*}
@@ -1628,11 +1350,11 @@ If $R$ is a (graded) Poisson algebra, and $M$ is a (graded) $R$-module, then we 
 and $H^{JR \otimes_R M}$ as in \Cref{sec:graded-jet-algebras}.
 
 The (graded) $R$-module $M$ together with the natural (graded) $R$-module inclusion $\inc: M \hookrightarrow JR \otimes_R M$ satisfy the following universal property.
-Let $N$ be a (graded) module over the (graded) vertex Poisson algebra $JR$, and let $f: M \to N$ be a (graded) homomorphism of modules over the (graded) Poisson algebra $R$.
-There is a unique (graded) homomorphism $\overline{f}: JR \otimes_R M \to N$ of (graded) modules over the (graded) vertex Poisson algebra $JR$ such that the following diagram commutes
+Let $N$ be a (graded) module over the (graded) vertex Poisson algebra $JR$, and let $\phi: M \to N$ be a (graded) homomorphism of modules over the (graded) Poisson algebra $R$.
+There is a unique (graded) homomorphism $\overline{\phi}: JR \otimes_R M \to N$ of (graded) modules over the (graded) vertex Poisson algebra $JR$ such that the following diagram commutes
 \begin{equation*}
   \begin{tikzcd}
-    M \arrow[r, "\inc", hook] \arrow[rd, "f"'] & JR \otimes_R M \arrow[d, "\overline{f}"] \\
+    M \arrow[r, "\inc", hook] \arrow[rd, "\phi"'] & JR \otimes_R M \arrow[d, "\overline{\phi}"] \\
     & N
   \end{tikzcd}
 \end{equation*}
