@@ -54,7 +54,7 @@
   We determine when the irreducible modules $L(c_{p, q}, h_{m, n})$ over the simple Virasoro vertex algebras $\Vir_{p, q}$, where $p, q \ge 2$ are relatively prime with $0 < m < p$ and $0 < n < q$, are classically free.
   It turns out this only happens with the boundary minimal models, i.e., with the irreducible modules over $\Vir_{2, 2s + 1}$ for $s \in \mathbb{Z}_+$.
   We thus obtain a complete description of the classical limits of these modules in terms of the jet algebra of the corresponding Zhu $C_2$-algebra.
-  Gordon's generalization of the Rogers-Ramanujan identities is used in the proof, and our results in turn provide a natural interpretation of these identities. \\
+  Andrews-Gordon's generalization of the Rogers-Ramanujan identities is used in the proof, and our results in turn provide a natural interpretation of these identities. \\
   \smallskip
   \noindent \textbf{Keywords.} Vertex algebras, boundary minimal models, Rogers-Ramanujan identities, quantum algebra, combinatorics.
 \end{abstract}
@@ -89,11 +89,11 @@ For modules $M$ over the vertex algebra $V$, we also have a natural surjection
 and we say $M$ is classically free if this is an isomorphism.
 One may in turn regard the classically free vertex algebra $V$ or $V$-module $M$, as a quantization of $JR_V$ or $JR_V \otimes_{R_V} R_M$, respectively.
 
-The question of classical freedom of the simple Virasoro vertex algebra $\Vir_{p, q}$ was studied in \cite{van_ekeren_chiral_2021}, and the answer is very simple.
+The question of classical freeness of the simple Virasoro vertex algebra $\Vir_{p, q}$ was studied in \cite{van_ekeren_chiral_2021}, and the answer is very simple.
 If $q > p \ge 2$ are relatively prime integers, then $\Vir_{p, q}$ is classically free if and only if $p = 2$.
 The main objective of this article is to solve this problem for all irreducible modules over the vertex algebras $\Vir_{p, q}$, namely $L(c_{p, q}, h_{m, n})$ for integers $m, n$ such that $0 < m < p$ and $0 < n < q$.
 
-It turns out this problem is deeply connected with the Rogers-Ramanujan $q$-series identities and Gordon's generalization \cite{gordon_combinatorial_1961}, namely
+It turns out this problem is deeply connected with the Rogers-Ramanujan $q$-series identities and Andrews-Gordon's generalization \cite{gordon_combinatorial_1961} and \cite{andrews_analytic_1974}, namely
 \begin{equation}
   \label{eq:1}
   \sum_{k = (k_1, \dots, k_{s - 1}) \in \mathbb{N}^{s - 1}}  \frac{q^{\frac{1}{2}kG^{(s)}k^T + kB^{(s)}_{s - i}}}{(q)_{k_1}\dots(q)_{k_{s - 1}}} = \prod^{\infty}_{\substack{n = 1 \\ n \not\equiv 0, \pm i \mod 2s + 1}}(1 - q^n)^{-1},
@@ -130,6 +130,8 @@ For partition ideals of order $1$, this problem is completely solved (see \cite[
 
 In the context of representations of infinite dimensional Lie algebras and vertex algebras, the left-hand side of \eqref{eq:1} is precisely the graded dimension, or character, of the irreducible $\Vir$-module $M = L(c_{2, 2s + 1}, h_{1, i})$.
 Our main theorems concern a refined version of this character and the intimate relation between the structure of $\gr_F(M)$ and the partition ideals $P^{s, i}$.
+The second theorem about a PBW basis of $L(c_{2, 2s + 1}, h_{1, i})$ was conjectured by Kac in \cite{kac_modular_1988} and proved using different methods in \cite{feigin_annihilating_1992} and \cite{feigin_coinvariants_1993}.
+Here, we present another proof relying on the refined character formula of the next theorem.
 
 \begin{theorem}
   \label{thr:1}
@@ -378,7 +380,7 @@ The following simple linear algebra proposition relates a basis of the vector sp
 \begin{proposition}
   \label{prp:1}
   Let $M$ be a vector space, let $(M^p)_{p \in \mathbb{Z}}$ be a family of subspaces of $M$ satisfying properties \emph{(i)--(iii)} above, and let $(B^p)_{p \in \mathbb{N}}$ be an increasing family of sets satisfying $B^p \subseteq M^p$ for $p \in \mathbb{N}$.
-  Then $\{\gamma^p(v) \mid v \in B^p \setminus B^{p - 1}\}$ spans (resp.\ is a basis of) $M^p/M^{p - 1}$ for $p \in \mathbb{N}$ if and only if $B^p$ spans (resp.\ is a basis of) $M^p$ for $p \in \mathbb{N}$ ($B^{-1} = \emptyset$).
+  Then $\{v + M^{p - 1} \mid v \in B^p \setminus B^{p - 1}\}$ spans (resp.\ is a basis of) $M^p/M^{p - 1}$ for $p \in \mathbb{N}$ if and only if $B^p$ spans (resp.\ is a basis of) $M^p$ for $p \in \mathbb{N}$ ($B^{-1} = \emptyset$).
   In particular, if $\{\gamma^p(v) \mid p \in \mathbb{N}, v \in B^p \setminus B^{p - 1}\}$ is a basis of $\gr(M)$, then $\bigcup_{p \in \mathbb{N}}B^p$ is a basis of $M$.
 \end{proposition}
 
@@ -547,7 +549,7 @@ A vector $u$ in $V$ is called \emph{singular} if it is nonzero and
   L_nu = 0 \quad \text{for $n \in \mathbb{Z}_+$}.
 \end{equation*}
 
-\begin{theorem}[{\cite{gorelik_simplicity_2007}}]
+\begin{theorem}[{\cite{feigin_verma_1984} and \cite{gorelik_simplicity_2007}}]
   \label{thr:4}
   The following are equivalent:
   \begin{enumerate}
@@ -628,7 +630,7 @@ where $P^{s, i}$ is the set of partitions that do not contain any partition in $
   \end{equation*}
 \end{lemma}
 
-\begin{lemma}[{\cite[\S7]{andrews_theory_1998} and \cite{feigin_verma_1984}}]
+\begin{lemma}[{\cite{feigin_verma_1984} and \cite[\S7]{andrews_theory_1998}}]
   \label{lmm:4}
   We have
   \begin{equation*}
@@ -1096,6 +1098,7 @@ By the universal property of $\inc: R_M \hookrightarrow JR_V \otimes_{R_V} R_M$ 
 
 \begin{proof}
   The assertion follows from \Cref{lmm:8} and \Cref{thr:6}.
+  This is also explained in a slightly more general setting in \cite{arakawa_associated_2015}.
 \end{proof}
 
 When $\phi_M$ is an isomorphism, we say $M$ is \emph{classically free}.
@@ -1332,7 +1335,7 @@ Furthermore, if $M$ is a graded $R$-module with Hamiltonian $H^M$, we can define
 \section{Graded vertex Poisson algebras and their modules}
 \label{sec:graded-vert-poiss}
 
-\begin{proposition}[{\cite[Proposition 2.3.1]{arakawa_remark_2012} and \Cref{sec:graded-jet-algebras}}]
+\begin{proposition}[{\cite{arakawa_associated_2015}, \cite[Proposition 2.3.1]{arakawa_remark_2012} and \Cref{sec:graded-jet-algebras}}]
   \label{prp:7}
   Let $R$ be a (graded) Poisson algebra.
   Then there is a unique (graded) vertex Poisson algebra structure on $JR$ such that
