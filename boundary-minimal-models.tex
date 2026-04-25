@@ -63,20 +63,22 @@
 
 \setcounter{section}{-1}
 
-\begin{abstract}
-  We determine when the irreducible modules $L(c_{p, q}, h_{m, n})$ over the simple Virasoro vertex algebras $\Vir_{p, q}$, where $p, q \ge 2$ are relatively prime with $0 < m < p$ and $0 < n < q$, are classically free.
-  It turns out this only happens with the boundary minimal models, i.e., with the irreducible modules over $\Vir_{2, 2s + 1}$ for $s \in \mathbb{Z}_+$.
-  We thus obtain a complete description of the classical limits of these modules in terms of the jet algebra of the corresponding Zhu $C_2$-algebra.
-  The Andrews-Gordon generalization of the Rogers-Ramanujan identities is used in the proof, and our results in turn provide a natural interpretation of these identities. \\
-  \smallskip
-  \noindent \textbf{Keywords.} Vertex algebras, boundary minimal models, Rogers-Ramanujan identities, quantum algebra, combinatorics.
-\end{abstract}
-
 \title{Boundary minimal models and the Rogers-Ramanujan identities}
 \author{Diego Salazar}
+\thanks{The author is partially supported by FAPERJ grant 201.445/2021}
 \address{Universidade Federal do Rio de Janeiro, Macaé, RJ, Brazil}
 \email{xdiego.sg@gmail.com}
 \date{\today}
+
+\begin{abstract}
+  We determine when the irreducible modules $L(c_{p, q}, h_{m, n})$ over the simple Virasoro vertex algebras $\Vir_{p, q}$, where $p, q \ge 2$ are relatively prime with $0 < m < p$ and $0 < n < q$, are classically free.
+  It turns out that this only happens with the boundary minimal models, i.e., with the irreducible modules over $\Vir_{2, 2s + 1}$ for $s \in \mathbb{Z}_+$.
+  We thus obtain a complete description of the classical limits of these modules in terms of the jet algebra of the corresponding Zhu $C_2$-algebra.
+  The Andrews-Gordon generalization of the Rogers-Ramanujan identities is used in the proof, and our results in turn provide a natural interpretation of these identities.
+
+  \noindent \textbf{Keywords.} Vertex algebras, boundary minimal models, Rogers-Ramanujan identities, quantum algebra, combinatorics.
+\end{abstract}
+
 \maketitle
 
 \numberwithin{equation}{section}
@@ -100,23 +102,23 @@ For modules $M$ over the vertex algebra $V$, we also have a natural surjection
   JR_V \otimes_{R_V} R_M \twoheadrightarrow \gr_F(M),
 \end{equation*}
 and we say $M$ is classically free if this is an isomorphism.
-One may in turn regard the classically free vertex algebra $V$ or $V$-module $M$, as a quantization of $JR_V$ or $JR_V \otimes_{R_V} R_M$, respectively.
+One may in turn regard the classically free vertex algebra $V$ or $V$-module $M$ as a quantization of $JR_V$ or $JR_V \otimes_{R_V} R_M$, respectively.
 
-The question of classical freeness of the simple Virasoro vertex algebra $\Vir_{p, q}$ was studied in \cite{van_ekeren_chiral_2021}, and the answer is very simple.
+The question of classical freeness of the simple Virasoro vertex algebra $\Vir_{p, q}$ was studied in \cite{van_ekeren_chiral_2021}, and its answer is very simple.
 If $q > p \ge 2$ are relatively prime integers, then $\Vir_{p, q}$ is classically free if and only if $p = 2$.
 The main objective of this article is to solve this problem for all irreducible modules over the vertex algebras $\Vir_{p, q}$, namely $L(c_{p, q}, h_{m, n})$ for integers $m, n$ such that $0 < m < p$ and $0 < n < q$.
 
-It turns out this problem is deeply connected with the Rogers-Ramanujan $q$-series identities and the Andrews-Gordon generalization \cite{gordon_combinatorial_1961} and \cite{andrews_analytic_1974}, namely
+It turns out that this problem is deeply connected with the Rogers-Ramanujan $q$-series identities and the Andrews-Gordon generalization \cite{gordon_combinatorial_1961} and \cite{andrews_analytic_1974}, namely
 \begin{equation}
   \label{eq:1}
-  \sum_{k = (k_1, \dots, k_{s - 1}) \in \mathbb{N}^{s - 1}}\frac{q^{\frac{1}{2}kG^{(s)}k^T + kB^{(s)}_{s - i}}}{(q)_{k_1}\dots(q)_{k_{s - 1}}} = \prod^\infty_{\substack{n = 1 \\ n \not\equiv 0, \pm i \mod 2s + 1}}(1 - q^n)^{-1},
+  \sum_{k = (k_1, \dots, k_{s - 1}) \in \mathbb{N}^{s - 1}}\frac{q^{\frac{1}{2}kG^{(s)}k^\top + kB^{(s)}_{s - i}}}{(q)_{k_1}\dots(q)_{k_{s - 1}}} = \prod^\infty_{\substack{n = 1 \\ n \not\equiv 0, \pm i \bmod 2s + 1}}(1 - q^n)^{-1},
 \end{equation}
 for $s \in \mathbb{Z}_+$, $i \in \{1, \dots, s\}$, where
 \begin{align*}
   G^{(s)} &= (2\min\{i, j\})_{i, j = 1}^{s - 1}, \\
-  B^{(s)}_j &= (0, 0, \dots, 0, 1, 2, \dots, j)^T \quad \text{for $j = 0, 1, \dots, s - 1$},
+  B^{(s)}_j &= (0, 0, \dots, 0, 1, 2, \dots, j)^\top \quad \text{for $j = 0, 1, \dots, s - 1$},
 \end{align*}
-and $T$ denotes the transpose matrix.
+and ${}^\top$ denotes the transpose matrix.
 
 The identity \eqref{eq:1} has an interpretation in terms of integer partitions, as explained in \cite[\S8]{andrews_theory_1998}.
 We represent a partition $\lambda$ either as a finite nonincreasing sequence of positive integers $[\lambda_1, \dots, \lambda_s]$ or as an infinite sequence $(f_n)_{n \in \mathbb{Z}_+} = [1^{f_1}, 2^{f_2}, \dots]$ of nonnegative integers in which only finitely many of the $f_n$ are nonzero, where $f_n$ is the number of times $n$ appears among the $\lambda_i$.
@@ -132,16 +134,16 @@ Gordon's generalization of the Rogers-Ramanujan identities asserts
 \end{equation*}
 where the partition ideals $A^{s, i}$ and $P^{s, i}$ are defined by:
 \begin{align*}
-  A^{s, i} &= \{\text{$(f_n)_{n \in \mathbb{Z}_+}$ is a partition} \mid \text{for $n \in \mathbb{Z}_+$, $f_n > 0$ implies $n \not\equiv 0, \pm i \mod 2s + 1$}\}, \\
+  A^{s, i} &= \{\text{$(f_n)_{n \in \mathbb{Z}_+}$ is a partition} \mid \text{for $n \in \mathbb{Z}_+$, $f_n > 0$ implies $n \not\equiv 0, \pm i \bmod 2s + 1$}\}, \\
   R^{s, i} &= \{\text{$\lambda$ is a partition} \mid \text{$\lambda = [\lambda_1, \dots, \lambda_s]$ satisfies $\lambda_1 - \lambda_s \le 1$ or $\lambda = [1^i]$}\}, \\
   P^{s, i} &= \text{the set of partitions that do not contain any partition in $R^{s, i}$}.
 \end{align*}
 
 As explained in \cite[\S8]{andrews_theory_1998}, $A^{s, i}$ is a partition ideal of order $1$, while $P^{s, i}$ is a partition ideal of order $2$.
-It is an open problem to characterize the equivalence classes of partitions ideals.
+It is an open problem to characterize the equivalence classes of partition ideals.
 For partition ideals of order $1$, this problem is completely solved (see \cite[Theorem 8.4]{andrews_theory_1998}).
 
-In the context of representations of infinite dimensional Lie algebras and vertex algebras, the left-hand side of \eqref{eq:1} is precisely the graded dimension, or character, of the irreducible $\Vir$-module $M = L(c_{2, 2s + 1}, h_{1, i})$.
+In the context of representations of infinite-dimensional Lie algebras and vertex algebras, the left-hand side of \eqref{eq:1} is precisely the graded dimension, or character, of the irreducible $\Vir$-module $M = L(c_{2, 2s + 1}, h_{1, i})$.
 Our main theorems concern a refined version of this character and the intimate relation between the structure of $\gr_F(M)$ and the partition ideals $P^{s, i}$.
 The second theorem about a PBW basis of $L(c_{2, 2s + 1}, h_{1, i})$ was conjectured by Kac in \cite{kac_modular_1988} and proved using different methods in \cite{feigin_annihilating_1992} and \cite{feigin_coinvariants_1993}.
 Here, we present another proof relying on the refined character formula of the next theorem.
@@ -150,7 +152,7 @@ Here, we present another proof relying on the refined character formula of the n
   \label{thr:1}
   The refined character of $L(c_{2, 2s + 1}, h_{1, i})$ is given by
   \begin{equation*}
-    \ch_{L(c_{2, 2s + 1}, h_{1, i})}(t, q) = q^{h_{1, i}}\left(\sum_{k = (k_1, \dots, k_{s - 1}) \in \mathbb{N}^{s - 1}}t^{kB^{(s)}_{s - 1}}\frac{q^{\frac{1}{2}kG^{(s)}k^T + kB^{(s)}_{s - i}}}{(q)_{k_1}\dots(q)_{k_{s - 1}}}\right).
+    \ch_{L(c_{2, 2s + 1}, h_{1, i})}(t, q) = q^{h_{1, i}}\left(\sum_{k = (k_1, \dots, k_{s - 1}) \in \mathbb{N}^{s - 1}}t^{kB^{(s)}_{s - 1}}\frac{q^{\frac{1}{2}kG^{(s)}k^\top + kB^{(s)}_{s - i}}}{(q)_{k_1}\dots(q)_{k_{s - 1}}}\right).
   \end{equation*}
 \end{theorem}
 
@@ -170,6 +172,8 @@ Here, we present another proof relying on the refined character formula of the n
 \end{theorem}
 As a corollary, we obtain an explicit expression for the modules $\gr_F(L(c_{2, 2s + 1}, h_{1, i}))$ over the vertex Poisson algebra $\gr_F(\Vir_{2, 2s + 1})$.
 
+The Andrews-Gordon series in \zcref{thr:1} already appeared in earlier works on vertex algebras such as \cite{feigin_quasi-particles_1993}, \cite{capparelli_rogersselberg_2006} and \cite{calinescu_vertex-algebraic_2008}, where they arise as characters of level $k = s - 1 \in \mathbb{N}$ principal subspaces of $\widehat{\mathfrak{sl}_2}$, and where related commutative algebraic structures capturing the Andrews-Gordon sum side were developed.
+
 This article is organized as follows.
 In \zcref{sec:prel-notat}, we review Verma modules and set notations related to partitions.
 In \zcref{sec:modul-over-algebr}, we review certain filtrations and characters of algebras and modules, the main example being the PBW filtration of a Lie algebra.
@@ -177,14 +181,14 @@ In \zcref{sec:fields-over-vector}, we introduce an explicit formula related to t
 In \zcref{sec:modules-over-simple}, we recall the irreducible modules over the simple Virasoro vertex algebras.
 In \zcref{sec:pbw-bases-characters}, we prove \zcref{thr:1} and \zcref{thr:2}.
 In \zcref{sec:li-filtr}, we summarize the theory of filtrations of vertex algebras and their modules, with emphasis on explicit examples related to modules over the Virasoro Lie algebra.
-In \zcref{sec:class-free-bound}, we recall the Zhu's algebra and the notion of classical freeness of vertex algebras and their modules.
+In \zcref{sec:class-free-bound}, we recall Zhu $C_2$-algebra and the notion of classical freeness of vertex algebras and their modules.
 Finally, we prove \zcref{thr:3}.
 In the appendices, we recall notions related to Poisson algebras, jet algebras and vertex Poisson algebras.
 
 Mathematical terms are typeset in \emph{italics} when they are officially defined.
 
-I would like to thank Reimundo Heluani and Jethro Van Ekeren for some valuable suggestions.
-The author is partially supported by FAPERJ grant 201.445/2021.
+\paragraph{Acknowledgements.}
+I would like to thank Reimundo Heluani and Jethro Van Ekeren for their valuable suggestions.
 
 \section{Preliminaries and notation}
 \label{sec:prel-notat}
@@ -253,7 +257,7 @@ A \emph{partition (of $n \in \mathbb{N}$)} is a composition $\lambda = [\lambda_
 The notation $\lambda \vdash$ means $\lambda$ is a partition, and for $n \in \mathbb{N}$, the notation $\lambda \vdash n$ means $\lambda$ is a partition of $n$.
 This notation also tacitly assumes that $\lambda$ is a partition and not just a composition.
 
-Given a composition $\lambda$ of length $m$, there is a unique partition $\prt(\lambda)$ obtained by reordering $\lambda$, i.e., by considering all $\lambda\sigma$ for $\sigma \in S_m$.
+Given a composition $\lambda$ of length $m$, there is a unique partition $\prt(\lambda)$ obtained by reordering the entries of $\lambda$ in nonincreasing order.
 
 By the PBW theorem, the set
 \begin{equation*}
@@ -497,7 +501,7 @@ Therefore, we can define a field $a(z)$ by defining $a(z)b \in V((z))$ for $b \i
   \end{equation*}
 \end{proposition}
 
-We thus defined the notion of \emph{normal ordered product between fields $a(z), b(z) \in \mathcal{F}(V)$}, denoted by $:a(z)b(z):$.
+We have thus defined the notion of \emph{normal ordered product between fields $a(z), b(z) \in \mathcal{F}(V)$}, denoted by $:a(z)b(z):$.
 In general, the operation of normal ordered product is neither commutative nor associative.
 We follow the convention that the normal ordered product is read from right to left, so that, by definition,
 \begin{equation*}
@@ -546,7 +550,7 @@ We make the subalgebra $\Vir^\ge \oplus \mathbb{C}L_{-1}$ of $\Vir$ act on $\mat
 \end{equation*}
 The induced $\Vir$-module
 \begin{equation*}
-  \Vir^c = \Ind^\Vir_{\Vir^\ge \oplus \mathbb{C}L_{-1}} = U(\Vir) \otimes_{U(\Vir^\ge \oplus \mathbb{C}L_{-1})} \mathbb{C}
+  \Vir^c = \Ind^\Vir_{\Vir^\ge \oplus \mathbb{C}L_{-1}}(\mathbb{C}) = U(\Vir) \otimes_{U(\Vir^\ge \oplus \mathbb{C}L_{-1})} \mathbb{C}
 \end{equation*}
 carries the structure of a vertex algebra and is called the \emph{universal Virasoro vertex algebra of central charge $c$}, see \cite[\S2]{frenkel_vertex_2001} or \cite[\S2]{callegaro_introduction_2017-1} for details.
 
@@ -625,7 +629,7 @@ By \zcref{thr:5}, $\Vir_{2, 2s + 1}$ has $s$ irreducible modules $L(c_{2, 2s + 1
 
 In this section, we fix $s \in \mathbb{Z}_+$ and $i \in \{1, \dots, s\}$.
 
-A partition $\lambda = [\lambda_1, \dots, \lambda_m]$ \emph{contains a partition} $\eta = [\eta_1, \dots, \eta_n]$, written as $\eta \subseteq \lambda$, if $m \ge n$ and there is $i \in \mathbb{Z}_+$ such that $1 \le i \le m - n + 1$ and $[\lambda_i, \lambda_{i + 1}, \dots, \lambda_{i + n - 1}] = \eta$.
+A partition $\lambda = [\lambda_1, \dots, \lambda_m]$ \emph{contains a partition} $\eta = [\eta_1, \dots, \eta_n]$, written as $\eta \subseteq \lambda$, if $m \ge n$ and there is $j \in \mathbb{Z}_+$ such that $1 \le j \le m - n + 1$ and $[\lambda_j, \lambda_{j + 1}, \dots, \lambda_{j + n - 1}] = \eta$.
 
 We define
 \begin{equation*}
@@ -640,7 +644,7 @@ where $P^{s, i}$ is the set of partitions that do not contain any partition in $
   \label{lmm:3}
   We have
   \begin{equation*}
-    p^{s, i}(t, q) = \sum_{k = (k_1, \dots, k_{s - 1}) \in \mathbb{N}^{s - 1}}t^{kB^{(s)}_{s - 1}}\frac{q^{\frac{1}{2}kG^{(s)}k^T + kB^{(s)}_{s - i}}}{(q)_{k_1}\dots(q)_{k_{s - 1}}}.
+    p^{s, i}(t, q) = \sum_{k = (k_1, \dots, k_{s - 1}) \in \mathbb{N}^{s - 1}}t^{kB^{(s)}_{s - 1}}\frac{q^{\frac{1}{2}kG^{(s)}k^\top + kB^{(s)}_{s - i}}}{(q)_{k_1}\dots(q)_{k_{s - 1}}}.
   \end{equation*}
 \end{lemma}
 
@@ -648,7 +652,7 @@ where $P^{s, i}$ is the set of partitions that do not contain any partition in $
   \label{lmm:4}
   We have
   \begin{equation*}
-    \ch_{L(c_{2, 2s + 1}, h_{1, i})}(q) = q^{h_{1, i}}p^{s, i}(1, q) = q^{h_{1, i}}\left(\prod^{\infty}_{\substack{n = 1 \\ n \not\equiv 0, \pm i \mod 2s + 1}}(1 - q^n)^{-1}\right).
+    \ch_{L(c_{2, 2s + 1}, h_{1, i})}(q) = q^{h_{1, i}}p^{s, i}(1, q) = q^{h_{1, i}}\left(\prod^{\infty}_{\substack{n = 1 \\ n \not\equiv 0, \pm i \bmod 2s + 1}}(1 - q^n)^{-1}\right).
   \end{equation*}
 \end{lemma}
 
@@ -661,7 +665,7 @@ For $x \in U(\Vir^-)$ with $x \neq 0$, we may write
 \begin{equation*}
   x = c_1L_{\lambda^1} + c_2L_{\lambda^2} + \dots + c_rL_{\lambda^r},
 \end{equation*}
-where for $1 \le i \le r$, $0 \neq c_i \in \mathbb{C}$ and $L_{\lambda^1} > L_{\lambda^2} > \dots > L_{\lambda^r}$.
+where for $1 \le j \le r$, $0 \neq c_j \in \mathbb{C}$ and $L_{\lambda^1} > L_{\lambda^2} > \dots > L_{\lambda^r}$.
 We define the \emph{leading power of $x$} as $\lp(x) = L_{\lambda^1}$.
 We set $\lp(0) = 0$.
 Next, for a highest weight $(c, h)$, we extend the definition of $\lp$ from $U(\Vir^-)$ to $M(c, h)$ by considering the isomorphism of vector spaces $U(\Vir^-) \xrightarrow{\sim} M(c, h), L_\lambda \mapsto L_\lambda|c, h\rangle$, where $\lambda$ is a partition.
@@ -721,10 +725,10 @@ Next, for a highest weight $(c, h)$, we extend the definition of $\lp$ from $U(\
       &L_{(-n_{j_1} - 1)}\dots L_{(-n_{j_{s - 1 - k}} - 1)}L_{(l - k - \sum_{r = 1}^kn_{i_r} + \sum_{r = 1}^{s - 1 - k}n_{j_r})}L_{(n_{i_k})}\dots L_{(n_{i_1})} = \\
       &L_{-n_{j_1} - 2}\dots L_{-n_{j_{s - 1 - k}} - 2}L_{s - sa + d - 2 - k - \sum_{r = 1}^kn_{i_r} + \sum_{r = 1}^{s - 1 - k}n_{j_r}}L_{n_{i_k} - 1}\dots L_{n_{i_1} - 1}.
     \end{align*}
-    We see that each term $L_\mu$ appearing in $R^{l, k}_{n_1, \dots, n_{s - 1}}(L(z), \dots, L(z))$, where $\mu$ is a combination (not necessarily a partition), satisfies $\Delta(\mu) = sa + s - d = \Delta(\lambda)$ and $\len(\mu) = s = \len(\lambda)$.
+    We see that each term $L_\mu$ appearing in $R^{l, k}_{n_1, \dots, n_{s - 1}}(L(z), \dots, L(z))$, where $\mu$ is a composition (not necessarily a partition), satisfies $\Delta(\mu) = sa + s - d = \Delta(\lambda)$ and $\len(\mu) = s = \len(\lambda)$.
 
-    We recall that $L_\eta - L_{\eta\sigma} \in U(\Vir^-)^{\len(\eta) - 1}$ for a combination $\eta$ and a permutation $\sigma \in S_{\len(\eta)}$ (see \cite[Lemma 2.1.5]{dixmier_enveloping_1996} for details).
-    Therefore, for a combination $\eta$, we can expand $L_\eta$ in the following way
+    We recall that $L_\eta - L_{\eta\sigma} \in U(\Vir^-)^{\len(\eta) - 1}$ for a composition $\eta$ and a permutation $\sigma \in S_{\len(\eta)}$ (see \cite[Lemma 2.1.5]{dixmier_enveloping_1996} for details).
+    Therefore, for a composition $\eta$, we can expand $L_\eta$ in the following way
     \begin{equation*}
       L_\eta = L_{\prt(\eta)} + \sum_{\substack{\mu \vdash \Delta(\eta) \\ \len(\mu) < \len(\eta)}}c_\mu L_\mu,
     \end{equation*}
@@ -734,7 +738,7 @@ Next, for a highest weight $(c, h)$, we extend the definition of $\lp$ from $U(\
     To do this, we need to see how much each sum $R^{l, k}_{n_1, \dots, n_{s - 1}}(L(z), \dots, L(z))|c_{2, 2s + 1}, h_{1, i}\rangle$ contributes to the coefficient of $L_\lambda|c_{2, 2s + 1}, h_{1, i}\rangle$ in $u$.
     We have two subcases:
     \begin{description}[leftmargin=!]
-    \item[Subcase $a = 1$] In the sum \eqref{eq:8}, if $k > d$ or $k < d - 1$ or $n_i \neq 0$ for some $i = 1, \dots, s - 1$, then $R^{l, k}_{n_1, \dots, n_{s - 1}}(L(z), \dots, L(z))|c_{2, 2s + 1}, h_{1, i}\rangle$ contributes $0$.
+    \item[Subcase $a = 1$] In the sum \eqref{eq:8}, if $k > d$ or $k < d - 1$ or $n_j \neq 0$ for some $j = 1, \dots, s - 1$, then $R^{l, k}_{n_1, \dots, n_{s - 1}}(L(z), \dots, L(z))|c_{2, 2s + 1}, h_{1, i}\rangle$ contributes $0$.
       As for the two remaining sums, the sum $R^{l, d - 1}_{0, \dots, 0}(L(z), \dots, L(z))|c_{2, 2s + 1}, h_{1, i}\rangle$ contributes $\binom{s - 1}{d - 1}$ because we are picking $d - 1$ elements from $\{1, \dots, s - 1\}$, and the sum $R^{l, d}_{0, \dots, 0}(L(z), \dots, L(z))|c_{2, 2s + 1}, h_{1, i}\rangle$ contributes $\binom{s - 1}{d}$ because we are picking $d$ elements from $\{1, \dots, s - 1\}$.
       Since $\binom{s - 1}{d - 1} + \binom{s - 1}{d} = \binom{s}{d}$, we obtain \eqref{eq:7}.
     \item[Subcase $a > 1$] In the sum \eqref{eq:8}, if $k > 0$, then $R^{l, k}_{n_1, \dots, n_{s - 1}}(L(z), \dots, L(z))|c_{2, 2s + 1}, h_{1, i}\rangle$ contributes $0$.
@@ -742,7 +746,7 @@ Next, for a highest weight $(c, h)$, we extend the definition of $\lp$ from $U(\
       \begin{equation*}
         R^{l, 0}_{n_1, \dots, n_{s - 1}}(L(z), \dots, L(z)) = L_{-n_1 - 2}\dots L_{-n_{s - 1} - 2}L_{s - sa + d - 2 + \sum_{r = 1}^{s - 1}n_r}.
       \end{equation*}
-      Therefore, the sum $R^{l, 0}_{n_1, \dots, n_{s - 1}}(L(z), \dots, L(z))|c_{2, 2s + 1}, h_{1, i}\rangle$ contributes $\binom{s - 1}{d - 1}$ when exactly $d - 1$ of the $n_i$s are equal to $a - 2$ and $s - d$ of the $n_i$s are equal to $a - 1$, contributes $\binom{s - 1}{d}$ when exactly $d$ of the $n_i$s are equal to $a - 2$ and $s - d - 1$ of the $n_i$s are equal to $a - 1$ and contributes $0$ otherwise.
+      Therefore, the sum $R^{l, 0}_{n_1, \dots, n_{s - 1}}(L(z), \dots, L(z))|c_{2, 2s + 1}, h_{1, i}\rangle$ contributes $\binom{s - 1}{d - 1}$ when exactly $d - 1$ of the $n_j$'s are equal to $a - 2$ and $s - d$ of the $n_j$'s are equal to $a - 1$, contributes $\binom{s - 1}{d}$ when exactly $d$ of the $n_j$'s are equal to $a - 2$ and $s - d - 1$ of the $n_j$'s are equal to $a - 1$ and contributes $0$ otherwise.
       Since $\binom{s - 1}{d - 1} + \binom{s - 1}{d} = \binom{s}{d}$, we obtain \eqref{eq:7}.
     \end{description}
     We note that if $\mu$ is a partition of $\Delta(\lambda)$ such that $\len(\mu) \le s$ and $\mu \neq \lambda$, then $L_\lambda > L_\mu$.
@@ -826,7 +830,7 @@ For $p, q \in \mathbb{N}$, $a \in F_pV$ and $b \in F_qV$, we set:
   Y_-(\sigma_p(a), z)\sigma_q(b) &= \sum_{n \in \mathbb{N}}\sigma_{p + q - n}(a_{(n)}b)z^{-n - 1},
 \end{align*}
 where $\sigma_p: F_pV \to \gr_F(V)$ is the \emph{principal symbol map}, which is the composition of the natural maps $F_pV \twoheadrightarrow F_pV/F_{p + 1}V$ and $F_pV/F_{p + 1}V \hookrightarrow \gr_F(V)$.
-The unit is $\sigma^0(\vac)$.
+The unit is $\sigma_0(\vac)$.
 The filtration $(F_pV)_{p \in \mathbb{Z}}$ is called the \emph{Li filtration of $V$}.
 
 \begin{example}[$\gr_F(\Vir^c)$]
@@ -838,7 +842,7 @@ The filtration $(F_pV)_{p \in \mathbb{Z}}$ is called the \emph{Li filtration of 
     \sigma_{\Delta(\lambda) - \clen(\lambda)}(L_\lambda\vac) &\mapsto p_\lambda \quad \text{for $\lambda$ a composition without ones}.
   \end{align*}
   The derivation $T \in \Der(\mathbb{C}[L_{-2}, L_{-3}, \dots])$ is given by $T(L_{-n}) = (n - 1)L_{-n - 1}$ for $n \ge 2$, which is extended to a derivation.
-  The Poisson structure of $\gr^G(\Vir^c)$ is trivial (i.e., the map $Y_-$ is zero).
+  The Poisson structure of $\gr_F(\Vir^c)$ is trivial (i.e., the map $Y_-$ is zero).
 \end{example}
 
 Let $V$ be a vertex algebra, let $(a^i)_{i \in I}$ be a family of strong generators of $V$, and let $M$ be a $V$-module.
@@ -918,7 +922,6 @@ We define the \emph{Zhu $C_2$-algebra of $V$} by
 \begin{equation*}
   R_V = V/C_2V = F_0V/F_1V \subseteq \gr_F(V).
 \end{equation*}
-In Zhu's original article \cite{zhu_modular_1996} and other works, $R_V$ is denoted by $A(V)$.
 
 The fact that $\gr_F(V)$ is a vertex Poisson algebra implies that $R_V$ is a Poisson algebra with operations given as follows.
 For $a, b \in V$, we set:
@@ -1015,7 +1018,7 @@ When $\phi_V$ is an isomorphism, we say $V$ is \emph{classically free}.
   \end{equation*}
   by \zcref{exa:4} and
   \begin{equation*}
-    JR_{\Vir^c} \cong J(C[L_{-2}]) = \mathbb{C}[L_{-2}, L_{-3}, \dots]
+    JR_{\Vir^c} \cong J(\mathbb{C}[L_{-2}]) = \mathbb{C}[L_{-2}, L_{-3}, \dots]
   \end{equation*}
   by \zcref{exa:6} and \zcref{sec:graded-jet-algebras}.
 
@@ -1123,8 +1126,8 @@ When $\phi_M$ is an isomorphism, we say $M$ is \emph{classically free}.
   The Verma module $M(c, h)$ is always classically free as a $\Vir^c$-module because by \zcref{exa:5}, \zcref{exa:6} and \zcref{exa:10},
   \begin{align*}
     JR_{\Vir^c} \otimes_{R_{\Vir^c}} R_{M(c, h)} &\cong \mathbb{C}[L_{-2}, L_{-3}, \dots] \otimes_{\mathbb{C}[L_{-2}]} \bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}]L_{-1}^k \\
-                                                 &\cong \bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}, L_{-3}, \dots]L_{-1}^k \\
-                                                 &\cong \gr_F(M(c, h)).
+                                           &\cong \bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}, L_{-3}, \dots]L_{-1}^k \\
+                                           &\cong \gr_F(M(c, h)).
   \end{align*}
 \end{example}
 
@@ -1212,7 +1215,7 @@ Moreover:
 
 \begin{proof}[Sketch of proof]
   We use the notation of the proof of \zcref{thr:3}.
-  Let $K' = (L_{-2}^s, u_1, \dots, u_i)_\psn \subseteq \sigma_0(J(c_{2, 2s + 1}, h_{1, i}))$ the graded submodule of $\bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}]L_{-1}^k$.
+  Let $K' = (L_{-2}^s, u_1, \dots, u_i)_\psn \subseteq \sigma_0(J(c_{2, 2s + 1}, h_{1, i}))$ be the graded submodule of $\bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}]L_{-1}^k$.
   We note that for a partition $\lambda \in R^{s, i}$ with $\lambda = \emptyset$ or $2 \ge \lambda_1$, there is $u \in K'$ such that $\lp(u) = u_\lambda$.
   We can prove that $K' = \sigma_0(J(c_{2, 2s + 1}, h_{1, i}))$ using the argument of (the proof of) \cite[Corollary 4.1]{salazar_pbw_2024} comparing the dimensions of the graded components of $\bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}]L_{-1}^k/\sigma_0(J(c_{2, 2s + 1}, h_{1, i}))$ and $\bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}]L_{-1}^k/K'$ up to $N \in \mathbb{N}$, and then we let $N \to \infty$ to conclude.
   The isomorphisms \eqref{eq:14} and \eqref{eq:15} follow.
@@ -1299,7 +1302,7 @@ We set (identifying $x^j$ with $x^j_{(-1)}$ when considering $f_i$ in the follow
   JR &= \mathbb{C}[x^j_{(-i)} \mid i = 1, 2, \dots, j = 1, \dots, r]/(\partial^jf_i \mid i = 1, \dots, s, j = 0, 1, \dots) \\
      &= \mathbb{C}[x^j_{(-i)} \mid i = 1, 2, \dots, j = 1, \dots, r]/(f_1, \dots, f_s)_\partial,
 \end{align*}
-where the subscript $\partial$ indicates the differential subalgebra generated by the given subset.
+where the subscript $\partial$ indicates the differential ideal generated by the given subset.
 By our definitions, $\partial$ factors through a derivation of $JR$, and we have an algebra inclusion $\inc: R \hookrightarrow JR, \inc(x^j + (f_1, \dots, f_s)) = x^j_{(-1)} + (f_1, \dots, f_s)_\partial$ for $j = 1, \dots, r$.
 The fact that $\inc: R \hookrightarrow JR$ satisfies our desired universal property is explained in \cite[\S2.3]{arakawa_remark_2012} and \cite{ein_jet_2008}.
 
